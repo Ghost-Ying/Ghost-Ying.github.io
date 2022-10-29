@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>第一篇博客</title>
+      <link href="/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Markdown书写格式（一级标题）"><a href="#Markdown书写格式（一级标题）" class="headerlink" title="Markdown书写格式（一级标题）"></a>Markdown书写格式（一级标题）</h1><h2 id="代码展示：（二级标题）"><a href="#代码展示：（二级标题）" class="headerlink" title="代码展示：（二级标题）"></a>代码展示：（二级标题）</h2><p><code>print(&#39;Hello&#39;)</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Print(<span class="string">&#x27;Hello&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="图片展示："><a href="#图片展示：" class="headerlink" title="图片展示："></a>图片展示：</h2><img src="http://aiyingke.cn/images/RupertTears.jpg" style="zoom:25%;" /><h2 id="引用测试："><a href="#引用测试：" class="headerlink" title="引用测试："></a>引用测试：</h2><blockquote><p>这是一条引用</p></blockquote><h2 id="无序列表："><a href="#无序列表：" class="headerlink" title="无序列表："></a>无序列表：</h2><h3 id="爱好：（三级标题）"><a href="#爱好：（三级标题）" class="headerlink" title="爱好：（三级标题）"></a>爱好：（三级标题）</h3><ul><li>摩托车</li><li>编程</li><li>滑雪</li></ul><h4 id="总结（四级标题）"><a href="#总结（四级标题）" class="headerlink" title="总结（四级标题）"></a>总结（四级标题）</h4><blockquote><p>ctrl + 1 一级标题，ctrl + 2 二级标题，以此类推</p><p>ctrl + shift + &#96; 代码块</p><p>ctrl + shift + I 插入图片</p><p>ctrl + shift + ] 无限列表</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 博客搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/10/23/hello-world/"/>
       <url>/2022/10/23/hello-world/</url>
