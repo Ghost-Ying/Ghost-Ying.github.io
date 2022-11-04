@@ -21,17 +21,17 @@
     var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="选择有时候比努力更重要！">
+  <meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="爱影客">
-<meta property="og:url" content="http://aiyingke.cn/page/2/index.html">
+<meta property="og:url" content="https://aiyingke.cn/page/2/index.html">
 <meta property="og:site_name" content="爱影客">
-<meta property="og:description" content="选择有时候比努力更重要！">
+<meta property="og:description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Rupert Tears">
+<meta property="article:author" content="Rupert-Tears">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://aiyingke.cn/page/2/">
+<link rel="canonical" href="https://aiyingke.cn/page/2/">
 
 
 <script id="page-configurations">
@@ -199,12 +199,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://aiyingke.cn/2022/11/02/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF001/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert Tears">
-      <meta itemprop="description" content="选择有时候比努力更重要！">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/02/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" class="post-title-link" itemprop="url">两数相加</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-02 21:44:44 / 修改时间：21:59:58" itemprop="dateCreated datePublished" datetime="2022-11-02T21:44:44+08:00">2022-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a>两数相加</h1><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:16 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 两数相加</span></span><br><span class="line"><span class="comment"> * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</span></span><br><span class="line"><span class="comment"> * 请你将两个数相加，并以相同形式返回一个表示和的链表。</span></span><br><span class="line"><span class="comment"> * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * example:</span></span><br><span class="line"><span class="comment"> * 2——4——3</span></span><br><span class="line"><span class="comment"> * 5——6——4</span></span><br><span class="line"><span class="comment"> * 7——0——8</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [2,4,3], l2 = [5,6,4]</span></span><br><span class="line"><span class="comment"> * 输出：[7,0,8]</span></span><br><span class="line"><span class="comment"> * 解释：342 + 465 = 807.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [0], l2 = [0]</span></span><br><span class="line"><span class="comment"> * 输出：[0]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span></span><br><span class="line"><span class="comment"> * 输出：[8,9,9,9,0,0,0,1]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 每个链表中的节点数在范围 [1, 100] 内</span></span><br><span class="line"><span class="comment"> * 0 &lt;= Node.val &lt;= 9</span></span><br><span class="line"><span class="comment"> * 题目数据保证列表表示的数字不含前导零</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Two</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; l1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l1);</span><br><span class="line">        LinkedList&lt;Integer&gt; l2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l2);</span><br><span class="line">        System.out.println(addTwoNumbers(l1, l2));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment">     * CreateTime: 20:21 2022/11/2</span></span><br><span class="line"><span class="comment">     * Description: 两数之和</span></span><br><span class="line"><span class="comment">     * 解题思路：先将链表中的值倒序取出，然后求和，再倒序装入</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> LinkedList&lt;String&gt; <span class="title function_">addTwoNumbers</span><span class="params">(LinkedList&lt;Integer&gt; l1, LinkedList&lt;Integer&gt; l2)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; r1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        LinkedList&lt;Integer&gt; r2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l1.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l1.removeLast();</span><br><span class="line">            r1.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l2.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l2.removeLast();</span><br><span class="line">            r2.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将列表中的数转化为 int 类型</span></span><br><span class="line">        <span class="comment">// [3, 4, 2]  ==&gt; 342</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> r1.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> str1.substring(<span class="number">0</span>, str1.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> str2.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> str3.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(str4);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">str12</span> <span class="operator">=</span> r2.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str22</span> <span class="operator">=</span> str12.substring(<span class="number">0</span>, str12.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str32</span> <span class="operator">=</span> str22.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str42</span> <span class="operator">=</span> str32.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(str42);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 运算 807</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> v1 + v2;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 倒序装入列表 [7,0,8]</span></span><br><span class="line">        LinkedList&lt;String&gt; result = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">String</span> <span class="variable">sumStr</span> <span class="operator">=</span> sum + <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; sumStr.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// 插入头部</span></span><br><span class="line">            result.addFirst(String.valueOf(sumStr.charAt(i)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="相关知识-LinkedList"><a href="#相关知识-LinkedList" class="headerlink" title="相关知识 LinkedList"></a>相关知识 LinkedList</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>链表（LinkedList）是一种常见的数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是每一个节点里存到下一个节点的地址。</p>
+<p>链表可以分为单向链表和双向链表。</p>
+<p>一个单项链表包含两个值：当前节点的值和指向下一个节点的链接。</p>
+<p>一个双向链表由三个整数值：当前节点的值、向后的节点链接、前向的节点链接。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>需要循环迭代来访问列表中的某些元素。</li>
+<li>需要频繁的在列表开头、中间、末尾等位置进行添加和删除元素操作。</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dataStructure;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:43 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkedList</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个简单的链表实例</span></span><br><span class="line">        java.util.LinkedList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">java</span>.util.LinkedList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">&quot;Google&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Baidu&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Weibo&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表开头添加元素</span></span><br><span class="line">        list.addFirst(<span class="string">&quot;Apple&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表尾部添加元素</span></span><br><span class="line">        list.addLast(<span class="string">&quot;End&quot;</span>);</span><br><span class="line">        <span class="comment">// 移除头部元素</span></span><br><span class="line">        list.removeFirst();</span><br><span class="line">        <span class="comment">// 移除尾部元素</span></span><br><span class="line">        list.removeLast();</span><br><span class="line">        <span class="comment">// 获取头部元素</span></span><br><span class="line">        System.out.println(list.getFirst());</span><br><span class="line">        <span class="comment">// 获取尾部元素</span></span><br><span class="line">        System.out.println(list.getLast());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出列表</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        <span class="comment">//  size 迭代列表中元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// foreach 迭代元素</span></span><br><span class="line">        <span class="keyword">for</span> (String str : list) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -285,12 +370,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert Tears">
-      <meta itemprop="description" content="选择有时候比努力更重要！">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -357,12 +442,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://aiyingke.cn/2022/11/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert Tears">
-      <meta itemprop="description" content="选择有时候比努力更重要！">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -535,12 +620,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://aiyingke.cn/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert Tears">
-      <meta itemprop="description" content="选择有时候比努力更重要！">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -615,12 +700,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://aiyingke.cn/2022/10/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/10/23/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert Tears">
-      <meta itemprop="description" content="选择有时候比努力更重要！">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -745,17 +830,17 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Rupert Tears"
+    <img class="site-author-image" itemprop="image" alt="Rupert-Tears"
       src="/images/RupertTears.jpg">
-  <p class="site-author-name" itemprop="name">Rupert Tears</p>
-  <div class="site-description" itemprop="description">选择有时候比努力更重要！</div>
+  <p class="site-author-name" itemprop="name">Rupert-Tears</p>
+  <div class="site-description" itemprop="description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -817,12 +902,12 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Rupert Tears</span>
+  <span class="author" itemprop="copyrightHolder">Rupert-Tears</span>
 </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共6.5k字</span>
+  <span class="post-count">本博客全站共6.7k字</span>
 </div>
 
 
