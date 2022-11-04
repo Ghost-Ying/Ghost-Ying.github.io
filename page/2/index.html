@@ -199,6 +199,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/LinkedList%20%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/02/LinkedList%20%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">LinkedList 链表</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-02 22:01:32 / 修改时间：22:05:02" itemprop="dateCreated datePublished" datetime="2022-11-02T22:01:32+08:00">2022-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>链表（LinkedList）是一种常见的数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是每一个节点里存到下一个节点的地址。</p>
+<p>链表可以分为单向链表和双向链表。</p>
+<p>一个单项链表包含两个值：当前节点的值和指向下一个节点的链接。</p>
+<p>一个双向链表由三个整数值：当前节点的值、向后的节点链接、前向的节点链接。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>需要循环迭代来访问列表中的某些元素。</li>
+<li>需要频繁的在列表开头、中间、末尾等位置进行添加和删除元素操作。</li>
+</ul>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dataStructure;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:43 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkedList</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个简单的链表实例</span></span><br><span class="line">        java.util.LinkedList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">java</span>.util.LinkedList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">&quot;Google&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Baidu&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Weibo&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表开头添加元素</span></span><br><span class="line">        list.addFirst(<span class="string">&quot;Apple&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表尾部添加元素</span></span><br><span class="line">        list.addLast(<span class="string">&quot;End&quot;</span>);</span><br><span class="line">        <span class="comment">// 移除头部元素</span></span><br><span class="line">        list.removeFirst();</span><br><span class="line">        <span class="comment">// 移除尾部元素</span></span><br><span class="line">        list.removeLast();</span><br><span class="line">        <span class="comment">// 获取头部元素</span></span><br><span class="line">        System.out.println(list.getFirst());</span><br><span class="line">        <span class="comment">// 获取尾部元素</span></span><br><span class="line">        System.out.println(list.getLast());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出列表</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        <span class="comment">//  size 迭代列表中元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// foreach 迭代元素</span></span><br><span class="line">        <span class="keyword">for</span> (String str : list) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -840,7 +920,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -907,7 +987,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共6.7k字</span>
+  <span class="post-count">本博客全站共7.7k字</span>
 </div>
 
 
