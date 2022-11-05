@@ -21,20 +21,23 @@
     var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="环境及工具准备PythonPython 是一种解释型的、面向对象的、移植性强的高级程序设计语言。 开发者：吉多·范罗苏姆  解释型：不需要编译成二进制代码，可以直接从源码运行 面向对象：Python既支持面向过程的编程也支持面向对象的编程 可移植性：由于它的开源本质，可以在不同的平台开发 高层语言：无须考虑诸如如何管理程序使用的内存一类的底层细节 官网：www.python.org&#x2F;  优点 简单">
+  <meta name="description" content="单因子线性回归一：LR实现线性预测任务：  基于data.csv数据，建立线性回归模型。 预测 x&#x3D;3.5 对应的 y 值。 评估模型表现。  二：实现流程 建立线性回归模型 导入数据，查看数据 数据赋值，查看数据类型 可视化数据 建立 Linear Regression 模型 根据需求重塑数据 模型训练   数据预测 查看预测结果 对指定值进行预测   评估模型表现 通过 Excel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="环境及工具包介绍">
-<meta property="og:url" content="https://aiyingke.cn/2022/11/02/%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%8C%85%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="单因子线性回归">
+<meta property="og:url" content="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/index.html">
 <meta property="og:site_name" content="爱影客">
-<meta property="og:description" content="环境及工具准备PythonPython 是一种解释型的、面向对象的、移植性强的高级程序设计语言。 开发者：吉多·范罗苏姆  解释型：不需要编译成二进制代码，可以直接从源码运行 面向对象：Python既支持面向过程的编程也支持面向对象的编程 可移植性：由于它的开源本质，可以在不同的平台开发 高层语言：无须考虑诸如如何管理程序使用的内存一类的底层细节 官网：www.python.org&#x2F;  优点 简单">
+<meta property="og:description" content="单因子线性回归一：LR实现线性预测任务：  基于data.csv数据，建立线性回归模型。 预测 x&#x3D;3.5 对应的 y 值。 评估模型表现。  二：实现流程 建立线性回归模型 导入数据，查看数据 数据赋值，查看数据类型 可视化数据 建立 Linear Regression 模型 根据需求重塑数据 模型训练   数据预测 查看预测结果 对指定值进行预测   评估模型表现 通过 Excel">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-02T14:27:30.000Z">
-<meta property="article:modified_time" content="2022-11-02T16:40:31.727Z">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163237445.png">
+<meta property="article:published_time" content="2022-11-05T07:07:24.000Z">
+<meta property="article:modified_time" content="2022-11-05T08:32:47.765Z">
 <meta property="article:author" content="Rupert-Tears">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png">
 
-<link rel="canonical" href="https://aiyingke.cn/2022/11/02/%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%8C%85%E4%BB%8B%E7%BB%8D/">
+<link rel="canonical" href="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
 
 
 <script id="page-configurations">
@@ -47,7 +50,7 @@
   };
 </script>
 
-  <title>环境及工具包介绍 | 爱影客</title>
+  <title>单因子线性回归 | 爱影客</title>
   
 
 
@@ -203,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%8C%85%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -216,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          环境及工具包介绍
+          单因子线性回归
         </h1>
 
         <div class="post-meta">
@@ -226,16 +229,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-11-02 22:27:30" itemprop="dateCreated datePublished" datetime="2022-11-02T22:27:30+08:00">2022-11-02</time>
+              <time title="创建时间：2022-11-05 15:07:24 / 修改时间：16:32:47" itemprop="dateCreated datePublished" datetime="2022-11-05T15:07:24+08:00">2022-11-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-03 00:40:31" itemprop="dateModified" datetime="2022-11-03T00:40:31+08:00">2022-11-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -264,56 +261,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="环境及工具准备"><a href="#环境及工具准备" class="headerlink" title="环境及工具准备"></a>环境及工具准备</h1><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>Python 是一种解释型的、面向对象的、移植性强的高级程序设计语言。</p>
-<p>开发者：吉多·范罗苏姆</p>
-<ul>
-<li>解释型：不需要编译成二进制代码，可以直接从源码运行</li>
-<li>面向对象：Python既支持面向过程的编程也支持面向对象的编程</li>
-<li>可移植性：由于它的开源本质，可以在不同的平台开发</li>
-<li>高层语言：无须考虑诸如如何管理程序使用的内存一类的底层细节</li>
-<li>官网：<a target="_blank" rel="noopener" href="http://www.python.org/">www.python.org/</a></li>
-</ul>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>简单易学</li>
-<li>开发效率高</li>
-<li>高级语言</li>
-<li>可移植性</li>
-<li>可扩展性</li>
-<li>可嵌入性</li>
-</ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>速度慢</li>
-<li>代码不能加密</li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><p>Anaconda 是一个方便的 python 包管理和环境管理软件</p>
-<ul>
-<li>支持 Linux、Mac、Windows</li>
-<li>可以很方便的解决多版本 python 并存、切换以及各种第三方包安装问题</li>
-</ul>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>跨平台、同时实现包管理、环境管理的功能</li>
-<li>使用方便、环境部署步骤简单</li>
-<li>官方网站：<a target="_blank" rel="noopener" href="http://www.anaconda.com/">www.anaconda.com/</a></li>
-</ul>
-<hr>
-<h2 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h2><p>Jupyter Notebook 是一个开源的 Web 应用程序，允许开发者方便的创建和共享代码文档。</p>
-<ul>
-<li>可以实时写代码、运行代码、查看结果，并可视化数据</li>
-</ul>
-<h2 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>允许把代码写入独立的 cell 中，然后单独运行。用户可以在测试项目时单独测试特定代码块，无需从头开始执行代码</li>
-<li>基于 web 框架进行交互开发，非常方便。</li>
-<li>官方网站：<a target="_blank" rel="noopener" href="https://jupyter.org/">https://jupyter.org/</a></li>
-</ul>
-<hr>
-<h1 id="基础工具包"><a href="#基础工具包" class="headerlink" title="基础工具包"></a>基础工具包</h1><h2 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h2><p>一个强大的分析结构化数据的工具集，可用于快速实现数据导入导出、索引。</p>
-<p>官网：<a target="_blank" rel="noopener" href="http://www.pypandas.cn/">www.pypandas.cn/</a></p>
-<h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><p>Python 基础绘图库，几行代码即可生成绘图，直方图、条形图、散点图等。</p>
-<p>官网：<a target="_blank" rel="noopener" href="http://www.matplotlib.org.cn/">www.matplotlib.org.cn/</a></p>
-<h2 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h2><p>使用 Python 进行科学计算的基础软件包。</p>
-<p>核心：基于 N 维数组对象 ndarray 的数组运算。</p>
-<p>官网：<a target="_blank" rel="noopener" href="http://www.numpy.org.cn/">www.numpy.org.cn/</a></p>
+        <h1 id="单因子线性回归"><a href="#单因子线性回归" class="headerlink" title="单因子线性回归"></a>单因子线性回归</h1><h2 id="一：LR实现线性预测"><a href="#一：LR实现线性预测" class="headerlink" title="一：LR实现线性预测"></a>一：LR实现线性预测</h2><p>任务：</p>
+<ol>
+<li>基于data.csv数据，建立线性回归模型。</li>
+<li>预测 x&#x3D;3.5 对应的 y 值。</li>
+<li>评估模型表现。</li>
+</ol>
+<h2 id="二：实现流程"><a href="#二：实现流程" class="headerlink" title="二：实现流程"></a>二：实现流程</h2><ol>
+<li>建立线性回归模型<ol>
+<li>导入数据，查看数据</li>
+<li>数据赋值，查看数据类型</li>
+<li>可视化数据</li>
+<li>建立 Linear Regression 模型</li>
+<li>根据需求重塑数据</li>
+<li>模型训练</li>
+</ol>
+</li>
+<li>数据预测<ol>
+<li>查看预测结果</li>
+<li>对指定值进行预测</li>
+</ol>
+</li>
+<li>评估模型表现<ol>
+<li>通过 Excel 获取数据关系</li>
+<li>计算MSE值，进行评估</li>
+<li>计算R2值，进行评估</li>
+<li>可视化展示预测值与期望值关系</li>
+</ol>
+</li>
+</ol>
+<h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：导入数据，查看数据</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">data.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：数据赋值</span></span><br><span class="line">x = data.loc[:,<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;y&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(x,y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三步：可视化数据</span></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.figure(figsize=(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 设置图形大小</span></span><br><span class="line">plt.scatter(x,y) <span class="comment"># 绘制散点图</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第四步：建立 Linear Regression 模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">lr_model = LinearRegression()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据重塑</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array(x)</span><br><span class="line">x = x.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y = np.array(y)</span><br><span class="line">y = y.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line">lr_model.fit(x,y) <span class="comment"># 模型训练</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第五步：预测数据</span></span><br><span class="line">y_predict = lr_model.predict(x)</span><br><span class="line"><span class="built_in">print</span>(y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第六步：评估模型表现</span></span><br><span class="line">a = lr_model.coef_</span><br><span class="line">b = lr_model.intercept_</span><br><span class="line"><span class="built_in">print</span>(a,b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 excel 获取，y = 2x</span></span><br><span class="line"><span class="comment"># 通过 MSE 和 R2 进行评估</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">MSE = mean_squared_error(y,y_predict)</span><br><span class="line">R2 = r2_score(y,y_predict)</span><br><span class="line"><span class="built_in">print</span>(MSE,R2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(y,y_predict)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
+<h2 id="四：模型评估"><a href="#四：模型评估" class="headerlink" title="四：模型评估"></a>四：模型评估</h2><h3 id="Excel-结果"><a href="#Excel-结果" class="headerlink" title="Excel 结果"></a>Excel 结果</h3><p><img src="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png"></p>
+<h3 id="MSE-与-R2结果"><a href="#MSE-与-R2结果" class="headerlink" title="MSE 与 R2结果"></a>MSE 与 R<sup>2</sup>结果</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163237445.png"></h3>
     </div>
 
     
@@ -358,7 +338,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://aiyingke.cn/2022/11/02/%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%8C%85%E4%BB%8B%E7%BB%8D/" title="环境及工具包介绍">https://aiyingke.cn/2022/11/02/环境及工具包介绍/</a>
+    <a href="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="单因子线性回归">https://aiyingke.cn/2022/11/05/单因子线性回归/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/deed.zh/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>DEED.ZH</a> 许可协议。转载请注明出处！
@@ -427,13 +407,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/11/02/LinkedList%20%E9%93%BE%E8%A1%A8/" rel="prev" title="LinkedList 链表">
-      <i class="fa fa-chevron-left"></i> LinkedList 链表
+    <a href="/2022/11/05/LeetCode_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="prev" title="LeetCode_寻找两个正序数组的中位数">
+      <i class="fa fa-chevron-left"></i> LeetCode_寻找两个正序数组的中位数
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/11/03/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D/" rel="next" title="环境配置及基础实操">
-      环境配置及基础实操 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -497,7 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">环境及工具准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">1.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-number">2.1.</span> <span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-notebook"><span class="nav-number">2.3.</span> <span class="nav-text">Jupyter notebook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-1"><span class="nav-number">2.4.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">基础工具包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pandas"><span class="nav-number">3.1.</span> <span class="nav-text">pandas</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matplotlib"><span class="nav-number">3.2.</span> <span class="nav-text">matplotlib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numpy"><span class="nav-number">3.3.</span> <span class="nav-text">Numpy</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">1.</span> <span class="nav-text">单因子线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%EF%BC%9ALR%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8B"><span class="nav-number">1.1.</span> <span class="nav-text">一：LR实现线性预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E5%AE%9E%E7%8E%B0%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">二：实现流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.</span> <span class="nav-text">三：代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">1.4.</span> <span class="nav-text">四：模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Excel-%E7%BB%93%E6%9E%9C"><span class="nav-number">1.4.1.</span> <span class="nav-text">Excel 结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MSE-%E4%B8%8E-R2%E7%BB%93%E6%9E%9C"><span class="nav-number">1.4.2.</span> <span class="nav-text">MSE 与 R2结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.3.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
