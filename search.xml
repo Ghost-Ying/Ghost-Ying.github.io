@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>专业词汇积累005</title>
+      <link href="/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF005/"/>
+      <url>/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF005/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-005"><a href="#Professional-Vocabulary-Accumulation-005" class="headerlink" title="Professional Vocabulary Accumulation_005"></a>Professional Vocabulary Accumulation_005</h1><ul><li>Reshape you data </li><li>either using array.reshape(-1,1) if you data has a single feather </li><li>or array.reshape(1,-1) if it contains a single sample.</li><li>如果数据只有一个要素，则使用 array.reshape(-1,1)重塑数据；</li><li>如果数据包含单个样本，则使用 array.reshape(1,-1)重塑数据。</li></ul><hr><ul><li>Professional</li><li>专业的</li><li>Vocabulary</li><li>词汇</li><li>Accumulation</li><li>积累</li><li>Repository</li><li>仓库</li><li>Memorable</li><li>难忘的</li><li>Inspiration</li><li>灵感</li><li>Optional</li><li>可选择的</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业词汇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 专业词汇 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单因子线性回归</title>
       <link href="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
       <url>/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
