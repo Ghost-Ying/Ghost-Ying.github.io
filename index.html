@@ -199,6 +199,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">AI_多因子线性回归</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-11 22:26:41" itemprop="dateCreated datePublished" datetime="2022-11-11T22:26:41+08:00">2022-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-12 00:44:08" itemprop="dateModified" datetime="2022-11-12T00:44:08+08:00">2022-11-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="多因子房价预测"><a href="#多因子房价预测" class="headerlink" title="多因子房价预测"></a>多因子房价预测</h1><h2 id="一：影响房屋价格因素"><a href="#一：影响房屋价格因素" class="headerlink" title="一：影响房屋价格因素"></a>一：影响房屋价格因素</h2><ul>
+<li>地区平均收入</li>
+<li>房屋平均年龄</li>
+<li>房屋房间数量</li>
+<li>地区人口数量</li>
+<li>房屋尺寸大小</li>
+</ul>
+<h2 id="二：实现目标"><a href="#二：实现目标" class="headerlink" title="二：实现目标"></a>二：实现目标</h2><p>基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：</p>
+<ol>
+<li>以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果</li>
+<li>以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现</li>
+<li>预测 收入&#x3D;65000，房屋年龄&#x3D;5，房间数量&#x3D;5，人口数量&#x3D;30000，房间尺寸&#x3D;200的合理房价</li>
+</ol>
+<h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><h3 id="1-加载数据"><a href="#1-加载数据" class="headerlink" title="1. 加载数据"></a>1. 加载数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load the data</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;housing_price.csv&#x27;</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111230129984.png"></p>
+<h3 id="2-可视化数据"><a href="#2-可视化数据" class="headerlink" title="2. 可视化数据"></a>2. 可视化数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing data</span></span><br><span class="line"><span class="comment"># 内嵌绘图，可省略 plt.show() 这一步</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">fig1 = plt.subplot(<span class="number">231</span>)  <span class="comment"># 两行三列第一个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Income&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Income&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig2 = plt.subplot(<span class="number">232</span>)  <span class="comment"># 两行三列第二个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area House Age&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS House Age&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig3 = plt.subplot(<span class="number">233</span>)  <span class="comment"># 两行三列第三个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Number of Rooms&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Number of Rooms&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig4 = plt.subplot(<span class="number">234</span>)  <span class="comment"># 两行三列第四个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Area Population&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Area Population&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig5 = plt.subplot(<span class="number">235</span>)  <span class="comment"># 两行三列第五个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;size&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS size&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show() <span class="comment"># 可以省略</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111233254168.png"></p>
+<h3 id="3-建立单因子模型（面积）"><a href="#3-建立单因子模型（面积）" class="headerlink" title="3. 建立单因子模型（面积）"></a>3. 建立单因子模型（面积）</h3><h4 id="（1）定义-X、Y"><a href="#（1）定义-X、Y" class="headerlink" title="（1）定义 X、Y"></a>（1）定义 X、Y</h4><p>X：影响因素；Y：结果值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define x and y</span></span><br><span class="line">X = data.loc[:,<span class="string">&#x27;size&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;Price&#x27;</span>]</span><br><span class="line">y.head()</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）建立回归模型"><a href="#（2）建立回归模型" class="headerlink" title="（2）建立回归模型"></a>（2）建立回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up the linear regression model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">LR1 = LinearRegression()</span><br><span class="line"><span class="comment"># reshape data</span></span><br><span class="line">X = np.array(X).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X.shape)</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR1.fit(X,y)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）模型预测"><a href="#（3）模型预测" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calulate the price vs size </span></span><br><span class="line">y_predict_1 = LR1.predict(X)</span><br><span class="line"><span class="built_in">print</span>(y_predict_1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（4）模型评估"><a href="#（4）模型评估" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">mean_squared_error_1 = mean_squared_error(y,y_predict_1)</span><br><span class="line">r2_score_1 = r2_score(y,y_predict_1)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_1,r2_score_1)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（5）可视化预测结果"><a href="#（5）可视化预测结果" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_res = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X,y)</span><br><span class="line">plt.plot(X,y_predict_1,<span class="string">&#x27;r&#x27;</span>) <span class="comment"># 红线表示</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112000554219.png" style="zoom:67%;">
+
+<h3 id="4-建立多因子模型"><a href="#4-建立多因子模型" class="headerlink" title="4. 建立多因子模型"></a>4. 建立多因子模型</h3><h4 id="（1）定义多因子-X"><a href="#（1）定义多因子-X" class="headerlink" title="（1）定义多因子 X"></a>（1）定义多因子 X</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define X_multi</span></span><br><span class="line">X_multi = data.drop([<span class="string">&#x27;Price&#x27;</span>],axis=<span class="number">1</span>) <span class="comment"># 排除Price列，axis=1 表示横轴从左往右</span></span><br><span class="line">X_multi</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）建立多因子回归模型"><a href="#（2）建立多因子回归模型" class="headerlink" title="（2）建立多因子回归模型"></a>（2）建立多因子回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up 2nd linear regression model</span></span><br><span class="line">LR_multi = LinearRegression()</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR_multi.fit(X_multi,y)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）模型预测-1"><a href="#（3）模型预测-1" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># make prediction</span></span><br><span class="line">y_predict_multi = LR_multi.predict(X_multi)</span><br><span class="line"><span class="built_in">print</span>(y_predict_multi)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（4）模型评估-1"><a href="#（4）模型评估-1" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line">mean_squared_error_multi = mean_squared_error(y,y_predict_multi)</span><br><span class="line">r2_score_multi = r2_score(y,y_predict_multi)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_multi,r2_score_multi)</span><br></pre></td></tr></table></figure>
+
+<h4 id="（5）可视化预测结果-1"><a href="#（5）可视化预测结果-1" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_multi = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(y,y_predict_multi)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112002817697.png" style="zoom:67%;">
+
+<h3 id="5-规定因素值预测"><a href="#5-规定因素值预测" class="headerlink" title="5. 规定因素值预测"></a>5. 规定因素值预测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X_test = [<span class="number">65000</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">30000</span>,<span class="number">200</span>]</span><br><span class="line">X_test = np.array(X_test).reshape(<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X_test)</span><br><span class="line"></span><br><span class="line">y_test_predict = LR_multi.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(y_test_predict)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/LeetCode_%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -317,7 +439,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-11-11 13:53:40 / 修改时间：15:46:35" itemprop="dateCreated datePublished" datetime="2022-11-11T13:53:40+08:00">2022-11-11</time>
+              <time title="创建时间：2022-11-11 13:53:40 / 修改时间：23:46:25" itemprop="dateCreated datePublished" datetime="2022-11-11T13:53:40+08:00">2022-11-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -347,11 +469,19 @@
 <li>正如你所知，有它自己的应对方式。</li>
 <li>there is no “practice makes perfect.”</li>
 <li>没有孰能生巧这一说法</li>
+<li>Strength without faith means nothing</li>
+<li>没有信仰的力量毫无意义</li>
+<li>we need to have faith that we can get throught this together.</li>
+<li>我们要有信心，相信我们能一起度过难关。</li>
 </ul>
 <hr>
 <ul>
 <li>palindrome</li>
 <li>回文</li>
+<li>Visualizing Data</li>
+<li>可视化数据</li>
+<li>linear regression model </li>
+<li>回归模型</li>
 </ul>
 
       
@@ -674,7 +804,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -688,7 +818,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">单因子线性回归</a>
+            <a href="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">单因子线性回归</a>
         </h2>
 
         <div class="post-meta">
@@ -754,8 +884,8 @@
 </ol>
 <h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：导入数据，查看数据</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">data.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：数据赋值</span></span><br><span class="line">x = data.loc[:,<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;y&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(x,y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三步：可视化数据</span></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.figure(figsize=(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 设置图形大小</span></span><br><span class="line">plt.scatter(x,y) <span class="comment"># 绘制散点图</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第四步：建立 Linear Regression 模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">lr_model = LinearRegression()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据重塑</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array(x)</span><br><span class="line">x = x.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y = np.array(y)</span><br><span class="line">y = y.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line">lr_model.fit(x,y) <span class="comment"># 模型训练</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第五步：预测数据</span></span><br><span class="line">y_predict = lr_model.predict(x)</span><br><span class="line"><span class="built_in">print</span>(y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第六步：评估模型表现</span></span><br><span class="line">a = lr_model.coef_</span><br><span class="line">b = lr_model.intercept_</span><br><span class="line"><span class="built_in">print</span>(a,b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 excel 获取，y = 2x</span></span><br><span class="line"><span class="comment"># 通过 MSE 和 R2 进行评估</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">MSE = mean_squared_error(y,y_predict)</span><br><span class="line">R2 = r2_score(y,y_predict)</span><br><span class="line"><span class="built_in">print</span>(MSE,R2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(y,y_predict)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<h2 id="四：模型评估"><a href="#四：模型评估" class="headerlink" title="四：模型评估"></a>四：模型评估</h2><h3 id="Excel-结果"><a href="#Excel-结果" class="headerlink" title="Excel 结果"></a>Excel 结果</h3><p><img src="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png"></p>
-<h3 id="MSE-与-R2结果"><a href="#MSE-与-R2结果" class="headerlink" title="MSE 与 R2结果"></a>MSE 与 R<sup>2</sup>结果</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2022/11/05/%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163237445.png"></h3>
+<h2 id="四：模型评估"><a href="#四：模型评估" class="headerlink" title="四：模型评估"></a>四：模型评估</h2><h3 id="Excel-结果"><a href="#Excel-结果" class="headerlink" title="Excel 结果"></a>Excel 结果</h3><p><img src="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png"></p>
+<h3 id="MSE-与-R2结果"><a href="#MSE-与-R2结果" class="headerlink" title="MSE 与 R2结果"></a>MSE 与 R<sup>2</sup>结果</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163237445.png"></h3>
       
     </div>
 
@@ -961,7 +1091,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -975,7 +1105,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">线性回归实战准备</a>
+            <a href="/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">线性回归实战准备</a>
         </h2>
 
         <div class="post-meta">
@@ -1029,131 +1159,11 @@
 </li>
 <li>图形展示</li>
 </ul>
-<p><img src="/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104232542050.png"></p>
-<p><img src="/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233438146.png"></p>
-<p><img src="/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233644453.png"></p>
-<p><img src="/2022/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233732239.png"></p>
+<p><img src="/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104232542050.png"></p>
+<p><img src="/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233438146.png"></p>
+<p><img src="/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233644453.png"></p>
+<p><img src="/2022/11/04/AI_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E6%88%98%E5%87%86%E5%A4%87/image-20221104233732239.png"></p>
 <h1 id="三：文献参考"><a href="#三：文献参考" class="headerlink" title="三：文献参考"></a>三：文献参考</h1><p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">Linear Models — scikit-learn 1.1.3 documentation</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/04/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF003/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/04/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF003/" class="post-title-link" itemprop="url">专业词汇积累003</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-04 00:36:11 / 修改时间：00:52:58" itemprop="dateCreated datePublished" datetime="2022-11-04T00:36:11+08:00">2022-11-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-003"><a href="#Professional-Vocabulary-Accumulation-003" class="headerlink" title="Professional Vocabulary Accumulation_003"></a>Professional Vocabulary Accumulation_003</h1><ul>
-<li><p>Constructs an empty HashMap with the specified initial capacity and the default load factor(0.75)</p>
-</li>
-<li><p>构造一个具有初始容量和默认负载因子（0.75）的空 HashMap</p>
-</li>
-<li><p>The substring begins at the specified beginIndex and extends to the character at index endIndex -1.</p>
-</li>
-<li><p>子字符串从指定的 beginIndex开始，延伸到索引endIndex -1 处的字符</p>
-</li>
-<li><p>Thus the length of the substring is endIndex - beginIndex.</p>
-</li>
-<li><p>因此，子字符串的长度为endIndex - beginIndex。</p>
-</li>
-<li><p>If the char value specitied by the index is a surrogate, the surrogate value is returned.</p>
-</li>
-<li><p>如果索引指定的字符值是代理值，则返回代理指。</p>
-</li>
-<li><p>Artificial Intelligence</p>
-</li>
-<li><p>人工智能</p>
-</li>
-<li><p>Symbolic Learning</p>
-</li>
-<li><p>符号学习</p>
-</li>
-<li><p>Machine Learning</p>
-</li>
-<li><p>机器学习</p>
-</li>
-<li><p>Supervised Learning</p>
-</li>
-<li><p>监督学习</p>
-</li>
-<li><p>Unsupervised Learning</p>
-</li>
-<li><p>无监督学习</p>
-</li>
-<li><p>Semi-supervised Learning</p>
-</li>
-<li><p>半监督学习</p>
-</li>
-<li><p>Reinforcement Learning</p>
-</li>
-<li><p>强化学习</p>
-</li>
-<li><p>Regression Analysis</p>
-</li>
-<li><p>回归分析</p>
-</li>
-</ul>
 
       
     </div>
@@ -1242,7 +1252,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1309,7 +1319,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共10k字</span>
+  <span class="post-count">本博客全站共10.8k字</span>
 </div>
 
 
