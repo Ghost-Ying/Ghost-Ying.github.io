@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/03/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -213,7 +213,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/03/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="post-title-link" itemprop="url">无重复字符的最长子串</a>
+            <a href="/2022/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">机器学习简介</a>
         </h2>
 
         <div class="post-meta">
@@ -225,8 +225,197 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-11-03 21:33:04 / 修改时间：21:37:02" itemprop="dateCreated datePublished" datetime="2022-11-03T21:33:04+08:00">2022-11-03</time>
+              <time title="创建时间：2022-11-03 21:59:57 / 修改时间：23:22:06" itemprop="dateCreated datePublished" datetime="2022-11-03T21:59:57+08:00">2022-11-03</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：什么是机器学习？（Machine-Learning）"><a href="#一：什么是机器学习？（Machine-Learning）" class="headerlink" title="一：什么是机器学习？（Machine Learning）"></a>一：什么是机器学习？（Machine Learning）</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>机器学习是一种实现人工智能的方法。</p>
+<p>从数据中寻找规律、建立关系，根据建立的关系去解决问题。</p>
+<p>从数据中学习实现自我优化与升级。</p>
+<h1 id="二：机器学习与计算机程序的差异"><a href="#二：机器学习与计算机程序的差异" class="headerlink" title="二：机器学习与计算机程序的差异"></a>二：机器学习与计算机程序的差异</h1><p>例如：小明1个月工资1000，每月增长10%，问第10个月小明的工资是多少？</p>
+<h2 id="传统算法："><a href="#传统算法：" class="headerlink" title="传统算法："></a>传统算法：</h2><p>y &#x3D; 1000 × 1.1 <sup>x</sup></p>
+<table>
+<thead>
+<tr>
+<th align="center">月份 x</th>
+<th align="center">工资 y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1000</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">1100</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">1210</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">1331</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">1464</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">1610</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">1771</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">1984</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">2143</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">2357</td>
+</tr>
+</tbody></table>
+<p>输入：第一个月的工资，以及计算公式</p>
+<p>处理：计算机进行运算</p>
+<p>输出：结果，第10月的工资</p>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>输入：月份、每月的工资</p>
+<p>处理：计算机进行分析，得出一个 F(x) 公式</p>
+<p>输出：预测结果</p>
+<h1 id="三：机器学习的应用场景"><a href="#三：机器学习的应用场景" class="headerlink" title="三：机器学习的应用场景"></a>三：机器学习的应用场景</h1><ul>
+<li>数据挖掘</li>
+<li>计算机视觉</li>
+<li>自然语言处理</li>
+<li>证券分析</li>
+<li>医学诊断</li>
+<li>机器人</li>
+<li>DNA测序</li>
+</ul>
+<p>由上可知：机器学习是实现人工智能的主流方法！</p>
+<h1 id="四：实现机器学习的基本框架"><a href="#四：实现机器学习的基本框架" class="headerlink" title="四：实现机器学习的基本框架"></a>四：实现机器学习的基本框架</h1><p>将训练数据喂给计算机，计算机自动求解数据关系，在新的数据上做出预测或者给出建议。</p>
+<p>数据 👉 数据关系 👉 预测、建议 👉 解决问题</p>
+<h1 id="五：机器学习的类别"><a href="#五：机器学习的类别" class="headerlink" title="五：机器学习的类别"></a>五：机器学习的类别</h1><ul>
+<li>监督学习（Supervised Learning）<ul>
+<li>训练数据包括正确的结果（标签 - label）</li>
+<li>可画出类别界限</li>
+<li>应用<ul>
+<li>人类识别</li>
+<li>语音翻译</li>
+<li>医学诊断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>无监督学习（Unsupervised Learning）<ul>
+<li>训练数据不包括正确的结果</li>
+<li>可以对数据进行类别划分，但不能画出界限</li>
+<li>应用<ul>
+<li>新闻聚类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>半监督学习（Semi-supervised Learning）<ul>
+<li>训练数据包括少量正确的结果</li>
+<li>可以对数据进行类别划分，能画出界限</li>
+<li>即混合学习</li>
+</ul>
+</li>
+<li>强化学习（Reinforcement Learning）<ul>
+<li>根据每次结果收获的奖惩进行学习，实现优化</li>
+<li>过程<ul>
+<li>程序初始化</li>
+<li>根据执行效果给与奖励或者惩罚（分数）</li>
+<li>程序逐步寻找获得高分的方法</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>AlphaGo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/03/LeetCode_%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/03/LeetCode_%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="post-title-link" itemprop="url">LeetCode_无重复字符的最长子串</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-03 21:33:04" itemprop="dateCreated datePublished" datetime="2022-11-03T21:33:04+08:00">2022-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-11 15:38:58" itemprop="dateModified" datetime="2022-11-11T15:38:58+08:00">2022-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -655,10 +844,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-11-02 22:01:32 / 修改时间：22:05:02" itemprop="dateCreated datePublished" datetime="2022-11-02T22:01:32+08:00">2022-11-02</time>
+              <time title="创建时间：2022-11-02 22:01:32" itemprop="dateCreated datePublished" datetime="2022-11-02T22:01:32+08:00">2022-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-11 15:39:24" itemprop="dateModified" datetime="2022-11-11T15:39:24+08:00">2022-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -711,7 +906,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/LeetCode_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -725,7 +920,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/02/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" class="post-title-link" itemprop="url">两数相加</a>
+            <a href="/2022/11/02/LeetCode_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" class="post-title-link" itemprop="url">LeetCode_两数相加</a>
         </h2>
 
         <div class="post-meta">
@@ -735,10 +930,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-11-02 21:44:44 / 修改时间：21:59:58" itemprop="dateCreated datePublished" datetime="2022-11-02T21:44:44+08:00">2022-11-02</time>
+              <time title="创建时间：2022-11-02 21:44:44" itemprop="dateCreated datePublished" datetime="2022-11-02T21:44:44+08:00">2022-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-11 15:40:19" itemprop="dateModified" datetime="2022-11-11T15:40:19+08:00">2022-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -763,7 +964,7 @@
           <h1 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a>两数相加</h1><p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p>
 <p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
 <p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:16 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 两数相加</span></span><br><span class="line"><span class="comment"> * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</span></span><br><span class="line"><span class="comment"> * 请你将两个数相加，并以相同形式返回一个表示和的链表。</span></span><br><span class="line"><span class="comment"> * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * example:</span></span><br><span class="line"><span class="comment"> * 2——4——3</span></span><br><span class="line"><span class="comment"> * 5——6——4</span></span><br><span class="line"><span class="comment"> * 7——0——8</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [2,4,3], l2 = [5,6,4]</span></span><br><span class="line"><span class="comment"> * 输出：[7,0,8]</span></span><br><span class="line"><span class="comment"> * 解释：342 + 465 = 807.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [0], l2 = [0]</span></span><br><span class="line"><span class="comment"> * 输出：[0]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span></span><br><span class="line"><span class="comment"> * 输出：[8,9,9,9,0,0,0,1]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 每个链表中的节点数在范围 [1, 100] 内</span></span><br><span class="line"><span class="comment"> * 0 &lt;= Node.val &lt;= 9</span></span><br><span class="line"><span class="comment"> * 题目数据保证列表表示的数字不含前导零</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Two</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; l1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l1);</span><br><span class="line">        LinkedList&lt;Integer&gt; l2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l2);</span><br><span class="line">        System.out.println(addTwoNumbers(l1, l2));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment">     * CreateTime: 20:21 2022/11/2</span></span><br><span class="line"><span class="comment">     * Description: 两数之和</span></span><br><span class="line"><span class="comment">     * 解题思路：先将链表中的值倒序取出，然后求和，再倒序装入</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> LinkedList&lt;String&gt; <span class="title function_">addTwoNumbers</span><span class="params">(LinkedList&lt;Integer&gt; l1, LinkedList&lt;Integer&gt; l2)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; r1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        LinkedList&lt;Integer&gt; r2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l1.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l1.removeLast();</span><br><span class="line">            r1.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l2.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l2.removeLast();</span><br><span class="line">            r2.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将列表中的数转化为 int 类型</span></span><br><span class="line">        <span class="comment">// [3, 4, 2]  ==&gt; 342</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> r1.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> str1.substring(<span class="number">0</span>, str1.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> str2.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> str3.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(str4);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">str12</span> <span class="operator">=</span> r2.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str22</span> <span class="operator">=</span> str12.substring(<span class="number">0</span>, str12.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str32</span> <span class="operator">=</span> str22.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str42</span> <span class="operator">=</span> str32.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(str42);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 运算 807</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> v1 + v2;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 倒序装入列表 [7,0,8]</span></span><br><span class="line">        LinkedList&lt;String&gt; result = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">String</span> <span class="variable">sumStr</span> <span class="operator">=</span> sum + <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; sumStr.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// 插入头部</span></span><br><span class="line">            result.addFirst(String.valueOf(sumStr.charAt(i)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法实现（方法一）"><a href="#算法实现（方法一）" class="headerlink" title="算法实现（方法一）"></a>算法实现（方法一）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:16 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 两数相加</span></span><br><span class="line"><span class="comment"> * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</span></span><br><span class="line"><span class="comment"> * 请你将两个数相加，并以相同形式返回一个表示和的链表。</span></span><br><span class="line"><span class="comment"> * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * example:</span></span><br><span class="line"><span class="comment"> * 2——4——3</span></span><br><span class="line"><span class="comment"> * 5——6——4</span></span><br><span class="line"><span class="comment"> * 7——0——8</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [2,4,3], l2 = [5,6,4]</span></span><br><span class="line"><span class="comment"> * 输出：[7,0,8]</span></span><br><span class="line"><span class="comment"> * 解释：342 + 465 = 807.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [0], l2 = [0]</span></span><br><span class="line"><span class="comment"> * 输出：[0]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]</span></span><br><span class="line"><span class="comment"> * 输出：[8,9,9,9,0,0,0,1]</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 每个链表中的节点数在范围 [1, 100] 内</span></span><br><span class="line"><span class="comment"> * 0 &lt;= Node.val &lt;= 9</span></span><br><span class="line"><span class="comment"> * 题目数据保证列表表示的数字不含前导零</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Two</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; l1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        l1.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l1);</span><br><span class="line">        LinkedList&lt;Integer&gt; l2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        l2.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(l2);</span><br><span class="line">        System.out.println(addTwoNumbers(l1, l2));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment">     * CreateTime: 20:21 2022/11/2</span></span><br><span class="line"><span class="comment">     * Description: 两数之和</span></span><br><span class="line"><span class="comment">     * 解题思路：先将链表中的值倒序取出，然后求和，再倒序装入</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> LinkedList&lt;String&gt; <span class="title function_">addTwoNumbers</span><span class="params">(LinkedList&lt;Integer&gt; l1, LinkedList&lt;Integer&gt; l2)</span> &#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; r1 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        LinkedList&lt;Integer&gt; r2 = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l1.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l1.removeLast();</span><br><span class="line">            r1.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> l2.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> l2.removeLast();</span><br><span class="line">            r2.add(tmp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将列表中的数转化为 int 类型</span></span><br><span class="line">        <span class="comment">// [3, 4, 2]  ==&gt; 342</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> r1.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> str1.substring(<span class="number">0</span>, str1.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> str2.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> str3.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(str4);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">str12</span> <span class="operator">=</span> r2.toString().substring(<span class="number">1</span>);   <span class="comment">// 去除[</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str22</span> <span class="operator">=</span> str12.substring(<span class="number">0</span>, str12.length() - <span class="number">1</span>);    <span class="comment">// 去除]</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str32</span> <span class="operator">=</span> str22.replaceAll(<span class="string">&quot;,&quot;</span>, <span class="string">&quot;&quot;</span>);  <span class="comment">// 去除分割符号 ,</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">str42</span> <span class="operator">=</span> str32.replaceAll(<span class="string">&quot;\\s+&quot;</span>, <span class="string">&quot;&quot;</span>);   <span class="comment">// 去除空格</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(str42);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 运算 807</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> v1 + v2;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 倒序装入列表 [7,0,8]</span></span><br><span class="line">        LinkedList&lt;String&gt; result = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">String</span> <span class="variable">sumStr</span> <span class="operator">=</span> sum + <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; sumStr.length(); i++) &#123;</span><br><span class="line">            <span class="comment">// 插入头部</span></span><br><span class="line">            result.addFirst(String.valueOf(sumStr.charAt(i)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="相关知识-LinkedList"><a href="#相关知识-LinkedList" class="headerlink" title="相关知识 LinkedList"></a>相关知识 LinkedList</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>链表（LinkedList）是一种常见的数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是每一个节点里存到下一个节点的地址。</p>
 <p>链表可以分为单向链表和双向链表。</p>
@@ -775,6 +976,19 @@
 </ul>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dataStructure;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 20:43 2022/11/2</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkedList</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个简单的链表实例</span></span><br><span class="line">        java.util.LinkedList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">java</span>.util.LinkedList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">&quot;Google&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Baidu&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Weibo&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表开头添加元素</span></span><br><span class="line">        list.addFirst(<span class="string">&quot;Apple&quot;</span>);</span><br><span class="line">        <span class="comment">// 在列表尾部添加元素</span></span><br><span class="line">        list.addLast(<span class="string">&quot;End&quot;</span>);</span><br><span class="line">        <span class="comment">// 移除头部元素</span></span><br><span class="line">        list.removeFirst();</span><br><span class="line">        <span class="comment">// 移除尾部元素</span></span><br><span class="line">        list.removeLast();</span><br><span class="line">        <span class="comment">// 获取头部元素</span></span><br><span class="line">        System.out.println(list.getFirst());</span><br><span class="line">        <span class="comment">// 获取尾部元素</span></span><br><span class="line">        System.out.println(list.getLast());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出列表</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        <span class="comment">//  size 迭代列表中元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size(), i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// foreach 迭代元素</span></span><br><span class="line">        <span class="keyword">for</span> (String str : list) &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="算法实现（方法二）"><a href="#算法实现（方法二）" class="headerlink" title="算法实现（方法二）"></a>算法实现（方法二）</h2><h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">listNode1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">1</span>);</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">3</span>, listNode1);</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">6</span>, listNode2);    <span class="comment">// 631 节点</span></span><br><span class="line"></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode21</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">2</span>);</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode22</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">3</span>, listNode21);</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode23</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">6</span>, listNode22);    <span class="comment">// 632 节点</span></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode24</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">9</span>, listNode23);</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">listNode25</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">9</span>, listNode24);</span><br><span class="line"></span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">result</span> <span class="operator">=</span> sum(listNode3, listNode25);</span><br><span class="line">       <span class="keyword">while</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">           System.out.println(result.val);</span><br><span class="line">           result = result.next;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment"> * CreateTime: 14:29 2022/11/11</span></span><br><span class="line"><span class="comment"> * Description: 链表方式求解</span></span><br><span class="line"><span class="comment"> * 第一步：按位求和</span></span><br><span class="line"><span class="comment"> * 第二部：进位</span></span><br><span class="line"><span class="comment"> * 第三部：处理特殊情况</span></span><br><span class="line"><span class="comment"> * 1. 长度问题</span></span><br><span class="line"><span class="comment"> * 2. 末尾进位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title function_">sum</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">    <span class="comment">// 接收参数值头节点</span></span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">head1</span> <span class="operator">=</span> l1;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">head2</span> <span class="operator">=</span> l2;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// l1 + l2 (l1 为基准)</span></span><br><span class="line">    <span class="keyword">while</span> (head1 != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (head2 != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// head1 存储求和值</span></span><br><span class="line">            head1.val += head2.val;</span><br><span class="line">            <span class="comment">// 进行下一位运算</span></span><br><span class="line">            head2 = head2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 若l1 下一位为空,l2还有值（l1.length &lt; l2.length）</span></span><br><span class="line">        <span class="keyword">if</span> (head1.next == <span class="literal">null</span> &amp;&amp; head2 != <span class="literal">null</span>) &#123;</span><br><span class="line">            head1.next = head2;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新head1</span></span><br><span class="line">        head1 = head1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 进位操作（分组方法）</span></span><br><span class="line">    merge(l1);</span><br><span class="line">    <span class="keyword">return</span> l1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment"> * CreateTime: 15:10 2022/11/11</span></span><br><span class="line"><span class="comment"> * Description: 进位操作</span></span><br><span class="line"><span class="comment"> * 因为要对下一位操作，对象直接选择链表</span></span><br><span class="line"><span class="comment"> * 遍历链表，判断是否需要进位，然后保留余数，下一位+1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">merge</span><span class="params">(ListNode listNode)</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (listNode != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (listNode.val &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="comment">// 赋值余数</span></span><br><span class="line">            listNode.val = listNode.val % <span class="number">10</span>;</span><br><span class="line">            <span class="comment">// 判断是不是末尾</span></span><br><span class="line">            <span class="keyword">if</span> (listNode.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 末端新建节点，初始值为0</span></span><br><span class="line">                listNode.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 下一位 进 1</span></span><br><span class="line">            listNode.next.val += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        listNode = listNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dataStructure;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 14:32 2022/11/11</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="comment">// 节点值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> val;</span><br><span class="line">    <span class="comment">// 下一个节点</span></span><br><span class="line">    <span class="keyword">public</span> ListNode next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 赋值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ListNode</span><span class="params">(<span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建下一个节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ListNode</span><span class="params">(<span class="type">int</span> val, ListNode next)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.val = val;</span><br><span class="line">        <span class="built_in">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><ul>
+<li>首先，理解清晰题目考察的方向。暴力破解可行，但应该是最坏的打算！</li>
+<li>明确解题的思路，即算法实现的步骤。</li>
+<li>分阶段实现，测试。</li>
+</ul>
 
       
     </div>
@@ -882,7 +1096,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/02/LeetCode_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -896,7 +1110,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/11/02/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="post-title-link" itemprop="url">两数之和</a>
+            <a href="/2022/11/02/LeetCode_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="post-title-link" itemprop="url">LeetCode_两数之和</a>
         </h2>
 
         <div class="post-meta">
@@ -906,10 +1120,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-11-02 01:19:04 / 修改时间：22:00:03" itemprop="dateCreated datePublished" datetime="2022-11-02T01:19:04+08:00">2022-11-02</time>
+              <time title="创建时间：2022-11-02 01:19:04" itemprop="dateCreated datePublished" datetime="2022-11-02T01:19:04+08:00">2022-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-11 15:38:04" itemprop="dateModified" datetime="2022-11-11T15:38:04+08:00">2022-11-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1128,86 +1348,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-29 10:17:46 / 修改时间：10:39:42" itemprop="dateCreated datePublished" datetime="2022-10-29T10:17:46+08:00">2022-10-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Markdown书写格式（一级标题）"><a href="#Markdown书写格式（一级标题）" class="headerlink" title="Markdown书写格式（一级标题）"></a>Markdown书写格式（一级标题）</h1><h2 id="代码展示：（二级标题）"><a href="#代码展示：（二级标题）" class="headerlink" title="代码展示：（二级标题）"></a>代码展示：（二级标题）</h2><p><code>print(&#39;Hello&#39;)</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Print(<span class="string">&#x27;Hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="图片展示："><a href="#图片展示：" class="headerlink" title="图片展示："></a>图片展示：</h2><img src="http://aiyingke.cn/images/RupertTears.jpg" style="zoom:25%;">
-
-<h2 id="引用测试："><a href="#引用测试：" class="headerlink" title="引用测试："></a>引用测试：</h2><blockquote>
-<p>这是一条引用</p>
-</blockquote>
-<h2 id="无序列表："><a href="#无序列表：" class="headerlink" title="无序列表："></a>无序列表：</h2><h3 id="爱好：（三级标题）"><a href="#爱好：（三级标题）" class="headerlink" title="爱好：（三级标题）"></a>爱好：（三级标题）</h3><ul>
-<li>摩托车</li>
-<li>编程</li>
-<li>滑雪</li>
-</ul>
-<h4 id="总结（四级标题）"><a href="#总结（四级标题）" class="headerlink" title="总结（四级标题）"></a>总结（四级标题）</h4><blockquote>
-<p>ctrl + 1 一级标题，ctrl + 2 二级标题，以此类推</p>
-<p>ctrl + shift + &#96; 代码块</p>
-<p>ctrl + shift + I 插入图片</p>
-<p>ctrl + shift + ] 无限列表</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1279,7 +1419,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1346,7 +1486,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共8.8k字</span>
+  <span class="post-count">本博客全站共9.3k字</span>
 </div>
 
 
