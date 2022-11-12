@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>AI_逻辑回归（1）</title>
+      <link href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/"/>
+      <url>/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p><p>训练数据：</p><p>余额为1、2、3、4、5，看电影（正样本）</p><p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p><p>作图：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;"><h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p><h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;"><p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;"><h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p><h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;"><h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;"><p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p><h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p><p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p><h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p><h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;"><h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;"><h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p><p>逻辑回归方程：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;"><p>带入参数值，获得结果：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;"><p>结论：</p><p>余额 -10，即 y &#x3D; 0，不去看电影；</p><p>余额 100，即 y &#x3D; 1，去看电影；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI_分类问题</title>
       <link href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
       <url>/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/</url>
