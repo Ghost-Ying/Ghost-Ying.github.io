@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>AI_逻辑回归（2）</title>
+      <link href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/"/>
+      <url>/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：复杂的分类问题"><a href="#一：复杂的分类问题" class="headerlink" title="一：复杂的分类问题"></a>一：复杂的分类问题</h2><h3 id="1-直线决策边界"><a href="#1-直线决策边界" class="headerlink" title="1. 直线决策边界"></a>1. 直线决策边界</h3><p>通过 x<sub>1</sub> 和 x<sub>2</sub> 去判断 y的值</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141044914.png" style="zoom: 33%;"><p>概念分布函数</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141306835.png" style="zoom: 50%;"><p>核心问题：找到 g(x)，即蓝色的直线；</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141349124.png" style="zoom:50%;"><p>决策边界：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141504765.png" style="zoom:50%;"><h3 id="2-圆形决策边界"><a href="#2-圆形决策边界" class="headerlink" title="2. 圆形决策边界"></a>2. 圆形决策边界</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141701950.png" style="zoom: 33%;"><p>获取概念分布，逻辑回归方程：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141808332.png" style="zoom: 50%;"><p>圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142014947.png" style="zoom: 50%;"><p>决策边界：</p><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142059035.png"></p><h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><ul><li>当使用逻辑回归去求解问题时，核心即找到决策边界。</li><li>逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。<ul><li>线性边界，即多项式为1次；</li><li>圆形边界，即多项式为2次；</li></ul></li></ul><h2 id="二：逻辑回归问题求解"><a href="#二：逻辑回归问题求解" class="headerlink" title="二：逻辑回归问题求解"></a>二：逻辑回归问题求解</h2><ul><li>概念分布函数</li><li>对应的边界函数关系</li></ul><h3 id="1-寻找类别边界"><a href="#1-寻找类别边界" class="headerlink" title="1. 寻找类别边界"></a>1. 寻找类别边界</h3><p>根据训练样本，寻找类别边界；</p><p>即：根据训练样本，寻找找 θ<sub>0</sub>、θ<sub>1</sub>、θ<sub>2</sub></p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142629280.png" alt="image-20221112142629280" style="zoom:50%;"><h3 id="2-如何求解系数"><a href="#2-如何求解系数" class="headerlink" title="2.  如何求解系数"></a>2.  如何求解系数</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142953201.png" style="zoom:50%;"><p>分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112143359941.png" style="zoom: 50%;"><p>图像：</p><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/20200407084418389.png"></p><p>等效转换关系式：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112144946188.png" style="zoom: 50%;"><p>带入P(x)，求解</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145047414.png" style="zoom:50%;"><p>采用梯度下降法，获取最小化的损失函数 J</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145205900.png" style="zoom:50%;"><h2 id="三：命名问题"><a href="#三：命名问题" class="headerlink" title="三：命名问题"></a>三：命名问题</h2><p>逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？</p><p>逻辑回归虽然名字中有回归，但实际上它是一个<code>二分类算法</code>。</p><p>逻辑回归实际上就是在多元线性回归（θᵀx）的基础上，多嵌套了一个函数，这个函数就是 sigmoid 函数，也被称为 S 型曲线。 </p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153624030.png" style="zoom: 67%;"><p>简化表达：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153714798.png" style="zoom:67%;"><p>函数图像：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112162347188.png" style="zoom:50%;"><p style="text-indent:2em">由 sigmoid 函数图像看知，其值域为(0,1)。因此逻辑回归就是在多元线性回归的基础上，讲结果缩放到了0 和 1 之间。</p><p style="text-indent:2em">当我们通过线性函数得到一个结果，这个结果越小于0，函数输出就越接近0；结果越大于0，函数输出就越接近1，而分类算法的输出一般情况下都会是 input 属于某个类别的概念大小，因此用0到1之间的范围刚好可以表示概念。中间的0.5则将结果划分为两个类别。所以，我们可以简单的将 sigmoid 函数理解成一个将输出转化为属于某个类别的概念的函数。</p><p style="text-indent:2em">综上所述，逻辑回归的大体思想就是，多元线性回归算法回归出一个分类超平面，预测样本通过代入这个超平面，如果是负就说明在这个超平面的下方，如果是正就说明是在这个超平面的上方。再通过 sigmoid 转换为概率，最好通过概率输出类别。</p><h2 id="四：逻辑回归统计学模型：伯努利分布"><a href="#四：逻辑回归统计学模型：伯努利分布" class="headerlink" title="四：逻辑回归统计学模型：伯努利分布"></a>四：逻辑回归统计学模型：伯努利分布</h2><p style="text-indent:2em">我们知道，对于二分类算法，样本只有两个标签，要么是0要么是1，并且二分类有一个特点，那就是我们最终预测样本的概念，正例加上负例的概念总和是1。即每一次预测我们都可以这样表示：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164826386.png" style="zoom:50%;"><p>这个公式不就是伯努利分布（0-1分布）嘛！</p><p>因此，对于模型每一次预测的输出，我们都可以写成伯努利分布的形式：</p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164938371.png" style="zoom:50%;"><p>细微差异：</p><p>伯努利分布中，最经典的案例就是抛硬币。只不过在抛硬币前我们已经假设概率是对半分的。</p><p>但是在逻辑回归中，概念是需要通过每一次模型预测给出的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI_逻辑回归（1）</title>
       <link href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/"/>
       <url>/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/</url>
@@ -58,7 +83,7 @@
       <link href="/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/"/>
       <url>/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/</url>
       
-        <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-008"><a href="#Professional-Vocabulary-Accumulation-008" class="headerlink" title="Professional Vocabulary Accumulation_008"></a>Professional Vocabulary Accumulation_008</h1><ul><li>Classification</li><li>分类</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-008"><a href="#Professional-Vocabulary-Accumulation-008" class="headerlink" title="Professional Vocabulary Accumulation_008"></a>Professional Vocabulary Accumulation_008</h1><ul><li>Classification</li><li>分类</li><li>Decision Boundary</li><li>决策边界</li><li>Logistic Regression</li><li>逻辑回归</li></ul>]]></content>
       
       
       <categories>
