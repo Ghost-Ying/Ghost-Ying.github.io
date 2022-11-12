@@ -21,30 +21,32 @@
     var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一：什么是回归分析？（Regression Analysis）定义回归分析：根据数据，确定两种或两种以上变量间相互依赖的定量关系 函数表达式：  回归 变量数 一元回归：y &#x3D; f (x) 多元回归：y&#x3D; f (x1,x2···xn)   函数关系 线性回归：y &#x3D; ax + b 非线性回归：y &#x3D; ax2 + bx + c      定位：机器学习中的监督">
+  <meta name="description" content="分类问题一：什么是分类问题？1. 概念根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。 2. 基本框架  其中 x 为样本的特征，即属性。 3. 案例（1）邮件分类  （2）任务 输入：电子邮件 输出：此邮件为垃圾邮件 &#x2F; 普通邮件  （3）流程 标注样本邮件为垃圾&#x2F;普通邮件（人） 获取批量的样本邮件及其标签，学习其特征（计算机） 针对新的邮件，自动判断其类别（计算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回归分析">
-<meta property="og:url" content="https://aiyingke.cn/2022/11/03/AI_%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="AI_分类问题">
+<meta property="og:url" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="爱影客">
-<meta property="og:description" content="一：什么是回归分析？（Regression Analysis）定义回归分析：根据数据，确定两种或两种以上变量间相互依赖的定量关系 函数表达式：  回归 变量数 一元回归：y &#x3D; f (x) 多元回归：y&#x3D; f (x1,x2···xn)   函数关系 线性回归：y &#x3D; ax + b 非线性回归：y &#x3D; ax2 + bx + c      定位：机器学习中的监督">
+<meta property="og:description" content="分类问题一：什么是分类问题？1. 概念根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。 2. 基本框架  其中 x 为样本的特征，即属性。 3. 案例（1）邮件分类  （2）任务 输入：电子邮件 输出：此邮件为垃圾邮件 &#x2F; 普通邮件  （3）流程 标注样本邮件为垃圾&#x2F;普通邮件（人） 获取批量的样本邮件及其标签，学习其特征（计算机） 针对新的邮件，自动判断其类别（计算">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9801.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9803.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9802.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9804.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9806.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9807.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9808.png">
-<meta property="og:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9809.png">
-<meta property="og:image" content="http://aiyingke.cn/images/RupertTears.jpg">
-<meta property="article:published_time" content="2022-11-03T15:23:19.000Z">
-<meta property="article:modified_time" content="2022-11-03T17:23:16.598Z">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png">
+<meta property="article:published_time" content="2022-11-12T03:16:36.000Z">
+<meta property="article:modified_time" content="2022-11-12T04:30:22.260Z">
 <meta property="article:author" content="Rupert-Tears">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9801.png">
+<meta name="twitter:image" content="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png">
 
-<link rel="canonical" href="https://aiyingke.cn/2022/11/03/AI_%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+<link rel="canonical" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -57,7 +59,7 @@
   };
 </script>
 
-  <title>回归分析 | 爱影客</title>
+  <title>AI_分类问题 | 爱影客</title>
   
 
 
@@ -213,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/03/AI_%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -226,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          回归分析
+          AI_分类问题
         </h1>
 
         <div class="post-meta">
@@ -236,16 +238,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-11-03 23:23:19" itemprop="dateCreated datePublished" datetime="2022-11-03T23:23:19+08:00">2022-11-03</time>
+              <time title="创建时间：2022-11-12 11:16:36 / 修改时间：12:30:22" itemprop="dateCreated datePublished" datetime="2022-11-12T11:16:36+08:00">2022-11-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-04 01:23:16" itemprop="dateModified" datetime="2022-11-04T01:23:16+08:00">2022-11-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -274,110 +270,96 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一：什么是回归分析？（Regression-Analysis）"><a href="#一：什么是回归分析？（Regression-Analysis）" class="headerlink" title="一：什么是回归分析？（Regression Analysis）"></a>一：什么是回归分析？（Regression Analysis）</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>回归分析：根据数据，确定两种或两种以上变量间相互依赖的定量关系</p>
-<p>函数表达式：</p>
-<ul>
-<li>回归<ul>
-<li>变量数<ul>
-<li>一元回归：y &#x3D; f (x)</li>
-<li>多元回归：y&#x3D; f (x<sub>1</sub>,x<sub>2</sub>···x<sub>n</sub>)</li>
-</ul>
-</li>
-<li>函数关系<ul>
-<li>线性回归：y &#x3D; ax + b</li>
-<li>非线性回归：y &#x3D; ax<sup>2</sup> + bx + c</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>定位：机器学习中的监督学习</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
-<li>百万人口医生数量预测区域人均寿命</li>
-<li>年龄预测身高</li>
-<li>住宅面积预测售价</li>
-</ul>
-<h1 id="二：线性回归"><a href="#二：线性回归" class="headerlink" title="二：线性回归"></a>二：线性回归</h1><p>线性回归：回归分析中，变量与因变量存在线性关系</p>
-<p>函数表达式：y &#x3D; ax + b</p>
-<p>举例：</p>
-<ul>
-<li>线性回归：距离 &#x3D; 速度 × 时间＋初始距离</li>
-<li>非线性回归：距离＝加速度×时间的平方＋初始距离</li>
-</ul>
-<h1 id="三：回归问题求解"><a href="#三：回归问题求解" class="headerlink" title="三：回归问题求解"></a>三：回归问题求解</h1><h2 id="求解过程"><a href="#求解过程" class="headerlink" title="求解过程"></a>求解过程</h2><p>问题：面积１１０平米售价１５０万是否值得投资？</p>
-<table>
-<thead>
-<tr>
-<th align="center">面积（A）</th>
-<th align="center">售价（P）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">79</td>
-<td align="center">402654</td>
-</tr>
-<tr>
-<td align="center">92</td>
-<td align="center">948562</td>
-</tr>
-<tr>
-<td align="center">…</td>
-<td align="center">…</td>
-</tr>
-<tr>
-<td align="center">108</td>
-<td align="center">1045687</td>
-</tr>
-<tr>
-<td align="center">110</td>
-<td align="center">？？？</td>
-</tr>
-<tr>
-<td align="center">118</td>
-<td align="center">１578142</td>
-</tr>
-<tr>
-<td align="center">…</td>
-<td align="center">…</td>
-</tr>
-</tbody></table>
-<ol>
-<li><p>确定　P、A　间的定量关系</p>
-<p>P ＝ f (Ａ)</p>
-<p>线性模型：ｙ＝ａｘ＋ｂ</p>
-</li>
-<li><p>根据关系预测合理价格</p>
-<p>P（<sub>A&#x3D;110</sub>）&#x3D; f (110)</p>
-</li>
-<li><p>做出判断</p>
-<p>若150w &gt;&gt; P，则不值得投资。</p>
-</li>
-</ol>
-<h2 id="问题核心"><a href="#问题核心" class="headerlink" title="问题核心"></a>问题核心</h2><p>线性模型：ｙ＝ａｘ＋ｂ，寻找合理的ａ和ｂ；</p>
-<p>假设ｘ为变量，ｙ为对应的结果，ｙ＇为模型输出结果，</p>
-<p>目标变为：ｙ＇尽可能接近ｙ（ｍ为样本数量）</p>
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9801.png"></p>
-<p>平方：消除做差产生负数情况；</p>
-<p>系数：方便求导运算</p>
-<p>损失函数，所得值期望越小越好；</p>
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9803.png"></p>
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9802.png"></p>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>寻找极小值的一种方法。</p>
-<p>通常向函数上当前点对应梯度（或者是近似梯度）的反方向的规定步长距离点进行迭代搜索，直到在极小点收敛。</p>
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9804.png"></p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9806.png"></p>
-<img src="http://aiyingke.cn/images/回归问题07.png" style="zoom: 67%;">
+        <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p>
+<h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;">
 
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9808.png"></p>
-<p><img src="http://aiyingke.cn/images/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%9809.png"></p>
-<h1 id="四：求解步骤"><a href="#四：求解步骤" class="headerlink" title="四：求解步骤"></a>四：求解步骤</h1><ol>
-<li>选择回归模型</li>
-<li>生成损失函数</li>
-<li>使用梯度下降或者其他方式求解，最小化损失函数的模型参数</li>
-<li>使用模型预测合理房价，根据预测结果做出判断</li>
-</ol>
-<img src="http://aiyingke.cn/images/RupertTears.jpg" style="zoom: 33%;">
+<p>其中 x 为样本的特征，即属性。</p>
+<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;">
 
+<h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul>
+<li>输入：电子邮件</li>
+<li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li>
+</ul>
+<h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol>
+<li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li>
+<li>获取批量的样本邮件及其标签，学习其特征（计算机）</li>
+<li>针对新的邮件，自动判断其类别（计算机）</li>
+</ol>
+<h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul>
+<li>发件人包含字符：% &amp; * …</li>
+<li>正文包含：现金、领取等</li>
+<li>其他特征</li>
+</ul>
+<h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p>
+<p>其次根据样本的特征值，获得 y &#x3D; 0；</p>
+<p>由此判断出是否为垃圾邮件。</p>
+<h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul>
+<li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p>
+</li>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li>
+</ul>
+<h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul>
+<li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li>
+</ul>
+<h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul>
+<li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li>
+</ul>
+<h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul>
+<li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li>
+</ul>
+<h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul>
+<li><p>垃圾邮件检测</p>
+<ul>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li>
+</ul>
+</li>
+<li><p>图像分类</p>
+<ul>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li>
+</ul>
+</li>
+<li><p>数字识别</p>
+<ul>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li>
+</ul>
+</li>
+<li><p>考试通过测试</p>
+<ul>
+<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul>
+<li>分类任务<ul>
+<li>分类目标：判断类别</li>
+<li>模型输出：非连续型标签</li>
+</ul>
+</li>
+<li>回归任务<ul>
+<li>回归目标：建立函数关系</li>
+<li>模型输出：连续型数值</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p>
+<h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul>
+<li><p>分类问题</p>
+<ul>
+<li>根据房屋信息预测其是否受欢迎</li>
+<li>猫狗图像识别</li>
+<li>股价涨跌预测</li>
+</ul>
+</li>
+<li><p>回归问题</p>
+<ul>
+<li>根据房屋信息预测房屋价格</li>
+<li>股价预测</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -423,7 +405,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://aiyingke.cn/2022/11/03/AI_%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" title="回归分析">https://aiyingke.cn/2022/11/03/AI_回归分析/</a>
+    <a href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" title="AI_分类问题">https://aiyingke.cn/2022/11/12/AI-分类问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/deed.zh/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>DEED.ZH</a> 许可协议。转载请注明出处！
@@ -492,13 +474,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/11/03/AI_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" rel="prev" title="机器学习简介">
-      <i class="fa fa-chevron-left"></i> 机器学习简介
+    <a href="/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/" rel="prev" title="专业词汇积累008">
+      <i class="fa fa-chevron-left"></i> 专业词汇积累008
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/11/04/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF003/" rel="next" title="专业词汇积累003">
-      专业词汇积累003 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -562,7 +541,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%EF%BC%9F%EF%BC%88Regression-Analysis%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一：什么是回归分析？（Regression Analysis）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">2.</span> <span class="nav-text">二：线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">三：回归问题求解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">求解过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%A0%B8%E5%BF%83"><span class="nav-number">3.2.</span> <span class="nav-text">问题核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">梯度下降法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.3.1.</span> <span class="nav-text">举例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E6%B1%82%E8%A7%A3%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">四：求解步骤</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">分类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">一：什么是分类问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 基本框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%A1%88%E4%BE%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E9%82%AE%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.4.</span> <span class="nav-text">（1）邮件分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.5.</span> <span class="nav-text">（2）任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.6.</span> <span class="nav-text">（3）流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%A0%B7%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.7.</span> <span class="nav-text">（4）样本特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.8.</span> <span class="nav-text">（5）处理流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E8%A7%A3%E5%86%B3%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%E7%9A%84%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">二：解决分类问题的常用算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-KNN%E9%82%BB%E8%BF%91%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. KNN邻近模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 神经网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">三：常见的分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%9B%9E%E5%BD%92%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.4.</span> <span class="nav-text">四：分类任务与回归任务的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B7%AE%E5%BC%82"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%A4%E6%96%AD"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 判断</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

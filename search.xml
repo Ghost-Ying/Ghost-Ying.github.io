@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>AI_分类问题</title>
+      <link href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p><h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;"><p>其中 x 为样本的特征，即属性。</p><h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"><h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul><li>输入：电子邮件</li><li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li></ul><h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol><li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li><li>获取批量的样本邮件及其标签，学习其特征（计算机）</li><li>针对新的邮件，自动判断其类别（计算机）</li></ol><h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul><li>发件人包含字符：% &amp; * …</li><li>正文包含：现金、领取等</li><li>其他特征</li></ul><h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p><p>其次根据样本的特征值，获得 y &#x3D; 0；</p><p>由此判断出是否为垃圾邮件。</p><h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul><li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p></li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li></ul><h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul><li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li></ul><h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul><li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li></ul><h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul><li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li></ul><h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul><li><p>垃圾邮件检测</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li></ul></li><li><p>图像分类</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li></ul></li><li><p>数字识别</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li></ul></li><li><p>考试通过测试</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li></ul></li></ul><h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul><li>分类任务<ul><li>分类目标：判断类别</li><li>模型输出：非连续型标签</li></ul></li><li>回归任务<ul><li>回归目标：建立函数关系</li><li>模型输出：连续型数值</li></ul></li></ul><p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p><h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul><li><p>分类问题</p><ul><li>根据房屋信息预测其是否受欢迎</li><li>猫狗图像识别</li><li>股价涨跌预测</li></ul></li><li><p>回归问题</p><ul><li>根据房屋信息预测房屋价格</li><li>股价预测</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>专业词汇积累008</title>
+      <link href="/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/"/>
+      <url>/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-008"><a href="#Professional-Vocabulary-Accumulation-008" class="headerlink" title="Professional Vocabulary Accumulation_008"></a>Professional Vocabulary Accumulation_008</h1><ul><li>Classification</li><li>分类</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业词汇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 专业词汇 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI_多因子线性回归</title>
       <link href="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
       <url>/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
