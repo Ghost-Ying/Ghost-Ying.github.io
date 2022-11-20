@@ -4,7 +4,32 @@
   
     
     <entry>
-      <title>java抽象类</title>
+      <title>Lombok之@EqualsAndHashCode</title>
+      <link href="/2022/11/20/Lombok%E4%B9%8B-EqualsAndHashCode/"/>
+      <url>/2022/11/20/Lombok%E4%B9%8B-EqualsAndHashCode/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Lombok-之-EqualsAndHashCode-使用"><a href="#Lombok-之-EqualsAndHashCode-使用" class="headerlink" title="Lombok 之 @EqualsAndHashCode 使用"></a>Lombok 之 @EqualsAndHashCode 使用</h1><h2 id="一：作用"><a href="#一：作用" class="headerlink" title="一：作用"></a>一：作用</h2><p>该注解的作用就是自动给 model bean 实现 equals 方法和 hashcode 方法。</p><h2 id="二：参数"><a href="#二：参数" class="headerlink" title="二：参数"></a>二：参数</h2><ul><li>@EqualsAndHashCode(callSuper &#x3D; false ) 默认参数，父类属性不参与比较。</li><li>@EqualsAndHashCode(callSuper &#x3D; true) 调用父类属性，进行比较。</li></ul><h2 id="三：代码示例"><a href="#三：代码示例" class="headerlink" title="三：代码示例"></a>三：代码示例</h2><h3 id="（1）实体类"><a href="#（1）实体类" class="headerlink" title="（1）实体类"></a>（1）实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TV</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode(callSuper = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">XiaoMiTV</span> <span class="keyword">extends</span> <span class="title class_">TV</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> price;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">XiaoMiTV</span><span class="params">(<span class="type">int</span> id, String name, <span class="type">float</span> price, String color)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(id, name);</span><br><span class="line">        <span class="built_in">this</span>.price = price;</span><br><span class="line">        <span class="built_in">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="（2）测试类"><a href="#（2）测试类" class="headerlink" title="（2）测试类"></a>（2）测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EqualsTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 默认情况  不调用父类属性比较  结果为：true</span></span><br><span class="line">        <span class="type">XiaoMiTV</span> <span class="variable">xiaoMiTV</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XiaoMiTV</span>(<span class="number">1</span>,<span class="string">&quot;小米&quot;</span>,<span class="number">99.99f</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">        <span class="type">XiaoMiTV</span> <span class="variable">xiaoMiTV2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XiaoMiTV</span>(<span class="number">2</span>,<span class="string">&quot;小米2&quot;</span>,<span class="number">99.99f</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">        System.out.println(xiaoMiTV.equals(xiaoMiTV2)); <span class="comment">// false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java开发手册 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java抽象类</title>
       <link href="/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/"/>
       <url>/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/</url>
       
