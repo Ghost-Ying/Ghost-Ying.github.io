@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-11-20T10:32:35.954Z</updated>
+  <updated>2022-11-20T13:19:58.763Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>专业词汇积累009</title>
+    <link href="https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/"/>
+    <id>https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/</id>
+    <published>2022-11-20T13:02:31.000Z</published>
+    <updated>2022-11-20T13:19:58.763Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-009"><a href="#Professional-Vocabulary-Accumulation-009" class="headerlink" title="Professional Vocabulary Accumulation_009"></a>Professional Vocabulary Accumulation_009</h1><ul><li>The method allows to retrieve items according to the given parameters.</li><li>此方法允许根据给定的参数获取监控项。</li><li>inlay hints</li><li>内置的提醒</li><li>Contains</li><li>包括</li><li>use a like with ‘%’ wildcard added to the beginning and end.</li><li>使用在开头和结尾添加一个 ‘%’ 的通配符</li><li>the equal to bind value.</li><li>等于绑定值</li><li>the root query bean instance.</li><li>根查询Bean实例</li><li>navigate to previous declared variable ‘ids’</li><li>导航到之前声明的变量 ‘ids’</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Professional-Vocabulary-Accumulation-009&quot;&gt;&lt;a href=&quot;#Professional-Vocabulary-Accumulation-009&quot; class=&quot;headerlink&quot; title=&quot;Professional</summary>
+      
+    
+    
+    
+    <category term="专业词汇" scheme="https://aiyingke.cn/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
+    
+    
+    <category term="专业词汇" scheme="https://aiyingke.cn/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
+    
+  </entry>
   
   <entry>
     <title>EasyExcel Manual</title>
@@ -469,30 +493,6 @@
     
     
     <category term="人工智能" scheme="https://aiyingke.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode_无重复字符的最长子串</title>
-    <link href="https://aiyingke.cn/2022/11/03/LeetCode_%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/"/>
-    <id>https://aiyingke.cn/2022/11/03/LeetCode_%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</id>
-    <published>2022-11-03T13:33:04.000Z</published>
-    <updated>2022-11-11T07:38:58.214Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="无重复字符串的最长子串"><a href="#无重复字符串的最长子串" class="headerlink" title="无重复字符串的最长子串"></a><center>无重复字符串的最长子串</center></h1><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 19:51 2022/11/3</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 无重复字符的最长子串</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入: s = &quot;abcabcbb&quot;</span></span><br><span class="line"><span class="comment"> * 输出: 3</span></span><br><span class="line"><span class="comment"> * 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入: s = &quot;bbbbb&quot;</span></span><br><span class="line"><span class="comment"> * 输出: 1</span></span><br><span class="line"><span class="comment"> * 解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入: s = &quot;pwwkew&quot;</span></span><br><span class="line"><span class="comment"> * 输出: 3</span></span><br><span class="line"><span class="comment"> * 解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span></span><br><span class="line"><span class="comment"> * 请注意，你的答案必须是 子串 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 0 &lt;= s.length &lt;= 5 * 104</span></span><br><span class="line"><span class="comment"> * s 由英文字母、数字、符号和空格组成</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Aigo_003</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;pwwkew&quot;</span>;</span><br><span class="line">        System.out.println(lengthOfLongestSubstring(str));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment">     * CreateTime: 19:59 2022/11/3</span></span><br><span class="line"><span class="comment">     * Description: 暴力破解,双重循环 contains方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 空字符、单个字符情况</span></span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span> || s.length() == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> s.length();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 子串</span></span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="comment">// 最大长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLength</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; s.length(); j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> j; i &lt; s.length(); i++) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 若子串不包含当前字符</span></span><br><span class="line">                <span class="keyword">if</span> (!result.toString().contains(String.valueOf(s.charAt(i)))) &#123;</span><br><span class="line">                    result.append(s.charAt(i));</span><br><span class="line">                    <span class="comment">// 更新子串长度</span></span><br><span class="line">                    <span class="keyword">if</span> (result.length() &gt; maxLength) &#123;</span><br><span class="line">                        maxLength = result.length();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 子串包含当前字符</span></span><br><span class="line">                    <span class="keyword">if</span> (result.length() &gt; maxLength) &#123;</span><br><span class="line">                        maxLength = result.length();</span><br><span class="line">                    &#125;</span><br><span class="line">                    result = <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;无重复字符串的最长子串&quot;&gt;&lt;a href=&quot;#无重复字符串的最长子串&quot; class=&quot;headerlink&quot; title=&quot;无重复字符串的最长子串&quot;&gt;&lt;/a&gt;&lt;center&gt;无重复字符串的最长子串&lt;/center&gt;&lt;/h1&gt;&lt;p&gt;给定一个字符串 s ，请你找出其中</summary>
-      
-    
-    
-    
-    <category term="算法练习" scheme="https://aiyingke.cn/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
-    
-    
-    <category term="LeetCode" scheme="https://aiyingke.cn/tags/LeetCode/"/>
     
   </entry>
   
