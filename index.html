@@ -199,6 +199,261 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">网络安全概述</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:42:36 / 修改时间：04:46:46" itemprop="dateCreated datePublished" datetime="2022-11-26T04:42:36+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：什么是黑客？"><a href="#一：什么是黑客？" class="headerlink" title="一：什么是黑客？"></a>一：什么是黑客？</h1><p>电影：《我是谁：没有绝对安全的系统》</p>
+<p>黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。</p>
+<ul>
+<li><p>黑帽黑客</p>
+</li>
+<li><ul>
+<li>专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。</li>
+</ul>
+</li>
+<li><p>白帽黑客</p>
+</li>
+<li><ul>
+<li>指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。</li>
+</ul>
+</li>
+<li><p>红客</p>
+</li>
+<li><ul>
+<li>指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：法律法规"><a href="#二：法律法规" class="headerlink" title="二：法律法规"></a>二：法律法规</h1><p>中华人民共和国刑法：</p>
+<ul>
+<li>第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</li>
+<li>第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。</li>
+</ul>
+<h1 id="三：渗透测试"><a href="#三：渗透测试" class="headerlink" title="三：渗透测试"></a>三：渗透测试</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>通过模拟恶意黑客的攻击方式，同时是在授权情况下对目标系统进行安全性测试和评估的过程。</p>
+<p>重点是测试，是过程，而不是不计后果的攻击或测试防御，它是一套科学流程，不局限于某一工具或者技巧的运用。</p>
+<p>很多白帽子在各大公司从事的工作便是web渗透测试。</p>
+<h2 id="3-2-流程"><a href="#3-2-流程" class="headerlink" title="3.2 流程"></a>3.2 流程</h2><p>确定目标👉信息收集👉漏洞探测👉漏洞利用，获取webshell👉内网渗透👉漏洞验证与修复👉撰写渗透测试报告</p>
+<ul>
+<li>第一步：确定要渗透的目标，也就是选择要测试的目标网站。</li>
+<li>第二步：收集目标网站的相关信息，比如操作系统，数据库，端口服务，所使用的脚本语言，子域名以及CMS系统等等。</li>
+<li>第三步：漏洞探测。利用收集到的信息，寻找目标的脆弱点。</li>
+<li>第四步：漏洞利用，找到对方系统的弱点后，进一步攻克对方系统，拿到目标系统的权限。</li>
+<li>第五步：渗透目标内网的其他主机，把获得的目标机器权限，当作跳板，进一步攻克内网其他主机。</li>
+<li>第六步：验证漏洞与修复漏洞。</li>
+<li>第七步：清除渗透痕迹，撰写测试报告。</li>
+</ul>
+<h1 id="四：网站运行原理"><a href="#四：网站运行原理" class="headerlink" title="四：网站运行原理"></a>四：网站运行原理</h1><h2 id="4-1-网站运行原理"><a href="#4-1-网站运行原理" class="headerlink" title="4.1 网站运行原理"></a>4.1 网站运行原理</h2><p>服务器的操作系统👉中间件👉数据库👉代码👉静态资源</p>
+<ul>
+<li>网站搭建在服务器的操作系统之上，例如windows、linux；</li>
+<li>网站的搭建需要中间件的支撑，例如：tomcat、nginx、apache software foundation；</li>
+<li>网站的搭建需要数据库存放数据，例如：MySQL、SQL Server；</li>
+<li>网站页面是由代码编写的，例如：PHP、JSP、ASP（动态服务器页面）；</li>
+<li>网站页面由部分静态资源组成，例如：html、css、JavaScript；</li>
+</ul>
+<h2 id="4-2-网站运行流程"><a href="#4-2-网站运行流程" class="headerlink" title="4.2 网站运行流程"></a>4.2 网站运行流程</h2><ul>
+<li>第一步：浏览器输入网址，进行网站访问，通过DNS解析域名，找到服务器IP地址</li>
+<li>第二步：发送请求指服务器</li>
+<li>第三步：服务器接收到请求，并响应请求返回给浏览器</li>
+</ul>
+<h1 id="五：环境准备"><a href="#五：环境准备" class="headerlink" title="五：环境准备"></a>五：环境准备</h1><h2 id="5-1-VM-WARE"><a href="#5-1-VM-WARE" class="headerlink" title="5.1 VM WARE"></a>5.1 VM WARE</h2><p>VM WARE 是一款虚拟化软件，利用它，我们能够在自己物理机的 windows 系统上再去安装其他的操作系统；</p>
+<p>官方Windosws版本： </p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">https://www.vmware.com/go/getworkstation-win</a></strong></p>
+<p>使用激活码进行激活服务；</p>
+<h2 id="5-2-kali-linux"><a href="#5-2-kali-linux" class="headerlink" title="5.2 kali linux"></a>5.2 kali linux</h2><p>官方镜像源下载：</p>
+<p><a target="_blank" rel="noopener" href="http://old.kali.org/kali-images/kali-2022.3/">http://old.kali.org/kali-images/kali-2022.3/</a></p>
+<p>阿里镜像：</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA">https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA</a></p>
+<h2 id="5-3-VMware-tools"><a href="#5-3-VMware-tools" class="headerlink" title="5.3 VMware-tools"></a>5.3 VMware-tools</h2><p>方便操作虚拟机，可以实现复制粘贴功能；</p>
+<ol>
+<li>挂载安装包</li>
+<li>复制安装包到tmp目录下方</li>
+<li>进入tmp目录</li>
+<li>解压安装包</li>
+<li>执行安装脚本</li>
+<li>安装完成过后重启kali</li>
+</ol>
+<h2 id="5-4-kali-APT源"><a href="#5-4-kali-APT源" class="headerlink" title="5.4 kali APT源"></a>5.4 kali APT源</h2><p>kail 的 APT 源就相当于一个软件包管理器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开配置文件</span></span><br><span class="line">leafpad /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>通过 leafpad 打开源的配置文件 sources.list</li>
+<li>复制粘贴中科大源进去</li>
+<li>ctrl + s 保存并退出</li>
+<li>输入命令 apt-get update</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　kali 写入时出现 E121：无法打开并写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　解决方案</span></span><br><span class="line">1.保存的时候使用：ｗ !sudo tee %</span><br><span class="line">2.输入密码即可 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">nmap工具的常见使用方式</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:37:45 / 修改时间：04:41:00" itemprop="dateCreated datePublished" datetime="2022-11-26T04:37:45+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一：Nmap-Commands（诸神之眼）"><a href="#一：Nmap-Commands（诸神之眼）" class="headerlink" title="一：Nmap Commands（诸神之眼）"></a>一：Nmap Commands（诸神之眼）</h2><ul>
+<li>扫描对方网站端口</li>
+<li>扫描对方网站服务</li>
+<li>操作系统、版本相关信息</li>
+<li>配合脚本去扫描对方存在的漏洞</li>
+</ul>
+<h2 id="二：常用扫描命令"><a href="#二：常用扫描命令" class="headerlink" title="二：常用扫描命令"></a>二：常用扫描命令</h2><h3 id="2-1-简单扫描目标"><a href="#2-1-简单扫描目标" class="headerlink" title="2.1 简单扫描目标"></a>2.1 简单扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">namp + 目标ip/域名（简单扫描目标）</span></span><br><span class="line">nmap 192.168.1.106</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-26 04:17 CST</span><br><span class="line">Nmap scan report for localhost (192.168.1.106)</span><br><span class="line">Host is up (0.00076s latency).</span><br><span class="line">Not shown: 992 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">135/tcp  open  msrpc</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">443/tcp  open  https</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">902/tcp  open  iss-realsecure</span><br><span class="line">912/tcp  open  apex-mesh</span><br><span class="line">1433/tcp open  ms-sql-s</span><br><span class="line">3306/tcp open  mysql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>port：端口</li>
+<li>state：端口状态</li>
+<li>service：端口服务</li>
+<li>open：端口是开放的</li>
+<li>closed：端口是关闭的</li>
+<li>filtered：端口被防火墙IDS&#x2F;IPS屏蔽，无法确定状态</li>
+<li>unfiletered：端口未被屏蔽，但是否开发需要进一步确定</li>
+<li>open | filtered：端口开放的或者被过滤</li>
+<li>closed | filteres：端口关闭或者被过滤</li>
+</ul>
+<h3 id="2-2-扫描目标网段及其它主机"><a href="#2-2-扫描目标网段及其它主机" class="headerlink" title="2.2 扫描目标网段及其它主机"></a>2.2 扫描目标网段及其它主机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap + 目标ip网段（扫描目标网段及其他主机）</span></span><br><span class="line">nmap 192.168.1.0/24</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-对目标全面扫描"><a href="#2-3-对目标全面扫描" class="headerlink" title="2.3 对目标全面扫描"></a>2.3 对目标全面扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -A -T4 + 目标ip（对目标全面扫描）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-A: 采用全面扫描的方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 采用的是T4级别进行扫描（T5最高级别，速度最快）</span></span><br><span class="line">nmap -A -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-扫描目标常见的100端口"><a href="#2-4-扫描目标常见的100端口" class="headerlink" title="2.4 扫描目标常见的100端口"></a>2.4 扫描目标常见的100端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --top-ports 100 + 目标ip（扫描目标最常见的100端口）</span></span><br><span class="line">nmap --top-ports 100 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"><a href="#2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本" class="headerlink" title="2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"></a>2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -sS -sV -T4 + 目标ip（采用sS模式、T4级别扫描目标的端口、服务、操作系统的版本）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sS: 使用 TCP SYN 扫描</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sV: 进行版本探测</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 使用一种快速扫描的方式，扫描速度的级别范围在（T0-T5）之间，级别越高，扫描速度越快。</span></span><br><span class="line">nmap -sS -sV -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-采用vuln脚本扫描目标"><a href="#2-6-采用vuln脚本扫描目标" class="headerlink" title="2.6 采用vuln脚本扫描目标"></a>2.6 采用vuln脚本扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --script=vuln + 目标ip</span></span><br><span class="line">nmap --script=vuln 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h2 id="三：图形-zenmap-使用"><a href="#三：图形-zenmap-使用" class="headerlink" title="三：图形 zenmap 使用"></a>三：图形 zenmap 使用</h2><p>nmap的图形化工具，具体使用步骤如下：</p>
+<ol>
+<li>输入ip或者域名</li>
+<li>选择扫描方式</li>
+<li>执行扫描</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -983,274 +1238,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（1）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
-<p>训练数据：</p>
-<p>余额为1、2、3、4、5，看电影（正样本）</p>
-<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
-<p>作图：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
-
-<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
-<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
-
-<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
-
-<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
-<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
-
-<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
-
-<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
-<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
-<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
-<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
-<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
-
-<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
-
-<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
-<p>逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
-
-<p>带入参数值，获得结果：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
-
-<p>结论：</p>
-<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
-<p>余额 100，即 y &#x3D; 1，去看电影；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">AI_分类问题</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:16:36 / 修改时间：13:17:02" itemprop="dateCreated datePublished" datetime="2022-11-12T11:16:36+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p>
-<h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;">
-
-<p>其中 x 为样本的特征，即属性。</p>
-<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;">
-
-<h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul>
-<li>输入：电子邮件</li>
-<li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li>
-</ul>
-<h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol>
-<li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li>
-<li>获取批量的样本邮件及其标签，学习其特征（计算机）</li>
-<li>针对新的邮件，自动判断其类别（计算机）</li>
-</ol>
-<h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul>
-<li>发件人包含字符：% &amp; * …</li>
-<li>正文包含：现金、领取等</li>
-<li>其他特征</li>
-</ul>
-<h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p>
-<p>其次根据样本的特征值，获得 y &#x3D; 0；</p>
-<p>由此判断出是否为垃圾邮件。</p>
-<h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul>
-<li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p>
-</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul>
-<li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul>
-<li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul>
-<li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li>
-</ul>
-<h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul>
-<li><p>垃圾邮件检测</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li>
-</ul>
-</li>
-<li><p>图像分类</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li>
-</ul>
-</li>
-<li><p>数字识别</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li>
-</ul>
-</li>
-<li><p>考试通过测试</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li>
-</ul>
-</li>
-</ul>
-<h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul>
-<li>分类任务<ul>
-<li>分类目标：判断类别</li>
-<li>模型输出：非连续型标签</li>
-</ul>
-</li>
-<li>回归任务<ul>
-<li>回归目标：建立函数关系</li>
-<li>模型输出：连续型数值</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p>
-<h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul>
-<li><p>分类问题</p>
-<ul>
-<li>根据房屋信息预测其是否受欢迎</li>
-<li>猫狗图像识别</li>
-<li>股价涨跌预测</li>
-</ul>
-</li>
-<li><p>回归问题</p>
-<ul>
-<li>根据房屋信息预测房屋价格</li>
-<li>股价预测</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1322,20 +1309,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1389,7 +1376,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共16.7k字</span>
+  <span class="post-count">本博客全站共18.5k字</span>
 </div>
 
 
