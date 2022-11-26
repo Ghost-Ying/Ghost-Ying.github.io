@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-11-26T17:06:10.235Z</updated>
+  <updated>2022-11-26T17:56:42.572Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>john 使用教程</title>
+    <link href="https://aiyingke.cn/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+    <id>https://aiyingke.cn/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</id>
+    <published>2022-11-26T17:28:19.000Z</published>
+    <updated>2022-11-26T17:56:42.572Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：John-概述"><a href="#一：John-概述" class="headerlink" title="一：John 概述"></a>一：John 概述</h1><p>开膛手约翰（John the Ripper）是一个快速的密码破解程序。</p><p>其主要目的是检测弱 Unix 密码。</p><h1 id="二：John-破解-Linux-密码"><a href="#二：John-破解-Linux-密码" class="headerlink" title="二：John 破解 Linux 密码"></a>二：John 破解 Linux 密码</h1><h2 id="2-1-相关文件"><a href="#2-1-相关文件" class="headerlink" title="2.1 相关文件"></a>2.1 相关文件</h2><p>Linux 系统中存放账号、密码的两个重要文件 &#x2F;etc&#x2F;passwd 与 &#x2F;etc&#x2F;shadow</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd# 查看存放账户的文件内容</span><br><span class="line">cat /etc/passwd | head -1</span><br><span class="line">root:x:0:0:root:/root:/usr/bin/zsh# 被&quot;:&quot;划分为7个字段</span><br><span class="line">用户名：密码：用户ID（UID）：用户组ID（GID）：描述信息：主目录：默认shell</span><br><span class="line"></span><br><span class="line">cat /etc/shadow # 查看存放账户密码的文件内容</span><br><span class="line">cat /etc/shadow | head -1# 被&quot;:&quot;划分为9个字段</span><br><span class="line">root:$y$j9T$yRBeGeHrNuu/yNBeAEqn40$.ljB8e37.pNGJXOVLiDDJUTTCcA..R8rXJcUmFCuBcB:19321:0:99999:7:::</span><br><span class="line">用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</span><br></pre></td></tr></table></figure><h2 id="2-2-破解密码"><a href="#2-2-破解密码" class="headerlink" title="2.2 破解密码"></a>2.2 破解密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将账户文件与密码文件合成一个文件</span></span><br><span class="line">unshadow /etc/passwd /etc/shadow &gt; shadow</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 john 破解账户 ssh 密码</span></span><br><span class="line">john --format=crypt shadow </span><br><span class="line"></span><br><span class="line">Using default input encoding: UTF-8</span><br><span class="line">使用默认输入编码：UTF-8</span><br><span class="line">Loaded 3 password hashes with 3 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">用3种不同的盐加载3个密码散列（crypt, generic crypt(3) [?/64]）</span><br><span class="line">Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本1（算法[1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]）为0</span><br><span class="line">Cost 2 (algorithm specific iterations) is 1 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本2（特定于算法的迭代）为1</span><br><span class="line">Proceeding with single, rules:Single</span><br><span class="line">单一进程，规则：单一</span><br><span class="line">Press &#x27;q&#x27; or Ctrl-C to abort, almost any other key for status</span><br><span class="line">按 &#x27;q&#x27; 或者 Ctrl-C 终止，几乎任何其他状态键</span><br><span class="line">root             (root)     </span><br><span class="line">root             (ghost)     </span><br><span class="line">Almost done: Processing the remaining buffered candidate passwords, if any.</span><br><span class="line">基本完成：处理剩余的缓存候选密码（如果有）</span><br><span class="line">Proceeding with wordlist:/usr/share/john/password.lst</span><br><span class="line">继续处理单词列表：/usr/share/john/password.lst</span><br><span class="line">123456           (test)     </span><br><span class="line">3g 0:00:00:18 DONE 2/3 (2022-11-27 01:26) 0.1648g/s 82.08p/s 82.19c/s 82.19C/s 123456..pepper</span><br><span class="line">Use the &quot;--show&quot; option to display all of the cracked passwords reliably</span><br><span class="line">使用 &quot;--show&quot; 选项可靠地显示所有破解的密码</span><br><span class="line">Session completed. </span><br><span class="line">会话完成。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：John-概述&quot;&gt;&lt;a href=&quot;#一：John-概述&quot; class=&quot;headerlink&quot; title=&quot;一：John 概述&quot;&gt;&lt;/a&gt;一：John 概述&lt;/h1&gt;&lt;p&gt;开膛手约翰（John the Ripper）是一个快速的密码破解程序。&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://aiyingke.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="网安工具" scheme="https://aiyingke.cn/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Ettercap 使用教程</title>
@@ -467,30 +492,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Professional-Vocabulary-Accumulation-007&quot;&gt;&lt;a href=&quot;#Professional-Vocabulary-Accumulation-007&quot; class=&quot;headerlink&quot; title=&quot;Professional</summary>
-      
-    
-    
-    
-    <category term="专业词汇" scheme="https://aiyingke.cn/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
-    
-    
-    <category term="专业词汇" scheme="https://aiyingke.cn/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>专业词汇积累006</title>
-    <link href="https://aiyingke.cn/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF006/"/>
-    <id>https://aiyingke.cn/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF006/</id>
-    <published>2022-11-06T03:58:07.000Z</published>
-    <updated>2022-11-10T15:03:14.723Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-006"><a href="#Professional-Vocabulary-Accumulation-006" class="headerlink" title="Professional Vocabulary Accumulation_006"></a>Professional Vocabulary Accumulation_006</h1><ul><li>Dynamic programing</li><li>动态规划</li><li>Using an Alternate Config</li><li>使用代替配置</li><li>Site</li><li>网站</li><li>URL（Uniform Resource Locator）</li><li>统一资源定位器</li><li>directory</li><li>目录</li><li>writing</li><li>文章、作品</li><li>category &amp; tag</li><li>分类和标签</li><li>home page setting</li><li>首页设置</li><li>Date&#x2F;Time format</li><li>日期&#x2F;时间格式</li><li>pagination</li><li>页码</li><li>extension</li><li>扩展</li><li>Alternate theme config</li><li>备选主题设置</li><li>include&#x2F;exclude files or folders</li><li>包括&#x2F;排除文件或文件夹</li><li>back to top</li><li>回到顶部</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Professional-Vocabulary-Accumulation-006&quot;&gt;&lt;a href=&quot;#Professional-Vocabulary-Accumulation-006&quot; class=&quot;headerlink&quot; title=&quot;Professional</summary>
       
     
     
