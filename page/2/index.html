@@ -199,6 +199,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Nmap 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:37:45 / 修改时间：16:06:17" itemprop="dateCreated datePublished" datetime="2022-11-26T04:37:45+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一：Nmap-Commands（诸神之眼）"><a href="#一：Nmap-Commands（诸神之眼）" class="headerlink" title="一：Nmap Commands（诸神之眼）"></a>一：Nmap Commands（诸神之眼）</h2><ul>
+<li>扫描对方网站端口</li>
+<li>扫描对方网站服务</li>
+<li>操作系统、版本相关信息</li>
+<li>配合脚本去扫描对方存在的漏洞</li>
+</ul>
+<h2 id="二：常用扫描命令"><a href="#二：常用扫描命令" class="headerlink" title="二：常用扫描命令"></a>二：常用扫描命令</h2><h3 id="2-1-简单扫描目标"><a href="#2-1-简单扫描目标" class="headerlink" title="2.1 简单扫描目标"></a>2.1 简单扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">namp + 目标ip/域名（简单扫描目标）</span></span><br><span class="line">nmap 192.168.1.106</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-26 04:17 CST</span><br><span class="line">Nmap scan report for localhost (192.168.1.106)</span><br><span class="line">Host is up (0.00076s latency).</span><br><span class="line">Not shown: 992 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">135/tcp  open  msrpc</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">443/tcp  open  https</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">902/tcp  open  iss-realsecure</span><br><span class="line">912/tcp  open  apex-mesh</span><br><span class="line">1433/tcp open  ms-sql-s</span><br><span class="line">3306/tcp open  mysql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>port：端口</li>
+<li>state：端口状态</li>
+<li>service：端口服务</li>
+<li>open：端口是开放的</li>
+<li>closed：端口是关闭的</li>
+<li>filtered：端口被防火墙IDS&#x2F;IPS屏蔽，无法确定状态</li>
+<li>unfiletered：端口未被屏蔽，但是否开发需要进一步确定</li>
+<li>open | filtered：端口开放的或者被过滤</li>
+<li>closed | filteres：端口关闭或者被过滤</li>
+</ul>
+<h3 id="2-2-扫描目标网段及其它主机"><a href="#2-2-扫描目标网段及其它主机" class="headerlink" title="2.2 扫描目标网段及其它主机"></a>2.2 扫描目标网段及其它主机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap + 目标ip网段（扫描目标网段及其他主机）</span></span><br><span class="line">nmap 192.168.1.0/24</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-对目标全面扫描"><a href="#2-3-对目标全面扫描" class="headerlink" title="2.3 对目标全面扫描"></a>2.3 对目标全面扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -A -T4 + 目标ip（对目标全面扫描）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-A: 采用全面扫描的方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 采用的是T4级别进行扫描（T5最高级别，速度最快）</span></span><br><span class="line">nmap -A -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-扫描目标常见的100端口"><a href="#2-4-扫描目标常见的100端口" class="headerlink" title="2.4 扫描目标常见的100端口"></a>2.4 扫描目标常见的100端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --top-ports 100 + 目标ip（扫描目标最常见的100端口）</span></span><br><span class="line">nmap --top-ports 100 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"><a href="#2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本" class="headerlink" title="2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"></a>2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -sS -sV -T4 + 目标ip（采用sS模式、T4级别扫描目标的端口、服务、操作系统的版本）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sS: 使用 TCP SYN 扫描</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sV: 进行版本探测</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 使用一种快速扫描的方式，扫描速度的级别范围在（T0-T5）之间，级别越高，扫描速度越快。</span></span><br><span class="line">nmap -sS -sV -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-采用vuln脚本扫描目标"><a href="#2-6-采用vuln脚本扫描目标" class="headerlink" title="2.6 采用vuln脚本扫描目标"></a>2.6 采用vuln脚本扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --script=vuln + 目标ip</span></span><br><span class="line">nmap --script=vuln 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h2 id="三：图形-zenmap-使用"><a href="#三：图形-zenmap-使用" class="headerlink" title="三：图形 zenmap 使用"></a>三：图形 zenmap 使用</h2><p>nmap的图形化工具，具体使用步骤如下：</p>
+<ol>
+<li>输入ip或者域名</li>
+<li>选择扫描方式</li>
+<li>执行扫描</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1091,166 +1196,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">AI_分类问题</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:16:36 / 修改时间：13:17:02" itemprop="dateCreated datePublished" datetime="2022-11-12T11:16:36+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p>
-<h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;">
-
-<p>其中 x 为样本的特征，即属性。</p>
-<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;">
-
-<h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul>
-<li>输入：电子邮件</li>
-<li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li>
-</ul>
-<h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol>
-<li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li>
-<li>获取批量的样本邮件及其标签，学习其特征（计算机）</li>
-<li>针对新的邮件，自动判断其类别（计算机）</li>
-</ol>
-<h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul>
-<li>发件人包含字符：% &amp; * …</li>
-<li>正文包含：现金、领取等</li>
-<li>其他特征</li>
-</ul>
-<h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p>
-<p>其次根据样本的特征值，获得 y &#x3D; 0；</p>
-<p>由此判断出是否为垃圾邮件。</p>
-<h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul>
-<li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p>
-</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul>
-<li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul>
-<li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul>
-<li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li>
-</ul>
-<h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul>
-<li><p>垃圾邮件检测</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li>
-</ul>
-</li>
-<li><p>图像分类</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li>
-</ul>
-</li>
-<li><p>数字识别</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li>
-</ul>
-</li>
-<li><p>考试通过测试</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li>
-</ul>
-</li>
-</ul>
-<h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul>
-<li>分类任务<ul>
-<li>分类目标：判断类别</li>
-<li>模型输出：非连续型标签</li>
-</ul>
-</li>
-<li>回归任务<ul>
-<li>回归目标：建立函数关系</li>
-<li>模型输出：连续型数值</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p>
-<h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul>
-<li><p>分类问题</p>
-<ul>
-<li>根据房屋信息预测其是否受欢迎</li>
-<li>猫狗图像识别</li>
-<li>股价涨跌预测</li>
-</ul>
-</li>
-<li><p>回归问题</p>
-<ul>
-<li>根据房屋信息预测房屋价格</li>
-<li>股价预测</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1322,7 +1267,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1335,7 +1280,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1389,7 +1334,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共31.4k字</span>
+  <span class="post-count">本博客全站共32.6k字</span>
 </div>
 
 

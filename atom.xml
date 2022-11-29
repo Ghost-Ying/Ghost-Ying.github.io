@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-11-29T02:58:44.922Z</updated>
+  <updated>2022-11-29T11:53:25.324Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PNETLab 模拟器</title>
+    <link href="https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
+    <id>https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/</id>
+    <published>2022-11-29T09:04:49.000Z</published>
+    <updated>2022-11-29T11:53:25.324Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：PNETLab-是什么？"><a href="#一：PNETLab-是什么？" class="headerlink" title="一：PNETLab 是什么？"></a>一：PNETLab 是什么？</h1><p>PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。</p><ul><li>PNETLab Box<ul><li>它是一个虚拟机，安装在本地机器上，实验室将在上面运行。</li><li>模式<ul><li>线上模式</li><li>线下模式</li></ul></li></ul></li><li>PNETLab Store<ul><li>一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习</li></ul></li></ul><h1 id="二：设计理念"><a href="#二：设计理念" class="headerlink" title="二：设计理念"></a>二：设计理念</h1><h2 id="2-1-主要特征"><a href="#2-1-主要特征" class="headerlink" title="2.1 主要特征"></a>2.1 主要特征</h2><ul><li>许多人可以登录一个PNETLab Box</li><li>许多人可以加入同一个实验室会话</li><li>按“角色”设置用户权限</li><li>为每个实验室设置权限：谁可以打开新会话，谁可以加入会话，谁可以编辑实验室</li><li>锁定实验室</li><li>管理监控实验室</li></ul><h1 id="三：使用教程"><a href="#三：使用教程" class="headerlink" title="三：使用教程"></a>三：使用教程</h1><h2 id="3-1-如何添加角色？"><a href="#3-1-如何添加角色？" class="headerlink" title="3.1 如何添加角色？"></a>3.1 如何添加角色？</h2><p>创建角色: 帐户 &gt; 角色管理 &gt; 单击“添加”按钮；</p><p>设置用户权限：</p><ul><li><strong>Delete Folder: 删除文件夹</strong>：用户可以删除其工作区上的文件夹</li><li><strong>Add New Folder: 添加新文件夹</strong>：用户可以在其工作区中添加新的文件夹</li><li><strong>Rename or Move Folder: 重命名或移动文件夹</strong>：用户可以更改名称或拖放来移动工作区上的文件夹</li><li><strong>Delete Lab: 删除实验室</strong>：用户可以删除工作区上的实验室</li><li><strong>Add New Lab 添加新的实验室</strong>：用户可以在他们的工作区中添加一个新的实验室</li><li><strong>Import Lab: 导入实验室</strong>：用户可以导入他们工作空间的实验室</li><li><strong>Export Lab: 出口实验室</strong>：用户可以导出实验室到他们的工作空间</li><li><strong>Move Lab 移动实验室</strong>：用户可以将Lab移动到他们的工作区</li><li><strong>Clone Lab 克隆实验室</strong>：用户可以在他们的工作空间上克隆实验室</li></ul><h2 id="3-2-如何添加账户？"><a href="#3-2-如何添加账户？" class="headerlink" title="3.2 如何添加账户？"></a>3.2 如何添加账户？</h2><p>要将帐户添加到您的框中，帐户 &gt; 用户管理 &gt; 单击“添加”按钮；</p><p><em>最大帐户数是您可以添加到此框中的帐户数。默认情况下，您可以添加最多10个帐户。</em></p><ol><li>填写要添加的用户的电子邮件</li><li>选择之前创建的角色</li><li>选择 Node。您应该选择每个组的节点，以便更容易地进行筛选</li><li>按钮添加用户。现在可以看到表中添加的所有用户</li><li>编辑后，点击**Apply **生效</li></ol><h2 id="3-3-如何设置实验室权限？"><a href="#3-3-如何设置实验室权限？" class="headerlink" title="3.3 如何设置实验室权限？"></a>3.3 如何设置实验室权限？</h2><p>PNETLab Box 允许您为每个实验设置权限。你可以设置谁可以开放实验室，谁可以加入实验室，谁可以编辑实验室。</p><ul><li><p>谁能打开这个实验室？</p></li><li><p>当用户打开一个实验室，这个实验室的一个新的会话将被创建并显示在运行实验室。</p><ul><li><strong>Admin Only: 仅管理员</strong></li><li><strong>Everyone: 各位</strong></li><li><strong>Admin and Special users: 管理员及特别用户</strong></li></ul></li><li><p>谁能加入这个实验室？</p></li><li><p>用户可以在“运行实验室”选项卡上看到所有运行实验室。用户只能加入他们有权加入的实验室。</p></li><li><p>谁能编辑这个实验室？</p></li><li><p>在加入实验室之后。只有有权编辑实验室的人才能编辑课程。否则他们可能会:</p><ul><li><strong>Start Node 启动节点</strong></li><li><strong>Stop Node 停止节点</strong></li><li><strong>Wipe Node 擦除节点</strong></li><li><strong>Console to Node 控制台到 Node</strong></li><li><strong>Using Workbook 使用工作簿</strong></li><li><strong>Timer 计时器</strong></li><li><strong>Change Active Config on Multi Config 在多个配置上更改活动配置</strong></li></ul></li></ul><h2 id="3-4-管理运行实验室"><a href="#3-4-管理运行实验室" class="headerlink" title="3.4 管理运行实验室"></a>3.4 管理运行实验室</h2><p>当用户打开任何实验室，一个实验室会话将被创建并显示在运行实验室。打开实验室的用户将成为实验室会话的主机。</p><p>我们可以看到有关会议主持人的信息，他们正在加入实验室。</p><ul><li>Destroy Lab：摧毁实验室</li><li>Join the Lab：加入实验室</li></ul><h2 id="3-5-管理-PNETLab-存储上的帐户"><a href="#3-5-管理-PNETLab-存储上的帐户" class="headerlink" title="3.5 管理 PNETLab 存储上的帐户"></a>3.5 管理 PNETLab 存储上的帐户</h2><p>您可以管理所有帐户的所有 PNETLab 盒上的商店。</p><h2 id="3-6-如何共享文件夹？"><a href="#3-6-如何共享文件夹？" class="headerlink" title="3.6 如何共享文件夹？"></a>3.6 如何共享文件夹？</h2><p>定义一个共享文件夹列表。</p><p>只有管理员有权编辑共享文件夹列表<strong>System &gt; System Setting 系统 &gt; 系统设定</strong></p><p>选择要共享的文件夹。编辑用户对共享文件夹的权限；</p><p>保存之后，所有用户都将看到共享文件夹并拥有访问该文件夹的权限。</p><h2 id="3-7-管理内存，CPU，硬盘"><a href="#3-7-管理内存，CPU，硬盘" class="headerlink" title="3.7 管理内存，CPU，硬盘"></a>3.7 管理内存，CPU，硬盘</h2><p>PNETLab 允许您管理每个节点上的 CPU、 RAM、 HDD、每个 Lab 会话和每个用户。您可以限制内存，CPU，硬盘为每个用户</p><h3 id="System-Status-系统状态"><a href="#System-Status-系统状态" class="headerlink" title="System Status 系统状态"></a><strong>System Status 系统状态</strong></h3><p>以通过单击来监视所有节点的信息查看系统状态</p><h3 id="查看用户占用资源"><a href="#查看用户占用资源" class="headerlink" title="查看用户占用资源"></a>查看用户占用资源</h3><p><strong>Accounts &gt; Roles Manager</strong></p><p>可以看到用户占用了多少% 的 RAM 和 CPU；</p><h3 id="实验室资源"><a href="#实验室资源" class="headerlink" title="实验室资源"></a>实验室资源</h3><p>管理每个实验室的资源，请转到 <strong>Running Labs</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：PNETLab-是什么？&quot;&gt;&lt;a href=&quot;#一：PNETLab-是什么？&quot; class=&quot;headerlink&quot; title=&quot;一：PNETLab 是什么？&quot;&gt;&lt;/a&gt;一：PNETLab 是什么？&lt;/h1&gt;&lt;p&gt;PNETLab（分组网络仿真器工具实验室）是</summary>
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://aiyingke.cn/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="PNETLab" scheme="https://aiyingke.cn/tags/PNETLab/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络基础</title>
@@ -468,30 +492,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;逻辑回归&quot;&gt;&lt;a href=&quot;#逻辑回归&quot; class=&quot;headerlink&quot; title=&quot;逻辑回归&quot;&gt;&lt;/a&gt;逻辑回归&lt;/h1&gt;&lt;h2 id=&quot;一：分类任务&quot;&gt;&lt;a href=&quot;#一：分类任务&quot; class=&quot;headerlink&quot; title=&quot;一：分类任</summary>
-      
-    
-    
-    
-    <category term="人工智能" scheme="https://aiyingke.cn/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    
-    <category term="人工智能" scheme="https://aiyingke.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI_分类问题</title>
-    <link href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
-    <id>https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/</id>
-    <published>2022-11-12T03:16:36.000Z</published>
-    <updated>2022-11-12T05:17:02.852Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p><h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;"><p>其中 x 为样本的特征，即属性。</p><h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"><h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul><li>输入：电子邮件</li><li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li></ul><h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol><li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li><li>获取批量的样本邮件及其标签，学习其特征（计算机）</li><li>针对新的邮件，自动判断其类别（计算机）</li></ol><h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul><li>发件人包含字符：% &amp; * …</li><li>正文包含：现金、领取等</li><li>其他特征</li></ul><h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p><p>其次根据样本的特征值，获得 y &#x3D; 0；</p><p>由此判断出是否为垃圾邮件。</p><h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul><li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p></li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li></ul><h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul><li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li></ul><h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul><li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li></ul><h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul><li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li></ul><h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul><li><p>垃圾邮件检测</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li></ul></li><li><p>图像分类</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li></ul></li><li><p>数字识别</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li></ul></li><li><p>考试通过测试</p><ul><li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li></ul></li></ul><h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul><li>分类任务<ul><li>分类目标：判断类别</li><li>模型输出：非连续型标签</li></ul></li><li>回归任务<ul><li>回归目标：建立函数关系</li><li>模型输出：连续型数值</li></ul></li></ul><p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p><h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul><li><p>分类问题</p><ul><li>根据房屋信息预测其是否受欢迎</li><li>猫狗图像识别</li><li>股价涨跌预测</li></ul></li><li><p>回归问题</p><ul><li>根据房屋信息预测房屋价格</li><li>股价预测</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;分类问题&quot;&gt;&lt;a href=&quot;#分类问题&quot; class=&quot;headerlink&quot; title=&quot;分类问题&quot;&gt;&lt;/a&gt;分类问题&lt;/h1&gt;&lt;h2 id=&quot;一：什么是分类问题？&quot;&gt;&lt;a href=&quot;#一：什么是分类问题？&quot; class=&quot;headerlink&quot; titl</summary>
       
     
     

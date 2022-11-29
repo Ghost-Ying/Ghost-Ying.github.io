@@ -21,32 +21,20 @@
     var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="逻辑回归一：分类任务任务：根据余额判断小明是否会去看电影； 训练数据： 余额为1、2、3、4、5，看电影（正样本） 余额为-1、-2、-3、-4、-5，不看电源（负样本） 作图：   二：线性回归预测1. 预测结果 2. 存在问题当样本量变大以后，准确率会下降；   当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。   三：逻辑回归预测1.  逻辑回归方程 2. 函数图像">
+  <meta name="description" content="一：PNETLab 是什么？PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。  PNETLab Box 它是一个虚拟机，安装在本地机器上，实验室将在上面运行。 模式 线上模式 线下模式     PNETLab Store 一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI_逻辑回归（1）">
-<meta property="og:url" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:title" content="PNETLab 模拟器">
+<meta property="og:url" content="https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/index.html">
 <meta property="og:site_name" content="爱影客">
-<meta property="og:description" content="逻辑回归一：分类任务任务：根据余额判断小明是否会去看电影； 训练数据： 余额为1、2、3、4、5，看电影（正样本） 余额为-1、-2、-3、-4、-5，不看电源（负样本） 作图：   二：线性回归预测1. 预测结果 2. 存在问题当样本量变大以后，准确率会下降；   当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。   三：逻辑回归预测1.  逻辑回归方程 2. 函数图像">
+<meta property="og:description" content="一：PNETLab 是什么？PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。  PNETLab Box 它是一个虚拟机，安装在本地机器上，实验室将在上面运行。 模式 线上模式 线下模式     PNETLab Store 一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png">
-<meta property="og:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png">
-<meta property="article:published_time" content="2022-11-12T05:17:29.000Z">
-<meta property="article:modified_time" content="2022-11-12T05:40:50.593Z">
+<meta property="article:published_time" content="2022-11-29T09:04:49.000Z">
+<meta property="article:modified_time" content="2022-11-29T11:53:25.324Z">
 <meta property="article:author" content="Rupert-Tears">
-<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="PNETLab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png">
 
-<link rel="canonical" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
+<link rel="canonical" href="https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/">
 
 
 <script id="page-configurations">
@@ -59,7 +47,7 @@
   };
 </script>
 
-  <title>AI_逻辑回归（1） | 爱影客</title>
+  <title>PNETLab 模拟器 | 爱影客</title>
   
 
 
@@ -215,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/RupertTears.jpg">
@@ -228,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AI_逻辑回归（1）
+          PNETLab 模拟器
         </h1>
 
         <div class="post-meta">
@@ -240,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
+              <time title="创建时间：2022-11-29 17:04:49 / 修改时间：19:53:25" itemprop="dateCreated datePublished" datetime="2022-11-29T17:04:49+08:00">2022-11-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,7 +236,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
                 </span>
             </span>
 
@@ -270,44 +258,97 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
-<p>训练数据：</p>
-<p>余额为1、2、3、4、5，看电影（正样本）</p>
-<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
-<p>作图：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
-
-<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
-<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
-
-<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
-
-<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
-<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
-
-<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
-
-<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
-<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
-<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
-<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
-<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
-
-<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
-
-<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
-<p>逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
-
-<p>带入参数值，获得结果：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
-
-<p>结论：</p>
-<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
-<p>余额 100，即 y &#x3D; 1，去看电影；</p>
+        <h1 id="一：PNETLab-是什么？"><a href="#一：PNETLab-是什么？" class="headerlink" title="一：PNETLab 是什么？"></a>一：PNETLab 是什么？</h1><p>PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。</p>
+<ul>
+<li>PNETLab Box<ul>
+<li>它是一个虚拟机，安装在本地机器上，实验室将在上面运行。</li>
+<li>模式<ul>
+<li>线上模式</li>
+<li>线下模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PNETLab Store<ul>
+<li>一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：设计理念"><a href="#二：设计理念" class="headerlink" title="二：设计理念"></a>二：设计理念</h1><h2 id="2-1-主要特征"><a href="#2-1-主要特征" class="headerlink" title="2.1 主要特征"></a>2.1 主要特征</h2><ul>
+<li>许多人可以登录一个PNETLab Box</li>
+<li>许多人可以加入同一个实验室会话</li>
+<li>按“角色”设置用户权限</li>
+<li>为每个实验室设置权限：谁可以打开新会话，谁可以加入会话，谁可以编辑实验室</li>
+<li>锁定实验室</li>
+<li>管理监控实验室</li>
+</ul>
+<h1 id="三：使用教程"><a href="#三：使用教程" class="headerlink" title="三：使用教程"></a>三：使用教程</h1><h2 id="3-1-如何添加角色？"><a href="#3-1-如何添加角色？" class="headerlink" title="3.1 如何添加角色？"></a>3.1 如何添加角色？</h2><p>创建角色: 帐户 &gt; 角色管理 &gt; 单击“添加”按钮；</p>
+<p>设置用户权限：</p>
+<ul>
+<li><strong>Delete Folder: 删除文件夹</strong>：用户可以删除其工作区上的文件夹</li>
+<li><strong>Add New Folder: 添加新文件夹</strong>：用户可以在其工作区中添加新的文件夹</li>
+<li><strong>Rename or Move Folder: 重命名或移动文件夹</strong>：用户可以更改名称或拖放来移动工作区上的文件夹</li>
+<li><strong>Delete Lab: 删除实验室</strong>：用户可以删除工作区上的实验室</li>
+<li><strong>Add New Lab 添加新的实验室</strong>：用户可以在他们的工作区中添加一个新的实验室</li>
+<li><strong>Import Lab: 导入实验室</strong>：用户可以导入他们工作空间的实验室</li>
+<li><strong>Export Lab: 出口实验室</strong>：用户可以导出实验室到他们的工作空间</li>
+<li><strong>Move Lab 移动实验室</strong>：用户可以将Lab移动到他们的工作区</li>
+<li><strong>Clone Lab 克隆实验室</strong>：用户可以在他们的工作空间上克隆实验室</li>
+</ul>
+<h2 id="3-2-如何添加账户？"><a href="#3-2-如何添加账户？" class="headerlink" title="3.2 如何添加账户？"></a>3.2 如何添加账户？</h2><p>要将帐户添加到您的框中，帐户 &gt; 用户管理 &gt; 单击“添加”按钮；</p>
+<p><em>最大帐户数是您可以添加到此框中的帐户数。默认情况下，您可以添加最多10个帐户。</em></p>
+<ol>
+<li>填写要添加的用户的电子邮件</li>
+<li>选择之前创建的角色</li>
+<li>选择 Node。您应该选择每个组的节点，以便更容易地进行筛选</li>
+<li>按钮添加用户。现在可以看到表中添加的所有用户</li>
+<li>编辑后，点击**Apply **生效</li>
+</ol>
+<h2 id="3-3-如何设置实验室权限？"><a href="#3-3-如何设置实验室权限？" class="headerlink" title="3.3 如何设置实验室权限？"></a>3.3 如何设置实验室权限？</h2><p>PNETLab Box 允许您为每个实验设置权限。你可以设置谁可以开放实验室，谁可以加入实验室，谁可以编辑实验室。</p>
+<ul>
+<li><p>谁能打开这个实验室？</p>
+</li>
+<li><p>当用户打开一个实验室，这个实验室的一个新的会话将被创建并显示在运行实验室。</p>
+<ul>
+<li><strong>Admin Only: 仅管理员</strong></li>
+<li><strong>Everyone: 各位</strong></li>
+<li><strong>Admin and Special users: 管理员及特别用户</strong></li>
+</ul>
+</li>
+<li><p>谁能加入这个实验室？</p>
+</li>
+<li><p>用户可以在“运行实验室”选项卡上看到所有运行实验室。用户只能加入他们有权加入的实验室。</p>
+</li>
+<li><p>谁能编辑这个实验室？</p>
+</li>
+<li><p>在加入实验室之后。只有有权编辑实验室的人才能编辑课程。否则他们可能会:</p>
+<ul>
+<li><strong>Start Node 启动节点</strong></li>
+<li><strong>Stop Node 停止节点</strong></li>
+<li><strong>Wipe Node 擦除节点</strong></li>
+<li><strong>Console to Node 控制台到 Node</strong></li>
+<li><strong>Using Workbook 使用工作簿</strong></li>
+<li><strong>Timer 计时器</strong></li>
+<li><strong>Change Active Config on Multi Config 在多个配置上更改活动配置</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-4-管理运行实验室"><a href="#3-4-管理运行实验室" class="headerlink" title="3.4 管理运行实验室"></a>3.4 管理运行实验室</h2><p>当用户打开任何实验室，一个实验室会话将被创建并显示在运行实验室。打开实验室的用户将成为实验室会话的主机。</p>
+<p>我们可以看到有关会议主持人的信息，他们正在加入实验室。</p>
+<ul>
+<li>Destroy Lab：摧毁实验室</li>
+<li>Join the Lab：加入实验室</li>
+</ul>
+<h2 id="3-5-管理-PNETLab-存储上的帐户"><a href="#3-5-管理-PNETLab-存储上的帐户" class="headerlink" title="3.5 管理 PNETLab 存储上的帐户"></a>3.5 管理 PNETLab 存储上的帐户</h2><p>您可以管理所有帐户的所有 PNETLab 盒上的商店。</p>
+<h2 id="3-6-如何共享文件夹？"><a href="#3-6-如何共享文件夹？" class="headerlink" title="3.6 如何共享文件夹？"></a>3.6 如何共享文件夹？</h2><p>定义一个共享文件夹列表。</p>
+<p>只有管理员有权编辑共享文件夹列表<strong>System &gt; System Setting 系统 &gt; 系统设定</strong></p>
+<p>选择要共享的文件夹。编辑用户对共享文件夹的权限；</p>
+<p>保存之后，所有用户都将看到共享文件夹并拥有访问该文件夹的权限。</p>
+<h2 id="3-7-管理内存，CPU，硬盘"><a href="#3-7-管理内存，CPU，硬盘" class="headerlink" title="3.7 管理内存，CPU，硬盘"></a>3.7 管理内存，CPU，硬盘</h2><p>PNETLab 允许您管理每个节点上的 CPU、 RAM、 HDD、每个 Lab 会话和每个用户。您可以限制内存，CPU，硬盘为每个用户</p>
+<h3 id="System-Status-系统状态"><a href="#System-Status-系统状态" class="headerlink" title="System Status 系统状态"></a><strong>System Status 系统状态</strong></h3><p>以通过单击来监视所有节点的信息查看系统状态</p>
+<h3 id="查看用户占用资源"><a href="#查看用户占用资源" class="headerlink" title="查看用户占用资源"></a>查看用户占用资源</h3><p><strong>Accounts &gt; Roles Manager</strong></p>
+<p>可以看到用户占用了多少% 的 RAM 和 CPU；</p>
+<h3 id="实验室资源"><a href="#实验室资源" class="headerlink" title="实验室资源"></a>实验室资源</h3><p>管理每个实验室的资源，请转到 <strong>Running Labs</strong></p>
 
     </div>
 
@@ -353,7 +394,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" title="AI_逻辑回归（1）">https://aiyingke.cn/2022/11/12/AI-逻辑回归（1）/</a>
+    <a href="https://aiyingke.cn/2022/11/29/PNETLab-%E6%A8%A1%E6%8B%9F%E5%99%A8/" title="PNETLab 模拟器">https://aiyingke.cn/2022/11/29/PNETLab-模拟器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/deed.zh/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>DEED.ZH</a> 许可协议。转载请注明出处！
@@ -413,7 +454,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
+              <a href="/tags/PNETLab/" rel="tag"># PNETLab</a>
           </div>
 
         
@@ -422,13 +463,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" rel="prev" title="AI_分类问题">
-      <i class="fa fa-chevron-left"></i> AI_分类问题
+    <a href="/2022/11/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" rel="prev" title="计算机网络基础">
+      <i class="fa fa-chevron-left"></i> 计算机网络基础
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/" rel="next" title="AI_逻辑回归（2）">
-      AI_逻辑回归（2） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -492,7 +530,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%EF%BC%9A%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">一：分类任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%A2%84%E6%B5%8B"><span class="nav-number">1.2.</span> <span class="nav-text">二：线性回归预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 预测结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 存在问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E9%A2%84%E6%B5%8B"><span class="nav-number">1.3.</span> <span class="nav-text">三：逻辑回归预测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.  逻辑回归方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 函数图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 预测结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="nav-number">1.4.</span> <span class="nav-text">四：逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. 数学表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%85%B8%E5%9E%8B%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A6%82%E5%BF%B5%E5%88%86%E5%B8%83%E6%9B%B2%E7%BA%BF"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. 典型逻辑回归概念分布曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%BB%BB%E5%8A%A1%E9%A2%84%E6%B5%8B"><span class="nav-number">1.4.5.</span> <span class="nav-text">5. 任务预测</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%9APNETLab-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一：PNETLab 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">二：设计理念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 主要特征</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">三：使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%A7%92%E8%89%B2%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 如何添加角色？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%B4%A6%E6%88%B7%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 如何添加账户？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9D%83%E9%99%90%EF%BC%9F"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 如何设置实验室权限？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E7%AE%A1%E7%90%86%E8%BF%90%E8%A1%8C%E5%AE%9E%E9%AA%8C%E5%AE%A4"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 管理运行实验室</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E7%AE%A1%E7%90%86-PNETLab-%E5%AD%98%E5%82%A8%E4%B8%8A%E7%9A%84%E5%B8%90%E6%88%B7"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 管理 PNETLab 存储上的帐户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-%E5%A6%82%E4%BD%95%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%9F"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 如何共享文件夹？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-%E7%AE%A1%E7%90%86%E5%86%85%E5%AD%98%EF%BC%8CCPU%EF%BC%8C%E7%A1%AC%E7%9B%98"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 管理内存，CPU，硬盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Status-%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81"><span class="nav-number">3.7.1.</span> <span class="nav-text">System Status 系统状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E5%8D%A0%E7%94%A8%E8%B5%84%E6%BA%90"><span class="nav-number">3.7.2.</span> <span class="nav-text">查看用户占用资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%B5%84%E6%BA%90"><span class="nav-number">3.7.3.</span> <span class="nav-text">实验室资源</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
