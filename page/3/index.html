@@ -199,6 +199,266 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（2）</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-12 14:08:50 / 修改时间：17:08:16" itemprop="dateCreated datePublished" datetime="2022-11-12T14:08:50+08:00">2022-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：复杂的分类问题"><a href="#一：复杂的分类问题" class="headerlink" title="一：复杂的分类问题"></a>一：复杂的分类问题</h2><h3 id="1-直线决策边界"><a href="#1-直线决策边界" class="headerlink" title="1. 直线决策边界"></a>1. 直线决策边界</h3><p>通过 x<sub>1</sub> 和 x<sub>2</sub> 去判断 y的值</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141044914.png" style="zoom: 33%;">
+
+<p>概念分布函数</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141306835.png" style="zoom: 50%;">
+
+<p>核心问题：找到 g(x)，即蓝色的直线；</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141349124.png" style="zoom:50%;">
+
+<p>决策边界：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141504765.png" style="zoom:50%;">
+
+<h3 id="2-圆形决策边界"><a href="#2-圆形决策边界" class="headerlink" title="2. 圆形决策边界"></a>2. 圆形决策边界</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141701950.png" style="zoom: 33%;">
+
+<p>获取概念分布，逻辑回归方程：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141808332.png" style="zoom: 50%;">
+
+<p>圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142014947.png" style="zoom: 50%;">
+
+<p>决策边界：</p>
+<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142059035.png"></p>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><ul>
+<li>当使用逻辑回归去求解问题时，核心即找到决策边界。</li>
+<li>逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。<ul>
+<li>线性边界，即多项式为1次；</li>
+<li>圆形边界，即多项式为2次；</li>
+</ul>
+</li>
+</ul>
+<h2 id="二：逻辑回归问题求解"><a href="#二：逻辑回归问题求解" class="headerlink" title="二：逻辑回归问题求解"></a>二：逻辑回归问题求解</h2><ul>
+<li>概念分布函数</li>
+<li>对应的边界函数关系</li>
+</ul>
+<h3 id="1-寻找类别边界"><a href="#1-寻找类别边界" class="headerlink" title="1. 寻找类别边界"></a>1. 寻找类别边界</h3><p>根据训练样本，寻找类别边界；</p>
+<p>即：根据训练样本，寻找找 θ<sub>0</sub>、θ<sub>1</sub>、θ<sub>2</sub></p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142629280.png" style="zoom:50%;">
+
+<h3 id="2-如何求解系数"><a href="#2-如何求解系数" class="headerlink" title="2.  如何求解系数"></a>2.  如何求解系数</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142953201.png" style="zoom:50%;">
+
+<p>分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112143359941.png" style="zoom: 50%;">
+
+<p>图像：</p>
+<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/20200407084418389.png"></p>
+<p>等效转换关系式：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112144946188.png" style="zoom: 50%;">
+
+<p>带入P(x)，求解</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145047414.png" style="zoom:50%;">
+
+<p>采用梯度下降法，获取最小化的损失函数 J</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145205900.png" style="zoom:50%;">
+
+<h2 id="三：命名问题"><a href="#三：命名问题" class="headerlink" title="三：命名问题"></a>三：命名问题</h2><p>逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？</p>
+<p>逻辑回归虽然名字中有回归，但实际上它是一个<code>二分类算法</code>。</p>
+<p>逻辑回归实际上就是在多元线性回归（θᵀx）的基础上，多嵌套了一个函数，这个函数就是 sigmoid 函数，也被称为 S 型曲线。 </p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153624030.png" style="zoom: 67%;">
+
+<p>简化表达：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153714798.png" style="zoom:67%;">
+
+<p>函数图像：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112162347188.png" style="zoom:50%;">
+
+<p style="text-indent:2em">由 sigmoid 函数图像看知，其值域为(0,1)。因此逻辑回归就是在多元线性回归的基础上，讲结果缩放到了0 和 1 之间。</p>
+
+<p style="text-indent:2em">当我们通过线性函数得到一个结果，这个结果越小于0，函数输出就越接近0；结果越大于0，函数输出就越接近1，而分类算法的输出一般情况下都会是 input 属于某个类别的概念大小，因此用0到1之间的范围刚好可以表示概念。中间的0.5则将结果划分为两个类别。所以，我们可以简单的将 sigmoid 函数理解成一个将输出转化为属于某个类别的概念的函数。</p>
+
+<p style="text-indent:2em">综上所述，逻辑回归的大体思想就是，多元线性回归算法回归出一个分类超平面，预测样本通过代入这个超平面，如果是负就说明在这个超平面的下方，如果是正就说明是在这个超平面的上方。再通过 sigmoid 转换为概率，最好通过概率输出类别。</p>
+
+<h2 id="四：逻辑回归统计学模型：伯努利分布"><a href="#四：逻辑回归统计学模型：伯努利分布" class="headerlink" title="四：逻辑回归统计学模型：伯努利分布"></a>四：逻辑回归统计学模型：伯努利分布</h2><p style="text-indent:2em">我们知道，对于二分类算法，样本只有两个标签，要么是0要么是1，并且二分类有一个特点，那就是我们最终预测样本的概念，正例加上负例的概念总和是1。即每一次预测我们都可以这样表示：</p>
+
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164826386.png" style="zoom:50%;">
+
+<p>这个公式不就是伯努利分布（0-1分布）嘛！</p>
+<p>因此，对于模型每一次预测的输出，我们都可以写成伯努利分布的形式：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164938371.png" style="zoom:50%;">
+
+<p>细微差异：</p>
+<p>伯努利分布中，最经典的案例就是抛硬币。只不过在抛硬币前我们已经假设概率是对半分的。</p>
+<p>但是在逻辑回归中，概念是需要通过每一次模型预测给出的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（1）</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
+<p>训练数据：</p>
+<p>余额为1、2、3、4、5，看电影（正样本）</p>
+<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
+<p>作图：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
+
+<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
+<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
+
+<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
+
+<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
+<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
+
+<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
+
+<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
+<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
+<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
+<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
+<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
+
+<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
+
+<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
+<p>逻辑回归方程：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
+
+<p>带入参数值，获得结果：</p>
+<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
+
+<p>结论：</p>
+<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
+<p>余额 100，即 y &#x3D; 1，去看电影；</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1042,192 +1302,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">单因子线性回归</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-05 15:07:24 / 修改时间：16:35:58" itemprop="dateCreated datePublished" datetime="2022-11-05T15:07:24+08:00">2022-11-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="单因子线性回归"><a href="#单因子线性回归" class="headerlink" title="单因子线性回归"></a>单因子线性回归</h1><h2 id="一：LR实现线性预测"><a href="#一：LR实现线性预测" class="headerlink" title="一：LR实现线性预测"></a>一：LR实现线性预测</h2><p>任务：</p>
-<ol>
-<li>基于data.csv数据，建立线性回归模型。</li>
-<li>预测 x&#x3D;3.5 对应的 y 值。</li>
-<li>评估模型表现。</li>
-</ol>
-<h2 id="二：实现流程"><a href="#二：实现流程" class="headerlink" title="二：实现流程"></a>二：实现流程</h2><ol>
-<li>建立线性回归模型<ol>
-<li>导入数据，查看数据</li>
-<li>数据赋值，查看数据类型</li>
-<li>可视化数据</li>
-<li>建立 Linear Regression 模型</li>
-<li>根据需求重塑数据</li>
-<li>模型训练</li>
-</ol>
-</li>
-<li>数据预测<ol>
-<li>查看预测结果</li>
-<li>对指定值进行预测</li>
-</ol>
-</li>
-<li>评估模型表现<ol>
-<li>通过 Excel 获取数据关系</li>
-<li>计算MSE值，进行评估</li>
-<li>计算R2值，进行评估</li>
-<li>可视化展示预测值与期望值关系</li>
-</ol>
-</li>
-</ol>
-<h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：导入数据，查看数据</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">data.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：数据赋值</span></span><br><span class="line">x = data.loc[:,<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;y&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(x,y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三步：可视化数据</span></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.figure(figsize=(<span class="number">2</span>,<span class="number">2</span>)) <span class="comment"># 设置图形大小</span></span><br><span class="line">plt.scatter(x,y) <span class="comment"># 绘制散点图</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第四步：建立 Linear Regression 模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">lr_model = LinearRegression()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据重塑</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.array(x)</span><br><span class="line">x = x.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y = np.array(y)</span><br><span class="line">y = y.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x),x.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y),y.shape)</span><br><span class="line"></span><br><span class="line">lr_model.fit(x,y) <span class="comment"># 模型训练</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第五步：预测数据</span></span><br><span class="line">y_predict = lr_model.predict(x)</span><br><span class="line"><span class="built_in">print</span>(y_predict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第六步：评估模型表现</span></span><br><span class="line">a = lr_model.coef_</span><br><span class="line">b = lr_model.intercept_</span><br><span class="line"><span class="built_in">print</span>(a,b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 excel 获取，y = 2x</span></span><br><span class="line"><span class="comment"># 通过 MSE 和 R2 进行评估</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">MSE = mean_squared_error(y,y_predict)</span><br><span class="line">R2 = r2_score(y,y_predict)</span><br><span class="line"><span class="built_in">print</span>(MSE,R2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(y,y_predict)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h2 id="四：模型评估"><a href="#四：模型评估" class="headerlink" title="四：模型评估"></a>四：模型评估</h2><h3 id="Excel-结果"><a href="#Excel-结果" class="headerlink" title="Excel 结果"></a>Excel 结果</h3><p><img src="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163228900.png"></p>
-<h3 id="MSE-与-R2结果"><a href="#MSE-与-R2结果" class="headerlink" title="MSE 与 R2结果"></a>MSE 与 R<sup>2</sup>结果</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2022/11/05/AI_%E5%8D%95%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221105163237445.png"></h3>
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/05/LeetCode_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/05/LeetCode_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="post-title-link" itemprop="url">LeetCode_寻找两个正序数组的中位数</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-05 03:11:54 / 修改时间：03:15:08" itemprop="dateCreated datePublished" datetime="2022-11-05T03:11:54+08:00">2022-11-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="寻找两个正序数组的中位数"><a href="#寻找两个正序数组的中位数" class="headerlink" title="寻找两个正序数组的中位数"></a>寻找两个正序数组的中位数</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
-<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">示例 1：</span><br><span class="line"></span><br><span class="line">输入：nums1 = [1,3], nums2 = [2]</span><br><span class="line">输出：2.00000</span><br><span class="line">解释：合并数组 = [1,2,3] ，中位数 2</span><br><span class="line">示例 2：</span><br><span class="line"></span><br><span class="line">输入：nums1 = [1,2], nums2 = [3,4]</span><br><span class="line">输出：2.50000</span><br><span class="line">解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a><strong>提示</strong></h2><ul>
-<li><code>nums1.length == m</code></li>
-<li><code>nums2.length == n</code></li>
-<li><code>0 &lt;= m &lt;= 1000</code></li>
-<li><code>0 &lt;= n &lt;= 1000</code></li>
-<li><code>1 &lt;= m + n &lt;= 2000</code></li>
-<li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 0:32 2022/11/5</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 寻找两个正序数组的中位数</span></span><br><span class="line"><span class="comment"> * 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 算法的时间复杂度应该为 O(log (m+n)) 。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：nums1 = [1,3], nums2 = [2]</span></span><br><span class="line"><span class="comment"> * 输出：2.00000</span></span><br><span class="line"><span class="comment"> * 解释：合并数组 = [1,2,3] ，中位数 2</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：nums1 = [1,2], nums2 = [3,4]</span></span><br><span class="line"><span class="comment"> * 输出：2.50000</span></span><br><span class="line"><span class="comment"> * 解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 解题思路：将数组进行合并，根据长度情况取中位数</span></span><br><span class="line"><span class="comment"> * 如何在数组中插入元素</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 数组中存放的都为正整数时：以下算法满足</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Aigo_004</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span>[] nums1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        <span class="type">int</span>[] nums2 = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="type">double</span> <span class="variable">result</span> <span class="operator">=</span> findMedianSortedArrays(nums1, nums2);</span><br><span class="line"></span><br><span class="line">        System.out.println(result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; arr1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;String&gt; arr2 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k : nums1) &#123;</span><br><span class="line">            arr1.add(String.valueOf(k));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k : nums2) &#123;</span><br><span class="line">            arr2.add(String.valueOf(k));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;arr1:&quot;</span> + arr1);</span><br><span class="line">        System.out.println(<span class="string">&quot;arr2:&quot;</span> + arr2);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> arr1.size();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> arr2.size();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> &amp;&amp; len2 != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">resLength</span> <span class="operator">=</span> arr2.size();</span><br><span class="line">            <span class="keyword">if</span> (resLength % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>) - <span class="number">1</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">res2</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(res2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> (v1 + v2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">res</span> <span class="operator">=</span> sum / <span class="number">2</span>;</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (len1 != <span class="number">0</span> &amp;&amp; len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">resLength</span> <span class="operator">=</span> arr1.size();</span><br><span class="line">            <span class="keyword">if</span> (resLength % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>) - <span class="number">1</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">res2</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(res2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> (v1 + v2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">res</span> <span class="operator">=</span> sum / <span class="number">2</span>;</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (len2 &gt;= len1) &#123;</span><br><span class="line">            <span class="comment">// nums1 次插入数据</span></span><br><span class="line">            <span class="keyword">for</span> (String s : arr1) &#123;     <span class="comment">// len1 插入</span></span><br><span class="line">                <span class="comment">// nums1 中的每一个数字和 插入数字比对</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; arr2.size(); j++) &#123;     <span class="comment">// 最多4次比对</span></span><br><span class="line">                    <span class="comment">// 如果相等</span></span><br><span class="line">                    <span class="keyword">if</span> (arr2.get(j).equals(s)) &#123;</span><br><span class="line">                        arr2.add(j, s);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 若小于目标值</span></span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (Integer.parseInt(arr2.get(j)) &gt; Integer.parseInt(s)) &#123;</span><br><span class="line">                        arr2.add(j, s);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (j == arr2.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                            arr2.add(j + <span class="number">1</span>, s);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(arr2);</span><br><span class="line">            <span class="type">int</span> <span class="variable">resLength</span> <span class="operator">=</span> arr2.size();</span><br><span class="line">            <span class="keyword">if</span> (resLength % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>) - <span class="number">1</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">res2</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(res2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> (v1 + v2);</span><br><span class="line">                <span class="type">double</span> <span class="variable">res</span> <span class="operator">=</span> sum / <span class="number">2</span>;</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr2.get((resLength / <span class="number">2</span>));</span><br><span class="line">                <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">                System.out.println(res);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2向1插入数据</span></span><br><span class="line">        <span class="keyword">for</span> (String s : arr2) &#123;</span><br><span class="line">            <span class="comment">// 与1中的逐一比对</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; arr1.size(); j++) &#123;</span><br><span class="line">                <span class="comment">// 如果相等</span></span><br><span class="line">                <span class="keyword">if</span> (s.equals(arr1.get(j))) &#123;</span><br><span class="line">                    arr1.add(j, s);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 如果小于</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (Integer.parseInt(s) &lt; Integer.parseInt(arr1.get(j))) &#123;</span><br><span class="line">                    arr1.add(j, s);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j == arr1.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                        arr1.add(s);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(arr1);</span><br><span class="line">        <span class="type">int</span> <span class="variable">resLength</span> <span class="operator">=</span> arr1.size();</span><br><span class="line">        <span class="keyword">if</span> (resLength % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>) - <span class="number">1</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">res2</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>));</span><br><span class="line">            <span class="type">int</span> <span class="variable">v1</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">            <span class="type">int</span> <span class="variable">v2</span> <span class="operator">=</span> Integer.parseInt(res2);</span><br><span class="line">            <span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> (v1 + v2);</span><br><span class="line">            <span class="type">double</span> <span class="variable">res</span> <span class="operator">=</span> sum / <span class="number">2</span>;</span><br><span class="line">            System.out.println(res);</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">res1</span> <span class="operator">=</span> arr1.get((resLength / <span class="number">2</span>));</span><br><span class="line">            <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.parseInt(res1);</span><br><span class="line">            System.out.println(res);</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1299,7 +1373,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1366,7 +1440,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共32.6k字</span>
+  <span class="post-count">本博客全站共33.9k字</span>
 </div>
 
 
