@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-12-01T08:04:55.158Z</updated>
+  <updated>2022-12-01T17:16:23.879Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 概述</title>
+    <link href="https://aiyingke.cn/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/"/>
+    <id>https://aiyingke.cn/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-12-01T16:55:57.000Z</published>
+    <updated>2022-12-01T17:16:23.879Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010250119.png" style="zoom:50%;"><h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010332476.png" style="zoom: 67%;"><h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010434500.png"></p><ul><li>Dennis Ritchie：开发了C语言；</li><li>Linus Torvalds：开发了 Git 工具；</li><li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li></ul><h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011012214.png" style="zoom:67%;"><ul><li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li><li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li></ul><h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011436019.png" style="zoom:80%;"><h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011609137.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：Linux-是什么？&quot;&gt;&lt;a href=&quot;#一：Linux-是什么？&quot; class=&quot;headerlink&quot; title=&quot;一：Linux 是什么？&quot;&gt;&lt;/a&gt;一：Linux 是什么？&lt;/h1&gt;&lt;p&gt;Linux 是一个操作系统（OS）&lt;/p&gt;
+&lt;img src</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://aiyingke.cn/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://aiyingke.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>ARP 协议</title>
@@ -480,30 +505,6 @@
     
     
     <category term="Java基础" scheme="https://aiyingke.cn/tags/Java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>专业词汇积累009</title>
-    <link href="https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/"/>
-    <id>https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/</id>
-    <published>2022-11-20T13:02:31.000Z</published>
-    <updated>2022-11-20T13:32:59.010Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Professional-Vocabulary-Accumulation-009"><a href="#Professional-Vocabulary-Accumulation-009" class="headerlink" title="Professional Vocabulary Accumulation_009"></a>Professional Vocabulary Accumulation_009</h1><ul><li>The method allows to retrieve items according to the given parameters.</li><li>此方法允许根据给定的参数获取监控项。</li><li>inlay hints</li><li>内置的提醒</li><li>Contains</li><li>包括</li><li>use a like with ‘%’ wildcard added to the beginning and end.</li><li>使用在开头和结尾添加一个 ‘%’ 的通配符</li><li>the equal to bind value.</li><li>等于绑定值</li><li>the root query bean instance.</li><li>根查询Bean实例</li><li>navigate to previous declared variable ‘ids’</li><li>导航到之前声明的变量 ‘ids’</li><li>shows project statistic</li><li>显示项目统计信息</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Professional-Vocabulary-Accumulation-009&quot;&gt;&lt;a href=&quot;#Professional-Vocabulary-Accumulation-009&quot; class=&quot;headerlink&quot; title=&quot;Professional</summary>
-      
-    
-    
-    
-    <category term="专业词汇" scheme="https://aiyingke.cn/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
-    
-    
-    <category term="专业词汇" scheme="https://aiyingke.cn/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"/>
     
   </entry>
   

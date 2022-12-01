@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux 概述</title>
+      <link href="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/"/>
+      <url>/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010250119.png" style="zoom:50%;"><h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010332476.png" style="zoom: 67%;"><h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010434500.png"></p><ul><li>Dennis Ritchie：开发了C语言；</li><li>Linus Torvalds：开发了 Git 工具；</li><li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li></ul><h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011012214.png" style="zoom:67%;"><ul><li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li><li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li></ul><h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011436019.png" style="zoom:80%;"><h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011609137.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ARP 协议</title>
       <link href="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/"/>
       <url>/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/</url>

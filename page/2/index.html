@@ -199,6 +199,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">john 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-27 01:28:19 / 修改时间：01:56:42" itemprop="dateCreated datePublished" datetime="2022-11-27T01:28:19+08:00">2022-11-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：John-概述"><a href="#一：John-概述" class="headerlink" title="一：John 概述"></a>一：John 概述</h1><p>开膛手约翰（John the Ripper）是一个快速的密码破解程序。</p>
+<p>其主要目的是检测弱 Unix 密码。</p>
+<h1 id="二：John-破解-Linux-密码"><a href="#二：John-破解-Linux-密码" class="headerlink" title="二：John 破解 Linux 密码"></a>二：John 破解 Linux 密码</h1><h2 id="2-1-相关文件"><a href="#2-1-相关文件" class="headerlink" title="2.1 相关文件"></a>2.1 相关文件</h2><p>Linux 系统中存放账号、密码的两个重要文件 &#x2F;etc&#x2F;passwd 与 &#x2F;etc&#x2F;shadow</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd		# 查看存放账户的文件内容</span><br><span class="line">cat /etc/passwd | head -1	</span><br><span class="line">root:x:0:0:root:/root:/usr/bin/zsh	# 被&quot;:&quot;划分为7个字段</span><br><span class="line">用户名：密码：用户ID（UID）：用户组ID（GID）：描述信息：主目录：默认shell</span><br><span class="line"></span><br><span class="line">cat /etc/shadow 	# 查看存放账户密码的文件内容</span><br><span class="line">cat /etc/shadow | head -1	# 被&quot;:&quot;划分为9个字段</span><br><span class="line">root:$y$j9T$yRBeGeHrNuu/yNBeAEqn40$.ljB8e37.pNGJXOVLiDDJUTTCcA..R8rXJcUmFCuBcB:19321:0:99999:7:::</span><br><span class="line">用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-破解密码"><a href="#2-2-破解密码" class="headerlink" title="2.2 破解密码"></a>2.2 破解密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将账户文件与密码文件合成一个文件</span></span><br><span class="line">unshadow /etc/passwd /etc/shadow &gt; shadow	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 john 破解账户 ssh 密码</span></span><br><span class="line">john --format=crypt shadow </span><br><span class="line"></span><br><span class="line">Using default input encoding: UTF-8</span><br><span class="line">使用默认输入编码：UTF-8</span><br><span class="line">Loaded 3 password hashes with 3 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">用3种不同的盐加载3个密码散列（crypt, generic crypt(3) [?/64]）</span><br><span class="line">Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本1（算法[1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]）为0</span><br><span class="line">Cost 2 (algorithm specific iterations) is 1 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本2（特定于算法的迭代）为1</span><br><span class="line">Proceeding with single, rules:Single</span><br><span class="line">单一进程，规则：单一</span><br><span class="line">Press &#x27;q&#x27; or Ctrl-C to abort, almost any other key for status</span><br><span class="line">按 &#x27;q&#x27; 或者 Ctrl-C 终止，几乎任何其他状态键</span><br><span class="line">root             (root)     </span><br><span class="line">root             (ghost)     </span><br><span class="line">Almost done: Processing the remaining buffered candidate passwords, if any.</span><br><span class="line">基本完成：处理剩余的缓存候选密码（如果有）</span><br><span class="line">Proceeding with wordlist:/usr/share/john/password.lst</span><br><span class="line">继续处理单词列表：/usr/share/john/password.lst</span><br><span class="line">123456           (test)     </span><br><span class="line">3g 0:00:00:18 DONE 2/3 (2022-11-27 01:26) 0.1648g/s 82.08p/s 82.19c/s 82.19C/s 123456..pepper</span><br><span class="line">Use the &quot;--show&quot; option to display all of the cracked passwords reliably</span><br><span class="line">使用 &quot;--show&quot; 选项可靠地显示所有破解的密码</span><br><span class="line">Session completed. </span><br><span class="line">会话完成。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1144,98 +1223,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/" class="post-title-link" itemprop="url">专业词汇积累009</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 21:02:31 / 修改时间：21:32:59" itemprop="dateCreated datePublished" datetime="2022-11-20T21:02:31+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-009"><a href="#Professional-Vocabulary-Accumulation-009" class="headerlink" title="Professional Vocabulary Accumulation_009"></a>Professional Vocabulary Accumulation_009</h1><ul>
-<li>The method allows to retrieve items according to the given parameters.</li>
-<li>此方法允许根据给定的参数获取监控项。</li>
-<li>inlay hints</li>
-<li>内置的提醒</li>
-<li>Contains</li>
-<li>包括</li>
-<li>use a like with ‘%’ wildcard added to the beginning and end.</li>
-<li>使用在开头和结尾添加一个 ‘%’ 的通配符</li>
-<li>the equal to bind value.</li>
-<li>等于绑定值</li>
-<li>the root query bean instance.</li>
-<li>根查询Bean实例</li>
-<li>navigate to previous declared variable ‘ids’</li>
-<li>导航到之前声明的变量 ‘ids’</li>
-<li>shows project statistic</li>
-<li>显示项目统计信息</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1303,20 +1294,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1370,7 +1361,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共37k字</span>
+  <span class="post-count">本博客全站共37.2k字</span>
 </div>
 
 
