@@ -199,6 +199,271 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">ARP 协议</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-01 12:17:04 / 修改时间：16:04:55" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：概念"><a href="#一：概念" class="headerlink" title="一：概念"></a>一：概念</h1><ul>
+<li>ARP：address resolution protocol，地址解析协议</li>
+<li>作用：将已知的IP地址解析为MAC地址</li>
+</ul>
+<h1 id="二：实验"><a href="#二：实验" class="headerlink" title="二：实验"></a>二：实验</h1><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133858284.png" style="zoom:50%;">
+
+<h2 id="2-1-对首次ping进行抓包"><a href="#2-1-对首次ping进行抓包" class="headerlink" title="2.1 对首次ping进行抓包"></a>2.1 对首次ping进行抓包</h2><h3 id="（1）路由器R1"><a href="#（1）路由器R1" class="headerlink" title="（1）路由器R1"></a>（1）路由器R1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.1     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#ping 192.168.1.3</span></span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.3, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">.!!!!</span><br><span class="line">Success rate is 80 percent (4/5), round-trip min/avg/max = 2/2/4 ms</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）路由器R2"><a href="#（2）路由器R2" class="headerlink" title="（2）路由器R2"></a>（2）路由器R2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.3     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）使用-wireshark-进行抓包"><a href="#（3）使用-wireshark-进行抓包" class="headerlink" title="（3）使用 wireshark 进行抓包"></a>（3）使用 wireshark 进行抓包</h3><p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133530514.png"></p>
+<p>由抓包结果进行分析，首次的Ping发送了一个ARP广播；192.168.1.3 接收到后保存了发送方的Mac地址，并做出了单播响应，告知了对方自己的Mac地址。因此，此后的5次PING命令，分别抓到发送和响应8个ICMP包。</p>
+<h2 id="2-2-查看-ARP"><a href="#2-2-查看-ARP" class="headerlink" title="2.2 查看 ARP"></a>2.2 查看 ARP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.1             -   5061.e800.1400  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            27   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3            12   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>以太网的头部，每经过一个路由器都会从新编写一个新的头部，修改源MAC和目的MAC。</p>
+<h1 id="三：代理-ARP"><a href="#三：代理-ARP" class="headerlink" title="三：代理 ARP"></a>三：代理 ARP</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>代理ARP（proxy arp）：通常就是一个主机（路由器），作为指定的设备（路由器代替该设备）对另一台设备的APR请求做出响应。</p>
+<h2 id="3-2-实例"><a href="#3-2-实例" class="headerlink" title="3.2 实例"></a>3.2 实例</h2><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201153651270.png" style="zoom:50%;">
+
+<h3 id="（1）R1-路由"><a href="#（1）R1-路由" class="headerlink" title="（1）R1 路由"></a>（1）R1 路由</h3><p>通过出接口方式，将数据包通过Gi0&#x2F;0接口发送出去；路由表新增一条静态路由；</p>
+<p>通过 wireshark 抓包情况，发现若不配置出接口，数据将因无法定位到目标MAC而在路由器内部发不出去。</p>
+<p>当配置出接口后，首次PING进行广播，获取到目标设备的MAC地址，wireshark 抓取到 8次通信数据包。</p>
+<p>由此，R1和R2路由互通。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R1: 通过出接口方式配置路由</span></span><br><span class="line">ip route 192.168.1.0 255.255.255.0 Gi0/0 </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.1/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">S     192.168.1.0/24 is directly connected, GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）R2-路由"><a href="#（2）R2-路由" class="headerlink" title="（2）R2 路由"></a>（2）R2 路由</h3><p>仅仅配置了2个接口的IP地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.2/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.1.0/24 is directly connected, GigabitEthernet0/1</span><br><span class="line">L        192.168.1.2/32 is directly connected, GigabitEthernet0/1</span><br></pre></td></tr></table></figure>
+
+<p>配置R2路由，关于1网段的出接口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.1.0 255.255.255.0 Gi0/1</span></span><br></pre></td></tr></table></figure>
+
+<p>此时，若要从R1向R3发送数据包，通过 wireshark 抓包分析，数据包成功发送出去，却没有响应，所以此时，我们应该配置R3路由通往0网段的出接口。</p>
+<h3 id="（3）R3-路由"><a href="#（3）R3-路由" class="headerlink" title="（3）R3 路由"></a>（3）R3 路由</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.0.0 255.255.255.0 Gi0/0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;ping 192.168.0.1</span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.0.1, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/7 ms</span><br></pre></td></tr></table></figure>
+
+<p>此时可以观察到R1路由与R3路由实现了互通。</p>
+<h2 id="3-3-ARP-变化"><a href="#3-3-ARP-变化" class="headerlink" title="3.3 ARP 变化"></a>3.3 ARP 变化</h2><p>当我们R1与R3未进行通信时，此时R3的ARP表的情况是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.2            62   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>当完成上述实例通信时，两者互通，此时查看R3的ARP表如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.0.1             1   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            65   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP转发数据时，我们可以冒充他人主机，截获服务器返回信息，导致被攻击机不能上网，或者网络请求超时等。也可以在我们这边构建网关，截获数据同时转发被攻击机主机。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">静态路由协议</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-01 09:19:43 / 修改时间：12:15:02" itemprop="dateCreated datePublished" datetime="2022-12-01T09:19:43+08:00">2022-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><ul>
+<li>一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。</li>
+<li>静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。</li>
+</ul>
+<h1 id="二：优缺点"><a href="#二：优缺点" class="headerlink" title="二：优缺点"></a>二：优缺点</h1><ul>
+<li>优点：<ul>
+<li>对路由器CPU没有管理开销</li>
+<li>在路由器间没有宽带占用</li>
+<li>增加安全性</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>必须真正的了解网络</li>
+<li>对于新添加网络配置繁琐</li>
+<li>对于大型网络工作量巨大</li>
+</ul>
+</li>
+</ul>
+<h1 id="三：静态路由配置"><a href="#三：静态路由配置" class="headerlink" title="三：静态路由配置"></a>三：静态路由配置</h1><ul>
+<li>配置命令<ul>
+<li>ip route newwork-address subnet-mask { ip-add | exit-interface } </li>
+<li>ip route 192.168.1.0 255.255.255.0 192.168.12.2</li>
+<li>ip route 192.168.1.0 255.255.255.0 serial 0</li>
+</ul>
+</li>
+<li>查看路由表<ul>
+<li>show ip route</li>
+<li>do show ip route</li>
+</ul>
+</li>
+</ul>
+<h1 id="四：实验"><a href="#四：实验" class="headerlink" title="四：实验"></a>四：实验</h1><h2 id="4-1-实验目录"><a href="#4-1-实验目录" class="headerlink" title="4.1 实验目录"></a>4.1 实验目录</h2><p>练习对静态路由配置的使用；</p>
+<h2 id="4-2-实验内容"><a href="#4-2-实验内容" class="headerlink" title="4.2 实验内容"></a>4.2 实验内容</h2><p>通过 PNETLab Box 新建3台路由器，分别为三台路由器配置 IP 地址，并将三台路由器接线依次连通。通过在路由器上配置静态路由，使得三个路由器之间信息可以达到互传的目的。</p>
+<h2 id="4-3-实验过程"><a href="#4-3-实验过程" class="headerlink" title="4.3 实验过程"></a>4.3 实验过程</h2><ol>
+<li><p>新建PNETLab Box实验室</p>
+</li>
+<li><p>新建3个路由器</p>
+</li>
+<li><p>配置基础设置</p>
+<ul>
+<li>工程三招</li>
+</ul>
+</li>
+<li><p>为路由器配置IP地址</p>
+<ul>
+<li>enable</li>
+<li>configure terminal</li>
+<li>interface 接口类型 插槽&#x2F;接口编号</li>
+<li>ip address ip地址 子网掩码</li>
+<li>no shutdown</li>
+<li>end</li>
+<li>show ip interface brief</li>
+</ul>
+</li>
+<li><p>配置静态路由</p>
+<img src="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/image-20221201115529110.png" style="zoom:50%;"></li>
+</ol>
+<ul>
+<li>为中间路由配置2个IP地址</li>
+<li>通过下一跳方式配置路由<ul>
+<li>实现192.168.1.110 与 192.168.2.111 通信</li>
+<li>ip route 192.168.2.0 255.255.255.0 192.168.1.111</li>
+<li>该指令明通过明确下一跳地址，源路由通过递归查询出接口（与192.168.1.111可实现互通的出接口），将数据发送到目标路由器上。</li>
+</ul>
+</li>
+<li>通过配置出接口方式<ul>
+<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0</li>
+<li>该方法通过直接指定出接口，将数据包发送出去。</li>
+</ul>
+</li>
+<li>通过配置出接口+IP地址方式<ul>
+<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0 192.168.1.111</li>
+<li>更加详细的指出对方接收数据的ip地址，安全可靠。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-4-实验总结"><a href="#4-4-实验总结" class="headerlink" title="4.4 实验总结"></a>4.4 实验总结</h2><ol>
+<li>一个路由器，可以通过配置IP来标识自身，以及所处网段。</li>
+<li>两个路由器通过线路直接连接，即可互通。</li>
+<li>三台路由器通过搭桥的方式实现互通，两端路由器分别都要与桥的对端出接口互通，即可完成三者互通。</li>
+<li>路由通信的本质是：当发送一个数据包时，已知自身IP，通过路由表查询目标地址或下一跳地址，数据被推送出去；当数据被下一跳接受到时，该路由器检索自身的路由表，再次进行数据转发，直到目标地址接收到为止。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,10 +488,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-11-30 11:37:37 / 修改时间：19:02:52" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
+              <time title="创建时间：2022-11-30 11:37:37" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-01 09:46:11" itemprop="dateModified" datetime="2022-12-01T09:46:11+08:00">2022-12-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -385,9 +656,9 @@
 <li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li>
 <li>line console 0<ul>
 <li>logging synchronous：log当前显示信息同步</li>
+<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
 </ul>
 </li>
-<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
 </ul>
 
       
@@ -1399,247 +1670,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ettercap 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-27 00:24:59 / 修改时间：01:06:10" itemprop="dateCreated datePublished" datetime="2022-11-27T00:24:59+08:00">2022-11-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：DNS-概述"><a href="#一：DNS-概述" class="headerlink" title="一：DNS 概述"></a>一：DNS 概述</h1><p>在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=20ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=19ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line"></span><br><span class="line">110.242.68.66 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 19ms，最长 = 21ms，平均 = 20ms</span><br></pre></td></tr></table></figure>
-
-<p>看似我们访问的是域名，而实际上是通过 IP 地址访问的百度。由 ping 命令，我们可以看出 baidu.com 到 110.242.68.66 的转换工作称为域名解析，域名解析需要专门的域名解析服务器来完成，DNS就是进行域名解析的服务器（Domain Name System 或者 Domain Name Service）。</p>
-<h1 id="二：DNS-原理"><a href="#二：DNS-原理" class="headerlink" title="二：DNS 原理"></a>二：DNS 原理</h1><p>DNS 查询时，会先在本地缓存中尝试查找，如果不存在或者记录过期，就继续向 DNS 服务器发起递归查询，这里的 DNS 服务器一般就是运营商的 DNS 服务器。</p>
-<ul>
-<li>第一步：客户机提出域名解析请求，并将该请求发送给本地的域名服务器。</li>
-<li>第二步：当本地的域名服务器收到请求后，就查询本地的缓存，如果有该记录项，则本地的域名服务器就直接把查询结果（域名对应的IP地址）返回。</li>
-<li>第三步：如果本地的缓存中没有该记录，则本地域名服务器就直接请求发给根域名服务器，然后根域名服务器再返回本地域名服务器一个所查询域（根的子域）的主域名服务器地址。</li>
-<li>第四步：本地服务器再向上一步返回的域名服务器发送请求，然后接受请求的服务器查询自己的缓存，如果没有该记录，则返回相关的下级的域名服务器地址。</li>
-<li>第五步：重复第四步，直到找到正确的记录。</li>
-<li>第六步：本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时还将结果返回给客户机。</li>
-</ul>
-<h1 id="三：什么是-DNS-劫持"><a href="#三：什么是-DNS-劫持" class="headerlink" title="三：什么是 DNS 劫持"></a>三：什么是 DNS 劫持</h1><p>DNS 劫持又称域名劫持，是指通过某些手段取得某域名的解析控制权，修改此域名的解析结果，导致对该域名的访问由原 IP 地址转入到修改之后指定的 IP，其结果就是对特定网址不能访问或者访问的是假网址。</p>
-<p>如果可以冒充域名服务器，然后把查询的IP地址设置为攻击者的IP地址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站主页，这就是DNS劫持的基本原理。</p>
-<p>DNS劫持其实并不是真的 “黑掉” 了对方的网站，而是冒名顶替、招摇撞骗罢了。</p>
-<h1 id="四：DNS-劫持危害"><a href="#四：DNS-劫持危害" class="headerlink" title="四：DNS 劫持危害"></a>四：DNS 劫持危害</h1><ul>
-<li>钓鱼诈骗<ul>
-<li>网上购物，网上支付有可能被恶意指向别的网站，泄密个人账户；</li>
-</ul>
-</li>
-<li>网站内出现恶意广告</li>
-<li>轻则影响网速，重则不能上网</li>
-</ul>
-<h1 id="五：Ettercap-进行内网-DNS-劫持"><a href="#五：Ettercap-进行内网-DNS-劫持" class="headerlink" title="五：Ettercap 进行内网 DNS 劫持"></a>五：Ettercap 进行内网 DNS 劫持</h1><ol>
-<li>准备欺骗页面，放在 &#x2F;var&#x2F;www&#x2F;html 目录下并启动</li>
-<li>配置 ettercap 工具配置文件<ul>
-<li>leafpad &#x2F;etc&#x2F;ettercap&#x2F;etter.dns</li>
-<li>注释记录→添加记录→保存退出</li>
-</ul>
-</li>
-<li>设置 ettercap 的配置<ul>
-<li>ettercap -G 启动 Ettercap</li>
-<li>启动嗅探→ 设置eth0网卡 → 扫描主机 → 将网关与主机添加到target选项 → 选择ARP欺骗 → 选择 DNS spoof 欺骗模块 → 点击start 开始欺骗</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">crunch 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-26 16:07:25" itemprop="dateCreated datePublished" datetime="2022-11-26T16:07:25+08:00">2022-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-27 00:28:13" itemprop="dateModified" datetime="2022-11-27T00:28:13+08:00">2022-11-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。</p>
-<p>使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。</p>
-<p>crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。</p>
-<h1 id="二：规则"><a href="#二：规则" class="headerlink" title="二：规则"></a>二：规则</h1><h2 id="2-1-生成方式"><a href="#2-1-生成方式" class="headerlink" title="2.1 生成方式"></a>2.1 生成方式</h2><p>crunch生成字典的方式：</p>
-<ol>
-<li>指定生成26个字母或者数字的随机字典</li>
-<li>指定格式生成字典</li>
-<li>指定模板生成字典</li>
-<li>指定字符串生成字典</li>
-</ol>
-<h2 id="2-2-参数详情"><a href="#2-2-参数详情" class="headerlink" title="2.2 参数详情"></a>2.2 参数详情</h2><ul>
-<li>min：设定最小字符串长度（必选）</li>
-<li>max：设定最大字符串长度（必选）</li>
-<li>-o 将生成的字典保存在指定文件</li>
-<li>-t 指定密码输出的格式</li>
-<li>-p 指定元素组合</li>
-<li>特殊字符<ul>
-<li>%：代表数字</li>
-<li>^：代表特殊符号</li>
-<li>@：代表小写字母</li>
-<li>.：代表大写字母</li>
-</ul>
-</li>
-</ul>
-<h1 id="三：命令"><a href="#三：命令" class="headerlink" title="三：命令"></a>三：命令</h1><h2 id="2-1-crunch"><a href="#2-1-crunch" class="headerlink" title="2.1 crunch"></a>2.1 crunch</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">crunch   </span><br><span class="line"></span><br><span class="line">crunch version 3.6</span><br><span class="line"></span><br><span class="line">Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to the screen, file, or to another program.</span><br><span class="line">crunch 可以基于你指定的标准创建一个单词表。crunch的输出key发送到屏幕、文件或者另一个程序。</span><br><span class="line"></span><br><span class="line">Usage: crunch &lt;min&gt; &lt;max&gt; [options]</span><br><span class="line">用法：crunch &lt;最小&gt; &lt;最大&gt; [选项]</span><br><span class="line">where min and max are numbers</span><br><span class="line">其中最小值和最大值是数字</span><br><span class="line"></span><br><span class="line">Please refer to the man page for instructions and examples on how to use crunch.</span><br><span class="line">有关如何使用crunch，请参考手册页的说明和实例。</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-生成纯数字密码"><a href="#2-2-生成纯数字密码" class="headerlink" title="2.2 生成纯数字密码"></a>2.2 生成纯数字密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成一个最小字符串长度为两位、最大字符串长度为四位的字典。</span></span><br><span class="line">crunch 2 4 &gt; number.txt</span><br><span class="line"></span><br><span class="line">Crunch will now generate the following amount of data: 2357212 bytes</span><br><span class="line">crunch 现在将生成以下数量的数据：2357212 字节</span><br><span class="line">2 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 475228</span><br><span class="line">crunch 现在将生成以下行数：475228</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-生成指定格式密码"><a href="#2-3-生成指定格式密码" class="headerlink" title="2.3 生成指定格式密码"></a>2.3 生成指定格式密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成7位数，以admin开头+2位数字的字典，保存到admin_num.txt中。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-t：指定以某种格式开头</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">%%：表示两位数字</span></span><br><span class="line">crunch 7 7 -t admin%% &gt; admin_num.txt</span><br><span class="line">Crunch will now generate the following amount of data: 800 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 100 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成以1520003开头的手机号</span></span><br><span class="line">crunch 11 11 -t 1520003%%%% &gt; mobile.txt</span><br><span class="line">Crunch will now generate the following amount of data: 120000 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 10000 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定的数字生成字典</span></span><br><span class="line">crunch 6 6 0123456789 &gt; num.txt                                  </span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000 </span><br><span class="line"></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst numeric &gt; num_repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-依据库文件生成密码"><a href="#2-4-依据库文件生成密码" class="headerlink" title="2.4 依据库文件生成密码"></a>2.4 依据库文件生成密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f：指定库文件</span></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst hex-lower -o repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 117440512 bytes</span><br><span class="line">112 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 16777216 </span><br><span class="line"></span><br><span class="line">crunch: 100% completed generating output</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">库文件</span></span><br><span class="line">cat /usr/share/crunch/charset.lst                                </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">charset configuration file <span class="keyword">for</span> winrtgen v1.2 by Massimiliano Montoro (mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Massimiliano Montoro 的 winrtgen v1.2 字符集配置文件(mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">compatible with rainbowcrack 1.1 and later by Zhu Shuanglei &lt;shuanglei@hotmail.com&gt;</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">兼容 Zhu Shuanglei 的 rainbowcrack 1.1 以及更高版本。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hex-lower                     = [0123456789abcdef]</span><br><span class="line">十六进制小写</span><br><span class="line">hex-upper                     = [0123456789ABCDEF]</span><br><span class="line">十六进制大写</span><br><span class="line"></span><br><span class="line">numeric                       = [0123456789]</span><br><span class="line">数字的</span><br><span class="line">numeric-space                 = [0123456789 ]</span><br><span class="line">带有空格的数字</span><br><span class="line"></span><br><span class="line">symbols14                     = [!@#$%^&amp;*()-_+=]</span><br><span class="line">symbols14-space               = [!@#$%^&amp;*()-_+= ]</span><br><span class="line"></span><br><span class="line">symbols-all                   = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/]</span><br><span class="line">symbols-all-space             = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/ ]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-指定元素组合生成字典"><a href="#2-4-指定元素组合生成字典" class="headerlink" title="2.4 指定元素组合生成字典"></a>2.4 指定元素组合生成字典</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定生成的字典，由 ghost、99、22 三个元素组成</span></span><br><span class="line">crunch 3 3 -p ghost 99 22 &gt; combination.txt                       </span><br><span class="line">Crunch will now generate approximately the following amount of data: 60 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 6 </span><br></pre></td></tr></table></figure>
-
-<h1 id="四：练习"><a href="#四：练习" class="headerlink" title="四：练习"></a>四：练习</h1><ul>
-<li>以26个字母为元素最小5位，最大6位的组合，重定向保存到exercise1.txt字典文件中。<ul>
-<li>crunch 5 6 &gt; exericise1.txt</li>
-</ul>
-</li>
-<li>以root字符开头，第五位、第六位为特殊符号，七八九位为123结尾的9位数字字典，重定向保存到exercise2.txt字典文件中<ul>
-<li>crunch 9 9 -t root^^123 &gt; exercise3.txt</li>
-</ul>
-</li>
-<li>指定库文件中的 hex-upper 模板生成6位的字典，使用 -o 参数，保存在 exercise4.txt 字典文件中<ul>
-<li>crunch 6 6 -f &#x2F;usr&#x2F;share&#x2F;crunch&#x2F;charset.lst  hex-upper -o exercise4.txt</li>
-</ul>
-</li>
-<li>生成 pdd、1611、0101 这个三个字符串的随机字典，重定向保存到 exercise5.txt 字典文件中<ul>
-<li>crunch 3 3 -p pdd 1611 0101 &gt; exercise5.txt</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1711,7 +1741,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1778,7 +1808,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共34.9k字</span>
+  <span class="post-count">本博客全站共37k字</span>
 </div>
 
 
