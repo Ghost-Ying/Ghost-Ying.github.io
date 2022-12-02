@@ -31,8 +31,9 @@
 <meta property="og:image" content="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133858284.png">
 <meta property="og:image" content="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133530514.png">
 <meta property="og:image" content="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201153651270.png">
+<meta property="og:image" content="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221202090929264.png">
 <meta property="article:published_time" content="2022-12-01T04:17:04.000Z">
-<meta property="article:modified_time" content="2022-12-01T08:04:55.158Z">
+<meta property="article:modified_time" content="2022-12-02T01:12:22.067Z">
 <meta property="article:author" content="Rupert-Tears">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -230,10 +231,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-12-01 12:17:04 / 修改时间：16:04:55" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
+              <time title="创建时间：2022-12-01 12:17:04" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-02 09:12:22" itemprop="dateModified" datetime="2022-12-02T09:12:22+08:00">2022-12-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -304,7 +311,17 @@
 <p>当完成上述实例通信时，两者互通，此时查看R3的ARP表如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.0.1             1   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            65   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
 
-<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP转发数据时，我们可以冒充他人主机，截获服务器返回信息，导致被攻击机不能上网，或者网络请求超时等。也可以在我们这边构建网关，截获数据同时转发被攻击机主机。</p>
+<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP进行广播请求时，我们可以冒充网关（被攻击机的下一跳地址），给被攻击机做出单播响应，这样被攻击机就会存储攻击机的MAC地址，下次发送数据就会发送给攻击机，被攻击方可以直观的感受到不能上网（地址冲突），或者网络请求超时等。</p>
+<p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221202090929264.png"></p>
+<h1 id="四：总结"><a href="#四：总结" class="headerlink" title="四：总结"></a>四：总结</h1><ul>
+<li>APR 后到优先，当下一跳存在2台路由器时，广播响应会被两台路由都响应，后者会将前者的响应覆盖，可能会导致我们的路由寻址不是最优路径；</li>
+<li>只写出接口的静态路由会依赖代理ARP，若关闭代理ARP则不能实现通信； </li>
+<li>代理ARP 会产生大量ARP映射列表，这些数据会占用内存；</li>
+<li>最好的静态路由写法就是既有出接口，又有下一跳；</li>
+<li>仅写下一跳会触发自身的递归查询；</li>
+<li>ARP攻击：由于自身广播请求，所以请求的目的IP会被当前广播域内，所有的主机听到；若此时，黑客伪装自己的IP地址，就是我们请求的地址，再回访我们一次；即使我们之前请求到了真的服务器地址，但由于ARP本身后到优先的机制，黑客的地址会覆盖之前真正服务器的地址；我们的ARP映射列表中存储了黑客电脑的MAC，此时发送消息，我们就把数据全部发送到了黑客的电脑。</li>
+<li>防止ARP攻击：人为手动绑定MAC地址，arp IP address MAC address arpa；ARP映射表中就有了对方的MAC，无法被后到优先覆盖，防止被ARP欺骗。</li>
+</ul>
 
     </div>
 
@@ -489,7 +506,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%9A%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一：概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">二：实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%AF%B9%E9%A6%96%E6%AC%A1ping%E8%BF%9B%E8%A1%8C%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 对首次ping进行抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%B7%AF%E7%94%B1%E5%99%A8R1"><span class="nav-number">2.1.1.</span> <span class="nav-text">（1）路由器R1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E8%B7%AF%E7%94%B1%E5%99%A8R2"><span class="nav-number">2.1.2.</span> <span class="nav-text">（2）路由器R2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E4%BD%BF%E7%94%A8-wireshark-%E8%BF%9B%E8%A1%8C%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.3.</span> <span class="nav-text">（3）使用 wireshark 进行抓包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%9F%A5%E7%9C%8B-ARP"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 查看 ARP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E4%BB%A3%E7%90%86-ARP"><span class="nav-number">3.</span> <span class="nav-text">三：代理 ARP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89R1-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.1.</span> <span class="nav-text">（1）R1 路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89R2-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.2.</span> <span class="nav-text">（2）R2 路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89R3-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.3.</span> <span class="nav-text">（3）R3 路由</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-ARP-%E5%8F%98%E5%8C%96"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 ARP 变化</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%EF%BC%9A%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一：概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">二：实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%AF%B9%E9%A6%96%E6%AC%A1ping%E8%BF%9B%E8%A1%8C%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 对首次ping进行抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E8%B7%AF%E7%94%B1%E5%99%A8R1"><span class="nav-number">2.1.1.</span> <span class="nav-text">（1）路由器R1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E8%B7%AF%E7%94%B1%E5%99%A8R2"><span class="nav-number">2.1.2.</span> <span class="nav-text">（2）路由器R2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E4%BD%BF%E7%94%A8-wireshark-%E8%BF%9B%E8%A1%8C%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.3.</span> <span class="nav-text">（3）使用 wireshark 进行抓包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%9F%A5%E7%9C%8B-ARP"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 查看 ARP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E4%BB%A3%E7%90%86-ARP"><span class="nav-number">3.</span> <span class="nav-text">三：代理 ARP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89R1-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.1.</span> <span class="nav-text">（1）R1 路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89R2-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.2.</span> <span class="nav-text">（2）R2 路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89R3-%E8%B7%AF%E7%94%B1"><span class="nav-number">3.2.3.</span> <span class="nav-text">（3）R3 路由</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-ARP-%E5%8F%98%E5%8C%96"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 ARP 变化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">四：总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -572,7 +589,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共37.2k字</span>
+  <span class="post-count">本博客全站共37.5k字</span>
 </div>
 
 
