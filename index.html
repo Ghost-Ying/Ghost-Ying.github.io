@@ -199,6 +199,613 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 搜索查找类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 01:08:21 / 修改时间：01:18:12" itemprop="dateCreated datePublished" datetime="2022-12-04T01:08:21+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：find-查找文件或者目录"><a href="#一：find-查找文件或者目录" class="headerlink" title="一：find 查找文件或者目录"></a>一：find 查找文件或者目录</h1><p>find 指令将从指定目录向下递归地遍历其各个子目录，将满足条件的文件显示在终端。</p>
+<h2 id="1-1-基础语法"><a href="#1-1-基础语法" class="headerlink" title="1.1 基础语法"></a>1.1 基础语法</h2><ul>
+<li>find [搜索范围]</li>
+</ul>
+<h2 id="1-2-选项说明"><a href="#1-2-选项说明" class="headerlink" title="1.2 选项说明"></a>1.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/image-20221204010943217.png"></p>
+<h2 id="1-3-示例"><a href="#1-3-示例" class="headerlink" title="1.3 示例"></a>1.3 示例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前目录下 查找小于10M的文件（+n 大于 -n小于 n等于）</span></span><br><span class="line">[root@hadoop100 ~]# find ./ -size -10M</span><br></pre></td></tr></table></figure>
+
+<h1 id="二：locate-快速定位文件路"><a href="#二：locate-快速定位文件路" class="headerlink" title="二：locate 快速定位文件路"></a>二：locate 快速定位文件路</h1><ul>
+<li>locate 指令利用事先建立的系统中所有文件名称及路径的 locate 数据库实现快速定位给 定的文件。</li>
+<li>Locate 指令无需遍历整个文件系统，查询速度较快。为了保证查询结果的准确 度，管理员必须定期更新 locate 时刻。</li>
+</ul>
+<h2 id="2-1-基础语法"><a href="#2-1-基础语法" class="headerlink" title="2.1 基础语法"></a>2.1 基础语法</h2><ul>
+<li>locate 搜索文件</li>
+<li>由于 locate 指令基于数据库进行查询，所以第一次运行前，必须使用 updatedb 指令创 建 locate 数据库。</li>
+</ul>
+<h1 id="三：grep-过滤查找及“-”管道符"><a href="#三：grep-过滤查找及“-”管道符" class="headerlink" title="三：grep 过滤查找及“|”管道符"></a>三：grep 过滤查找及“|”管道符</h1><p>管道符，“|”，表示将前一个命令的处理结果输出传递给后面的命令处理</p>
+<h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul>
+<li>grep 选项 查找内容 源文件<ul>
+<li>-n 显示匹配行及行号。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-示例"><a href="#3-2-示例" class="headerlink" title="3.2 示例"></a>3.2 示例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 initial-setup-ks.cfg 文件中 boot 并显示行号；</span></span><br><span class="line">[root@hadoop100 ~]# grep -n boot initial-setup-ks.cfg</span><br><span class="line">grep -n boot initial-setup-ks.cfg </span><br><span class="line">3:xconfig  --startxonboot</span><br><span class="line">12:# Run the Setup Agent on first boot</span><br><span class="line">13:firstboot --enable</span><br><span class="line">23:network  --bootproto=dhcp --device=ens33 --ipv6=auto --activate</span><br><span class="line">24:network  --bootproto=dhcp --hostname=hadoop100</span><br><span class="line">31:# System bootloader configuration</span><br><span class="line">32:bootloader --location=mbr --boot-drive=sda</span><br><span class="line">37:part /boot --fstype=&quot;xfs&quot; --ondisk=sda --size=1024</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 权限管理类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 00:09:27 / 修改时间：00:44:17" itemprop="dateCreated datePublished" datetime="2022-12-04T00:09:27+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：用户管理命令"><a href="#一：用户管理命令" class="headerlink" title="一：用户管理命令"></a>一：用户管理命令</h1><h2 id="1-1-useradd-添加新用"><a href="#1-1-useradd-添加新用" class="headerlink" title="1.1 useradd 添加新用"></a>1.1 useradd 添加新用</h2><ul>
+<li>useradd 用户名 （功能描述：添加新用户） </li>
+<li>useradd -g 组名 用户名 （功能描述：添加新用户到某个组）</li>
+</ul>
+<h2 id="1-2-passwd-设置用户密"><a href="#1-2-passwd-设置用户密" class="headerlink" title="1.2 passwd 设置用户密"></a>1.2 passwd 设置用户密</h2><ul>
+<li>passwd 用户名 （功能描述：设置用户密码）</li>
+</ul>
+<h2 id="1-3-id-查看用户是否存在"><a href="#1-3-id-查看用户是否存在" class="headerlink" title="1.3   id 查看用户是否存在"></a>1.3   id 查看用户是否存在</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# id ghost</span><br><span class="line">uid=1000(ghost) gid=1000(ghost) 组=1000(ghost),10(wheel)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-su-切换用户"><a href="#1-4-su-切换用户" class="headerlink" title="1.4 su 切换用户"></a>1.4 su 切换用户</h2><ul>
+<li>su 用户名称 （功能描述：切换用户，只能获得用户的执行权限，不能获得环境变量） </li>
+<li>su - 用户名称 （功能描述：切换到用户并获得该用户的环境变量及执行权限）</li>
+</ul>
+<h2 id="1-5-userdel-删除用户"><a href="#1-5-userdel-删除用户" class="headerlink" title="1.5 userdel 删除用户"></a>1.5 userdel 删除用户</h2><ul>
+<li>userdel 用户名 （功能描述：删除用户但保存用户主目录） </li>
+<li>userdel -r 用户名 （功能描述：用户和用户主目录，都删除）</li>
+</ul>
+<h2 id="1-6-who-查看登录用户信息"><a href="#1-6-who-查看登录用户信息" class="headerlink" title="1.6 who 查看登录用户信息"></a>1.6 who 查看登录用户信息</h2><ul>
+<li>whoami （功能描述：显示自身用户名称） </li>
+<li>who am i （功能描述：显示登录用户的用户名以及登陆时间）</li>
+</ul>
+<h2 id="1-7-sudo-设置普通用户具有-root-权限"><a href="#1-7-sudo-设置普通用户具有-root-权限" class="headerlink" title="1.7 sudo 设置普通用户具有 root 权限"></a>1.7 sudo 设置普通用户具有 root 权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改配置文件</span></span><br><span class="line">[root@hadoop100 ~]# vim /etc/sudoers</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在100行添加普通用户，或者修改普通用户加入 107行的wheel组</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204001852660.png"></p>
+<h2 id="1-8-usermod-修改用户"><a href="#1-8-usermod-修改用户" class="headerlink" title="1.8 usermod 修改用户"></a>1.8 usermod 修改用户</h2><ul>
+<li>usermod -g 用户组 用户名<ul>
+<li>-g 修改用户的初始登录组，给定的组必须存在。默认组 id 是 1。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：用户组管理命令"><a href="#二：用户组管理命令" class="headerlink" title="二：用户组管理命令"></a>二：用户组管理命令</h1><p>每个用户都有一个用户组，系统可以对一个用户组中的所有用户进行集中管理。</p>
+<p>用户组的管理涉及用户组的添加、删除和修改。组的增加、删除和修改实际上就是对 &#x2F;etc&#x2F;group文件的更新。</p>
+<h2 id="2-1-groupadd-新增组"><a href="#2-1-groupadd-新增组" class="headerlink" title="2.1 groupadd 新增组"></a>2.1 groupadd 新增组</h2><ul>
+<li>groupadd 组名</li>
+</ul>
+<h2 id="2-2-groupdel-删除组"><a href="#2-2-groupdel-删除组" class="headerlink" title="2.2 groupdel 删除组"></a>2.2 groupdel 删除组</h2><ul>
+<li>groupdel 组名</li>
+</ul>
+<h2 id="2-3-groupmod-修改组名"><a href="#2-3-groupmod-修改组名" class="headerlink" title="2.3 groupmod 修改组名"></a>2.3 groupmod 修改组名</h2><ul>
+<li>groupmod -n 新组名 原组名</li>
+</ul>
+<h2 id="2-4-cat-x2F-etc-x2F-group-查看创建了哪些组"><a href="#2-4-cat-x2F-etc-x2F-group-查看创建了哪些组" class="headerlink" title="2.4 cat &#x2F;etc&#x2F;group 查看创建了哪些组"></a>2.4 cat &#x2F;etc&#x2F;group 查看创建了哪些组</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# cat  /etc/group</span><br></pre></td></tr></table></figure>
+
+<h1 id="三：文件权限类"><a href="#三：文件权限类" class="headerlink" title="三：文件权限类"></a>三：文件权限类</h1><h2 id="3-1-文件属性"><a href="#3-1-文件属性" class="headerlink" title="3.1 文件属性"></a>3.1 文件属性</h2><p>Linux系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。 为了保护系统的安全性，Linux系统对不同的用户访问同一文件（包括目录文件）的权限做 了不同的规定。在Linux中我们可以使用ll或者ls -l命令来显示一个文件的属性以及文件所属 的用户和组。</p>
+<p><img src="/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204002747785.png"></p>
+<ul>
+<li><p>如果没有权限，就会出现减号[ - ]而已。从左至右用0-9这些数字来表示: </p>
+<ul>
+<li>0 首位表示类型 在Linux中第一个字符代表这个文件是目录、文件或链接文件等等 - 代表文件 d 代表目录 l 链接文档(link file)； </li>
+<li>第1-3位确定属主（该文件的所有者）拥有该文件的权限。—User </li>
+<li>第4-6位确定属组（所有者的同组用户）拥有该文件的权限，—Group </li>
+<li>第7-9位确定其他用户拥有该文件的权限 —Other</li>
+</ul>
+</li>
+<li><p>rwx 作用文件和目录的不同解释：</p>
+<ul>
+<li>作用到文件<ul>
+<li>[ r ]代表可读(read): 可以读取，查看</li>
+<li>[ w ]代表可写(write): 可以修改，但是不代表可以删除该文件，删除一个文件的前 提条件是对该文件所在的目录有写权限，才能删除该文件。</li>
+<li>[ x ]代表可执行(execute):可以被系统执行</li>
+</ul>
+</li>
+<li>作用到目录<ul>
+<li>[ r ]代表可读(read): 可以读取，ls查看目录内容</li>
+<li>[ w ]代表可写(write): 可以修改，目录内创建+删除+重命名目录</li>
+<li>[ x ]代表可执行(execute):可以进入该目录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204003535974.png"></p>
+<ul>
+<li>如果查看到是文件：链接数指的是硬链接个数。 </li>
+<li>如果查看的是文件夹：链接数指的是子文件夹个数。</li>
+</ul>
+<h2 id="3-2-chmod-改变权限"><a href="#3-2-chmod-改变权限" class="headerlink" title="3.2 chmod 改变权限"></a>3.2 chmod 改变权限</h2><p><img src="/2022/12/04/Linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204003646065.png"></p>
+<ul>
+<li>第一种方式变更权限 chmod [ {ugoa} {+-&#x3D;} {rwx} ] </li>
+<li>文件或目录 第二种方式变更权限 chmod [mode&#x3D;421 ] [文件或目录]</li>
+<li>u:所有者 g:所有组 o:其他人 a:所有人(u、g、o 的总和)</li>
+<li>修改整个文件夹里面的所有文件的所有者、所属组、其他用户都具有可读可写可 执行权限。<ul>
+<li>chmod -R 777  Dir</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-chown-改变所有者"><a href="#3-3-chown-改变所有者" class="headerlink" title="3.3 chown 改变所有者"></a>3.3 chown 改变所有者</h2><ul>
+<li>chown [选项] [最终用户] [文件或目录] （功能描述：改变文件或者目录的所有者）<ul>
+<li>-R 递归操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-4-chgrp-改变所属组"><a href="#3-4-chgrp-改变所属组" class="headerlink" title="3.4 chgrp 改变所属组"></a>3.4 chgrp 改变所属组</h2><ul>
+<li>chgrp [最终用户组] [文件或目录] （功能描述：改变文件或者目录的所属组）</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 时间日期类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-03 22:54:23 / 修改时间：23:07:50" itemprop="dateCreated datePublished" datetime="2022-12-03T22:54:23+08:00">2022-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：基本操作"><a href="#一：基本操作" class="headerlink" title="一：基本操作"></a>一：基本操作</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul>
+<li>data [OPTION]… [+FORMAT]</li>
+</ul>
+<h2 id="1-2-选项说明"><a href="#1-2-选项说明" class="headerlink" title="1.2 选项说明"></a>1.2 选项说明</h2><p><img src="/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/image-20221203225646671.png"> </p>
+<p>1.3 参数说明</p>
+<p><img src="/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/image-20221203225715024.png"></p>
+<h1 id="二：显示当前时间"><a href="#二：显示当前时间" class="headerlink" title="二：显示当前时间"></a>二：显示当前时间</h1><ul>
+<li>date （功能描述：显示当前时间） </li>
+<li>date +%Y （功能描述：显示当前年份）</li>
+<li>date +%m （功能描述：显示当前月份）</li>
+<li>date +%d （功能描述：显示当前是哪一天）</li>
+<li>date “+%Y-%m-%d %H:%M:%S” （功能描述：显示年月日时分秒）</li>
+</ul>
+<h1 id="三：显示非当前时间"><a href="#三：显示非当前时间" class="headerlink" title="三：显示非当前时间"></a>三：显示非当前时间</h1><ul>
+<li>date -d ‘1 days ago’ （功能描述：显示前一天时间）</li>
+<li>date -d ‘-1 days ago’ （功能描述：显示明天时间）</li>
+</ul>
+<h1 id="四：设置系统时间"><a href="#四：设置系统时间" class="headerlink" title="四：设置系统时间"></a>四：设置系统时间</h1><ul>
+<li>date -s 字符串时间</li>
+<li>date -s “2022-12-03 22:58:23”</li>
+</ul>
+<h1 id="五：查看日历"><a href="#五：查看日历" class="headerlink" title="五：查看日历"></a>五：查看日历</h1><h2 id="5-1-基本语法"><a href="#5-1-基本语法" class="headerlink" title="5.1 基本语法"></a>5.1 基本语法</h2><ul>
+<li>cal [选项] （功能描述：不加选项，显示本月日历）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# cal</span><br><span class="line">     十二月 2022    </span><br><span class="line">日 一 二 三 四 五 六</span><br><span class="line">             1  2  3</span><br><span class="line"> 4  5  6  7  8  9 10</span><br><span class="line">11 12 13 14 15 16 17</span><br><span class="line">18 19 20 21 22 23 24</span><br><span class="line">25 26 27 28 29 30 31</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-2-选项说明"><a href="#5-2-选项说明" class="headerlink" title="5.2 选项说明"></a>5.2 选项说明</h2><p><img src="/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/image-20221203230243814.png"></p>
+<h2 id="5-3-示例"><a href="#5-3-示例" class="headerlink" title="5.3 示例"></a>5.3 示例</h2><p><img src="/2022/12/03/Linux-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB/image-20221203230745796.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 文件目录类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-03 22:14:43 / 修改时间：22:45:59" itemprop="dateCreated datePublished" datetime="2022-12-03T22:14:43+08:00">2022-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：帮助命令"><a href="#一：帮助命令" class="headerlink" title="一：帮助命令"></a>一：帮助命令</h1><h2 id="1-1-man-获得帮助信息"><a href="#1-1-man-获得帮助信息" class="headerlink" title="1.1 man 获得帮助信息"></a>1.1 man 获得帮助信息</h2><h3 id="（1）基础语法"><a href="#（1）基础语法" class="headerlink" title="（1）基础语法"></a>（1）基础语法</h3><ul>
+<li>man [命令或配置文件]</li>
+</ul>
+<h3 id="（2）显示说明"><a href="#（2）显示说明" class="headerlink" title="（2）显示说明"></a>（2）显示说明</h3><p><img src="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B1%BB/image-20221203221810370.png"></p>
+<h2 id="1-2-help-获取内置命令帮助信息"><a href="#1-2-help-获取内置命令帮助信息" class="headerlink" title="1.2 help 获取内置命令帮助信息"></a>1.2 help 获取内置命令帮助信息</h2><h3 id="（1）基础语法-1"><a href="#（1）基础语法-1" class="headerlink" title="（1）基础语法"></a>（1）基础语法</h3><ul>
+<li>help [命令] ，获得 shell 内置命令的帮助信息。</li>
+</ul>
+<h3 id="（2）实例"><a href="#（2）实例" class="headerlink" title="（2）实例"></a>（2）实例</h3><ul>
+<li>help cd：查看 cd 命令的帮助信息</li>
+</ul>
+<h1 id="二：文件目录类"><a href="#二：文件目录类" class="headerlink" title="二：文件目录类"></a>二：文件目录类</h1><h2 id="2-1-常用命令"><a href="#2-1-常用命令" class="headerlink" title="2.1 常用命令"></a>2.1 常用命令</h2><ul>
+<li>pwd 显示当前工作目录的绝对路径</li>
+<li>ls 列出目录</li>
+<li>cd 切换目录</li>
+<li>mkdir 创建一个新的目录</li>
+<li>rmdir 删除一个空的目录</li>
+<li>touch 创建空文件</li>
+<li>cp 复制文件或目录</li>
+<li>rm 删除文件或目录</li>
+<li>mv 移动文件与目录或重命名</li>
+<li>cat 查看文件内容</li>
+<li>more 文件内容分屏查看器</li>
+<li>less 分屏显示文件内容</li>
+<li>echo 输出内容到控制台<ul>
+<li>-e： 支持反斜线控制的字符转换</li>
+</ul>
+</li>
+<li>head 显示文件头部内容</li>
+<li>tail 输出文件尾部内容</li>
+<li>&gt; 输出重定向和 &gt;&gt; 追加</li>
+<li>ln 软链接</li>
+<li>history 查看已经执行过历史命令</li>
+</ul>
+<h2 id="2-2-经验汇总"><a href="#2-2-经验汇总" class="headerlink" title="2.2 经验汇总"></a>2.2 经验汇总</h2><ul>
+<li>\cp origin target：直接跳过询问，使用原生命令进行拷贝；</li>
+<li>pwd -P：当含有软连接的目录时，显示实际路径；</li>
+<li>more 查看文件<ul>
+<li>Ctrl + F：向下滚动一屏；</li>
+<li>Ctrl + B：向上滚动一屏；</li>
+<li>&#x3D;：输出当前行号；</li>
+<li>:f：输出文件名称和当前行号；</li>
+</ul>
+</li>
+<li>less 分屏显示文件内容<ul>
+<li>&#x2F;字符串：向下搜索，n：向下查找，N：向上查找；</li>
+<li>q 退出</li>
+</ul>
+</li>
+</ul>
+<h1 id="三：软连接和硬链接"><a href="#三：软连接和硬链接" class="headerlink" title="三：软连接和硬链接"></a>三：软连接和硬链接</h1><h2 id="3-1-图解"><a href="#3-1-图解" class="headerlink" title="3.1 图解"></a>3.1 图解</h2><p><img src="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B1%BB/image-20221203223539992.png"></p>
+<ul>
+<li><p>软链接，单独的创建了一个连接文件，拥有自己的inode和数据库，指向了目标文件；</p>
+<ul>
+<li>ln -s 文件 链接</li>
+<li>rm -rf 软链接名&#x2F;，删除会把软链接对应的真实目录下的内容删掉（千万别带 &#x2F; ）；</li>
+</ul>
+</li>
+<li><p>硬链接，原本的文件多了一个指向的链接；</p>
+<ul>
+<li>ln 文件 链接</li>
+<li>不同的名称指向同一个inode节点</li>
+<li>linux 中的当前文件的链接数，指的就是硬链接数量；</li>
+</ul>
+</li>
+<li><p>inode：保存了文件元信息（metadata）的节点数据；</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux 系统管理</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-03 19:13:55 / 修改时间：22:13:45" itemprop="dateCreated datePublished" datetime="2022-12-03T19:13:55+08:00">2022-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：Linux-中的进程和服务"><a href="#一：Linux-中的进程和服务" class="headerlink" title="一：Linux 中的进程和服务"></a>一：Linux 中的进程和服务</h1><ul>
+<li>计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。</li>
+<li>启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。</li>
+</ul>
+<h1 id="二：service-服务管理（CentOS-6）"><a href="#二：service-服务管理（CentOS-6）" class="headerlink" title="二：service 服务管理（CentOS 6）"></a>二：service 服务管理（CentOS 6）</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><p>service 服务名 start | stop | restart | status</p>
+<h2 id="2-2-系统位置"><a href="#2-2-系统位置" class="headerlink" title="2.2 系统位置"></a>2.2 系统位置</h2><p>查看服务的方法：&#x2F;etc&#x2F;init.d&#x2F;服务名，.d表示是一个守护进程；</p>
+<h1 id="三：systemctl-服务管理（CentOS-7）"><a href="#三：systemctl-服务管理（CentOS-7）" class="headerlink" title="三：systemctl 服务管理（CentOS 7）"></a>三：systemctl 服务管理（CentOS 7）</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><p>systemctl start | stop | restart | status 服务名</p>
+<h2 id="3-2-系统位置"><a href="#3-2-系统位置" class="headerlink" title="3.2 系统位置"></a>3.2 系统位置</h2><p>查看服务的方法：&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system</p>
+<h1 id="四：网络服务示例"><a href="#四：网络服务示例" class="headerlink" title="四：网络服务示例"></a>四：网络服务示例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止老版本的网络服务</span></span><br><span class="line">[root@hadoop100 ~]# service network stop </span><br><span class="line">Stopping network (via systemctl):                          [  确定  ]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启新版本网络服务</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart NetworkManager</span><br><span class="line">[root@hadoop100 ~]# systemctl status NetworkManager</span><br><span class="line">● NetworkManager.service - Network Manager</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 19:29:45 CST; 14s ago</span><br><span class="line">     Docs: man:NetworkManager(8)</span><br><span class="line"> Main PID: 63186 (NetworkManager)</span><br><span class="line">    Tasks: 4</span><br><span class="line">   CGroup: /system.slice/NetworkManager.service</span><br><span class="line">           └─63186 /usr/sbin/NetworkManager --no-daemon # daemon 守护进程</span><br></pre></td></tr></table></figure>
+
+<h1 id="五：设置开机启动服务"><a href="#五：设置开机启动服务" class="headerlink" title="五：设置开机启动服务"></a>五：设置开机启动服务</h1><h2 id="5-1-使用命令进入"><a href="#5-1-使用命令进入" class="headerlink" title="5.1 使用命令进入"></a>5.1 使用命令进入</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 system]# setup</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">带*的服务：开机自动启动，按空格取消；</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203193553730.png"></p>
+<h2 id="5-2-查看开机自启动服务"><a href="#5-2-查看开机自启动服务" class="headerlink" title="5.2 查看开机自启动服务"></a>5.2 查看开机自启动服务</h2><h3 id="（1）CentOS-6"><a href="#（1）CentOS-6" class="headerlink" title="（1）CentOS 6"></a>（1）CentOS 6</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看列表</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --list</span><br><span class="line"></span><br><span class="line">注：该输出结果只显示 SysV 服务，并不包含</span><br><span class="line">原生 systemd 服务。SysV 配置数据</span><br><span class="line">可能被原生 systemd 配置覆盖。 </span><br><span class="line"></span><br><span class="line">      要列出 systemd 服务，请执行 &#x27;systemctl list-unit-files&#x27;。</span><br><span class="line">      查看在具体 target 启用的服务请执行</span><br><span class="line">      &#x27;systemctl list-dependencies [target]&#x27;。</span><br><span class="line"></span><br><span class="line">netconsole     	0:关	1:关	2:关	3:关	4:关	5:关	6:关</span><br><span class="line">network        	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network on	</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network off</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）CentOS-7"><a href="#（2）CentOS-7" class="headerlink" title="（2）CentOS 7"></a>（2）CentOS 7</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl list-unit-files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">enabled 开机启动</span></span><br><span class="line">runlevel5.target                              enabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">disable</span> 开机不启动</span> </span><br><span class="line">runlevel6.target                              disabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">static 无法觉得开启是否启动，依赖其他进程、服务</span></span><br><span class="line">shutdown.target                               static  </span><br></pre></td></tr></table></figure>
+
+<h1 id="六：系统运行级别"><a href="#六：系统运行级别" class="headerlink" title="六：系统运行级别"></a>六：系统运行级别</h1><h2 id="6-1-介绍"><a href="#6-1-介绍" class="headerlink" title="6.1 介绍"></a>6.1 介绍</h2><p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203195001223.png"></p>
+<ul>
+<li>CenOS 7 运行级别简化为：<ul>
+<li>multi-user.target：运行级别3（多用户有网，无图形界面）</li>
+<li>graphical.target：运行级别5（多用户有网，有图形界面）</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-2-命令"><a href="#6-2-命令" class="headerlink" title="6.2 命令"></a>6.2 命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前运行级别</span></span><br><span class="line">[root@hadoop100 ~]# systemctl get-default </span><br><span class="line">graphical.target</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改运行级别</span></span><br><span class="line">systemctl set-default graphical/multi-user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者 init 3  or init 5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="七：防火墙设置"><a href="#七：防火墙设置" class="headerlink" title="七：防火墙设置"></a>七：防火墙设置</h1><h2 id="7-1-操作指令"><a href="#7-1-操作指令" class="headerlink" title="7.1 操作指令"></a>7.1 操作指令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">vim /etc/firewalld/firewalld.conf </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启防火墙</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart firewalld.service </span><br><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl disable firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启用开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl enable firewalld.service </span><br></pre></td></tr></table></figure>
+
+<h2 id="7-2-实例"><a href="#7-2-实例" class="headerlink" title="7.2 实例"></a>7.2 实例</h2><p>vendor preset: enabled，供应商预设开机自启；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line">● firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 20:21:56 CST; 2min 42s ago</span><br><span class="line">     Docs: man:firewalld(1)</span><br><span class="line"> Main PID: 693 (firewalld)</span><br><span class="line">    Tasks: 2</span><br><span class="line">   CGroup: /system.slice/firewalld.service</span><br><span class="line">           └─693 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid</span><br><span class="line"></span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Starting firewalld - dynamic firewall daemon...</span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Started firewalld - dynamic firewall daemon.</span><br><span class="line">12月 03 20:21:57 hadoop100 firewalld[693]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configuratio...it now.</span><br><span class="line">Hint: Some lines were ellipsized, use -l to show in full.</span><br></pre></td></tr></table></figure>
+
+<h1 id="八：关机重启命令"><a href="#八：关机重启命令" class="headerlink" title="八：关机重启命令"></a>八：关机重启命令</h1><h2 id="8-1-常用关机命令"><a href="#8-1-常用关机命令" class="headerlink" title="8.1 常用关机命令"></a>8.1 常用关机命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sync	# 将数据手动存盘，由内存同步到硬盘中</span><br><span class="line">halt	# 停机，关闭系统、不断电</span><br><span class="line">poweroff	# 关机、断电</span><br><span class="line">reboot		# 重启，等同于 shutdown -r now</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-2-shutdown-命令详解"><a href="#8-2-shutdown-命令详解" class="headerlink" title="8.2 shutdown 命令详解"></a>8.2 shutdown 命令详解</h2><ul>
+<li>shutdown：默认一分钟后关机</li>
+<li>shutdown now：立即关机</li>
+<li>shutdown -c：取消关机</li>
+<li>shutdown 3：三分钟后关机</li>
+<li>shutdown 23:00 定时关机</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,712 +1388,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux 安装</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 11:35:34 / 修改时间：13:36:46" itemprop="dateCreated datePublished" datetime="2022-12-03T11:35:34+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：下载"><a href="#一：下载" class="headerlink" title="一：下载"></a>一：下载</h1><h2 id="1-1-Linux-系统镜像下载"><a href="#1-1-Linux-系统镜像下载" class="headerlink" title="1.1 Linux 系统镜像下载"></a>1.1 Linux 系统镜像下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.centos.org/">The CentOS Project</a></p>
-<h2 id="1-2-VMware-虚拟化平台下载"><a href="#1-2-VMware-虚拟化平台下载" class="headerlink" title="1.2 VMware 虚拟化平台下载"></a>1.2 VMware 虚拟化平台下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.vmware.com/">VMware - Delivering a Digital Foundation For Businesses</a></p>
-<p>VMware WorkStation Pro：商用付费版本</p>
-<p>VMware WorkStation Player：个人免费版本</p>
-<h1 id="二：创建虚拟机"><a href="#二：创建虚拟机" class="headerlink" title="二：创建虚拟机"></a>二：创建虚拟机</h1><h2 id="2-1-CPU配置"><a href="#2-1-CPU配置" class="headerlink" title="2.1 CPU配置"></a>2.1 CPU配置</h2><ul>
-<li>处理器数量：对应CPU插槽数量；</li>
-<li>每个处理器的内核数量：一个CPU插槽上的CPU有几个处理核心；</li>
-</ul>
-<p>参考主机 任务管理器 参数设置：</p>
-<p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203120359609.png"></p>
-<ul>
-<li>逻辑处理器：每个CPU内核通过超线程技术，可以模拟出2个逻辑处理器。</li>
-</ul>
-<h2 id="2-2-网络连接方式"><a href="#2-2-网络连接方式" class="headerlink" title="2.2 网络连接方式"></a>2.2 网络连接方式</h2><ul>
-<li>桥接：将主机作为一个桥，使得创建的虚拟机与主机处于同等地位，共同连接同一个路由器下的网络。</li>
-<li>NAT：将主机看做一个虚拟机的路由器，虚拟机借助主机与外部网络连通。</li>
-</ul>
-<h1 id="三：安装CentOS系统"><a href="#三：安装CentOS系统" class="headerlink" title="三：安装CentOS系统"></a>三：安装CentOS系统</h1><h2 id="3-1-启用虚拟化"><a href="#3-1-启用虚拟化" class="headerlink" title="3.1 启用虚拟化"></a>3.1 启用虚拟化</h2><p>在BIOS中开启虚拟化；</p>
-<h2 id="3-2-挂载镜像"><a href="#3-2-挂载镜像" class="headerlink" title="3.2 挂载镜像"></a>3.2 挂载镜像</h2><p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203130557001.png"></p>
-<h2 id="3-3-磁盘分区"><a href="#3-3-磁盘分区" class="headerlink" title="3.3 磁盘分区"></a>3.3 磁盘分区</h2><ul>
-<li>创建引导分区：&#x2F;boot，必须位于该目录；1G即可；文件系统xfp；</li>
-</ul>
-<p>创建交换分区：swap，没有“&#x2F;”，单独设置硬盘的一块区域，作为一个扩展的内存。</p>
-<ul>
-<li>当内存用满的时候，我们此时还要开启另一个应用，内存会把当前未在使用的应用放入交换分区，空闲出空间，让我们启动新的应用，而不至于程序卡死。（虚拟内存）</li>
-<li>实际内存的1倍或者2倍</li>
-<li>文件系统：swap</li>
-</ul>
-<p>剩余空间分区：全部挂载至 “&#x2F;” 根目录下；</p>
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131342655.png">
-
-<h2 id="3-4-网络及主机名"><a href="#3-4-网络及主机名" class="headerlink" title="3.4 网络及主机名"></a>3.4 网络及主机名</h2><p>修改主机名称；</p>
-<p>开启以太网；</p>
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131443676.png">
-
-<h2 id="3-5-创建用户"><a href="#3-5-创建用户" class="headerlink" title="3.5 创建用户"></a>3.5 创建用户</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131508491.png">
-
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131642696.png">
-
-<h1 id="四：开机测试"><a href="#四：开机测试" class="headerlink" title="四：开机测试"></a>四：开机测试</h1><h2 id="4-1-桌面"><a href="#4-1-桌面" class="headerlink" title="4.1 桌面"></a>4.1 桌面</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133153586.png" style="zoom:67%;">
-
-<h2 id="4-2-网络"><a href="#4-2-网络" class="headerlink" title="4.2 网络"></a>4.2 网络</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133337906.png" style="zoom:67%;">
-
-<p>至此，Linux 系统安装就完成了，网络连接也可以正常使用！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">Linux 概述</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-02 00:55:57 / 修改时间：01:18:28" itemprop="dateCreated datePublished" datetime="2022-12-02T00:55:57+08:00">2022-12-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p>
-<img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010250119.png" style="zoom:50%;">
-
-<h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010332476.png" style="zoom: 67%;">
-
-<h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010434500.png"></p>
-<ul>
-<li>Dennis Ritchie：开发了C语言；</li>
-<li>Linus Torvalds：开发了 Git 工具；</li>
-<li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li>
-</ul>
-<h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011012214.png" style="zoom:67%;">
-
-<ul>
-<li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li>
-<li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li>
-</ul>
-<h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011436019.png" style="zoom:80%;">
-
-<h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011609137.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">ARP 协议</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-01 12:17:04" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-02 09:12:22" itemprop="dateModified" datetime="2022-12-02T09:12:22+08:00">2022-12-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：概念"><a href="#一：概念" class="headerlink" title="一：概念"></a>一：概念</h1><ul>
-<li>ARP：address resolution protocol，地址解析协议</li>
-<li>作用：将已知的IP地址解析为MAC地址</li>
-</ul>
-<h1 id="二：实验"><a href="#二：实验" class="headerlink" title="二：实验"></a>二：实验</h1><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133858284.png" style="zoom:50%;">
-
-<h2 id="2-1-对首次ping进行抓包"><a href="#2-1-对首次ping进行抓包" class="headerlink" title="2.1 对首次ping进行抓包"></a>2.1 对首次ping进行抓包</h2><h3 id="（1）路由器R1"><a href="#（1）路由器R1" class="headerlink" title="（1）路由器R1"></a>（1）路由器R1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.1     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#ping 192.168.1.3</span></span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.3, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">.!!!!</span><br><span class="line">Success rate is 80 percent (4/5), round-trip min/avg/max = 2/2/4 ms</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）路由器R2"><a href="#（2）路由器R2" class="headerlink" title="（2）路由器R2"></a>（2）路由器R2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.3     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）使用-wireshark-进行抓包"><a href="#（3）使用-wireshark-进行抓包" class="headerlink" title="（3）使用 wireshark 进行抓包"></a>（3）使用 wireshark 进行抓包</h3><p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133530514.png"></p>
-<p>由抓包结果进行分析，首次的Ping发送了一个ARP广播；192.168.1.3 接收到后保存了发送方的Mac地址，并做出了单播响应，告知了对方自己的Mac地址。因此，此后的5次PING命令，分别抓到发送和响应8个ICMP包。</p>
-<h2 id="2-2-查看-ARP"><a href="#2-2-查看-ARP" class="headerlink" title="2.2 查看 ARP"></a>2.2 查看 ARP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.1             -   5061.e800.1400  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            27   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3            12   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>以太网的头部，每经过一个路由器都会从新编写一个新的头部，修改源MAC和目的MAC。</p>
-<h1 id="三：代理-ARP"><a href="#三：代理-ARP" class="headerlink" title="三：代理 ARP"></a>三：代理 ARP</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>代理ARP（proxy arp）：通常就是一个主机（路由器），作为指定的设备（路由器代替该设备）对另一台设备的APR请求做出响应。</p>
-<h2 id="3-2-实例"><a href="#3-2-实例" class="headerlink" title="3.2 实例"></a>3.2 实例</h2><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201153651270.png" style="zoom:50%;">
-
-<h3 id="（1）R1-路由"><a href="#（1）R1-路由" class="headerlink" title="（1）R1 路由"></a>（1）R1 路由</h3><p>通过出接口方式，将数据包通过Gi0&#x2F;0接口发送出去；路由表新增一条静态路由；</p>
-<p>通过 wireshark 抓包情况，发现若不配置出接口，数据将因无法定位到目标MAC而在路由器内部发不出去。</p>
-<p>当配置出接口后，首次PING进行广播，获取到目标设备的MAC地址，wireshark 抓取到 8次通信数据包。</p>
-<p>由此，R1和R2路由互通。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R1: 通过出接口方式配置路由</span></span><br><span class="line">ip route 192.168.1.0 255.255.255.0 Gi0/0 </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.1/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">S     192.168.1.0/24 is directly connected, GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）R2-路由"><a href="#（2）R2-路由" class="headerlink" title="（2）R2 路由"></a>（2）R2 路由</h3><p>仅仅配置了2个接口的IP地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.2/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.1.0/24 is directly connected, GigabitEthernet0/1</span><br><span class="line">L        192.168.1.2/32 is directly connected, GigabitEthernet0/1</span><br></pre></td></tr></table></figure>
-
-<p>配置R2路由，关于1网段的出接口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.1.0 255.255.255.0 Gi0/1</span></span><br></pre></td></tr></table></figure>
-
-<p>此时，若要从R1向R3发送数据包，通过 wireshark 抓包分析，数据包成功发送出去，却没有响应，所以此时，我们应该配置R3路由通往0网段的出接口。</p>
-<h3 id="（3）R3-路由"><a href="#（3）R3-路由" class="headerlink" title="（3）R3 路由"></a>（3）R3 路由</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.0.0 255.255.255.0 Gi0/0</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;ping 192.168.0.1</span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.0.1, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/7 ms</span><br></pre></td></tr></table></figure>
-
-<p>此时可以观察到R1路由与R3路由实现了互通。</p>
-<h2 id="3-3-ARP-变化"><a href="#3-3-ARP-变化" class="headerlink" title="3.3 ARP 变化"></a>3.3 ARP 变化</h2><p>当我们R1与R3未进行通信时，此时R3的ARP表的情况是这样的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.2            62   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>当完成上述实例通信时，两者互通，此时查看R3的ARP表如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.0.1             1   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            65   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP进行广播请求时，我们可以冒充网关（被攻击机的下一跳地址），给被攻击机做出单播响应，这样被攻击机就会存储攻击机的MAC地址，下次发送数据就会发送给攻击机，被攻击方可以直观的感受到不能上网（地址冲突），或者网络请求超时等。</p>
-<p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221202090929264.png"></p>
-<h1 id="四：总结"><a href="#四：总结" class="headerlink" title="四：总结"></a>四：总结</h1><ul>
-<li>APR 后到优先，当下一跳存在2台路由器时，广播响应会被两台路由都响应，后者会将前者的响应覆盖，可能会导致我们的路由寻址不是最优路径；</li>
-<li>只写出接口的静态路由会依赖代理ARP，若关闭代理ARP则不能实现通信； </li>
-<li>代理ARP 会产生大量ARP映射列表，这些数据会占用内存；</li>
-<li>最好的静态路由写法就是既有出接口，又有下一跳；</li>
-<li>仅写下一跳会触发自身的递归查询；</li>
-<li>ARP攻击：由于自身广播请求，所以请求的目的IP会被当前广播域内，所有的主机听到；若此时，黑客伪装自己的IP地址，就是我们请求的地址，再回访我们一次；即使我们之前请求到了真的服务器地址，但由于ARP本身后到优先的机制，黑客的地址会覆盖之前真正服务器的地址；我们的ARP映射列表中存储了黑客电脑的MAC，此时发送消息，我们就把数据全部发送到了黑客的电脑。</li>
-<li>防止ARP攻击：人为手动绑定MAC地址，arp IP address MAC address arpa；ARP映射表中就有了对方的MAC，无法被后到优先覆盖，防止被ARP欺骗。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">静态路由协议</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-01 09:19:43 / 修改时间：12:15:02" itemprop="dateCreated datePublished" datetime="2022-12-01T09:19:43+08:00">2022-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><ul>
-<li>一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。</li>
-<li>静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。</li>
-</ul>
-<h1 id="二：优缺点"><a href="#二：优缺点" class="headerlink" title="二：优缺点"></a>二：优缺点</h1><ul>
-<li>优点：<ul>
-<li>对路由器CPU没有管理开销</li>
-<li>在路由器间没有宽带占用</li>
-<li>增加安全性</li>
-</ul>
-</li>
-<li>缺点：<ul>
-<li>必须真正的了解网络</li>
-<li>对于新添加网络配置繁琐</li>
-<li>对于大型网络工作量巨大</li>
-</ul>
-</li>
-</ul>
-<h1 id="三：静态路由配置"><a href="#三：静态路由配置" class="headerlink" title="三：静态路由配置"></a>三：静态路由配置</h1><ul>
-<li>配置命令<ul>
-<li>ip route newwork-address subnet-mask { ip-add | exit-interface } </li>
-<li>ip route 192.168.1.0 255.255.255.0 192.168.12.2</li>
-<li>ip route 192.168.1.0 255.255.255.0 serial 0</li>
-</ul>
-</li>
-<li>查看路由表<ul>
-<li>show ip route</li>
-<li>do show ip route</li>
-</ul>
-</li>
-</ul>
-<h1 id="四：实验"><a href="#四：实验" class="headerlink" title="四：实验"></a>四：实验</h1><h2 id="4-1-实验目录"><a href="#4-1-实验目录" class="headerlink" title="4.1 实验目录"></a>4.1 实验目录</h2><p>练习对静态路由配置的使用；</p>
-<h2 id="4-2-实验内容"><a href="#4-2-实验内容" class="headerlink" title="4.2 实验内容"></a>4.2 实验内容</h2><p>通过 PNETLab Box 新建3台路由器，分别为三台路由器配置 IP 地址，并将三台路由器接线依次连通。通过在路由器上配置静态路由，使得三个路由器之间信息可以达到互传的目的。</p>
-<h2 id="4-3-实验过程"><a href="#4-3-实验过程" class="headerlink" title="4.3 实验过程"></a>4.3 实验过程</h2><ol>
-<li><p>新建PNETLab Box实验室</p>
-</li>
-<li><p>新建3个路由器</p>
-</li>
-<li><p>配置基础设置</p>
-<ul>
-<li>工程三招</li>
-</ul>
-</li>
-<li><p>为路由器配置IP地址</p>
-<ul>
-<li>enable</li>
-<li>configure terminal</li>
-<li>interface 接口类型 插槽&#x2F;接口编号</li>
-<li>ip address ip地址 子网掩码</li>
-<li>no shutdown</li>
-<li>end</li>
-<li>show ip interface brief</li>
-</ul>
-</li>
-<li><p>配置静态路由</p>
-<img src="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/image-20221201115529110.png" style="zoom:50%;"></li>
-</ol>
-<ul>
-<li>为中间路由配置2个IP地址</li>
-<li>通过下一跳方式配置路由<ul>
-<li>实现192.168.1.110 与 192.168.2.111 通信</li>
-<li>ip route 192.168.2.0 255.255.255.0 192.168.1.111</li>
-<li>该指令明通过明确下一跳地址，源路由通过递归查询出接口（与192.168.1.111可实现互通的出接口），将数据发送到目标路由器上。</li>
-</ul>
-</li>
-<li>通过配置出接口方式<ul>
-<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0</li>
-<li>该方法通过直接指定出接口，将数据包发送出去。</li>
-</ul>
-</li>
-<li>通过配置出接口+IP地址方式<ul>
-<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0 192.168.1.111</li>
-<li>更加详细的指出对方接收数据的ip地址，安全可靠。</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-4-实验总结"><a href="#4-4-实验总结" class="headerlink" title="4.4 实验总结"></a>4.4 实验总结</h2><ol>
-<li>一个路由器，可以通过配置IP来标识自身，以及所处网段。</li>
-<li>两个路由器通过线路直接连接，即可互通。</li>
-<li>三台路由器通过搭桥的方式实现互通，两端路由器分别都要与桥的对端出接口互通，即可完成三者互通。</li>
-<li>路由通信的本质是：当发送一个数据包时，已知自身IP，通过路由表查询目标地址或下一跳地址，数据被推送出去；当数据被下一跳接受到时，该路由器检索自身的路由表，再次进行数据转发，直到目标地址接收到为止。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Cisco IOS 基础命令集汇总</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-30 11:37:37" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-01 09:46:11" itemprop="dateModified" datetime="2022-12-01T09:46:11+08:00">2022-12-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Cisco-IOS"><a href="#一：Cisco-IOS" class="headerlink" title="一：Cisco IOS"></a>一：Cisco IOS</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><ul>
-<li>Cisco internetwork operating system（IOS）：为 Cisco 设备配备的系统软件。应用于路由器、局域网交换机、小型无线接入点、具有几十个接口的大型路由器等。</li>
-</ul>
-<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ul>
-<li>Cisco IOS 可为设备提供以下网络服务<ul>
-<li>基本的路由和交换功能</li>
-<li>安全可靠地访问网络资源</li>
-<li>网络可伸缩性</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-3-访问方式"><a href="#1-3-访问方式" class="headerlink" title="1.3 访问方式"></a>1.3 访问方式</h2><ul>
-<li>可以通过多种方法访问 CLI 环境，常见方式：<ul>
-<li>控制台</li>
-<li>Telnet 或者 SSH</li>
-<li>辅助端口</li>
-</ul>
-</li>
-</ul>
-<img src="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/image-20221130114858440.png" style="zoom: 50%;">
-
-<h2 id="1-4-访问模式"><a href="#1-4-访问模式" class="headerlink" title="1.4 访问模式"></a>1.4 访问模式</h2><ul>
-<li>用户执行模式 “&gt;”</li>
-<li>特权执行模式 “#”</li>
-<li>全局配置模式<ul>
-<li>从全局配置模式可进入多种不同的配置模式。其中每种模式可用于配置 IOS 设备的特定部分或者特定功能。</li>
-</ul>
-</li>
-<li>其他特定模式<ul>
-<li>接口模式：用于配置一个网络接口（Fa0&#x2F;0、S0&#x2F;0&#x2F;0 等）</li>
-<li>线路模式：用于配置一条线路（实际线路或者虚拟线路），如控制台、AUX、VTY等</li>
-<li>路由配置模式：用于配置一个路由选择协议进程的相关参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-5-模式切换"><a href="#1-5-模式切换" class="headerlink" title="1.5 模式切换"></a>1.5 模式切换</h2><ul>
-<li>enable：用户执行模式进入特权模式</li>
-<li>configure terminal：特权模式进入全局配置模式</li>
-<li>exit：返回上一级模式</li>
-<li>end：直接返回特权模式</li>
-</ul>
-<h2 id="1-6-基础操作"><a href="#1-6-基础操作" class="headerlink" title="1.6 基础操作"></a>1.6 基础操作</h2><ul>
-<li>?：使用 ? 可以匹配查看命令库</li>
-<li>设置IP：ip address IP地址 子网掩码</li>
-<li>no：使用 no shutdown，退出保持状态开启。</li>
-<li>show running-config：查看配置信息</li>
-<li>show ip interface brief：查看 ip 简短信息</li>
-<li>hostname 名称：设置主机名称（全局模式下）</li>
-<li>enable password 密码：设置主机密码</li>
-<li>no enable password：关闭密码验证</li>
-<li>enable secret 密码：采用加密方式设置密码</li>
-</ul>
-<h2 id="1-7-语法检查"><a href="#1-7-语法检查" class="headerlink" title="1.7 语法检查"></a>1.7 语法检查</h2><ul>
-<li>incomplete command：命令不完整</li>
-<li>invalid input detected at ‘^’ marker：箭头所指字符无法识别 </li>
-<li>ambiguous comm：未知输入</li>
-</ul>
-<h2 id="1-8-基本命令结构"><a href="#1-8-基本命令结构" class="headerlink" title="1.8 基本命令结构"></a>1.8 基本命令结构</h2><ul>
-<li>每个 IOS 命令都具有特定的格式或者语法，并在相应的提示符下执行</li>
-<li>常规命令语法为命令后接相应的关键字和参数<ul>
-<li>Router&gt; ping 192.168.1.2</li>
-</ul>
-</li>
-<li>某些命令包括一个关键字和参数子集，此子集可提供额外功能</li>
-</ul>
-<h2 id="1-9-快捷键"><a href="#1-9-快捷键" class="headerlink" title="1.9 快捷键"></a>1.9 快捷键</h2><ul>
-<li>Tab：填写命令或者关键字的剩下部分</li>
-<li>Ctrl+R：重新显示一行</li>
-<li>Ctrl+Z：退出配置模式并返回执行模式</li>
-<li>Ctrl+C：放弃当前命令并退出配置模式</li>
-<li>Ctrl+Shift+6：用于中断诸如 ping 或 traceroute 之类的 IOS 进程</li>
-<li>向上箭头：上一条键入命令</li>
-<li>向下箭头：下一条键入命令</li>
-</ul>
-<h2 id="1-10-常用配置"><a href="#1-10-常用配置" class="headerlink" title="1.10 常用配置"></a>1.10 常用配置</h2><ul>
-<li>配置用户登录密码<ul>
-<li>控制台口令：用于限制人员通过控制台连接访问设备</li>
-<li>使能口令：用于限制人员访问特权执行模式</li>
-<li>使能加密口令：经加密，，用于限制人员访问特权执行模式</li>
-<li>VTY口令：用于限制人员通过 Telnet 访问设备</li>
-</ul>
-</li>
-<li>管理配置文件<ul>
-<li>将当前配置写入启动配置文件<ul>
-<li>write</li>
-<li>copy running-config startup-config</li>
-</ul>
-</li>
-<li>删除启动配置 文件<ul>
-<li>erase startup-config</li>
-<li>delete flash:config.text</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>接口配置<ul>
-<li>进入接口<ul>
-<li>interface 接口类型 插槽&#x2F;接口编号</li>
-</ul>
-</li>
-<li>为接口配置IP地址<ul>
-<li>ip address ip地址 子网掩码</li>
-</ul>
-</li>
-<li>激活接口<ul>
-<li>no shutdown（默认是shutdown状态）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>show 命令<ul>
-<li>show version：查看当前操作系统版本</li>
-<li>show running-config：查看运行配置</li>
-<li>show startup-config：查看启动配置</li>
-<li>show flash：查看FLASH</li>
-<li>show cpu：查看cpu利用率</li>
-<li>show memory：查看内存使用情况</li>
-<li>show interface：查看端口</li>
-</ul>
-</li>
-<li>验证配置<ul>
-<li>ping</li>
-<li>traceroute</li>
-</ul>
-</li>
-</ul>
-<h1 id="二：以太网技术线缆标准"><a href="#二：以太网技术线缆标准" class="headerlink" title="二：以太网技术线缆标准"></a>二：以太网技术线缆标准</h1><ul>
-<li>T-568A：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</li>
-<li>T-568B：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</li>
-<li>标准网线：不同设备用于直通线，即两头都是568A或者都是568B</li>
-<li>交叉网线：同等设备用交叉线即一头为568A，一头为568B</li>
-<li>全反线（一般用于配置线缆）两端线序刚好相反</li>
-</ul>
-<h1 id="三：工程三招"><a href="#三：工程三招" class="headerlink" title="三：工程三招"></a>三：工程三招</h1><ul>
-<li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li>
-<li>line console 0<ul>
-<li>logging synchronous：log当前显示信息同步</li>
-<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1554,7 +1459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1621,7 +1526,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共40.5k字</span>
+  <span class="post-count">本博客全站共43.6k字</span>
 </div>
 
 

