@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux 压缩解压类</title>
+      <link href="/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/"/>
+      <url>/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：gzip-x2F-gunzip-压缩"><a href="#一：gzip-x2F-gunzip-压缩" class="headerlink" title="一：gzip&#x2F;gunzip 压缩"></a>一：gzip&#x2F;gunzip 压缩</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul><li>gzip 文件 （功能描述：压缩文件，只能将文件压缩为*.gz 文件） </li><li>gunzip 文件.gz （功能描述：解压缩文件命令）</li></ul><h2 id="1-2-经验技巧"><a href="#1-2-经验技巧" class="headerlink" title="1.2 经验技巧"></a>1.2 经验技巧</h2><ul><li>只能压缩文件不能压缩目录 </li><li>不保留原来的文件 </li><li>同时多个文件会产生多个压缩包</li></ul><h1 id="二：zip-x2F-unzip-压缩"><a href="#二：zip-x2F-unzip-压缩" class="headerlink" title="二：zip&#x2F;unzip 压缩"></a>二：zip&#x2F;unzip 压缩</h1><ul><li>zip [选项] XXX.zip 将要压缩的内容 （功能描述：压缩文件和目录的命令）<ul><li>-r 压缩目录</li></ul></li><li>unzip [选项] XXX.zip （功能描述：解压缩文件）<ul><li>-d&lt;目录&gt; 指定解压后文件的存放目录</li></ul></li><li>zip 压缩命令在windows&#x2F;linux都通用，可以压缩目录且保留源文件。</li></ul><h1 id="三：tar-打包"><a href="#三：tar-打包" class="headerlink" title="三：tar 打包"></a>三：tar 打包</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul><li>tar [选项] XXX.tar.gz 将要打包进去的内容 （功能描述：打包目录，压缩后的 文件格式.tar.gz）</li></ul><h2 id="3-2-选项说明"><a href="#3-2-选项说明" class="headerlink" title="3.2 选项说明"></a>3.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/image-20221204012617685.png"></p><h2 id="3-3-示例"><a href="#3-3-示例" class="headerlink" title="3.3 示例"></a>3.3 示例</h2><ul><li>压缩多个文件：tar -zcvf xxx.tar.gz one.txt two.txt</li><li>压缩目录：tar -zcvf xxx.tar.gz  tmp&#x2F;</li><li>解压到当前目录：tar -zxvf xxx.tar.gz </li><li>解压到指定目录：tar -zxvf xxx.tar.z -C &#x2F;tmp</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux 搜索查找类</title>
       <link href="/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/"/>
       <url>/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/</url>

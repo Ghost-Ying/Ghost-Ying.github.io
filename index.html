@@ -199,6 +199,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 压缩解压类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 01:21:54 / 修改时间：01:30:03" itemprop="dateCreated datePublished" datetime="2022-12-04T01:21:54+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：gzip-x2F-gunzip-压缩"><a href="#一：gzip-x2F-gunzip-压缩" class="headerlink" title="一：gzip&#x2F;gunzip 压缩"></a>一：gzip&#x2F;gunzip 压缩</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul>
+<li>gzip 文件 （功能描述：压缩文件，只能将文件压缩为*.gz 文件） </li>
+<li>gunzip 文件.gz （功能描述：解压缩文件命令）</li>
+</ul>
+<h2 id="1-2-经验技巧"><a href="#1-2-经验技巧" class="headerlink" title="1.2 经验技巧"></a>1.2 经验技巧</h2><ul>
+<li>只能压缩文件不能压缩目录 </li>
+<li>不保留原来的文件 </li>
+<li>同时多个文件会产生多个压缩包</li>
+</ul>
+<h1 id="二：zip-x2F-unzip-压缩"><a href="#二：zip-x2F-unzip-压缩" class="headerlink" title="二：zip&#x2F;unzip 压缩"></a>二：zip&#x2F;unzip 压缩</h1><ul>
+<li>zip [选项] XXX.zip 将要压缩的内容 （功能描述：压缩文件和目录的命令）<ul>
+<li>-r 压缩目录</li>
+</ul>
+</li>
+<li>unzip [选项] XXX.zip （功能描述：解压缩文件）<ul>
+<li>-d&lt;目录&gt; 指定解压后文件的存放目录</li>
+</ul>
+</li>
+<li>zip 压缩命令在windows&#x2F;linux都通用，可以压缩目录且保留源文件。</li>
+</ul>
+<h1 id="三：tar-打包"><a href="#三：tar-打包" class="headerlink" title="三：tar 打包"></a>三：tar 打包</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul>
+<li>tar [选项] XXX.tar.gz 将要打包进去的内容 （功能描述：打包目录，压缩后的 文件格式.tar.gz）</li>
+</ul>
+<h2 id="3-2-选项说明"><a href="#3-2-选项说明" class="headerlink" title="3.2 选项说明"></a>3.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/image-20221204012617685.png"></p>
+<h2 id="3-3-示例"><a href="#3-3-示例" class="headerlink" title="3.3 示例"></a>3.3 示例</h2><ul>
+<li>压缩多个文件：tar -zcvf xxx.tar.gz one.txt two.txt</li>
+<li>压缩目录：tar -zcvf xxx.tar.gz  tmp&#x2F;</li>
+<li>解压到当前目录：tar -zxvf xxx.tar.gz </li>
+<li>解压到指定目录：tar -zxvf xxx.tar.z -C &#x2F;tmp</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1298,96 +1398,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%A1%8C%E9%9D%A2%E5%8F%8A%E7%BB%88%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E6%A1%8C%E9%9D%A2%E5%8F%8A%E7%BB%88%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Linux 桌面及终端基础操作</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 13:39:40 / 修改时间：13:55:20" itemprop="dateCreated datePublished" datetime="2022-12-03T13:39:40+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：桌面"><a href="#一：桌面" class="headerlink" title="一：桌面"></a>一：桌面</h1><ul>
-<li>新建文件夹</li>
-<li>新建文本</li>
-<li>修改桌面</li>
-<li>打开终端</li>
-<li>快捷键设置：super 相当于 windows键</li>
-<li>修改屏幕分辨率</li>
-</ul>
-<h1 id="二：终端"><a href="#二：终端" class="headerlink" title="二：终端"></a>二：终端</h1><ul>
-<li>修改终端打开字体</li>
-<li>修改终端配色方案</li>
-</ul>
-<h1 id="三：常用快捷键"><a href="#三：常用快捷键" class="headerlink" title="三：常用快捷键"></a>三：常用快捷键</h1><ul>
-<li>当前窗口全屏：Alt + F10</li>
-<li>切换桌面系统：Ctrl + Alt + F1</li>
-<li>切换命令行系统：Ctrl + Alt + F2<ul>
-<li>F2~F6 均为命令行模式，多用户登录；</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1459,7 +1469,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1526,7 +1536,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共43.6k字</span>
+  <span class="post-count">本博客全站共43.9k字</span>
 </div>
 
 
