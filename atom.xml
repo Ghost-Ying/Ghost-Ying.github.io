@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-12-04T08:49:05.820Z</updated>
+  <updated>2022-12-04T11:42:21.871Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 思维导图</title>
+    <link href="https://aiyingke.cn/2022/12/04/Linux-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
+    <id>https://aiyingke.cn/2022/12/04/Linux-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</id>
+    <published>2022-12-04T11:41:02.000Z</published>
+    <updated>2022-12-04T11:42:21.871Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2022/12/04/Linux-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/image-20221204194152821.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2022/12/04/Linux-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/image-20221204194152821.png&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://aiyingke.cn/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://aiyingke.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 软件包管理</title>
@@ -485,30 +510,6 @@
     
     
     <category term="计算机网络" scheme="https://aiyingke.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cisco IOS 基础命令集汇总</title>
-    <link href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/"/>
-    <id>https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/</id>
-    <published>2022-11-30T03:37:37.000Z</published>
-    <updated>2022-12-01T01:46:11.419Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一：Cisco-IOS"><a href="#一：Cisco-IOS" class="headerlink" title="一：Cisco IOS"></a>一：Cisco IOS</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><ul><li>Cisco internetwork operating system（IOS）：为 Cisco 设备配备的系统软件。应用于路由器、局域网交换机、小型无线接入点、具有几十个接口的大型路由器等。</li></ul><h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ul><li>Cisco IOS 可为设备提供以下网络服务<ul><li>基本的路由和交换功能</li><li>安全可靠地访问网络资源</li><li>网络可伸缩性</li></ul></li></ul><h2 id="1-3-访问方式"><a href="#1-3-访问方式" class="headerlink" title="1.3 访问方式"></a>1.3 访问方式</h2><ul><li>可以通过多种方法访问 CLI 环境，常见方式：<ul><li>控制台</li><li>Telnet 或者 SSH</li><li>辅助端口</li></ul></li></ul><img src="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/image-20221130114858440.png" style="zoom: 50%;"><h2 id="1-4-访问模式"><a href="#1-4-访问模式" class="headerlink" title="1.4 访问模式"></a>1.4 访问模式</h2><ul><li>用户执行模式 “&gt;”</li><li>特权执行模式 “#”</li><li>全局配置模式<ul><li>从全局配置模式可进入多种不同的配置模式。其中每种模式可用于配置 IOS 设备的特定部分或者特定功能。</li></ul></li><li>其他特定模式<ul><li>接口模式：用于配置一个网络接口（Fa0&#x2F;0、S0&#x2F;0&#x2F;0 等）</li><li>线路模式：用于配置一条线路（实际线路或者虚拟线路），如控制台、AUX、VTY等</li><li>路由配置模式：用于配置一个路由选择协议进程的相关参数</li></ul></li></ul><h2 id="1-5-模式切换"><a href="#1-5-模式切换" class="headerlink" title="1.5 模式切换"></a>1.5 模式切换</h2><ul><li>enable：用户执行模式进入特权模式</li><li>configure terminal：特权模式进入全局配置模式</li><li>exit：返回上一级模式</li><li>end：直接返回特权模式</li></ul><h2 id="1-6-基础操作"><a href="#1-6-基础操作" class="headerlink" title="1.6 基础操作"></a>1.6 基础操作</h2><ul><li>?：使用 ? 可以匹配查看命令库</li><li>设置IP：ip address IP地址 子网掩码</li><li>no：使用 no shutdown，退出保持状态开启。</li><li>show running-config：查看配置信息</li><li>show ip interface brief：查看 ip 简短信息</li><li>hostname 名称：设置主机名称（全局模式下）</li><li>enable password 密码：设置主机密码</li><li>no enable password：关闭密码验证</li><li>enable secret 密码：采用加密方式设置密码</li></ul><h2 id="1-7-语法检查"><a href="#1-7-语法检查" class="headerlink" title="1.7 语法检查"></a>1.7 语法检查</h2><ul><li>incomplete command：命令不完整</li><li>invalid input detected at ‘^’ marker：箭头所指字符无法识别 </li><li>ambiguous comm：未知输入</li></ul><h2 id="1-8-基本命令结构"><a href="#1-8-基本命令结构" class="headerlink" title="1.8 基本命令结构"></a>1.8 基本命令结构</h2><ul><li>每个 IOS 命令都具有特定的格式或者语法，并在相应的提示符下执行</li><li>常规命令语法为命令后接相应的关键字和参数<ul><li>Router&gt; ping 192.168.1.2</li></ul></li><li>某些命令包括一个关键字和参数子集，此子集可提供额外功能</li></ul><h2 id="1-9-快捷键"><a href="#1-9-快捷键" class="headerlink" title="1.9 快捷键"></a>1.9 快捷键</h2><ul><li>Tab：填写命令或者关键字的剩下部分</li><li>Ctrl+R：重新显示一行</li><li>Ctrl+Z：退出配置模式并返回执行模式</li><li>Ctrl+C：放弃当前命令并退出配置模式</li><li>Ctrl+Shift+6：用于中断诸如 ping 或 traceroute 之类的 IOS 进程</li><li>向上箭头：上一条键入命令</li><li>向下箭头：下一条键入命令</li></ul><h2 id="1-10-常用配置"><a href="#1-10-常用配置" class="headerlink" title="1.10 常用配置"></a>1.10 常用配置</h2><ul><li>配置用户登录密码<ul><li>控制台口令：用于限制人员通过控制台连接访问设备</li><li>使能口令：用于限制人员访问特权执行模式</li><li>使能加密口令：经加密，，用于限制人员访问特权执行模式</li><li>VTY口令：用于限制人员通过 Telnet 访问设备</li></ul></li><li>管理配置文件<ul><li>将当前配置写入启动配置文件<ul><li>write</li><li>copy running-config startup-config</li></ul></li><li>删除启动配置 文件<ul><li>erase startup-config</li><li>delete flash:config.text</li></ul></li></ul></li><li>接口配置<ul><li>进入接口<ul><li>interface 接口类型 插槽&#x2F;接口编号</li></ul></li><li>为接口配置IP地址<ul><li>ip address ip地址 子网掩码</li></ul></li><li>激活接口<ul><li>no shutdown（默认是shutdown状态）</li></ul></li></ul></li><li>show 命令<ul><li>show version：查看当前操作系统版本</li><li>show running-config：查看运行配置</li><li>show startup-config：查看启动配置</li><li>show flash：查看FLASH</li><li>show cpu：查看cpu利用率</li><li>show memory：查看内存使用情况</li><li>show interface：查看端口</li></ul></li><li>验证配置<ul><li>ping</li><li>traceroute</li></ul></li></ul><h1 id="二：以太网技术线缆标准"><a href="#二：以太网技术线缆标准" class="headerlink" title="二：以太网技术线缆标准"></a>二：以太网技术线缆标准</h1><ul><li>T-568A：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</li><li>T-568B：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</li><li>标准网线：不同设备用于直通线，即两头都是568A或者都是568B</li><li>交叉网线：同等设备用交叉线即一头为568A，一头为568B</li><li>全反线（一般用于配置线缆）两端线序刚好相反</li></ul><h1 id="三：工程三招"><a href="#三：工程三招" class="headerlink" title="三：工程三招"></a>三：工程三招</h1><ul><li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li><li>line console 0<ul><li>logging synchronous：log当前显示信息同步</li><li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一：Cisco-IOS&quot;&gt;&lt;a href=&quot;#一：Cisco-IOS&quot; class=&quot;headerlink&quot; title=&quot;一：Cisco IOS&quot;&gt;&lt;/a&gt;一：Cisco IOS&lt;/h1&gt;&lt;h2 id=&quot;1-1-简介&quot;&gt;&lt;a href=&quot;#1-1-简介&quot; cla</summary>
-      
-    
-    
-    
-    <category term="思科CCNA网络基础入门" scheme="https://aiyingke.cn/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    
-    
-    <category term="Cisco IOS" scheme="https://aiyingke.cn/tags/Cisco-IOS/"/>
     
   </entry>
   

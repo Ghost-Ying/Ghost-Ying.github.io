@@ -199,6 +199,117 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux 系统管理</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-03 19:13:55 / 修改时间：22:13:45" itemprop="dateCreated datePublished" datetime="2022-12-03T19:13:55+08:00">2022-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：Linux-中的进程和服务"><a href="#一：Linux-中的进程和服务" class="headerlink" title="一：Linux 中的进程和服务"></a>一：Linux 中的进程和服务</h1><ul>
+<li>计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。</li>
+<li>启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。</li>
+</ul>
+<h1 id="二：service-服务管理（CentOS-6）"><a href="#二：service-服务管理（CentOS-6）" class="headerlink" title="二：service 服务管理（CentOS 6）"></a>二：service 服务管理（CentOS 6）</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><p>service 服务名 start | stop | restart | status</p>
+<h2 id="2-2-系统位置"><a href="#2-2-系统位置" class="headerlink" title="2.2 系统位置"></a>2.2 系统位置</h2><p>查看服务的方法：&#x2F;etc&#x2F;init.d&#x2F;服务名，.d表示是一个守护进程；</p>
+<h1 id="三：systemctl-服务管理（CentOS-7）"><a href="#三：systemctl-服务管理（CentOS-7）" class="headerlink" title="三：systemctl 服务管理（CentOS 7）"></a>三：systemctl 服务管理（CentOS 7）</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><p>systemctl start | stop | restart | status 服务名</p>
+<h2 id="3-2-系统位置"><a href="#3-2-系统位置" class="headerlink" title="3.2 系统位置"></a>3.2 系统位置</h2><p>查看服务的方法：&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system</p>
+<h1 id="四：网络服务示例"><a href="#四：网络服务示例" class="headerlink" title="四：网络服务示例"></a>四：网络服务示例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止老版本的网络服务</span></span><br><span class="line">[root@hadoop100 ~]# service network stop </span><br><span class="line">Stopping network (via systemctl):                          [  确定  ]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启新版本网络服务</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart NetworkManager</span><br><span class="line">[root@hadoop100 ~]# systemctl status NetworkManager</span><br><span class="line">● NetworkManager.service - Network Manager</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 19:29:45 CST; 14s ago</span><br><span class="line">     Docs: man:NetworkManager(8)</span><br><span class="line"> Main PID: 63186 (NetworkManager)</span><br><span class="line">    Tasks: 4</span><br><span class="line">   CGroup: /system.slice/NetworkManager.service</span><br><span class="line">           └─63186 /usr/sbin/NetworkManager --no-daemon # daemon 守护进程</span><br></pre></td></tr></table></figure>
+
+<h1 id="五：设置开机启动服务"><a href="#五：设置开机启动服务" class="headerlink" title="五：设置开机启动服务"></a>五：设置开机启动服务</h1><h2 id="5-1-使用命令进入"><a href="#5-1-使用命令进入" class="headerlink" title="5.1 使用命令进入"></a>5.1 使用命令进入</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 system]# setup</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">带*的服务：开机自动启动，按空格取消；</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203193553730.png"></p>
+<h2 id="5-2-查看开机自启动服务"><a href="#5-2-查看开机自启动服务" class="headerlink" title="5.2 查看开机自启动服务"></a>5.2 查看开机自启动服务</h2><h3 id="（1）CentOS-6"><a href="#（1）CentOS-6" class="headerlink" title="（1）CentOS 6"></a>（1）CentOS 6</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看列表</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --list</span><br><span class="line"></span><br><span class="line">注：该输出结果只显示 SysV 服务，并不包含</span><br><span class="line">原生 systemd 服务。SysV 配置数据</span><br><span class="line">可能被原生 systemd 配置覆盖。 </span><br><span class="line"></span><br><span class="line">      要列出 systemd 服务，请执行 &#x27;systemctl list-unit-files&#x27;。</span><br><span class="line">      查看在具体 target 启用的服务请执行</span><br><span class="line">      &#x27;systemctl list-dependencies [target]&#x27;。</span><br><span class="line"></span><br><span class="line">netconsole     	0:关	1:关	2:关	3:关	4:关	5:关	6:关</span><br><span class="line">network        	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network on	</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network off</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）CentOS-7"><a href="#（2）CentOS-7" class="headerlink" title="（2）CentOS 7"></a>（2）CentOS 7</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl list-unit-files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">enabled 开机启动</span></span><br><span class="line">runlevel5.target                              enabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">disable</span> 开机不启动</span> </span><br><span class="line">runlevel6.target                              disabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">static 无法觉得开启是否启动，依赖其他进程、服务</span></span><br><span class="line">shutdown.target                               static  </span><br></pre></td></tr></table></figure>
+
+<h1 id="六：系统运行级别"><a href="#六：系统运行级别" class="headerlink" title="六：系统运行级别"></a>六：系统运行级别</h1><h2 id="6-1-介绍"><a href="#6-1-介绍" class="headerlink" title="6.1 介绍"></a>6.1 介绍</h2><p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203195001223.png"></p>
+<ul>
+<li>CenOS 7 运行级别简化为：<ul>
+<li>multi-user.target：运行级别3（多用户有网，无图形界面）</li>
+<li>graphical.target：运行级别5（多用户有网，有图形界面）</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-2-命令"><a href="#6-2-命令" class="headerlink" title="6.2 命令"></a>6.2 命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前运行级别</span></span><br><span class="line">[root@hadoop100 ~]# systemctl get-default </span><br><span class="line">graphical.target</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改运行级别</span></span><br><span class="line">systemctl set-default graphical/multi-user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者 init 3  or init 5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="七：防火墙设置"><a href="#七：防火墙设置" class="headerlink" title="七：防火墙设置"></a>七：防火墙设置</h1><h2 id="7-1-操作指令"><a href="#7-1-操作指令" class="headerlink" title="7.1 操作指令"></a>7.1 操作指令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">vim /etc/firewalld/firewalld.conf </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启防火墙</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart firewalld.service </span><br><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl disable firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启用开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl enable firewalld.service </span><br></pre></td></tr></table></figure>
+
+<h2 id="7-2-实例"><a href="#7-2-实例" class="headerlink" title="7.2 实例"></a>7.2 实例</h2><p>vendor preset: enabled，供应商预设开机自启；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line">● firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 20:21:56 CST; 2min 42s ago</span><br><span class="line">     Docs: man:firewalld(1)</span><br><span class="line"> Main PID: 693 (firewalld)</span><br><span class="line">    Tasks: 2</span><br><span class="line">   CGroup: /system.slice/firewalld.service</span><br><span class="line">           └─693 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid</span><br><span class="line"></span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Starting firewalld - dynamic firewall daemon...</span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Started firewalld - dynamic firewall daemon.</span><br><span class="line">12月 03 20:21:57 hadoop100 firewalld[693]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configuratio...it now.</span><br><span class="line">Hint: Some lines were ellipsized, use -l to show in full.</span><br></pre></td></tr></table></figure>
+
+<h1 id="八：关机重启命令"><a href="#八：关机重启命令" class="headerlink" title="八：关机重启命令"></a>八：关机重启命令</h1><h2 id="8-1-常用关机命令"><a href="#8-1-常用关机命令" class="headerlink" title="8.1 常用关机命令"></a>8.1 常用关机命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sync	# 将数据手动存盘，由内存同步到硬盘中</span><br><span class="line">halt	# 停机，关闭系统、不断电</span><br><span class="line">poweroff	# 关机、断电</span><br><span class="line">reboot		# 重启，等同于 shutdown -r now</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-2-shutdown-命令详解"><a href="#8-2-shutdown-命令详解" class="headerlink" title="8.2 shutdown 命令详解"></a>8.2 shutdown 命令详解</h2><ul>
+<li>shutdown：默认一分钟后关机</li>
+<li>shutdown now：立即关机</li>
+<li>shutdown -c：取消关机</li>
+<li>shutdown 3：三分钟后关机</li>
+<li>shutdown 23:00 定时关机</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1272,223 +1383,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Cisco IOS 基础命令集汇总</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-30 11:37:37" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-01 09:46:11" itemprop="dateModified" datetime="2022-12-01T09:46:11+08:00">2022-12-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Cisco-IOS"><a href="#一：Cisco-IOS" class="headerlink" title="一：Cisco IOS"></a>一：Cisco IOS</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><ul>
-<li>Cisco internetwork operating system（IOS）：为 Cisco 设备配备的系统软件。应用于路由器、局域网交换机、小型无线接入点、具有几十个接口的大型路由器等。</li>
-</ul>
-<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ul>
-<li>Cisco IOS 可为设备提供以下网络服务<ul>
-<li>基本的路由和交换功能</li>
-<li>安全可靠地访问网络资源</li>
-<li>网络可伸缩性</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-3-访问方式"><a href="#1-3-访问方式" class="headerlink" title="1.3 访问方式"></a>1.3 访问方式</h2><ul>
-<li>可以通过多种方法访问 CLI 环境，常见方式：<ul>
-<li>控制台</li>
-<li>Telnet 或者 SSH</li>
-<li>辅助端口</li>
-</ul>
-</li>
-</ul>
-<img src="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/image-20221130114858440.png" style="zoom: 50%;">
-
-<h2 id="1-4-访问模式"><a href="#1-4-访问模式" class="headerlink" title="1.4 访问模式"></a>1.4 访问模式</h2><ul>
-<li>用户执行模式 “&gt;”</li>
-<li>特权执行模式 “#”</li>
-<li>全局配置模式<ul>
-<li>从全局配置模式可进入多种不同的配置模式。其中每种模式可用于配置 IOS 设备的特定部分或者特定功能。</li>
-</ul>
-</li>
-<li>其他特定模式<ul>
-<li>接口模式：用于配置一个网络接口（Fa0&#x2F;0、S0&#x2F;0&#x2F;0 等）</li>
-<li>线路模式：用于配置一条线路（实际线路或者虚拟线路），如控制台、AUX、VTY等</li>
-<li>路由配置模式：用于配置一个路由选择协议进程的相关参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-5-模式切换"><a href="#1-5-模式切换" class="headerlink" title="1.5 模式切换"></a>1.5 模式切换</h2><ul>
-<li>enable：用户执行模式进入特权模式</li>
-<li>configure terminal：特权模式进入全局配置模式</li>
-<li>exit：返回上一级模式</li>
-<li>end：直接返回特权模式</li>
-</ul>
-<h2 id="1-6-基础操作"><a href="#1-6-基础操作" class="headerlink" title="1.6 基础操作"></a>1.6 基础操作</h2><ul>
-<li>?：使用 ? 可以匹配查看命令库</li>
-<li>设置IP：ip address IP地址 子网掩码</li>
-<li>no：使用 no shutdown，退出保持状态开启。</li>
-<li>show running-config：查看配置信息</li>
-<li>show ip interface brief：查看 ip 简短信息</li>
-<li>hostname 名称：设置主机名称（全局模式下）</li>
-<li>enable password 密码：设置主机密码</li>
-<li>no enable password：关闭密码验证</li>
-<li>enable secret 密码：采用加密方式设置密码</li>
-</ul>
-<h2 id="1-7-语法检查"><a href="#1-7-语法检查" class="headerlink" title="1.7 语法检查"></a>1.7 语法检查</h2><ul>
-<li>incomplete command：命令不完整</li>
-<li>invalid input detected at ‘^’ marker：箭头所指字符无法识别 </li>
-<li>ambiguous comm：未知输入</li>
-</ul>
-<h2 id="1-8-基本命令结构"><a href="#1-8-基本命令结构" class="headerlink" title="1.8 基本命令结构"></a>1.8 基本命令结构</h2><ul>
-<li>每个 IOS 命令都具有特定的格式或者语法，并在相应的提示符下执行</li>
-<li>常规命令语法为命令后接相应的关键字和参数<ul>
-<li>Router&gt; ping 192.168.1.2</li>
-</ul>
-</li>
-<li>某些命令包括一个关键字和参数子集，此子集可提供额外功能</li>
-</ul>
-<h2 id="1-9-快捷键"><a href="#1-9-快捷键" class="headerlink" title="1.9 快捷键"></a>1.9 快捷键</h2><ul>
-<li>Tab：填写命令或者关键字的剩下部分</li>
-<li>Ctrl+R：重新显示一行</li>
-<li>Ctrl+Z：退出配置模式并返回执行模式</li>
-<li>Ctrl+C：放弃当前命令并退出配置模式</li>
-<li>Ctrl+Shift+6：用于中断诸如 ping 或 traceroute 之类的 IOS 进程</li>
-<li>向上箭头：上一条键入命令</li>
-<li>向下箭头：下一条键入命令</li>
-</ul>
-<h2 id="1-10-常用配置"><a href="#1-10-常用配置" class="headerlink" title="1.10 常用配置"></a>1.10 常用配置</h2><ul>
-<li>配置用户登录密码<ul>
-<li>控制台口令：用于限制人员通过控制台连接访问设备</li>
-<li>使能口令：用于限制人员访问特权执行模式</li>
-<li>使能加密口令：经加密，，用于限制人员访问特权执行模式</li>
-<li>VTY口令：用于限制人员通过 Telnet 访问设备</li>
-</ul>
-</li>
-<li>管理配置文件<ul>
-<li>将当前配置写入启动配置文件<ul>
-<li>write</li>
-<li>copy running-config startup-config</li>
-</ul>
-</li>
-<li>删除启动配置 文件<ul>
-<li>erase startup-config</li>
-<li>delete flash:config.text</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>接口配置<ul>
-<li>进入接口<ul>
-<li>interface 接口类型 插槽&#x2F;接口编号</li>
-</ul>
-</li>
-<li>为接口配置IP地址<ul>
-<li>ip address ip地址 子网掩码</li>
-</ul>
-</li>
-<li>激活接口<ul>
-<li>no shutdown（默认是shutdown状态）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>show 命令<ul>
-<li>show version：查看当前操作系统版本</li>
-<li>show running-config：查看运行配置</li>
-<li>show startup-config：查看启动配置</li>
-<li>show flash：查看FLASH</li>
-<li>show cpu：查看cpu利用率</li>
-<li>show memory：查看内存使用情况</li>
-<li>show interface：查看端口</li>
-</ul>
-</li>
-<li>验证配置<ul>
-<li>ping</li>
-<li>traceroute</li>
-</ul>
-</li>
-</ul>
-<h1 id="二：以太网技术线缆标准"><a href="#二：以太网技术线缆标准" class="headerlink" title="二：以太网技术线缆标准"></a>二：以太网技术线缆标准</h1><ul>
-<li>T-568A：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</li>
-<li>T-568B：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</li>
-<li>标准网线：不同设备用于直通线，即两头都是568A或者都是568B</li>
-<li>交叉网线：同等设备用交叉线即一头为568A，一头为568B</li>
-<li>全反线（一般用于配置线缆）两端线序刚好相反</li>
-</ul>
-<h1 id="三：工程三招"><a href="#三：工程三招" class="headerlink" title="三：工程三招"></a>三：工程三招</h1><ul>
-<li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li>
-<li>line console 0<ul>
-<li>logging synchronous：log当前显示信息同步</li>
-<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1560,7 +1454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

