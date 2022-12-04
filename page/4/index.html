@@ -199,6 +199,430 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">网络安全概述</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:42:36 / 修改时间：05:06:47" itemprop="dateCreated datePublished" datetime="2022-11-26T04:42:36+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：什么是黑客？"><a href="#一：什么是黑客？" class="headerlink" title="一：什么是黑客？"></a>一：什么是黑客？</h1><p>电影：《我是谁：没有绝对安全的系统》</p>
+<p>黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。</p>
+<ul>
+<li><p>黑帽黑客</p>
+</li>
+<li><ul>
+<li>专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。</li>
+</ul>
+</li>
+<li><p>白帽黑客</p>
+</li>
+<li><ul>
+<li>指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。</li>
+</ul>
+</li>
+<li><p>红客</p>
+</li>
+<li><ul>
+<li>指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：法律法规"><a href="#二：法律法规" class="headerlink" title="二：法律法规"></a>二：法律法规</h1><p>中华人民共和国刑法：</p>
+<ul>
+<li>第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</li>
+<li>第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。</li>
+</ul>
+<h1 id="三：渗透测试"><a href="#三：渗透测试" class="headerlink" title="三：渗透测试"></a>三：渗透测试</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>通过模拟恶意黑客的攻击方式，同时是在授权情况下对目标系统进行安全性测试和评估的过程。</p>
+<p>重点是测试，是过程，而不是不计后果的攻击或测试防御，它是一套科学流程，不局限于某一工具或者技巧的运用。</p>
+<p>很多白帽子在各大公司从事的工作便是web渗透测试。</p>
+<h2 id="3-2-流程"><a href="#3-2-流程" class="headerlink" title="3.2 流程"></a>3.2 流程</h2><p>确定目标👉信息收集👉漏洞探测👉漏洞利用，获取webshell👉内网渗透👉漏洞验证与修复👉撰写渗透测试报告</p>
+<ul>
+<li>第一步：确定要渗透的目标，也就是选择要测试的目标网站。</li>
+<li>第二步：收集目标网站的相关信息，比如操作系统，数据库，端口服务，所使用的脚本语言，子域名以及CMS系统等等。</li>
+<li>第三步：漏洞探测。利用收集到的信息，寻找目标的脆弱点。</li>
+<li>第四步：漏洞利用，找到对方系统的弱点后，进一步攻克对方系统，拿到目标系统的权限。</li>
+<li>第五步：渗透目标内网的其他主机，把获得的目标机器权限，当作跳板，进一步攻克内网其他主机。</li>
+<li>第六步：验证漏洞与修复漏洞。</li>
+<li>第七步：清除渗透痕迹，撰写测试报告。</li>
+</ul>
+<h1 id="四：网站运行原理"><a href="#四：网站运行原理" class="headerlink" title="四：网站运行原理"></a>四：网站运行原理</h1><h2 id="4-1-网站运行原理"><a href="#4-1-网站运行原理" class="headerlink" title="4.1 网站运行原理"></a>4.1 网站运行原理</h2><p>服务器的操作系统👉中间件👉数据库👉代码👉静态资源</p>
+<ul>
+<li>网站搭建在服务器的操作系统之上，例如windows、linux；</li>
+<li>网站的搭建需要中间件的支撑，例如：tomcat、nginx、apache software foundation；</li>
+<li>网站的搭建需要数据库存放数据，例如：MySQL、SQL Server；</li>
+<li>网站页面是由代码编写的，例如：PHP、JSP、ASP（动态服务器页面）；</li>
+<li>网站页面由部分静态资源组成，例如：html、css、JavaScript；</li>
+</ul>
+<h2 id="4-2-网站运行流程"><a href="#4-2-网站运行流程" class="headerlink" title="4.2 网站运行流程"></a>4.2 网站运行流程</h2><ul>
+<li>第一步：浏览器输入网址，进行网站访问，通过DNS解析域名，找到服务器IP地址</li>
+<li>第二步：发送请求指服务器</li>
+<li>第三步：服务器接收到请求，并响应请求返回给浏览器</li>
+</ul>
+<h1 id="五：环境准备"><a href="#五：环境准备" class="headerlink" title="五：环境准备"></a>五：环境准备</h1><h2 id="5-1-VM-WARE"><a href="#5-1-VM-WARE" class="headerlink" title="5.1 VM WARE"></a>5.1 VM WARE</h2><p>VM WARE 是一款虚拟化软件，利用它，我们能够在自己物理机的 windows 系统上再去安装其他的操作系统；</p>
+<p>官方Windosws版本： </p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">https://www.vmware.com/go/getworkstation-win</a></strong></p>
+<p>使用激活码进行激活服务；</p>
+<h2 id="5-2-kali-linux"><a href="#5-2-kali-linux" class="headerlink" title="5.2 kali linux"></a>5.2 kali linux</h2><p>官方镜像源下载：</p>
+<p><a target="_blank" rel="noopener" href="http://old.kali.org/kali-images/kali-2022.3/">http://old.kali.org/kali-images/kali-2022.3/</a></p>
+<p>阿里镜像：</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA">https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA</a></p>
+<h2 id="5-3-VMware-tools"><a href="#5-3-VMware-tools" class="headerlink" title="5.3 VMware-tools"></a>5.3 VMware-tools</h2><p>方便操作虚拟机，可以实现复制粘贴功能；</p>
+<ol>
+<li>挂载安装包</li>
+<li>复制安装包到tmp目录下方</li>
+<li>进入tmp目录</li>
+<li>解压安装包</li>
+<li>执行安装脚本</li>
+<li>安装完成过后重启kali</li>
+</ol>
+<h2 id="5-4-kali-APT源"><a href="#5-4-kali-APT源" class="headerlink" title="5.4 kali APT源"></a>5.4 kali APT源</h2><p>kail 的 APT 源就相当于一个软件包管理器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开配置文件</span></span><br><span class="line">leafpad /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>通过 leafpad 打开源的配置文件 sources.list</li>
+<li>复制粘贴中科大源进去</li>
+<li>ctrl + s 保存并退出</li>
+<li>输入命令 apt-get update</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　kali 写入时出现 E121：无法打开并写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　解决方案</span></span><br><span class="line">1.保存的时候使用：ｗ !sudo tee %</span><br><span class="line">2.输入密码即可 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Nmap 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-26 04:37:45 / 修改时间：16:06:17" itemprop="dateCreated datePublished" datetime="2022-11-26T04:37:45+08:00">2022-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一：Nmap-Commands（诸神之眼）"><a href="#一：Nmap-Commands（诸神之眼）" class="headerlink" title="一：Nmap Commands（诸神之眼）"></a>一：Nmap Commands（诸神之眼）</h2><ul>
+<li>扫描对方网站端口</li>
+<li>扫描对方网站服务</li>
+<li>操作系统、版本相关信息</li>
+<li>配合脚本去扫描对方存在的漏洞</li>
+</ul>
+<h2 id="二：常用扫描命令"><a href="#二：常用扫描命令" class="headerlink" title="二：常用扫描命令"></a>二：常用扫描命令</h2><h3 id="2-1-简单扫描目标"><a href="#2-1-简单扫描目标" class="headerlink" title="2.1 简单扫描目标"></a>2.1 简单扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">namp + 目标ip/域名（简单扫描目标）</span></span><br><span class="line">nmap 192.168.1.106</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-26 04:17 CST</span><br><span class="line">Nmap scan report for localhost (192.168.1.106)</span><br><span class="line">Host is up (0.00076s latency).</span><br><span class="line">Not shown: 992 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">135/tcp  open  msrpc</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">443/tcp  open  https</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">902/tcp  open  iss-realsecure</span><br><span class="line">912/tcp  open  apex-mesh</span><br><span class="line">1433/tcp open  ms-sql-s</span><br><span class="line">3306/tcp open  mysql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>port：端口</li>
+<li>state：端口状态</li>
+<li>service：端口服务</li>
+<li>open：端口是开放的</li>
+<li>closed：端口是关闭的</li>
+<li>filtered：端口被防火墙IDS&#x2F;IPS屏蔽，无法确定状态</li>
+<li>unfiletered：端口未被屏蔽，但是否开发需要进一步确定</li>
+<li>open | filtered：端口开放的或者被过滤</li>
+<li>closed | filteres：端口关闭或者被过滤</li>
+</ul>
+<h3 id="2-2-扫描目标网段及其它主机"><a href="#2-2-扫描目标网段及其它主机" class="headerlink" title="2.2 扫描目标网段及其它主机"></a>2.2 扫描目标网段及其它主机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap + 目标ip网段（扫描目标网段及其他主机）</span></span><br><span class="line">nmap 192.168.1.0/24</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-对目标全面扫描"><a href="#2-3-对目标全面扫描" class="headerlink" title="2.3 对目标全面扫描"></a>2.3 对目标全面扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -A -T4 + 目标ip（对目标全面扫描）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-A: 采用全面扫描的方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 采用的是T4级别进行扫描（T5最高级别，速度最快）</span></span><br><span class="line">nmap -A -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-扫描目标常见的100端口"><a href="#2-4-扫描目标常见的100端口" class="headerlink" title="2.4 扫描目标常见的100端口"></a>2.4 扫描目标常见的100端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --top-ports 100 + 目标ip（扫描目标最常见的100端口）</span></span><br><span class="line">nmap --top-ports 100 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"><a href="#2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本" class="headerlink" title="2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"></a>2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -sS -sV -T4 + 目标ip（采用sS模式、T4级别扫描目标的端口、服务、操作系统的版本）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sS: 使用 TCP SYN 扫描</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sV: 进行版本探测</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 使用一种快速扫描的方式，扫描速度的级别范围在（T0-T5）之间，级别越高，扫描速度越快。</span></span><br><span class="line">nmap -sS -sV -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-采用vuln脚本扫描目标"><a href="#2-6-采用vuln脚本扫描目标" class="headerlink" title="2.6 采用vuln脚本扫描目标"></a>2.6 采用vuln脚本扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --script=vuln + 目标ip</span></span><br><span class="line">nmap --script=vuln 192.168.1.106</span><br></pre></td></tr></table></figure>
+
+<h2 id="三：图形-zenmap-使用"><a href="#三：图形-zenmap-使用" class="headerlink" title="三：图形 zenmap 使用"></a>三：图形 zenmap 使用</h2><p>nmap的图形化工具，具体使用步骤如下：</p>
+<ol>
+<li>输入ip或者域名</li>
+<li>选择扫描方式</li>
+<li>执行扫描</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">Word模板导出功能实现</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-22 00:22:32 / 修改时间：00:25:54" itemprop="dateCreated datePublished" datetime="2022-11-22T00:22:32+08:00">2022-11-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Wrod-模板导出功能实现"><a href="#Wrod-模板导出功能实现" class="headerlink" title="Wrod 模板导出功能实现"></a>Wrod 模板导出功能实现</h1><h2 id="一：准备Word模板"><a href="#一：准备Word模板" class="headerlink" title="一：准备Word模板"></a>一：准备Word模板</h2><p>根据自身需求，准备响应的模板，并提取模板文件；</p>
+<h2 id="二：核心类"><a href="#二：核心类" class="headerlink" title="二：核心类"></a>二：核心类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 19:01 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDocxUtil</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(GenerateDocxUtil.class);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">freemarkerDocxTest</span><span class="params">(String rootPath, Map&lt;String,Object&gt; dataMap, String docxPath)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="comment">//配置freemarker模板</span></span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">configuration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileDirectory</span> <span class="operator">=</span> rootPath;</span><br><span class="line">        configuration.setDirectoryForTemplateLoading(<span class="keyword">new</span> <span class="title class_">File</span>(fileDirectory));</span><br><span class="line">        <span class="type">String</span> <span class="variable">temName</span> <span class="operator">=</span>  <span class="string">&quot;tem1.xml&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">docxZipPath</span> <span class="operator">=</span> rootPath + <span class="string">&quot;tem1.zip&quot;</span>;</span><br><span class="line">        <span class="type">Template</span> <span class="variable">template</span> <span class="operator">=</span> configuration.getTemplate(temName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过模板生成的xml临时文件 方法结束后删除该临时文件</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">outFilePath</span> <span class="operator">=</span> rootPath + UUID.randomUUID().toString().replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;&quot;</span>) + <span class="string">&quot;.xml&quot;</span>;</span><br><span class="line">        <span class="comment">//指定输出word xml文件的路径</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">docXmlFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(outFilePath);</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(docXmlFile);</span><br><span class="line">        <span class="type">Writer</span> <span class="variable">out</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(fos),<span class="number">10240</span>);</span><br><span class="line">        template.process(dataMap,out);</span><br><span class="line">        <span class="keyword">if</span>(out != <span class="literal">null</span>)&#123;</span><br><span class="line">            out.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//以下代码 主要用来加密已经生成的xml文件，把xml文件正式转换成加密的word文档</span></span><br><span class="line">        <span class="comment">//包装输入流</span></span><br><span class="line">        <span class="type">ZipInputStream</span> <span class="variable">zipInputStream</span> <span class="operator">=</span>  wrapZipInputStream(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(docxZipPath)));</span><br><span class="line">        <span class="comment">//包装输出流</span></span><br><span class="line">        <span class="type">ZipOutputStream</span> <span class="variable">zipOutputStream</span> <span class="operator">=</span>  wrapZipOutputStream(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(docxPath)));</span><br><span class="line">        <span class="comment">//正式加密替换成docx格式文档</span></span><br><span class="line">        List&lt;String&gt; itemNameList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        itemNameList.add(<span class="string">&quot;word/document.xml&quot;</span>);</span><br><span class="line">        <span class="comment">//如果需要替换图片添加此行代码，&quot;word/media/image1.png&quot;为解压出来docx模板后，模板中对应图片的完整路径及名称，如果你添加的图片为jpg格式，那么图片名称会是&quot;image1.jpg&quot;或&quot;image1.jpeg&quot;，各位自己视情况修改，如需替换多张图片就举一反三，往list插入多个元素，我相信你们可以理解的</span></span><br><span class="line"><span class="comment">//        itemNameList.add(&quot;word/media/image1.png&quot;);</span></span><br><span class="line"></span><br><span class="line">        List&lt;InputStream&gt; itemInputStreamList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        itemInputStreamList.add(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(outFilePath)));</span><br><span class="line">        <span class="comment">//这里添加你想替换的图片</span></span><br><span class="line"><span class="comment">//        itemInputStreamList.add(new FileInputStream(new File($&#123;图片路径&#125;)));</span></span><br><span class="line"></span><br><span class="line">        replaceItemList(zipInputStream, zipOutputStream, itemNameList, itemInputStreamList);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">File</span>(outFilePath).delete();</span><br><span class="line">        logger.info(<span class="string">&quot;Word-docx文档生成完成&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ZipInputStream <span class="title function_">wrapZipInputStream</span><span class="params">(InputStream inputStream)</span>&#123;</span><br><span class="line">        <span class="type">ZipInputStream</span> <span class="variable">zipInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipInputStream</span>(inputStream);</span><br><span class="line">        <span class="keyword">return</span> zipInputStream;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ZipOutputStream <span class="title function_">wrapZipOutputStream</span><span class="params">(OutputStream outputStream)</span>&#123;</span><br><span class="line">        <span class="type">ZipOutputStream</span> <span class="variable">zipOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipOutputStream</span>(outputStream);</span><br><span class="line">        <span class="keyword">return</span> zipOutputStream;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">replaceItemList</span><span class="params">(ZipInputStream zipInputStream, ZipOutputStream zipOutputStream, List&lt;String&gt; itemNameList, List&lt;InputStream&gt; itemInputStreamList)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == zipInputStream)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == zipOutputStream)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">        ZipEntry entryIn;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span>((entryIn = zipInputStream.getNextEntry())!=<span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">entryName</span> <span class="operator">=</span>  entryIn.getName();</span><br><span class="line">                <span class="type">ZipEntry</span> <span class="variable">entryOut</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipEntry</span>(entryName);</span><br><span class="line">                zipOutputStream.putNextEntry(entryOut);</span><br><span class="line">                <span class="type">byte</span> [] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">8</span>*<span class="number">1024</span>];</span><br><span class="line">                <span class="type">int</span> len;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(itemNameList.indexOf(entryName) != -<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="comment">// 使用替换流</span></span><br><span class="line">                    <span class="keyword">while</span>((len = (itemInputStreamList.get(itemNameList.indexOf(entryName)).read(buf))) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        zipOutputStream.write(buf, <span class="number">0</span>, len);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 输出普通Zip流</span></span><br><span class="line">                    <span class="keyword">while</span>((len = (zipInputStream.read(buf))) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        zipOutputStream.write(buf, <span class="number">0</span>, len);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 关闭此 entry</span></span><br><span class="line">                zipOutputStream.closeEntry();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">            <span class="keyword">for</span> (InputStream itemInputStream:itemInputStreamList) &#123;</span><br><span class="line">                close(itemInputStream);</span><br><span class="line">            &#125;</span><br><span class="line">            close(zipInputStream);</span><br><span class="line">            close(zipOutputStream);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(InputStream inputStream)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != inputStream)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(OutputStream outputStream)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != outputStream)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                outputStream.flush();</span><br><span class="line">                outputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三：测试类"><a href="#三：测试类" class="headerlink" title="三：测试类"></a>三：测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CX330</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Map&lt;String, Object&gt; data = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        data.put(<span class="string">&quot;one&quot;</span>, <span class="string">&quot;RupertTears&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;two&quot;</span>, <span class="string">&quot;Thought is already is late, exactly is the earliest time.&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;three&quot;</span>, <span class="string">&quot;成功&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;six&quot;</span>, <span class="string">&quot;成功6&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;five&quot;</span>, <span class="string">&quot;成功5&quot;</span>);</span><br><span class="line">        GenerateDocxUtil.freemarkerDocxTest(<span class="string">&quot;C:\\Users\\lenovo\\Desktop\\res\\res\\res\\res\\&quot;</span>, data, <span class="string">&quot;C:\\Users\\lenovo\\Desktop\\巡检报告xx622.docx&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/21/SpringBoot%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/21/SpringBoot%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-title-link" itemprop="url">SpringBoot配置连接MySQL数据库</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-11-21 22:29:50 / 修改时间：23:49:18" itemprop="dateCreated datePublished" datetime="2022-11-21T22:29:50+08:00">2022-11-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SpringBoot-配置连接-MySQL-数据库"><a href="#SpringBoot-配置连接-MySQL-数据库" class="headerlink" title="SpringBoot 配置连接 MySQL 数据库"></a>SpringBoot 配置连接 MySQL 数据库</h1><h2 id="一：引入依赖"><a href="#一：引入依赖" class="headerlink" title="一：引入依赖"></a>一：引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二：编辑-yaml-文件"><a href="#二：编辑-yaml-文件" class="headerlink" title="二：编辑 yaml 文件"></a>二：编辑 yaml 文件</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Developer</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/aaa?serverTimezone=UTC&amp;useUnicode=true&amp;characterEcoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8088</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三：配置包扫描"><a href="#三：配置包扫描" class="headerlink" title="三：配置包扫描"></a>三：配置包扫描</h2><p>SpringBoot 拥有默认的包扫描机制，启动类所在当前包及其包的子类都会默认被扫描；</p>
+<p>有时会因为 Bean 和启动类不在一个文件夹下，导致扫描不到引起的注解失败问题。</p>
+<p>如何修改包扫描的位置？</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>在启动类 SpringBootApplication 注解中配置 scanBasePackages即可，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(scanBasePackages = &#123;&quot;cn.aiyingke.developer.mysql&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeveloperApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DeveloperApplication.class, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;Program startup completed!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以配置多个包路径；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(scanBasePackages = &#123;&quot;cn.aiyingke.developer.mysql&quot;,&quot;cn.aiyingke.developer.mysql.ebean&quot;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>在启动类里面添加 @ComponentScan 注解配置 basePackages；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;cn.aiyingke.developer.mysql&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeveloperApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DeveloperApplication.class, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;Program startup completed!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四：测试类"><a href="#四：测试类" class="headerlink" title="四：测试类"></a>四：测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 22:11 2022/11/21</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/mysql&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcController</span> &#123;</span><br><span class="line">    <span class="keyword">final</span></span><br><span class="line">    JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">JdbcController</span><span class="params">(JdbcTemplate jdbcTemplate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.jdbcTemplate = jdbcTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/mdtList&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Map&lt;String, Object&gt;&gt; <span class="title function_">mdtList</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from mdt&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> jdbcTemplate.queryForList(sql);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/Lombok%E4%B9%8B-EqualsAndHashCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -814,478 +1238,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（1）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
-<p>训练数据：</p>
-<p>余额为1、2、3、4、5，看电影（正样本）</p>
-<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
-<p>作图：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
-
-<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
-<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
-
-<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
-
-<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
-<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
-
-<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
-
-<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
-<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
-<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
-<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
-<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
-
-<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
-
-<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
-<p>逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
-
-<p>带入参数值，获得结果：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
-
-<p>结论：</p>
-<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
-<p>余额 100，即 y &#x3D; 1，去看电影；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">AI_分类问题</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:16:36 / 修改时间：13:17:02" itemprop="dateCreated datePublished" datetime="2022-11-12T11:16:36+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p>
-<h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;">
-
-<p>其中 x 为样本的特征，即属性。</p>
-<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;">
-
-<h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul>
-<li>输入：电子邮件</li>
-<li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li>
-</ul>
-<h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol>
-<li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li>
-<li>获取批量的样本邮件及其标签，学习其特征（计算机）</li>
-<li>针对新的邮件，自动判断其类别（计算机）</li>
-</ol>
-<h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul>
-<li>发件人包含字符：% &amp; * …</li>
-<li>正文包含：现金、领取等</li>
-<li>其他特征</li>
-</ul>
-<h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p>
-<p>其次根据样本的特征值，获得 y &#x3D; 0；</p>
-<p>由此判断出是否为垃圾邮件。</p>
-<h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul>
-<li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p>
-</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul>
-<li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul>
-<li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul>
-<li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li>
-</ul>
-<h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul>
-<li><p>垃圾邮件检测</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li>
-</ul>
-</li>
-<li><p>图像分类</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li>
-</ul>
-</li>
-<li><p>数字识别</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li>
-</ul>
-</li>
-<li><p>考试通过测试</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li>
-</ul>
-</li>
-</ul>
-<h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul>
-<li>分类任务<ul>
-<li>分类目标：判断类别</li>
-<li>模型输出：非连续型标签</li>
-</ul>
-</li>
-<li>回归任务<ul>
-<li>回归目标：建立函数关系</li>
-<li>模型输出：连续型数值</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p>
-<h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul>
-<li><p>分类问题</p>
-<ul>
-<li>根据房屋信息预测其是否受欢迎</li>
-<li>猫狗图像识别</li>
-<li>股价涨跌预测</li>
-</ul>
-</li>
-<li><p>回归问题</p>
-<ul>
-<li>根据房屋信息预测房屋价格</li>
-<li>股价预测</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/" class="post-title-link" itemprop="url">专业词汇积累008</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:08:15 / 修改时间：22:37:26" itemprop="dateCreated datePublished" datetime="2022-11-12T11:08:15+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-008"><a href="#Professional-Vocabulary-Accumulation-008" class="headerlink" title="Professional Vocabulary Accumulation_008"></a>Professional Vocabulary Accumulation_008</h1><ul>
-<li>Classification</li>
-<li>分类</li>
-<li>Decision Boundary</li>
-<li>决策边界</li>
-<li>Logistic Regression</li>
-<li>逻辑回归</li>
-<li>convert</li>
-<li>转换</li>
-<li>flag</li>
-<li>旗</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">AI_多因子线性回归</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-11 22:26:41" itemprop="dateCreated datePublished" datetime="2022-11-11T22:26:41+08:00">2022-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-12 11:07:16" itemprop="dateModified" datetime="2022-11-12T11:07:16+08:00">2022-11-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="多因子房价预测"><a href="#多因子房价预测" class="headerlink" title="多因子房价预测"></a>多因子房价预测</h1><h2 id="一：影响房屋价格因素"><a href="#一：影响房屋价格因素" class="headerlink" title="一：影响房屋价格因素"></a>一：影响房屋价格因素</h2><ul>
-<li>地区平均收入</li>
-<li>房屋平均年龄</li>
-<li>房屋房间数量</li>
-<li>地区人口数量</li>
-<li>房屋尺寸大小</li>
-</ul>
-<h2 id="二：实现目标"><a href="#二：实现目标" class="headerlink" title="二：实现目标"></a>二：实现目标</h2><p>基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：</p>
-<ol>
-<li>以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果</li>
-<li>以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现</li>
-<li>预测 收入&#x3D;65000，房屋年龄&#x3D;5，房间数量&#x3D;5，人口数量&#x3D;30000，房间尺寸&#x3D;200的合理房价</li>
-</ol>
-<h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><h3 id="1-加载数据"><a href="#1-加载数据" class="headerlink" title="1. 加载数据"></a>1. 加载数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load the data</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;housing_price.csv&#x27;</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111230129984.png"></p>
-<h3 id="2-可视化数据"><a href="#2-可视化数据" class="headerlink" title="2. 可视化数据"></a>2. 可视化数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing data</span></span><br><span class="line"><span class="comment"># 内嵌绘图，可省略 plt.show() 这一步</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">fig1 = plt.subplot(<span class="number">231</span>)  <span class="comment"># 两行三列第一个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Income&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Income&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig2 = plt.subplot(<span class="number">232</span>)  <span class="comment"># 两行三列第二个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area House Age&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS House Age&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig3 = plt.subplot(<span class="number">233</span>)  <span class="comment"># 两行三列第三个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Number of Rooms&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Number of Rooms&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig4 = plt.subplot(<span class="number">234</span>)  <span class="comment"># 两行三列第四个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Area Population&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Area Population&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig5 = plt.subplot(<span class="number">235</span>)  <span class="comment"># 两行三列第五个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;size&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS size&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show() <span class="comment"># 可以省略</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111233254168.png"></p>
-<h3 id="3-建立单因子模型（面积）"><a href="#3-建立单因子模型（面积）" class="headerlink" title="3. 建立单因子模型（面积）"></a>3. 建立单因子模型（面积）</h3><h4 id="（1）定义-X、Y"><a href="#（1）定义-X、Y" class="headerlink" title="（1）定义 X、Y"></a>（1）定义 X、Y</h4><p>X：影响因素；Y：结果值</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define x and y</span></span><br><span class="line">X = data.loc[:,<span class="string">&#x27;size&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;Price&#x27;</span>]</span><br><span class="line">y.head()</span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）建立回归模型"><a href="#（2）建立回归模型" class="headerlink" title="（2）建立回归模型"></a>（2）建立回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up the linear regression model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">LR1 = LinearRegression()</span><br><span class="line"><span class="comment"># reshape data</span></span><br><span class="line">X = np.array(X).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X.shape)</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR1.fit(X,y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（3）模型预测"><a href="#（3）模型预测" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calulate the price vs size </span></span><br><span class="line">y_predict_1 = LR1.predict(X)</span><br><span class="line"><span class="built_in">print</span>(y_predict_1)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（4）模型评估"><a href="#（4）模型评估" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">mean_squared_error_1 = mean_squared_error(y,y_predict_1)</span><br><span class="line">r2_score_1 = r2_score(y,y_predict_1)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_1,r2_score_1)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（5）可视化预测结果"><a href="#（5）可视化预测结果" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_res = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X,y)</span><br><span class="line">plt.plot(X,y_predict_1,<span class="string">&#x27;r&#x27;</span>) <span class="comment"># 红线表示</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112000554219.png" style="zoom:67%;">
-
-<h3 id="4-建立多因子模型"><a href="#4-建立多因子模型" class="headerlink" title="4. 建立多因子模型"></a>4. 建立多因子模型</h3><h4 id="（1）定义多因子-X"><a href="#（1）定义多因子-X" class="headerlink" title="（1）定义多因子 X"></a>（1）定义多因子 X</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define X_multi</span></span><br><span class="line">X_multi = data.drop([<span class="string">&#x27;Price&#x27;</span>],axis=<span class="number">1</span>) <span class="comment"># 排除Price列，axis=1 表示横轴从左往右</span></span><br><span class="line">X_multi</span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）建立多因子回归模型"><a href="#（2）建立多因子回归模型" class="headerlink" title="（2）建立多因子回归模型"></a>（2）建立多因子回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up 2nd linear regression model</span></span><br><span class="line">LR_multi = LinearRegression()</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR_multi.fit(X_multi,y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（3）模型预测-1"><a href="#（3）模型预测-1" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># make prediction</span></span><br><span class="line">y_predict_multi = LR_multi.predict(X_multi)</span><br><span class="line"><span class="built_in">print</span>(y_predict_multi)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（4）模型评估-1"><a href="#（4）模型评估-1" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line">mean_squared_error_multi = mean_squared_error(y,y_predict_multi)</span><br><span class="line">r2_score_multi = r2_score(y,y_predict_multi)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_multi,r2_score_multi)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（5）可视化预测结果-1"><a href="#（5）可视化预测结果-1" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_multi = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(y,y_predict_multi)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112002817697.png" style="zoom:67%;">
-
-<h3 id="5-规定因素值预测"><a href="#5-规定因素值预测" class="headerlink" title="5. 规定因素值预测"></a>5. 规定因素值预测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X_test = [<span class="number">65000</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">30000</span>,<span class="number">200</span>]</span><br><span class="line">X_test = np.array(X_test).reshape(<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X_test)</span><br><span class="line"></span><br><span class="line">y_test_predict = LR_multi.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(y_test_predict)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1357,7 +1309,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1424,7 +1376,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共43.9k字</span>
+  <span class="post-count">本博客全站共47.2k字</span>
 </div>
 
 

@@ -199,6 +199,616 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux 软件包管理</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 16:36:34 / 修改时间：16:49:05" itemprop="dateCreated datePublished" datetime="2022-12-04T16:36:34+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：RPM"><a href="#一：RPM" class="headerlink" title="一：RPM"></a>一：RPM</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><ul>
+<li><p>RPM（RedHat Package Manager），RedHat软件包管理工具。</p>
+</li>
+<li><p>RPM包的名称格式 </p>
+<ul>
+<li>Apache-1.3.23-11.i386.rpm </li>
+<li>“apache” 软件名称 </li>
+<li>“1.3.23-11”软件的版本号，主版本和此版本 </li>
+<li>“i386”是软件所运行的硬件平台，Intel 32位处理器的统称  </li>
+<li>“rpm”文件扩展名，代表RPM包</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-RPM-查询命令（rpm-qa）"><a href="#1-2-RPM-查询命令（rpm-qa）" class="headerlink" title="1.2 RPM 查询命令（rpm -qa）"></a>1.2 RPM 查询命令（rpm -qa）</h2><ul>
+<li>rpm -qa （功能描述：查询所安装的所有 rpm 软件包）</li>
+<li>由于软件包比较多，一般都会采取过滤。<ul>
+<li>rpm -qa | grep rpm软件包</li>
+</ul>
+</li>
+</ul>
+<p>查看应用详细信息：</p>
+<p><img src="/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/image-20221204164849700.png"></p>
+<h2 id="1-3-RPM-卸载命令（rpm-e）"><a href="#1-3-RPM-卸载命令（rpm-e）" class="headerlink" title="1.3 RPM 卸载命令（rpm -e）"></a>1.3 RPM 卸载命令（rpm -e）</h2><h3 id="（1）基本语法"><a href="#（1）基本语法" class="headerlink" title="（1）基本语法"></a>（1）基本语法</h3><ul>
+<li>rpm -e RPM软件包 </li>
+<li>rpm -e –nodeps 软件包</li>
+</ul>
+<h3 id="（2）选项说明"><a href="#（2）选项说明" class="headerlink" title="（2）选项说明"></a>（2）选项说明</h3><ul>
+<li>-e 卸载软件包</li>
+<li>–nodeps 卸载软件时，不检查依赖。可能会导致某些依赖其的软件不能正常运行</li>
+</ul>
+<h2 id="1-4-RPM-安装命令（rpm-ivh）"><a href="#1-4-RPM-安装命令（rpm-ivh）" class="headerlink" title="1.4 RPM 安装命令（rpm -ivh）"></a>1.4 RPM 安装命令（rpm -ivh）</h2><h3 id="（1）基本语法-1"><a href="#（1）基本语法-1" class="headerlink" title="（1）基本语法"></a>（1）基本语法</h3><ul>
+<li>rpm -ivh RPM 包全名</li>
+</ul>
+<h3 id="（2）选项说明-1"><a href="#（2）选项说明-1" class="headerlink" title="（2）选项说明"></a>（2）选项说明</h3><p><img src="/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/image-20221204164127004.png"></p>
+<h1 id="二：YUM"><a href="#二：YUM" class="headerlink" title="二：YUM"></a>二：YUM</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><ul>
+<li>YUM（全称为 Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 CentOS 中的 Shell 前端软件包管理器。基于 RPM 包管理，能够从指定的服务器自动下载 RPM 包 并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次 次下载、安装。</li>
+<li>类比 maven；</li>
+</ul>
+<h2 id="2-2-YUM-的常用命令"><a href="#2-2-YUM-的常用命令" class="headerlink" title="2.2 YUM 的常用命令"></a>2.2 YUM 的常用命令</h2><h3 id="（1）基本语法-2"><a href="#（1）基本语法-2" class="headerlink" title="（1）基本语法"></a>（1）基本语法</h3><ul>
+<li>yum [选项] [参数]</li>
+</ul>
+<h3 id="（2）选项说明-2"><a href="#（2）选项说明-2" class="headerlink" title="（2）选项说明"></a>（2）选项说明</h3><p><img src="/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/image-20221204164307426.png"></p>
+<h3 id="（3）参数说明"><a href="#（3）参数说明" class="headerlink" title="（3）参数说明"></a>（3）参数说明</h3><p><img src="/2022/12/04/Linux-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/image-20221204164320962.png"></p>
+<h2 id="2-3-修改网络-YUM-源"><a href="#2-3-修改网络-YUM-源" class="headerlink" title="2.3 修改网络 YUM 源"></a>2.3 修改网络 YUM 源</h2><ul>
+<li>安装 wget, wget 用来从指定的 URL 下载文件；<ul>
+<li>yum install wget</li>
+</ul>
+</li>
+<li>在&#x2F;etc&#x2F;yum.repos.d&#x2F;目录下，备份默认的 repos 文件；<ul>
+<li>cp CentOS-Base.repo CentOS-Base.repo.backup</li>
+</ul>
+</li>
+<li>下载网易 163 或者是 aliyun 的 repos 文件,任选其一<ul>
+<li>wget <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/repo/Centos-7.repo">http://mirrors.aliyun.com/repo/Centos-7.repo</a></li>
+<li>wget <a target="_blank" rel="noopener" href="http://mirrors.163.com/.help/CentOS7-Base-163.repo">http://mirrors.163.com/.help/CentOS7-Base-163.repo</a></li>
+</ul>
+</li>
+<li>替换默认的yum源文件<ul>
+<li>mv CentOS7.repo CentOS-Base.rep</li>
+<li>mv CentOS7-Base-163.repo CentOS-Base.rep</li>
+</ul>
+</li>
+<li>清理旧缓存数据，缓存新数据<ul>
+<li>yum clean all</li>
+<li>yum makecache（服务器的包信息下载到本地电脑缓存起来）</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">Linux 定时任务</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 15:59:47 / 修改时间：16:16:41" itemprop="dateCreated datePublished" datetime="2022-12-04T15:59:47+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：crontab-服务管理"><a href="#一：crontab-服务管理" class="headerlink" title="一：crontab 服务管理"></a>一：crontab 服务管理</h1><h2 id="1-1-查看当前-crond-服务状态"><a href="#1-1-查看当前-crond-服务状态" class="headerlink" title="1.1 查看当前 crond 服务状态"></a>1.1 查看当前 crond 服务状态</h2><p><img src="/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/image-20221204160114196.png"></p>
+<h2 id="1-2-重新启动-crond-服务"><a href="#1-2-重新启动-crond-服务" class="headerlink" title="1.2 重新启动 crond 服务"></a>1.2 重新启动 crond 服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl restart crond</span><br></pre></td></tr></table></figure>
+
+<h1 id="二：crontab-定时任务设置"><a href="#二：crontab-定时任务设置" class="headerlink" title="二：crontab 定时任务设置"></a>二：crontab 定时任务设置</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><ul>
+<li>crontab [选项]</li>
+</ul>
+<h2 id="2-2-选项说明"><a href="#2-2-选项说明" class="headerlink" title="2.2 选项说明"></a>2.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/image-20221204160259037.png"></p>
+<h2 id="2-3-参数说明"><a href="#2-3-参数说明" class="headerlink" title="2.3 参数说明"></a>2.3 参数说明</h2><p>crontab -e 进入编辑界面。会打开 vim 编辑定时任务。</p>
+<h2 id="2-4-时间表示格式"><a href="#2-4-时间表示格式" class="headerlink" title="2.4 时间表示格式"></a>2.4 时间表示格式</h2><p><img src="/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/image-20221204160421719.png"></p>
+<h2 id="2-5-特殊符号含义"><a href="#2-5-特殊符号含义" class="headerlink" title="2.5 特殊符号含义"></a>2.5 特殊符号含义</h2><p><img src="/2022/12/04/Linux-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/image-20221204160518568.png"></p>
+<h2 id="2-6-特定时间执行命令"><a href="#2-6-特定时间执行命令" class="headerlink" title="2.6 特定时间执行命令"></a>2.6 特定时间执行命令</h2><ul>
+<li>每天8点整执行命令：0 8 * * * 命令；</li>
+<li>每周一6点执行命令：0 6 * * 1 命令；</li>
+<li>每月1号和15号凌晨5点执行命令：0 5 1,15 * * 命令；</li>
+<li>每周一到周五凌晨3点执行命令：0 3 * * 1-5 命令；</li>
+</ul>
+<h2 id="2-7-案例操作"><a href="#2-7-案例操作" class="headerlink" title="2.7 案例操作"></a>2.7 案例操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# crontab -e </span><br><span class="line">[root@hadoop100 ~]# crontab -l</span><br><span class="line">*/1 * * * * echo &quot;hello world&quot; &gt;&gt; /root/hello.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清空当前用户 所有定时任务</span></span><br><span class="line">[root@hadoop100 ~]# crontab -r</span><br><span class="line">[root@hadoop100 ~]# crontab -l</span><br><span class="line">no crontab for root</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 进程管理类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 15:18:01 / 修改时间：15:52:15" itemprop="dateCreated datePublished" datetime="2022-12-04T15:18:01+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​		进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地 址空间，并占用一定的系统资源。</p>
+<h1 id="一：ps-查看当前系统进程状态"><a href="#一：ps-查看当前系统进程状态" class="headerlink" title="一：ps 查看当前系统进程状态"></a>一：ps 查看当前系统进程状态</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul>
+<li>ps:process status 进程状态</li>
+<li>ps aux | grep xxx （功能描述：查看系统中所有进程） </li>
+<li>ps -ef | grep xxx （功能描述：可以查看子父进程之间的关系）</li>
+</ul>
+<h2 id="1-2-选项说明"><a href="#1-2-选项说明" class="headerlink" title="1.2 选项说明"></a>1.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204152036824.png"></p>
+<h2 id="1-3-功能说明"><a href="#1-3-功能说明" class="headerlink" title="1.3 功能说明"></a>1.3 功能说明</h2><h3 id="（1）ps-aux-显示信息说明"><a href="#（1）ps-aux-显示信息说明" class="headerlink" title="（1）ps aux 显示信息说明"></a>（1）ps aux 显示信息说明</h3><ul>
+<li>USER：该进程是由哪个用户产生的</li>
+<li>PID：进程的 ID 号</li>
+<li>%CPU：该进程占用 CPU 资源的百分比，占用越高，进程越耗费资源；</li>
+<li>%MEM：该进程占用物理内存的百分比，占用越高，进程越耗费资源；</li>
+<li>VSZ：该进程占用虚拟内存的大小，单位 KB；</li>
+<li>RSS：该进程占用实际物理内存的大小，单位 KB；</li>
+<li>TTY：该进程是在哪个终端中运行的。<ul>
+<li>tty1 是图形化终端；</li>
+<li>tty2-tty6 是本地的字符界面终端</li>
+<li>pts&#x2F;0-255 代表虚拟终端</li>
+</ul>
+</li>
+<li>STAT：进程状态。<ul>
+<li>常见的状态有：<ul>
+<li>R：运行状态、</li>
+<li>S：睡眠状态、</li>
+<li>T：暂停状态、</li>
+<li>Z：僵尸状态、</li>
+<li>s：包含子进程、</li>
+<li>l：多线程、</li>
+<li>+：前台显示</li>
+<li>&lt;：表示高优先级</li>
+<li>N：表示低优先级</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>START：该进程的启动时间</li>
+<li>TIME：该进程占用 CPU 的运算时间，注意不是系统时间</li>
+<li>COMMAND：产生此进程的命令名</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204152147201.png"></p>
+<p>systemd：系统的1号进程；</p>
+<p>kthreadd：系统线程管理；</p>
+<h3 id="（2）ps-ef-显示信息说明"><a href="#（2）ps-ef-显示信息说明" class="headerlink" title="（2）ps -ef  显示信息说明"></a>（2）ps -ef  显示信息说明</h3><ul>
+<li>UID：用户 ID </li>
+<li>PID：进程 ID </li>
+<li>PPID：父进程 ID </li>
+<li>C：CPU 用于计算执行优先级的因子。数值越大，表明进程是 CPU 密集型运算， 执行优先级会降低；数值越小，表明进程是 I&#x2F;O 密集型运算，执行优先级会提高 </li>
+<li>STIME：进程启动的时间 </li>
+<li>TTY：完整的终端名称 </li>
+<li>TIME：CPU 时间 </li>
+<li>CMD：启动进程所用的命令和参数</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204152737678.png"></p>
+<h3 id="（2）经验汇总"><a href="#（2）经验汇总" class="headerlink" title="（2）经验汇总"></a>（2）经验汇总</h3><ul>
+<li><p>如果想查看进程的 CPU 占用率和内存占用率，可以使用 aux; </p>
+</li>
+<li><p>如果想查看进程的父进程 ID 可以使用 -ef;</p>
+</li>
+</ul>
+<h1 id="二：-kill-终止进程"><a href="#二：-kill-终止进程" class="headerlink" title="二： kill 终止进程"></a>二： kill 终止进程</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><ul>
+<li>kill [选项] 进程号 （功能描述：通过进程号杀死进程） </li>
+<li>killall 进程名称 （功能描述：通过进程名称杀死进程，也支持通配符，这在系统因负载过大而变得很慢时很有用）</li>
+</ul>
+<h2 id="2-2-选项说明"><a href="#2-2-选项说明" class="headerlink" title="2.2 选项说明"></a>2.2 选项说明</h2><ul>
+<li>-9 表示强迫进程立即停止，表示的是SIGKILL；</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204153049379.png"></p>
+<h1 id="三：pstree-查看进程树"><a href="#三：pstree-查看进程树" class="headerlink" title="三：pstree 查看进程树"></a>三：pstree 查看进程树</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul>
+<li>pstree [选项]</li>
+</ul>
+<h2 id="3-2-选项说明"><a href="#3-2-选项说明" class="headerlink" title="3.2 选项说明"></a>3.2 选项说明</h2><ul>
+<li>-p 显示进程的 PID </li>
+<li>-u 显示进程的所属用户</li>
+</ul>
+<h2 id="3-3-案例操作"><a href="#3-3-案例操作" class="headerlink" title="3.3 案例操作"></a>3.3 案例操作</h2><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204153408244.png"></p>
+<h1 id="四：top-实时监控系统进程状"><a href="#四：top-实时监控系统进程状" class="headerlink" title="四：top 实时监控系统进程状"></a>四：top 实时监控系统进程状</h1><h2 id="4-1-基本语法"><a href="#4-1-基本语法" class="headerlink" title="4.1 基本语法"></a>4.1 基本语法</h2><ul>
+<li>top [选项]</li>
+</ul>
+<h2 id="4-2-选项说明"><a href="#4-2-选项说明" class="headerlink" title="4.2 选项说明"></a>4.2 选项说明</h2><ul>
+<li>-d 秒数 指定 top 命令每隔几秒更新。默认是 3 秒在 top 命令的交互模式当 中可以执行的命令；</li>
+<li>-i 使 top 不显示任何闲置或者僵死进程；</li>
+<li>-p 通过指定监控进程 ID 来仅仅监控某个进程的状态；</li>
+</ul>
+<h2 id="4-3-操作说明"><a href="#4-3-操作说明" class="headerlink" title="4.3 操作说明"></a>4.3 操作说明</h2><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204153704822.png"></p>
+<h2 id="4-4-查询结果字段说明"><a href="#4-4-查询结果字段说明" class="headerlink" title="4.4 查询结果字段说明"></a>4.4 查询结果字段说明</h2><ul>
+<li>第一行信息为任务队列信息<ul>
+<li>系统当前时间</li>
+<li>系统的运行时间</li>
+<li>当前登录了两个用户</li>
+<li>系统在之前 1 分钟，5 分钟，15 分钟的平均负 载。一般认为小于 1 时，负载较小。如果大于 1，系统已经超出负荷。</li>
+</ul>
+</li>
+<li>第二行为进程信息<ul>
+<li>系统中的进程总数</li>
+<li>正在运行的进程数</li>
+<li>睡眠的进程</li>
+<li>正在停止的进程</li>
+<li>僵尸进程。如果不是 0，需要手工检查僵尸进程</li>
+</ul>
+</li>
+<li>第三行为CPU 信息<ul>
+<li>用户模式占用的 CPU 百分比</li>
+<li>系统模式占用的 CPU 百分</li>
+<li>改变过优先级的用户进程占用的 CPU 百分</li>
+<li>空闲 CPU 的 CPU 百分比</li>
+<li>等待输入&#x2F;输出的进程的占用 CPU 百分</li>
+<li>硬中断请求服务占用的 CPU 百分</li>
+<li>软中断请求服务占用的 CPU 百分</li>
+<li>st（Steal time）虚拟时间百分比。就是当有虚拟 机时，虚拟 CPU</li>
+</ul>
+</li>
+<li>第四行为物理内存信息<ul>
+<li>物理内存的总量，单位 KB</li>
+<li>已经使用的物理内存数量</li>
+<li>空闲的物理内存数量</li>
+<li>作为缓冲的内存数量</li>
+</ul>
+</li>
+<li>第五行为交换分区（swap）信息<ul>
+<li>交换分区（虚拟内存）的总大小</li>
+<li>已经使用的交互分区的大小</li>
+<li>空闲交换分区的大小</li>
+<li>作为缓存的交互分区的大小</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204154223283.png"></p>
+<p>可以按 P、M、N 对查询出的进程结果进行排；</p>
+<h1 id="五：netstat-显示网络状态和端口占用信息"><a href="#五：netstat-显示网络状态和端口占用信息" class="headerlink" title="五：netstat 显示网络状态和端口占用信息"></a>五：netstat 显示网络状态和端口占用信息</h1><h2 id="5-1-基本语法"><a href="#5-1-基本语法" class="headerlink" title="5.1 基本语法"></a>5.1 基本语法</h2><ul>
+<li>netstat -anp | grep 进程号 （功能描述：查看该进程网络信息） </li>
+<li>netstat –nlp | grep 端口号 （功能描述：查看网络端口号占用情况）</li>
+</ul>
+<h2 id="5-2-选项说明"><a href="#5-2-选项说明" class="headerlink" title="5.2 选项说明"></a>5.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204154323963.png"></p>
+<h2 id="5-3-案例操作"><a href="#5-3-案例操作" class="headerlink" title="5.3 案例操作"></a>5.3 案例操作</h2><h3 id="（1）查看所有进程网络信息"><a href="#（1）查看所有进程网络信息" class="headerlink" title="（1）查看所有进程网络信息"></a>（1）查看所有进程网络信息</h3><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204154509752.png"></p>
+<h3 id="（2）通过进程号查看sshd进程的网络信息"><a href="#（2）通过进程号查看sshd进程的网络信息" class="headerlink" title="（2）通过进程号查看sshd进程的网络信息"></a>（2）通过进程号查看sshd进程的网络信息</h3><p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204154706601.png"></p>
+<h3 id="（3）查看某端口号是否被占用"><a href="#（3）查看某端口号是否被占用" class="headerlink" title="（3）查看某端口号是否被占用"></a>（3）查看某端口号是否被占用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看53端口是否被占用</span></span><br><span class="line">netstat -nltp  | grep 53</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/04/Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E7%B1%BB/image-20221204155125178.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/RupertTears.jpg">
+      <meta itemprop="name" content="Rupert-Tears">
+      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱影客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/" class="post-title-link" itemprop="url">Linux 磁盘分区类</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-04 13:04:41 / 修改时间：15:17:40" itemprop="dateCreated datePublished" datetime="2022-12-04T13:04:41+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一：du-查看文件和目录占用的磁盘空间"><a href="#一：du-查看文件和目录占用的磁盘空间" class="headerlink" title="一：du 查看文件和目录占用的磁盘空间"></a>一：du 查看文件和目录占用的磁盘空间</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul>
+<li>du: disk usage 磁盘占用情况</li>
+<li>du 目录&#x2F;文件 （功能描述：显示目录下每个子目录的磁盘使用情况）</li>
+</ul>
+<h2 id="1-2-选项说明"><a href="#1-2-选项说明" class="headerlink" title="1.2 选项说明"></a>1.2 选项说明</h2><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204130651774.png"></p>
+<h2 id="1-3-案例操作"><a href="#1-3-案例操作" class="headerlink" title="1.3 案例操作"></a>1.3 案例操作</h2><h3 id="（1）du-h-查看当前目录容量"><a href="#（1）du-h-查看当前目录容量" class="headerlink" title="（1）du  -h  查看当前目录容量"></a>（1）du  -h  查看当前目录容量</h3><p>最后一行显示当前目录总大小；</p>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204130934616.png"></p>
+<h3 id="（2）du-ah-查看子目录及文件"><a href="#（2）du-ah-查看子目录及文件" class="headerlink" title="（2）du -ah  查看子目录及文件"></a>（2）du -ah  查看子目录及文件</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204131201303.png"></p>
+<h3 id="（3）du-c-最后一行显示总大小"><a href="#（3）du-c-最后一行显示总大小" class="headerlink" title="（3）du -c  最后一行显示总大小"></a>（3）du -c  最后一行显示总大小</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204131359782.png"></p>
+<h3 id="（4）du-h-–max-depth-x3D-1-统计当前目录下所有子目录信息"><a href="#（4）du-h-–max-depth-x3D-1-统计当前目录下所有子目录信息" class="headerlink" title="（4）du -h –max-depth&#x3D;1 统计当前目录下所有子目录信息"></a>（4）du -h –max-depth&#x3D;1 统计当前目录下所有子目录信息</h3><ul>
+<li>为0是只统计当前目录；</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204131615907.png"></p>
+<h3 id="（5）使用-tree-查看目录树"><a href="#（5）使用-tree-查看目录树" class="headerlink" title="（5）使用 tree 查看目录树"></a>（5）使用 tree 查看目录树</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# yum install tree</span><br><span class="line">[root@hadoop100 ~]# tree ./</span><br><span class="line">./</span><br><span class="line">├── anaconda-ks.cfg</span><br><span class="line">├── Ghost</span><br><span class="line">├── initial-setup-ks.cfg</span><br><span class="line">├── RupertTears</span><br><span class="line">│?? └── hello.txt</span><br><span class="line">├── vim_\347\273\203\344\271\240.txt</span><br><span class="line">├── \345\205\254\345\205\261</span><br><span class="line">├── \346\250\241\346\235\277</span><br><span class="line">├── \350\247\206\351\242\221</span><br><span class="line">├── \345\233\276\347\211\207</span><br><span class="line">├── \346\226\207\346\241\243</span><br><span class="line">├── \344\270\213\350\275\275</span><br><span class="line">├── \351\237\263\344\271\220</span><br><span class="line">└── \346\241\214\351\235\242</span><br></pre></td></tr></table></figure>
+
+<h1 id="二：df-查看磁盘空间使用情况"><a href="#二：df-查看磁盘空间使用情况" class="headerlink" title="二：df 查看磁盘空间使用情况"></a>二：df 查看磁盘空间使用情况</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><ul>
+<li><p>df: disk free 空余磁盘</p>
+</li>
+<li><p>df 选项 （功能描述：列出文件系统的整体磁盘使用量，检查文件系统的磁盘空间占用情况）</p>
+</li>
+</ul>
+<h2 id="2-2-选项说明"><a href="#2-2-选项说明" class="headerlink" title="2.2 选项说明"></a>2.2 选项说明</h2><ul>
+<li>-h 以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显</li>
+</ul>
+<h2 id="2-3-案例操作"><a href="#2-3-案例操作" class="headerlink" title="2.3 案例操作"></a>2.3 案例操作</h2><h3 id="（1）df-h查看空余磁盘"><a href="#（1）df-h查看空余磁盘" class="headerlink" title="（1）df -h	查看空余磁盘"></a>（1）df -h	查看空余磁盘</h3><ul>
+<li>tmpfs：临时文件系统，即内存文件系统，swap；</li>
+<li>shm：shared memory，共享内存，大家都可以访问这里；</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204132140425.png"></p>
+<h3 id="（2）ls-lh-x2F-查看根目录磁盘占用情况"><a href="#（2）ls-lh-x2F-查看根目录磁盘占用情况" class="headerlink" title="（2）ls -lh &#x2F;	查看根目录磁盘占用情况"></a>（2）ls -lh &#x2F;	查看根目录磁盘占用情况</h3><p>这里统计的是目录的大小，，而非磁盘占用大小；</p>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204132355090.png"></p>
+<h3 id="（3）free-h-查看当前内存占用"><a href="#（3）free-h-查看当前内存占用" class="headerlink" title="（3）free -h  查看当前内存占用"></a>（3）free -h  查看当前内存占用</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204133504022.png"></p>
+<h1 id="三：lsblk-查看设备挂载情"><a href="#三：lsblk-查看设备挂载情" class="headerlink" title="三：lsblk 查看设备挂载情"></a>三：lsblk 查看设备挂载情</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul>
+<li>lsblk （功能描述：查看设备挂载情况）</li>
+</ul>
+<h2 id="3-2-选项说明"><a href="#3-2-选项说明" class="headerlink" title="3.2 选项说明"></a>3.2 选项说明</h2><ul>
+<li>-f 查看详细的设备挂载情况，显示文件系统信息</li>
+</ul>
+<h2 id="3-3-案例操作"><a href="#3-3-案例操作" class="headerlink" title="3.3 案例操作"></a>3.3 案例操作</h2><h3 id="（1）查看设备挂载情况"><a href="#（1）查看设备挂载情况" class="headerlink" title="（1）查看设备挂载情况"></a>（1）查看设备挂载情况</h3><ul>
+<li>rom：光驱类型；</li>
+<li>mountpoint：挂载点；</li>
+<li>sda：磁盘类型为 SCSI；<ul>
+<li>IDE–&gt; hda</li>
+<li>SATA &#x2F; SCSI –&gt; 第一块磁盘叫 sda，第一个分区叫 sda1，一共能分 4个分区，也可将其中一个分区分成16个逻辑分区；第二块磁盘叫 sdb，以此类推。</li>
+<li>vda：虚拟磁盘；</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204132835007.png"></p>
+<p>启动图形化界面后：光驱被自动挂载：</p>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204134123785.png"></p>
+<h3 id="（2）lsblk-f-查看详细的设备挂载情况，显示文件系统信息"><a href="#（2）lsblk-f-查看详细的设备挂载情况，显示文件系统信息" class="headerlink" title="（2）lsblk -f  查看详细的设备挂载情况，显示文件系统信息"></a>（2）lsblk -f  查看详细的设备挂载情况，显示文件系统信息</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204133954306.png"></p>
+<h1 id="四：mount-x2F-umount-挂载-x2F-卸载"><a href="#四：mount-x2F-umount-挂载-x2F-卸载" class="headerlink" title="四：mount&#x2F;umount 挂载&#x2F;卸载"></a>四：mount&#x2F;umount 挂载&#x2F;卸载</h1><ul>
+<li>对于Linux用户来讲，不论有几个分区，分别分给哪一个目录使用，它总归就是一个根目录、一个独立且唯一的文件结构。 </li>
+<li>Linux中每个分区都是用来组成整个文件系统的一部分，它在用一种叫做“挂载”的处理方法，它整个文件系统中包含了一整套的文件和目录，并将一个分区和一个目录联系起来， 要载入的那个分区将使它的存储空间在这个目录下获得。</li>
+</ul>
+<h2 id="4-1-基本语法"><a href="#4-1-基本语法" class="headerlink" title="4.1 基本语法"></a>4.1 基本语法</h2><ul>
+<li>mount [-t vfstype] [-o options] device dir （功能描述：挂载设备） </li>
+<li>umount 设备文件名或挂载点 （功能描述：卸载设备）</li>
+</ul>
+<h2 id="4-2-参数说明"><a href="#4-2-参数说明" class="headerlink" title="4.2 参数说明"></a>4.2 参数说明</h2><ul>
+<li>-t vfstyp：指定文件系统的类型，通常不必指定；<ul>
+<li>mount 会自动选择正确的类型。</li>
+<li>常用类型有：<ul>
+<li>光盘或光盘镜像：iso9660</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>-o option：主要用来描述设备或档案的挂接方式；<ul>
+<li>loop：用来把一个文件当成硬盘分区挂接上系统</li>
+<li>ro：采用只读方式挂接设备</li>
+<li>rw：采用读写方式挂接设备<ul>
+<li>iocharset：指定访问文件系统所用字符集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>device：要挂接(mount)的设备</li>
+<li>dir：设备在系统上的挂接点(mount point)</li>
+</ul>
+<h2 id="4-3-案例实操"><a href="#4-3-案例实操" class="headerlink" title="4.3 案例实操"></a>4.3 案例实操</h2><h3 id="（1）查看挂载详情"><a href="#（1）查看挂载详情" class="headerlink" title="（1）查看挂载详情"></a>（1）查看挂载详情</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204134218300.png"></p>
+<h3 id="（2）弹出光驱，退出图形化界面"><a href="#（2）弹出光驱，退出图形化界面" class="headerlink" title="（2）弹出光驱，退出图形化界面"></a>（2）弹出光驱，退出图形化界面</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# lsblk -f</span><br><span class="line">NAME   FSTYPE  LABEL           UUID                                 MOUNTPOINT</span><br><span class="line">sda                                                                 </span><br><span class="line">├─sda1 xfs                     24b7785a-8859-4e2b-b5d6-9e6297b9bf2d /boot</span><br><span class="line">├─sda2 swap                    6328672f-80b5-4794-87c7-b37327bde79a [SWAP]</span><br><span class="line">└─sda3 xfs                     021f8456-c948-4667-8c64-09d753c0c0b8 /</span><br><span class="line">sr0    iso9660 CentOS 7 x86_64 2020-11-04-11-36-43-00      </span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）挂载光盘到mnt目录下的cdrom"><a href="#（3）挂载光盘到mnt目录下的cdrom" class="headerlink" title="（3）挂载光盘到mnt目录下的cdrom"></a>（3）挂载光盘到mnt目录下的cdrom</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建挂载目录</span></span><br><span class="line">[root@hadoop100 ~]# mkdir /mnt/cdrom/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载</span></span><br><span class="line">[root@hadoop100 ~]# mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置光驱已连接，启动时连接，不进入图形化界面，就不会自动挂载</span></span><br><span class="line">[root@hadoop100 ~]#  ls /mnt/cdrom/</span><br><span class="line">CentOS_BuildTag  EULA  images    LiveOS    repodata              RPM-GPG-KEY-CentOS-Testing-7</span><br><span class="line">EFI              GPL   isolinux  Packages  RPM-GPG-KEY-CentOS-7  TRANS.TBL</span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）卸载光驱"><a href="#（4）卸载光驱" class="headerlink" title="（4）卸载光驱"></a>（4）卸载光驱</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">两者是一一对应关系，任选其一</span></span><br><span class="line">[root@hadoop100 ~]# umount /mnt/cdrom</span><br><span class="line">[root@hadoop100 ~]# umount /dev/cdrom</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-开机自动挂载"><a href="#4-4-开机自动挂载" class="headerlink" title="4.4 开机自动挂载"></a>4.4 开机自动挂载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑配置文件</span></span><br><span class="line">[root@hadoop100 ~]# vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204140129411.png"></p>
+<p>编辑配置文件；0 0 代表挂载优先级；</p>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204140422176.png"></p>
+<h1 id="五：fdisk-分区"><a href="#五：fdisk-分区" class="headerlink" title="五：fdisk 分区"></a>五：fdisk 分区</h1><h2 id="5-1-基本语法"><a href="#5-1-基本语法" class="headerlink" title="5.1 基本语法"></a>5.1 基本语法</h2><ul>
+<li>fdisk -l （功能描述：查看磁盘分区详情） </li>
+<li>fdisk 硬盘设备名 （功能描述：对新增硬盘进行分区操作）</li>
+</ul>
+<h2 id="5-2-选项说明"><a href="#5-2-选项说明" class="headerlink" title="5.2 选项说明"></a>5.2 选项说明</h2><ul>
+<li>-l 显示所有硬盘的分区列表</li>
+</ul>
+<h2 id="5-3-案例操作"><a href="#5-3-案例操作" class="headerlink" title="5.3 案例操作"></a>5.3 案例操作</h2><h3 id="（1）fdisk-l-查看当前分区情况"><a href="#（1）fdisk-l-查看当前分区情况" class="headerlink" title="（1）fdisk -l 查看当前分区情况"></a>（1）fdisk -l 查看当前分区情况</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204140850463.png"></p>
+<h3 id="（2）新增磁盘"><a href="#（2）新增磁盘" class="headerlink" title="（2）新增磁盘"></a>（2）新增磁盘</h3><p>新增磁盘后，重启服务器，查看设备挂载详细信息；</p>
+<p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204141324917.png"></p>
+<h3 id="（3）为新增磁盘创建文件系统"><a href="#（3）为新增磁盘创建文件系统" class="headerlink" title="（3）为新增磁盘创建文件系统"></a>（3）为新增磁盘创建文件系统</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204141837011.png"></p>
+<h3 id="（4）创建挂载点"><a href="#（4）创建挂载点" class="headerlink" title="（4）创建挂载点"></a>（4）创建挂载点</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204142035414.png"></p>
+<h3 id="（5）查看挂载情况"><a href="#（5）查看挂载情况" class="headerlink" title="（5）查看挂载情况"></a>（5）查看挂载情况</h3><p><img src="/2022/12/04/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E7%B1%BB/image-20221204142114489.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/04/Linux-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +835,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-12-04 01:21:54 / 修改时间：01:30:03" itemprop="dateCreated datePublished" datetime="2022-12-04T01:21:54+08:00">2022-12-04</time>
+              <time title="创建时间：2022-12-04 01:21:54 / 修改时间：01:31:01" itemprop="dateCreated datePublished" datetime="2022-12-04T01:21:54+08:00">2022-12-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -902,502 +1512,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">Linux 远程登录</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 18:10:52 / 修改时间：18:55:28" itemprop="dateCreated datePublished" datetime="2022-12-03T18:10:52+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Windows-远程登录"><a href="#一：Windows-远程登录" class="headerlink" title="一：Windows 远程登录"></a>一：Windows 远程登录</h1><p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203181208088.png"></p>
-<h1 id="二：远程工具登录"><a href="#二：远程工具登录" class="headerlink" title="二：远程工具登录"></a>二：远程工具登录</h1><h2 id="2-1-Xshell"><a href="#2-1-Xshell" class="headerlink" title="2.1 Xshell"></a>2.1 Xshell</h2><p>远程终端操作工具；</p>
-<p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203185341175.png"></p>
-<h2 id="2-2-Xftp"><a href="#2-2-Xftp" class="headerlink" title="2.2 Xftp"></a>2.2 Xftp</h2><p>文件上传下载工具；</p>
-<p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203185456884.png"></p>
-<h2 id="2-3-下载地址"><a href="#2-3-下载地址" class="headerlink" title="2.3 下载地址"></a>2.3 下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xshell/">XSHELL - NetSarang Website</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Linux 网络配置</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 15:53:04 / 修改时间：18:09:14" itemprop="dateCreated datePublished" datetime="2022-12-03T15:53:04+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：网络连接测试"><a href="#一：网络连接测试" class="headerlink" title="一：网络连接测试"></a>一：网络连接测试</h1><ul>
-<li>windows：ipconfig</li>
-<li>linux：ifconfig</li>
-<li>采用ping命令，检测网络连通性；</li>
-</ul>
-<h1 id="二：网络连接模式"><a href="#二：网络连接模式" class="headerlink" title="二：网络连接模式"></a>二：网络连接模式</h1><h2 id="2-1-桥接模式"><a href="#2-1-桥接模式" class="headerlink" title="2.1 桥接模式"></a>2.1 桥接模式</h2><p>虚拟机直接连接外部物理网络的模式，主机起到了网桥的作用。这种模式下，虚拟机可以直接访问外部网络，并且对外部网络是可见的。占用IP资源；</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165906263.png"></p>
-<h2 id="2-2-NAT模式"><a href="#2-2-NAT模式" class="headerlink" title="2.2 NAT模式"></a>2.2 NAT模式</h2><p>虚拟机和主机构建一个专用网络，并通过虚拟网络地址转换（NAT）设备对IP进行转换。虚拟机通过共享主机IP可以访问外部网络，但外部网络无法访问虚拟机。</p>
-<p>PC主机也属于外部网络设备，如何解决自己的PC机访问虚拟机呢？</p>
-<p>VMware 在我们的PC机上虚拟了网卡，通过它我们与虚拟机进行网络通信。</p>
-<p>图解：</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165113113.png"></p>
-<h2 id="2-3-仅主机模式"><a href="#2-3-仅主机模式" class="headerlink" title="2.3 仅主机模式"></a>2.3 仅主机模式</h2><p>虚拟机只与主机共享一个专用网络，与外部网络无法通信。</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165215099.png"></p>
-<h1 id="三：修改静态-IP"><a href="#三：修改静态-IP" class="headerlink" title="三：修改静态 IP"></a>三：修改静态 IP</h1><h2 id="3-1-查看当前-IP-配置信息"><a href="#3-1-查看当前-IP-配置信息" class="headerlink" title="3.1 查看当前 IP 配置信息"></a>3.1 查看当前 IP 配置信息</h2><p>使用的网卡：ens33</p>
-<p>使用的IP：172.16.80.128</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ifconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前正在使用的网卡</span></span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.16.80.128  netmask 255.255.255.0  broadcast 172.16.80.255</span><br><span class="line">        inet6 fe80::e4c4:6675:18b7:2a07  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:2f:4b:6c  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 472392  bytes 666108098 (635.2 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 221586  bytes 13463899 (12.8 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">回环</span></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">虚拟机内部虚拟的网卡</span></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:cb:22:09  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2-修改-IP"><a href="#3-2-修改-IP" class="headerlink" title="3.2 修改 IP"></a>3.2 修改 IP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# vim /etc/sysconfig/network-scripts/ifcfg-ens33 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改前</span></span><br><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PROXY_METHOD=&quot;none&quot;</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;</span><br><span class="line">BOOTPROTO=&quot;dhcp&quot;</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;83568189-0a43-4b75-ad3b-babee2ade453&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPV6_PRIVACY=&quot;no&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改后</span></span><br><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PROXY_METHOD=&quot;none&quot;</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;</span><br><span class="line">BOOTPROTO=&quot;static&quot;</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;83568189-0a43-4b75-ad3b-babee2ade453&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPV6_PRIVACY=&quot;no&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置静态IP</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IPADDR=172.16.80.100</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网关</span></span><br><span class="line">GATEWAY=172.16.80.2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名解析器</span></span><br><span class="line">DNS1=172.16.80.2</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-3-重启服务"><a href="#3-3-重启服务" class="headerlink" title="3.3 重启服务"></a>3.3 重启服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# service network restart </span><br><span class="line">Restarting network (via systemctl):                        [  确定  ]</span><br></pre></td></tr></table></figure>
-
-<p>查看当前配置，修改成功；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.16.80.100  netmask 255.255.0.0  broadcast 172.16.255.255</span><br><span class="line">        inet6 fe80::e4c4:6675:18b7:2a07  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:2f:4b:6c  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 472425  bytes 666113613 (635.2 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 221637  bytes 13471275 (12.8 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:cb:22:09  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<h1 id="四：主机名配置"><a href="#四：主机名配置" class="headerlink" title="四：主机名配置"></a>四：主机名配置</h1><h2 id="4-1-修改文件"><a href="#4-1-修改文件" class="headerlink" title="4.1 修改文件"></a>4.1 修改文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# hostname</span><br><span class="line">hadoop100</span><br><span class="line">[root@hadoop100 ~]# vim /etc/hostname </span><br><span class="line">[root@hadoop100 ~]# reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2-命令修改"><a href="#4-2-命令修改" class="headerlink" title="4.2 命令修改"></a>4.2 命令修改</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# hostnamectl </span><br><span class="line">   Static hostname: hadoop100</span><br><span class="line">         Icon name: computer-vm</span><br><span class="line">           Chassis: vm</span><br><span class="line">        Machine ID: 39df9729a6ec4ccba224bc5857c84886</span><br><span class="line">           Boot ID: a45d9de9a8ab481ca0c95be5c3640020</span><br><span class="line">    Virtualization: vmware</span><br><span class="line">  Operating System: CentOS Linux 7 (Core)</span><br><span class="line">       CPE OS Name: cpe:/o:centos:centos:7</span><br><span class="line">            Kernel: Linux 3.10.0-1160.el7.x86_64</span><br><span class="line">      Architecture: x86-64</span><br><span class="line">[root@hadoop100 ~]# hostnamectl set-hostname spark100</span><br><span class="line">[root@hadoop100 ~]# hostname</span><br><span class="line">spark100</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-3-配置主机映射文件"><a href="#4-3-配置主机映射文件" class="headerlink" title="4.3 配置主机映射文件"></a>4.3 配置主机映射文件</h2><h3 id="（1）Linux-主机修改"><a href="#（1）Linux-主机修改" class="headerlink" title="（1）Linux 主机修改"></a>（1）Linux 主机修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# vim /etc/hosts</span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line"></span><br><span class="line">172.16.80.100 hadoop100</span><br><span class="line">172.16.80.101 hadoop101</span><br><span class="line">172.16.80.102 hadoop102</span><br><span class="line">172.16.80.103 hadoop103</span><br><span class="line">172.16.80.104 hadoop104</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）windows-主机修改"><a href="#（2）windows-主机修改" class="headerlink" title="（2）windows 主机修改"></a>（2）windows 主机修改</h3><p>C:\Windows\System32\drivers\etc\hosts</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">172.16.80.100 hadoop100</span><br><span class="line">172.16.80.101 hadoop101</span><br><span class="line">172.16.80.102 hadoop102</span><br><span class="line">172.16.80.103 hadoop103</span><br><span class="line">172.16.80.104 hadoop104</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）检验是否生效"><a href="#（3）检验是否生效" class="headerlink" title="（3）检验是否生效"></a>（3）检验是否生效</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ping hadoop100</span><br><span class="line">PING hadoop100 (172.16.80.100) 56(84) bytes of data.</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=1 ttl=64 time=0.075 ms</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=2 ttl=64 time=0.038 ms</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=3 ttl=64 time=0.037 ms</span><br><span class="line">^C</span><br><span class="line">--- hadoop100 ping statistics ---</span><br><span class="line">3 packets transmitted, 3 received, 0% packet loss, time 2001ms</span><br><span class="line">rtt min/avg/max/mdev = 0.037/0.050/0.075/0.017 ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\lenovo&gt;ping hadoop100</span><br><span class="line"></span><br><span class="line">正在 Ping hadoop100 [172.16.80.100] 具有 32 字节的数据:</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间&lt;1ms TTL=64</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间=1ms TTL=64</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间=1ms TTL=64</span><br><span class="line"></span><br><span class="line">172.16.80.100 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 3，已接收 = 3，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 1ms，平均 = 0ms</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux%20VIM-%E7%BC%96%E8%BE%91%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux%20VIM-%E7%BC%96%E8%BE%91%E5%99%A8/" class="post-title-link" itemprop="url">Linux-VIM编辑器</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 14:38:26 / 修改时间：16:07:35" itemprop="dateCreated datePublished" datetime="2022-12-03T14:38:26+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：VIM-是什么"><a href="#一：VIM-是什么" class="headerlink" title="一：VIM 是什么"></a>一：VIM 是什么</h1><p>VI 是 Unix 操作系统和类 Unix 操作系统中最通用的文本编辑器。</p>
-<p>切换输入法快捷键：super + space；</p>
-<h1 id="二：三种模式"><a href="#二：三种模式" class="headerlink" title="二：三种模式"></a>二：三种模式</h1><ul>
-<li>编辑完成后，返回一般模式，进入命令模式，输入 : w 保存文件；</li>
-<li>若不想保存刚才的修改，直接按 U 回退到编辑之前，相当于撤回操作；</li>
-</ul>
-<h2 id="（1）普通模式"><a href="#（1）普通模式" class="headerlink" title="（1）普通模式"></a>（1）普通模式</h2><ul>
-<li><p>yy：复制当前行</p>
-<ul>
-<li>输入数字，然后按 yy，复制多行；</li>
-<li>按 y ，然后按 $ ，复制光标开始到当前行结尾部分；</li>
-<li>按 y ，然后按 ^ ，复制当前行开始到光标部分；</li>
-<li>按 y ，然后按 w，复制当前单词；</li>
-</ul>
-</li>
-<li><p>p：粘贴</p>
-<ul>
-<li>输入数字，然后按 P，直接粘贴多行；</li>
-</ul>
-</li>
-<li><p>u：回退上一步操作；</p>
-</li>
-<li><p>w：跳到下一个单词；</p>
-</li>
-<li><p>dd：删除当前行</p>
-<ul>
-<li>按 d ，然后按 w，删除当前单词；</li>
-</ul>
-</li>
-<li><p>x：截切当前位字符；</p>
-<ul>
-<li>Shift + x，退格（当前光标之前的部分被删除）；</li>
-</ul>
-</li>
-<li><p>r：替换当前光标处字符；</p>
-<ul>
-<li>Shift + r，替换模式；</li>
-</ul>
-</li>
-<li><p>光标移动</p>
-<ul>
-<li><p>Shift + 4，移动到当前行尾；</p>
-</li>
-<li><p>Shift + 6，移动到当前行头；</p>
-</li>
-<li><p>e，跳到词尾；</p>
-</li>
-<li><p>b，跳到词头；</p>
-</li>
-<li><p>gg 或者 Shift + h，跳到开头；</p>
-</li>
-<li><p>L 或者 G，跳到行尾；</p>
-<ul>
-<li>输入数字，然后按G，跳到指定行；</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>命令行：</p>
-<ul>
-<li>set nu：显示行号；</li>
-<li>set nonu：隐藏行号；</li>
-</ul>
-</li>
-</ul>
-<h2 id="（2）插入模式"><a href="#（2）插入模式" class="headerlink" title="（2）插入模式"></a>（2）插入模式</h2><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>i</td>
-<td>当前光标前</td>
-</tr>
-<tr>
-<td>a</td>
-<td>当前光标后</td>
-</tr>
-<tr>
-<td>o</td>
-<td>当前光标的下一行</td>
-</tr>
-<tr>
-<td>I</td>
-<td>光标所在行最前</td>
-</tr>
-<tr>
-<td>A</td>
-<td>光标所在行最后</td>
-</tr>
-<tr>
-<td>O</td>
-<td>当前光标的上一行</td>
-</tr>
-</tbody></table>
-<h2 id="（3）命令模式"><a href="#（3）命令模式" class="headerlink" title="（3）命令模式"></a>（3）命令模式</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>:noh</td>
-<td>取消高亮显示</td>
-</tr>
-<tr>
-<td>:set nu</td>
-<td>显示行号</td>
-</tr>
-<tr>
-<td>:set nonu</td>
-<td>关闭行号</td>
-</tr>
-<tr>
-<td>:s&#x2F;old&#x2F;new</td>
-<td>替换当前行匹配到的第一个old为new</td>
-</tr>
-<tr>
-<td>:s&#x2F;old&#x2F;new&#x2F;g</td>
-<td>替换当前行匹配到的所有old为new</td>
-</tr>
-<tr>
-<td>:%s&#x2F;old&#x2F;new&#x2F;</td>
-<td>替换文档中每一行匹配到的第一个old为new</td>
-</tr>
-<tr>
-<td>:%s&#x2F;old&#x2F;new&#x2F;g</td>
-<td>替换文档中匹配到的所有old为new</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">Linux 文件系统</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 13:56:54 / 修改时间：14:38:34" itemprop="dateCreated datePublished" datetime="2022-12-03T13:56:54+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Linux-文件"><a href="#一：Linux-文件" class="headerlink" title="一：Linux 文件"></a>一：Linux 文件</h1><p>Linux 系统中，一切皆文件！</p>
-<h1 id="二：Linux-文件目录"><a href="#二：Linux-文件目录" class="headerlink" title="二：Linux 文件目录"></a>二：Linux 文件目录</h1><h2 id="2-1-文件分区"><a href="#2-1-文件分区" class="headerlink" title="2.1 文件分区"></a>2.1 文件分区</h2><ul>
-<li>&#x2F; ：根目录分区</li>
-<li>&#x2F;boot：引导分区</li>
-<li>swap：虚拟内存分区</li>
-</ul>
-<p>文件系统使用的是xfs（高性能日志文件系统），通过挂载点将目录，指定挂载到硬盘的哪个分区；</p>
-<p>所以Linux的文件目录，实际上是虚拟目录。</p>
-<h2 id="2-2-根目录文件分类"><a href="#2-2-根目录文件分类" class="headerlink" title="2.2 根目录文件分类"></a>2.2 根目录文件分类</h2><p><img src="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/image-20221203141820689.png"></p>
-<h3 id="（1）超链接目录"><a href="#（1）超链接目录" class="headerlink" title="（1）超链接目录"></a>（1）超链接目录</h3><ul>
-<li><p>bin：二进制目录，执行命令；</p>
-</li>
-<li><p>sbin：系统二进制目录，系统命令；</p>
-</li>
-<li><p>lib：库文件目录，存储的系统动态链接依赖库文件，类似与windows的 system32目录；</p>
-</li>
-<li><p>lib64：64位相关的系统动态链接库文件目录；</p>
-</li>
-<li><p>以上4个文件均链接到的是usr下面的目录；</p>
-</li>
-</ul>
-<h3 id="（2）普通目录"><a href="#（2）普通目录" class="headerlink" title="（2）普通目录"></a>（2）普通目录</h3><ul>
-<li>usr：存放应用程序和用户相关的数据文件目录；</li>
-<li>boot：引导目录；</li>
-<li>dev：设备目录，管理当前的设备的；</li>
-<li>etc：系统管理所需要的配置文件；</li>
-<li>home：家目录，普通用户的文件夹；</li>
-<li>root：系统超级管理员的主目录；</li>
-<li>opt：可选目录，给第三方软件预留的目录，约定熟成的目录；</li>
-<li>media：媒体目录，可移动媒体设备的挂载点；</li>
-<li>mnt：挂载目录，任何的移动化存储目录的另一个挂载点；</li>
-<li>proc：process缩写，存放的是现有的一些硬件和进程的信息；</li>
-<li>run：运行目录，当前系统运行起来的所有实时信息，临时的文件系统，重启后清零；</li>
-<li>srv：service的缩写，存放的跟系统服务相关的文件；</li>
-<li>sys：存放的是系统硬件信息的相关文件；</li>
-<li>tmp：临时目录；</li>
-<li>var：可变目录，存放经常会变化，修改的东西；如日志文件；</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1469,7 +1583,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1536,7 +1650,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">本博客全站共43.9k字</span>
+  <span class="post-count">本博客全站共47.2k字</span>
 </div>
 
 
