@@ -1,1424 +1,253 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="爱影客">
 <meta property="og:url" content="https://aiyingke.cn/page/4/index.html">
 <meta property="og:site_name" content="爱影客">
 <meta property="og:description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiyingke.cn/img/RupertTears.jpg">
 <meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="爱影客 影客之家">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://aiyingke.cn/page/4/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>爱影客</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://aiyingke.cn/img/RupertTears.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/page/4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '爱影客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-06 18:56:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-      <a target="_blank" rel="noopener" href="https://github.com/Ghost-Ying" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">爱影客</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-resources">
-
-    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/Hydra-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hydra 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-26 13:37:27 / 修改时间：16:04:44" itemprop="dateCreated datePublished" datetime="2022-11-26T13:37:27+08:00">2022-11-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：简介"><a href="#一：简介" class="headerlink" title="一：简介"></a>一：简介</h1><p>Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。</p>
-<p>Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。</p>
-<h1 id="二：基础指令"><a href="#二：基础指令" class="headerlink" title="二：基础指令"></a>二：基础指令</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">hydra</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line">Hydra v9.3 2022的作者：van Hauser/THC &amp; David Maciejak。请不要在军事或者特情局组织中使用，或者用于非法目的（这是非约束性的，反正这些****无视法律和道德）</span><br><span class="line"></span><br><span class="line">Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line">语法：hydra ...</span><br><span class="line">hydra [ [-l LOGIN|-L FILE] [-p PASS|-P FILE] ]</span><br><span class="line">hydra [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">选项：</span><br><span class="line">  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE</span><br><span class="line">  -l 登录名 或者 -L 文件  登录使用一个登录名，或者从文件中加载多个登录</span><br><span class="line">  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE</span><br><span class="line">  -p 密码 或者 -P 文件	尝试密码登录，或者从文件中加载多个密码</span><br><span class="line">  -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options</span><br><span class="line">  -C 文件		冒号分隔格式 &quot;login:pass&quot;，而不是 -L/-P 选项</span><br><span class="line">  -M FILE   list of servers to attack, one entry per line, &#x27;:&#x27; to specify port</span><br><span class="line">  -M 文件		要攻击的服务器列表，每行一个条目，使用&#x27;:&#x27;去指定端口</span><br><span class="line">  -t TASKS  run TASKS number of connects in parallel per target (default: 16)</span><br><span class="line">  -t 线程数	运行任务在每一个目标的并行连接数（默认值：16）</span><br><span class="line">  -U        service module usage details</span><br><span class="line">  -U		服务模块使用详情</span><br><span class="line">  -m OPT    options specific for a module, see -U output for information</span><br><span class="line">  -m 选项		特定于模块的选项，使用 -U 查看输出详细信息</span><br><span class="line">  -h        more command line options (COMPLETE HELP)</span><br><span class="line">  -h		更多命令行选项（完整帮助）</span><br><span class="line">  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)</span><br><span class="line">  服务器		目标DNS，IP 或者 网关 192.168.0.0/24（此选项或者 -M 选项）</span><br><span class="line">  service   the service to crack (see below for supported protocols)</span><br><span class="line">  服务		要破解的服务（有关支持的协议，请参见下文）</span><br><span class="line">  OPT       some service modules support additional input (-U for module help)</span><br><span class="line">  选项		一些支持附加输入的服务模块（-U 表示模块帮助）</span><br><span class="line"></span><br><span class="line">Supported services: adam6500 asterisk cisco cisco-enable cobaltstrike cvs firebird ftp[s] http[s]-&#123;head|get|post&#125; http[s]-&#123;get|post&#125;-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-&#123;cram|digest&#125;md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</span><br><span class="line">支持的服务：...</span><br><span class="line"></span><br><span class="line">Hydra is a tool to guess/crack valid login/password pairs.</span><br><span class="line">Hydra 是一个 猜测/破解 有效 登录/密码对 的工具。</span><br><span class="line">Licensed under AGPL v3.0. The newest version is always available at;</span><br><span class="line">根据AGPL v3.0许可，最新版本可以从以下网址获取：</span><br><span class="line">https://github.com/vanhauser-thc/thc-hydra</span><br><span class="line">Please don&#x27;t use in military or secret service organizations, or for illegal</span><br><span class="line">purposes. (This is a wish and non-binding - most such people do not care about</span><br><span class="line">laws and ethics anyway - and tell themselves they are one of the good ones.)</span><br><span class="line">请不要使用在军事或者密码服务组织中使用，否则为非法目的。（这是一个愿望，没有约束力，大多数这样的人不关心法律和道德，告诉自己他们是好的。）</span><br><span class="line"></span><br><span class="line">Example:  hydra -l user -P passlist.txt ftp://192.168.0.1</span><br><span class="line">示例：hydar ...</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-破解MySQL"><a href="#2-2-破解MySQL" class="headerlink" title="2.2 破解MySQL"></a>2.2 破解MySQL</h2><h3 id="（1）指定-IP-端口破解"><a href="#（1）指定-IP-端口破解" class="headerlink" title="（1）指定 IP 端口破解"></a>（1）指定 IP 端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录账户薄 -P 密码薄 mysql://目标IP:mysql端口号</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt mysql://192.168.1.106:3306</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:23:55</span><br><span class="line">Hydra 开始于 2022-11-26 14:23:55</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">信息：将任务数量减少到4（mysql不喜欢多并行连接）</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">数据：每台服务器最多4个任务，总共4个任务，15次登录尝试（l:3/p:5）,每个任务约4次尝试</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">数据：攻击 mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">1个目标中1个成功完成，找到一个有效密码。</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:23:56</span><br><span class="line">Hydra 完成于 2022-11-26 14:23:56</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）默认端口破解"><a href="#（2）默认端口破解" class="headerlink" title="（2）默认端口破解"></a>（2）默认端口破解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果服务使用的是默认端口，那么指令也可以这样写</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L ./login.txt -P ./passwd.txt 目标IP mysql</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt 192.168.1.106 mysql       </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 14:55:38</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 14:55:38</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）展示爆破过程"><a href="#（3）展示爆破过程" class="headerlink" title="（3）展示爆破过程"></a>（3）展示爆破过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">展示爆破过程，添加指令 -V</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -V  mysql://192.168.1.106:3306 </span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 15:00:51</span><br><span class="line">[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 15 login tries (l:3/p:5), ~4 tries per task</span><br><span class="line">[DATA] attacking mysql://192.168.1.106:3306/</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;123456&quot; - 1 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;abcdefg&quot; - 2 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;admin&quot; - 3 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;root&quot; - 4 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;ghost&quot; - pass &quot;987654&quot; - 5 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;123456&quot; - 6 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;abcdefg&quot; - 7 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;admin&quot; - 8 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;root&quot; - 9 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;root&quot; - pass &quot;987654&quot; - 10 of 15 [child 1] (0/0)</span><br><span class="line">[3306][mysql] host: 192.168.1.106   login: root   password: root</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;123456&quot; - 11 of 15 [child 3] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;abcdefg&quot; - 12 of 15 [child 0] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;admin&quot; - 13 of 15 [child 1] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;root&quot; - 14 of 15 [child 2] (0/0)</span><br><span class="line">[ATTEMPT] target 192.168.1.106 - login &quot;admin&quot; - pass &quot;987654&quot; - 15 of 15 [child 3] (0/0)</span><br><span class="line">1 of 1 target successfully completed, 1 valid password found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 15:00:51</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-ssh-破解"><a href="#2-3-ssh-破解" class="headerlink" title="2.3 ssh 破解"></a>2.3 ssh 破解</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hydra -L 登录薄 -P 密码薄 -t 线程数 ssh://目标ip</span></span><br><span class="line">hydra -L ./login.txt -P ./passwd.txt -t 4 ssh://192.168.80.129</span><br><span class="line"></span><br><span class="line">Hydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).</span><br><span class="line"></span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-26 16:02:31</span><br><span class="line">[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task</span><br><span class="line">[DATA] attacking ssh://192.168.80.129:22/</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: ghost   password: root</span><br><span class="line">[22][ssh] host: 192.168.80.129   login: root   password: root</span><br><span class="line">1 of 1 target successfully completed, 2 valid passwords found</span><br><span class="line">Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-11-26 16:02:50</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">网络安全概述</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-26 04:42:36 / 修改时间：05:06:47" itemprop="dateCreated datePublished" datetime="2022-11-26T04:42:36+08:00">2022-11-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：什么是黑客？"><a href="#一：什么是黑客？" class="headerlink" title="一：什么是黑客？"></a>一：什么是黑客？</h1><p>电影：《我是谁：没有绝对安全的系统》</p>
-<p>黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。</p>
-<ul>
-<li><p>黑帽黑客</p>
-</li>
-<li><ul>
-<li>专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。</li>
-</ul>
-</li>
-<li><p>白帽黑客</p>
-</li>
-<li><ul>
-<li>指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。</li>
-</ul>
-</li>
-<li><p>红客</p>
-</li>
-<li><ul>
-<li>指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。</li>
-</ul>
-</li>
-</ul>
-<h1 id="二：法律法规"><a href="#二：法律法规" class="headerlink" title="二：法律法规"></a>二：法律法规</h1><p>中华人民共和国刑法：</p>
-<ul>
-<li>第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</li>
-<li>第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。</li>
-</ul>
-<h1 id="三：渗透测试"><a href="#三：渗透测试" class="headerlink" title="三：渗透测试"></a>三：渗透测试</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>通过模拟恶意黑客的攻击方式，同时是在授权情况下对目标系统进行安全性测试和评估的过程。</p>
-<p>重点是测试，是过程，而不是不计后果的攻击或测试防御，它是一套科学流程，不局限于某一工具或者技巧的运用。</p>
-<p>很多白帽子在各大公司从事的工作便是web渗透测试。</p>
-<h2 id="3-2-流程"><a href="#3-2-流程" class="headerlink" title="3.2 流程"></a>3.2 流程</h2><p>确定目标👉信息收集👉漏洞探测👉漏洞利用，获取webshell👉内网渗透👉漏洞验证与修复👉撰写渗透测试报告</p>
-<ul>
-<li>第一步：确定要渗透的目标，也就是选择要测试的目标网站。</li>
-<li>第二步：收集目标网站的相关信息，比如操作系统，数据库，端口服务，所使用的脚本语言，子域名以及CMS系统等等。</li>
-<li>第三步：漏洞探测。利用收集到的信息，寻找目标的脆弱点。</li>
-<li>第四步：漏洞利用，找到对方系统的弱点后，进一步攻克对方系统，拿到目标系统的权限。</li>
-<li>第五步：渗透目标内网的其他主机，把获得的目标机器权限，当作跳板，进一步攻克内网其他主机。</li>
-<li>第六步：验证漏洞与修复漏洞。</li>
-<li>第七步：清除渗透痕迹，撰写测试报告。</li>
-</ul>
-<h1 id="四：网站运行原理"><a href="#四：网站运行原理" class="headerlink" title="四：网站运行原理"></a>四：网站运行原理</h1><h2 id="4-1-网站运行原理"><a href="#4-1-网站运行原理" class="headerlink" title="4.1 网站运行原理"></a>4.1 网站运行原理</h2><p>服务器的操作系统👉中间件👉数据库👉代码👉静态资源</p>
-<ul>
-<li>网站搭建在服务器的操作系统之上，例如windows、linux；</li>
-<li>网站的搭建需要中间件的支撑，例如：tomcat、nginx、apache software foundation；</li>
-<li>网站的搭建需要数据库存放数据，例如：MySQL、SQL Server；</li>
-<li>网站页面是由代码编写的，例如：PHP、JSP、ASP（动态服务器页面）；</li>
-<li>网站页面由部分静态资源组成，例如：html、css、JavaScript；</li>
-</ul>
-<h2 id="4-2-网站运行流程"><a href="#4-2-网站运行流程" class="headerlink" title="4.2 网站运行流程"></a>4.2 网站运行流程</h2><ul>
-<li>第一步：浏览器输入网址，进行网站访问，通过DNS解析域名，找到服务器IP地址</li>
-<li>第二步：发送请求指服务器</li>
-<li>第三步：服务器接收到请求，并响应请求返回给浏览器</li>
-</ul>
-<h1 id="五：环境准备"><a href="#五：环境准备" class="headerlink" title="五：环境准备"></a>五：环境准备</h1><h2 id="5-1-VM-WARE"><a href="#5-1-VM-WARE" class="headerlink" title="5.1 VM WARE"></a>5.1 VM WARE</h2><p>VM WARE 是一款虚拟化软件，利用它，我们能够在自己物理机的 windows 系统上再去安装其他的操作系统；</p>
-<p>官方Windosws版本： </p>
-<p><strong><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">https://www.vmware.com/go/getworkstation-win</a></strong></p>
-<p>使用激活码进行激活服务；</p>
-<h2 id="5-2-kali-linux"><a href="#5-2-kali-linux" class="headerlink" title="5.2 kali linux"></a>5.2 kali linux</h2><p>官方镜像源下载：</p>
-<p><a target="_blank" rel="noopener" href="http://old.kali.org/kali-images/kali-2022.3/">http://old.kali.org/kali-images/kali-2022.3/</a></p>
-<p>阿里镜像：</p>
-<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA">https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA</a></p>
-<h2 id="5-3-VMware-tools"><a href="#5-3-VMware-tools" class="headerlink" title="5.3 VMware-tools"></a>5.3 VMware-tools</h2><p>方便操作虚拟机，可以实现复制粘贴功能；</p>
-<ol>
-<li>挂载安装包</li>
-<li>复制安装包到tmp目录下方</li>
-<li>进入tmp目录</li>
-<li>解压安装包</li>
-<li>执行安装脚本</li>
-<li>安装完成过后重启kali</li>
-</ol>
-<h2 id="5-4-kali-APT源"><a href="#5-4-kali-APT源" class="headerlink" title="5.4 kali APT源"></a>5.4 kali APT源</h2><p>kail 的 APT 源就相当于一个软件包管理器。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开配置文件</span></span><br><span class="line">leafpad /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>通过 leafpad 打开源的配置文件 sources.list</li>
-<li>复制粘贴中科大源进去</li>
-<li>ctrl + s 保存并退出</li>
-<li>输入命令 apt-get update</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　kali 写入时出现 E121：无法打开并写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　解决方案</span></span><br><span class="line">1.保存的时候使用：ｗ !sudo tee %</span><br><span class="line">2.输入密码即可 </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/26/nmap%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Nmap 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-26 04:37:45 / 修改时间：16:06:17" itemprop="dateCreated datePublished" datetime="2022-11-26T04:37:45+08:00">2022-11-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一：Nmap-Commands（诸神之眼）"><a href="#一：Nmap-Commands（诸神之眼）" class="headerlink" title="一：Nmap Commands（诸神之眼）"></a>一：Nmap Commands（诸神之眼）</h2><ul>
-<li>扫描对方网站端口</li>
-<li>扫描对方网站服务</li>
-<li>操作系统、版本相关信息</li>
-<li>配合脚本去扫描对方存在的漏洞</li>
-</ul>
-<h2 id="二：常用扫描命令"><a href="#二：常用扫描命令" class="headerlink" title="二：常用扫描命令"></a>二：常用扫描命令</h2><h3 id="2-1-简单扫描目标"><a href="#2-1-简单扫描目标" class="headerlink" title="2.1 简单扫描目标"></a>2.1 简单扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">namp + 目标ip/域名（简单扫描目标）</span></span><br><span class="line">nmap 192.168.1.106</span><br><span class="line"></span><br><span class="line">Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-26 04:17 CST</span><br><span class="line">Nmap scan report for localhost (192.168.1.106)</span><br><span class="line">Host is up (0.00076s latency).</span><br><span class="line">Not shown: 992 filtered tcp ports (no-response)</span><br><span class="line">PORT     STATE SERVICE</span><br><span class="line">135/tcp  open  msrpc</span><br><span class="line">139/tcp  open  netbios-ssn</span><br><span class="line">443/tcp  open  https</span><br><span class="line">445/tcp  open  microsoft-ds</span><br><span class="line">902/tcp  open  iss-realsecure</span><br><span class="line">912/tcp  open  apex-mesh</span><br><span class="line">1433/tcp open  ms-sql-s</span><br><span class="line">3306/tcp open  mysql</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>port：端口</li>
-<li>state：端口状态</li>
-<li>service：端口服务</li>
-<li>open：端口是开放的</li>
-<li>closed：端口是关闭的</li>
-<li>filtered：端口被防火墙IDS&#x2F;IPS屏蔽，无法确定状态</li>
-<li>unfiletered：端口未被屏蔽，但是否开发需要进一步确定</li>
-<li>open | filtered：端口开放的或者被过滤</li>
-<li>closed | filteres：端口关闭或者被过滤</li>
-</ul>
-<h3 id="2-2-扫描目标网段及其它主机"><a href="#2-2-扫描目标网段及其它主机" class="headerlink" title="2.2 扫描目标网段及其它主机"></a>2.2 扫描目标网段及其它主机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap + 目标ip网段（扫描目标网段及其他主机）</span></span><br><span class="line">nmap 192.168.1.0/24</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-对目标全面扫描"><a href="#2-3-对目标全面扫描" class="headerlink" title="2.3 对目标全面扫描"></a>2.3 对目标全面扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -A -T4 + 目标ip（对目标全面扫描）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-A: 采用全面扫描的方式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 采用的是T4级别进行扫描（T5最高级别，速度最快）</span></span><br><span class="line">nmap -A -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-4-扫描目标常见的100端口"><a href="#2-4-扫描目标常见的100端口" class="headerlink" title="2.4 扫描目标常见的100端口"></a>2.4 扫描目标常见的100端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --top-ports 100 + 目标ip（扫描目标最常见的100端口）</span></span><br><span class="line">nmap --top-ports 100 192.168.1.106</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"><a href="#2-5-采用sS模式、T4级别扫描目标的端口、服务、操作系统版本" class="headerlink" title="2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本"></a>2.5 采用sS模式、T4级别扫描目标的端口、服务、操作系统版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap -sS -sV -T4 + 目标ip（采用sS模式、T4级别扫描目标的端口、服务、操作系统的版本）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sS: 使用 TCP SYN 扫描</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-sV: 进行版本探测</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-T4: 使用一种快速扫描的方式，扫描速度的级别范围在（T0-T5）之间，级别越高，扫描速度越快。</span></span><br><span class="line">nmap -sS -sV -T4 192.168.1.106</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-6-采用vuln脚本扫描目标"><a href="#2-6-采用vuln脚本扫描目标" class="headerlink" title="2.6 采用vuln脚本扫描目标"></a>2.6 采用vuln脚本扫描目标</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nmap --script=vuln + 目标ip</span></span><br><span class="line">nmap --script=vuln 192.168.1.106</span><br></pre></td></tr></table></figure>
-
-<h2 id="三：图形-zenmap-使用"><a href="#三：图形-zenmap-使用" class="headerlink" title="三：图形 zenmap 使用"></a>三：图形 zenmap 使用</h2><p>nmap的图形化工具，具体使用步骤如下：</p>
-<ol>
-<li>输入ip或者域名</li>
-<li>选择扫描方式</li>
-<li>执行扫描</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/22/Word%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">Word模板导出功能实现</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-22 00:22:32 / 修改时间：00:25:54" itemprop="dateCreated datePublished" datetime="2022-11-22T00:22:32+08:00">2022-11-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Wrod-模板导出功能实现"><a href="#Wrod-模板导出功能实现" class="headerlink" title="Wrod 模板导出功能实现"></a>Wrod 模板导出功能实现</h1><h2 id="一：准备Word模板"><a href="#一：准备Word模板" class="headerlink" title="一：准备Word模板"></a>一：准备Word模板</h2><p>根据自身需求，准备响应的模板，并提取模板文件；</p>
-<h2 id="二：核心类"><a href="#二：核心类" class="headerlink" title="二：核心类"></a>二：核心类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 19:01 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenerateDocxUtil</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(GenerateDocxUtil.class);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">freemarkerDocxTest</span><span class="params">(String rootPath, Map&lt;String,Object&gt; dataMap, String docxPath)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="comment">//配置freemarker模板</span></span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">configuration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileDirectory</span> <span class="operator">=</span> rootPath;</span><br><span class="line">        configuration.setDirectoryForTemplateLoading(<span class="keyword">new</span> <span class="title class_">File</span>(fileDirectory));</span><br><span class="line">        <span class="type">String</span> <span class="variable">temName</span> <span class="operator">=</span>  <span class="string">&quot;tem1.xml&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">docxZipPath</span> <span class="operator">=</span> rootPath + <span class="string">&quot;tem1.zip&quot;</span>;</span><br><span class="line">        <span class="type">Template</span> <span class="variable">template</span> <span class="operator">=</span> configuration.getTemplate(temName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//通过模板生成的xml临时文件 方法结束后删除该临时文件</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">outFilePath</span> <span class="operator">=</span> rootPath + UUID.randomUUID().toString().replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;&quot;</span>) + <span class="string">&quot;.xml&quot;</span>;</span><br><span class="line">        <span class="comment">//指定输出word xml文件的路径</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">docXmlFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(outFilePath);</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(docXmlFile);</span><br><span class="line">        <span class="type">Writer</span> <span class="variable">out</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(fos),<span class="number">10240</span>);</span><br><span class="line">        template.process(dataMap,out);</span><br><span class="line">        <span class="keyword">if</span>(out != <span class="literal">null</span>)&#123;</span><br><span class="line">            out.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//以下代码 主要用来加密已经生成的xml文件，把xml文件正式转换成加密的word文档</span></span><br><span class="line">        <span class="comment">//包装输入流</span></span><br><span class="line">        <span class="type">ZipInputStream</span> <span class="variable">zipInputStream</span> <span class="operator">=</span>  wrapZipInputStream(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(docxZipPath)));</span><br><span class="line">        <span class="comment">//包装输出流</span></span><br><span class="line">        <span class="type">ZipOutputStream</span> <span class="variable">zipOutputStream</span> <span class="operator">=</span>  wrapZipOutputStream(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(docxPath)));</span><br><span class="line">        <span class="comment">//正式加密替换成docx格式文档</span></span><br><span class="line">        List&lt;String&gt; itemNameList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        itemNameList.add(<span class="string">&quot;word/document.xml&quot;</span>);</span><br><span class="line">        <span class="comment">//如果需要替换图片添加此行代码，&quot;word/media/image1.png&quot;为解压出来docx模板后，模板中对应图片的完整路径及名称，如果你添加的图片为jpg格式，那么图片名称会是&quot;image1.jpg&quot;或&quot;image1.jpeg&quot;，各位自己视情况修改，如需替换多张图片就举一反三，往list插入多个元素，我相信你们可以理解的</span></span><br><span class="line"><span class="comment">//        itemNameList.add(&quot;word/media/image1.png&quot;);</span></span><br><span class="line"></span><br><span class="line">        List&lt;InputStream&gt; itemInputStreamList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        itemInputStreamList.add(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(outFilePath)));</span><br><span class="line">        <span class="comment">//这里添加你想替换的图片</span></span><br><span class="line"><span class="comment">//        itemInputStreamList.add(new FileInputStream(new File($&#123;图片路径&#125;)));</span></span><br><span class="line"></span><br><span class="line">        replaceItemList(zipInputStream, zipOutputStream, itemNameList, itemInputStreamList);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">File</span>(outFilePath).delete();</span><br><span class="line">        logger.info(<span class="string">&quot;Word-docx文档生成完成&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ZipInputStream <span class="title function_">wrapZipInputStream</span><span class="params">(InputStream inputStream)</span>&#123;</span><br><span class="line">        <span class="type">ZipInputStream</span> <span class="variable">zipInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipInputStream</span>(inputStream);</span><br><span class="line">        <span class="keyword">return</span> zipInputStream;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ZipOutputStream <span class="title function_">wrapZipOutputStream</span><span class="params">(OutputStream outputStream)</span>&#123;</span><br><span class="line">        <span class="type">ZipOutputStream</span> <span class="variable">zipOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipOutputStream</span>(outputStream);</span><br><span class="line">        <span class="keyword">return</span> zipOutputStream;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">replaceItemList</span><span class="params">(ZipInputStream zipInputStream, ZipOutputStream zipOutputStream, List&lt;String&gt; itemNameList, List&lt;InputStream&gt; itemInputStreamList)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == zipInputStream)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">null</span> == zipOutputStream)&#123;<span class="keyword">return</span>;&#125;</span><br><span class="line">        ZipEntry entryIn;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span>((entryIn = zipInputStream.getNextEntry())!=<span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">entryName</span> <span class="operator">=</span>  entryIn.getName();</span><br><span class="line">                <span class="type">ZipEntry</span> <span class="variable">entryOut</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipEntry</span>(entryName);</span><br><span class="line">                zipOutputStream.putNextEntry(entryOut);</span><br><span class="line">                <span class="type">byte</span> [] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">8</span>*<span class="number">1024</span>];</span><br><span class="line">                <span class="type">int</span> len;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(itemNameList.indexOf(entryName) != -<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="comment">// 使用替换流</span></span><br><span class="line">                    <span class="keyword">while</span>((len = (itemInputStreamList.get(itemNameList.indexOf(entryName)).read(buf))) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        zipOutputStream.write(buf, <span class="number">0</span>, len);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 输出普通Zip流</span></span><br><span class="line">                    <span class="keyword">while</span>((len = (zipInputStream.read(buf))) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        zipOutputStream.write(buf, <span class="number">0</span>, len);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 关闭此 entry</span></span><br><span class="line">                zipOutputStream.closeEntry();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//e.printStackTrace();</span></span><br><span class="line">            <span class="keyword">for</span> (InputStream itemInputStream:itemInputStreamList) &#123;</span><br><span class="line">                close(itemInputStream);</span><br><span class="line">            &#125;</span><br><span class="line">            close(zipInputStream);</span><br><span class="line">            close(zipOutputStream);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(InputStream inputStream)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != inputStream)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">(OutputStream outputStream)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != outputStream)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                outputStream.flush();</span><br><span class="line">                outputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三：测试类"><a href="#三：测试类" class="headerlink" title="三：测试类"></a>三：测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CX330</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Map&lt;String, Object&gt; data = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        data.put(<span class="string">&quot;one&quot;</span>, <span class="string">&quot;RupertTears&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;two&quot;</span>, <span class="string">&quot;Thought is already is late, exactly is the earliest time.&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;three&quot;</span>, <span class="string">&quot;成功&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;six&quot;</span>, <span class="string">&quot;成功6&quot;</span>);</span><br><span class="line">        data.put(<span class="string">&quot;five&quot;</span>, <span class="string">&quot;成功5&quot;</span>);</span><br><span class="line">        GenerateDocxUtil.freemarkerDocxTest(<span class="string">&quot;C:\\Users\\lenovo\\Desktop\\res\\res\\res\\res\\&quot;</span>, data, <span class="string">&quot;C:\\Users\\lenovo\\Desktop\\巡检报告xx622.docx&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/21/SpringBoot%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/21/SpringBoot%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-title-link" itemprop="url">SpringBoot配置连接MySQL数据库</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-21 22:29:50 / 修改时间：23:49:18" itemprop="dateCreated datePublished" datetime="2022-11-21T22:29:50+08:00">2022-11-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SpringBoot-配置连接-MySQL-数据库"><a href="#SpringBoot-配置连接-MySQL-数据库" class="headerlink" title="SpringBoot 配置连接 MySQL 数据库"></a>SpringBoot 配置连接 MySQL 数据库</h1><h2 id="一：引入依赖"><a href="#一：引入依赖" class="headerlink" title="一：引入依赖"></a>一：引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="二：编辑-yaml-文件"><a href="#二：编辑-yaml-文件" class="headerlink" title="二：编辑 yaml 文件"></a>二：编辑 yaml 文件</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Developer</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/aaa?serverTimezone=UTC&amp;useUnicode=true&amp;characterEcoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8088</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="三：配置包扫描"><a href="#三：配置包扫描" class="headerlink" title="三：配置包扫描"></a>三：配置包扫描</h2><p>SpringBoot 拥有默认的包扫描机制，启动类所在当前包及其包的子类都会默认被扫描；</p>
-<p>有时会因为 Bean 和启动类不在一个文件夹下，导致扫描不到引起的注解失败问题。</p>
-<p>如何修改包扫描的位置？</p>
-<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>在启动类 SpringBootApplication 注解中配置 scanBasePackages即可，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(scanBasePackages = &#123;&quot;cn.aiyingke.developer.mysql&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeveloperApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DeveloperApplication.class, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;Program startup completed!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>也可以配置多个包路径；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(scanBasePackages = &#123;&quot;cn.aiyingke.developer.mysql&quot;,&quot;cn.aiyingke.developer.mysql.ebean&quot;&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>在启动类里面添加 @ComponentScan 注解配置 basePackages；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;cn.aiyingke.developer.mysql&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeveloperApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(DeveloperApplication.class, args);</span><br><span class="line">        System.out.println(<span class="string">&quot;Program startup completed!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="四：测试类"><a href="#四：测试类" class="headerlink" title="四：测试类"></a>四：测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 22:11 2022/11/21</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/mysql&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcController</span> &#123;</span><br><span class="line">    <span class="keyword">final</span></span><br><span class="line">    JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">JdbcController</span><span class="params">(JdbcTemplate jdbcTemplate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.jdbcTemplate = jdbcTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/mdtList&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Map&lt;String, Object&gt;&gt; <span class="title function_">mdtList</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from mdt&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> jdbcTemplate.queryForList(sql);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/Lombok%E4%B9%8B-EqualsAndHashCode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/Lombok%E4%B9%8B-EqualsAndHashCode/" class="post-title-link" itemprop="url">Lombok之@EqualsAndHashCode</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 23:16:18 / 修改时间：23:23:34" itemprop="dateCreated datePublished" datetime="2022-11-20T23:16:18+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Lombok-之-EqualsAndHashCode-使用"><a href="#Lombok-之-EqualsAndHashCode-使用" class="headerlink" title="Lombok 之 @EqualsAndHashCode 使用"></a>Lombok 之 @EqualsAndHashCode 使用</h1><h2 id="一：作用"><a href="#一：作用" class="headerlink" title="一：作用"></a>一：作用</h2><p>该注解的作用就是自动给 model bean 实现 equals 方法和 hashcode 方法。</p>
-<h2 id="二：参数"><a href="#二：参数" class="headerlink" title="二：参数"></a>二：参数</h2><ul>
-<li>@EqualsAndHashCode(callSuper &#x3D; false ) 默认参数，父类属性不参与比较。</li>
-<li>@EqualsAndHashCode(callSuper &#x3D; true) 调用父类属性，进行比较。</li>
-</ul>
-<h2 id="三：代码示例"><a href="#三：代码示例" class="headerlink" title="三：代码示例"></a>三：代码示例</h2><h3 id="（1）实体类"><a href="#（1）实体类" class="headerlink" title="（1）实体类"></a>（1）实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TV</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode(callSuper = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">XiaoMiTV</span> <span class="keyword">extends</span> <span class="title class_">TV</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">float</span> price;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">XiaoMiTV</span><span class="params">(<span class="type">int</span> id, String name, <span class="type">float</span> price, String color)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(id, name);</span><br><span class="line">        <span class="built_in">this</span>.price = price;</span><br><span class="line">        <span class="built_in">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）测试类"><a href="#（2）测试类" class="headerlink" title="（2）测试类"></a>（2）测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EqualsTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 默认情况  不调用父类属性比较  结果为：true</span></span><br><span class="line">        <span class="type">XiaoMiTV</span> <span class="variable">xiaoMiTV</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XiaoMiTV</span>(<span class="number">1</span>,<span class="string">&quot;小米&quot;</span>,<span class="number">99.99f</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">        <span class="type">XiaoMiTV</span> <span class="variable">xiaoMiTV2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XiaoMiTV</span>(<span class="number">2</span>,<span class="string">&quot;小米2&quot;</span>,<span class="number">99.99f</span>,<span class="string">&quot;red&quot;</span>);</span><br><span class="line">        System.out.println(xiaoMiTV.equals(xiaoMiTV2)); <span class="comment">// false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/java%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F/" class="post-title-link" itemprop="url">Java抽象类</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 21:36:29 / 修改时间：22:27:40" itemprop="dateCreated datePublished" datetime="2022-11-20T21:36:29+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java理论基础</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java-抽象类"><a href="#Java-抽象类" class="headerlink" title="Java 抽象类"></a>Java 抽象类</h1><h2 id="一：什么是抽象类？"><a href="#一：什么是抽象类？" class="headerlink" title="一：什么是抽象类？"></a>一：什么是抽象类？</h2><p style="text-indent:2em;">在面向对象的概念中在，所有的对象都是通过类来描绘的，但反过来讲，并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这个类就是抽象类。父类包含了之类集合的常用方法，但是由于父类本身是抽象的，所以不能使用这些方法。</p>
-
-<p style="text-indent:2em;">抽象类是指不允许被实例化的类；抽象方法是没有方法体的方法。</p>
-
-<ol>
-<li>抽象类可以不包括抽象方法，反正它不会被实例化，里面的方法是不是抽象的本质上没有任何影响。</li>
-<li>但是含有抽象方法的类绝不能被实例化，否则执行这个方法的时候，应该怎么办！</li>
-<li>如果子类是非抽象的，那么它就必须实现父类中的抽象方法；否则，它继承来的抽象方法仍然没有方法体，也是个抽象方法，因此之类必须实现父类的抽象方法。</li>
-</ol>
-<h2 id="二：抽象类可以被继承吗？"><a href="#二：抽象类可以被继承吗？" class="headerlink" title="二：抽象类可以被继承吗？"></a>二：抽象类可以被继承吗？</h2><ol>
-<li>抽象类可以被继承。</li>
-<li>抽象类除了不能被实例化对象之外，类的其他功能依然存在，成员变量、成员方法及构造方法的访问方式和普通的类一样。</li>
-<li>由于抽象类不能被实例化对象，所以抽象类必须被继承才能使用。也正因如此，在设计阶段决定要不要设计抽象类。</li>
-</ol>
-<h2 id="三：知识汇总"><a href="#三：知识汇总" class="headerlink" title="三：知识汇总"></a>三：知识汇总</h2><ol>
-<li>abstract 是一个修饰符；</li>
-<li>使用 abstract 修饰的类是抽象类；</li>
-<li>使用 abstract 修饰的方法是抽象方法，抽象方法没有方法体；只能进行功能定义，没有功能实现，功能实现由之类完成；</li>
-<li>实现抽象方法，就是给抽象方法加上方法体，去掉 abstract 修饰；</li>
-<li>抽象类的目的：该类不能被实例化对象，只能被继承；</li>
-<li>抽象方法一定在抽象类中成立；</li>
-<li>抽象类中不一定由抽象方法，比如不想让某个类有对象，可以创建为抽象类；</li>
-<li>final 修饰的类不能被继承；</li>
-<li>final 修饰的成员方法不能被覆写；</li>
-<li>抽象类就是用于被继承的；</li>
-<li>抽象方法就是用于被覆写的；</li>
-<li>因而 final 和 abstract 不能同时出现；</li>
-<li>一个类若想继承一个抽象类，必须实现该抽象类的所有抽象方法；</li>
-<li>一个抽象类如果想要继承一个抽象类，可以实现0~N个抽象方法；</li>
-<li>虽然抽象类不能被创建对象，但是抽象类有构造方法，因为之类创建对象需要调用父类然后调用 Object 实现；</li>
-<li>abstract 是不能修饰静态方法的，因为静态方法不能被覆写；</li>
-<li>抽象方法与成员方法一样，仅仅是没有方法体而已；</li>
-<li>抽象方法必须被覆写，成员方法根据需求覆写；</li>
-</ol>
-<h2 id="四：抽象类应用场景"><a href="#四：抽象类应用场景" class="headerlink" title="四：抽象类应用场景"></a>四：抽象类应用场景</h2><ul>
-<li><p>例如我们在定义父类的时候，仅仅知道父类的功能，不知道如何实现时；</p>
-</li>
-<li><p>举例：动物会运动；但是运动的方式不一样，有天上飞的、地下跑的、水里游的…</p>
-</li>
-<li><p>这是，我们就能定义为抽象类说明功能，具体的实现由实现类去完成；</p>
-</li>
-</ul>
-<h2 id="五：代码示例"><a href="#五：代码示例" class="headerlink" title="五：代码示例"></a>五：代码示例</h2><h3 id="（1）父类"><a href="#（1）父类" class="headerlink" title="（1）父类"></a>（1）父类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）子类"><a href="#（2）子类" class="headerlink" title="（2）子类"></a>（2）子类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;猫在地上跑~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;喵喵叫~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Fish</span> <span class="keyword">extends</span> <span class="title class_">Animal</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鱼在水中游...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GoldFish</span> <span class="keyword">extends</span> <span class="title class_">Fish</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;金鱼咕咕叫~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）测试"><a href="#（3）测试" class="headerlink" title="（3）测试"></a>（3）测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">GoldFish</span> <span class="variable">goldFish</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GoldFish</span>();</span><br><span class="line">        goldFish.call();</span><br><span class="line">        goldFish.run();</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        cat.call();</span><br><span class="line">        cat.run();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">金鱼咕咕叫~</span><br><span class="line">鱼在水中游...</span><br><span class="line">喵喵叫~</span><br><span class="line">猫在地上跑~</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF009/" class="post-title-link" itemprop="url">专业词汇积累009</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 21:02:31 / 修改时间：21:32:59" itemprop="dateCreated datePublished" datetime="2022-11-20T21:02:31+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-009"><a href="#Professional-Vocabulary-Accumulation-009" class="headerlink" title="Professional Vocabulary Accumulation_009"></a>Professional Vocabulary Accumulation_009</h1><ul>
-<li>The method allows to retrieve items according to the given parameters.</li>
-<li>此方法允许根据给定的参数获取监控项。</li>
-<li>inlay hints</li>
-<li>内置的提醒</li>
-<li>Contains</li>
-<li>包括</li>
-<li>use a like with ‘%’ wildcard added to the beginning and end.</li>
-<li>使用在开头和结尾添加一个 ‘%’ 的通配符</li>
-<li>the equal to bind value.</li>
-<li>等于绑定值</li>
-<li>the root query bean instance.</li>
-<li>根查询Bean实例</li>
-<li>navigate to previous declared variable ‘ids’</li>
-<li>导航到之前声明的变量 ‘ids’</li>
-<li>shows project statistic</li>
-<li>显示项目统计信息</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/20/EasyExcel-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/20/EasyExcel-Manual/" class="post-title-link" itemprop="url">EasyExcel Manual</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-20 18:15:25 / 修改时间：18:32:35" itemprop="dateCreated datePublished" datetime="2022-11-20T18:15:25+08:00">2022-11-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="EasyExcel-Manual"><a href="#EasyExcel-Manual" class="headerlink" title="EasyExcel Manual"></a>EasyExcel Manual</h1><h2 id="一：引入依赖"><a href="#一：引入依赖" class="headerlink" title="一：引入依赖"></a>一：引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--excel操作工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>easyexcel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--日期格式化工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.12.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--实体工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--测试工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--json工具--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.19<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--spring web--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="二：代码模板"><a href="#二：代码模板" class="headerlink" title="二：代码模板"></a>二：代码模板</h2><h3 id="（1）实体类"><a href="#（1）实体类" class="headerlink" title="（1）实体类"></a>（1）实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.annotation.ExcelIgnore;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.annotation.ExcelProperty;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.EqualsAndHashCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoData</span> &#123;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;字符串标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String string;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;日期标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;数字标题&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Double doubleData;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 忽略这个字段</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExcelIgnore</span></span><br><span class="line">    <span class="keyword">private</span> String ignore;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）核心类"><a href="#（2）核心类" class="headerlink" title="（2）核心类"></a>（2）核心类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.dto.DemoDAO;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.context.AnalysisContext;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.read.listener.ReadListener;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 17:15 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoDataListener</span> <span class="keyword">implements</span> <span class="title class_">ReadListener</span>&lt;DemoData&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">BATCH_COUNT</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> DemoDAO demoDAO;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DemoDataListener</span><span class="params">()</span> &#123;</span><br><span class="line">        demoDAO = <span class="keyword">new</span> <span class="title class_">DemoDAO</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">DemoDataListener</span><span class="params">(DemoDAO demoDAO)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.demoDAO = demoDAO;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">invoke</span><span class="params">(DemoData data, AnalysisContext context)</span> &#123;</span><br><span class="line">        System.out.println(JSON.toJSONString(data));</span><br><span class="line">        cachedDataList.add(data);</span><br><span class="line">        <span class="keyword">if</span> (cachedDataList.size() &gt;= BATCH_COUNT) &#123;</span><br><span class="line">            saveData();</span><br><span class="line">            cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doAfterAllAnalysed</span><span class="params">(AnalysisContext context)</span> &#123;</span><br><span class="line">        saveData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">saveData</span><span class="params">()</span> &#123;</span><br><span class="line">        demoDAO.save(cachedDataList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）传输层"><a href="#（3）传输层" class="headerlink" title="（3）传输层"></a>（3）传输层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 17:16 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoDAO</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(List&lt;DemoData&gt; list)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;insert&quot;</span> + list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（4）本地读写"><a href="#（4）本地读写" class="headerlink" title="（4）本地读写"></a>（4）本地读写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.common.DemoDataListener;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.EasyExcel;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 16:55 2022/11/20</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EasyTest</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; <span class="title function_">data</span><span class="params">()</span> &#123;</span><br><span class="line">        List&lt;DemoData&gt; list = ListUtils.newArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="type">DemoData</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoData</span>();</span><br><span class="line">            data.setString(<span class="string">&quot;字符串&quot;</span> + i);</span><br><span class="line">            data.setDate(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">            data.setDoubleData(<span class="number">0.56</span>);</span><br><span class="line">            list.add(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getPath</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">relativelyPath</span> <span class="operator">=</span> System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">        System.out.println(relativelyPath);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">PATH</span> <span class="operator">=</span> System.getProperty(<span class="string">&quot;user.dir&quot;</span>) + <span class="string">&quot;\\data\\&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">simpleWrite</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> PATH + <span class="string">&quot;EasyTest.xlsx&quot;</span>;</span><br><span class="line">        EasyExcel.write(fileName, DemoData.class).sheet(<span class="string">&quot;模板&quot;</span>).doWrite(<span class="built_in">this</span>::data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">simpleRead</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> PATH + <span class="string">&quot;EasyTest.xlsx&quot;</span>;</span><br><span class="line">        EasyExcel.read(fileName, DemoData.class, <span class="keyword">new</span> <span class="title class_">DemoDataListener</span>()).sheet().doRead();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（5）Web读写"><a href="#（5）Web读写" class="headerlink" title="（5）Web读写"></a>（5）Web读写</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.aiyingke.easyexcel.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.common.DemoDataListener;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.domain.DemoData;</span><br><span class="line"><span class="keyword">import</span> cn.aiyingke.easyexcel.dto.DemoDAO;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.EasyExcel;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.excel.util.ListUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> DemoDAO demoDao;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;DemoData&gt; <span class="title function_">data</span><span class="params">()</span> &#123;</span><br><span class="line">        List&lt;DemoData&gt; list = ListUtils.newArrayList();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="type">DemoData</span> <span class="variable">data</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoData</span>();</span><br><span class="line">            data.setString(<span class="string">&quot;字符串&quot;</span> + <span class="number">0</span>);</span><br><span class="line">            data.setDate(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">            data.setDoubleData(<span class="number">0.56</span>);</span><br><span class="line">            list.add(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;download&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">download</span><span class="params">(HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span>);</span><br><span class="line">        response.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> URLEncoder.encode(<span class="string">&quot;测试&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>).replaceAll(<span class="string">&quot;\\+&quot;</span>, <span class="string">&quot;%20&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;Content-disposition&quot;</span>, <span class="string">&quot;attachment;filename*=utf-8&#x27;&#x27;&quot;</span> + fileName + <span class="string">&quot;.xlsx&quot;</span>);</span><br><span class="line"></span><br><span class="line">        EasyExcel.write(response.getOutputStream(), DemoData.class).sheet(<span class="string">&quot;模板&quot;</span>).doWrite(data());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;upload&quot;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(MultipartFile file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        EasyExcel.read(file.getInputStream(), DemoData.class, <span class="keyword">new</span> <span class="title class_">DemoDataListener</span>(demoDao)).sheet().doRead();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" class="post-title-link" itemprop="url">LeetCode_Z字形变换</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 22:38:41 / 修改时间：22:46:32" itemprop="dateCreated datePublished" datetime="2022-11-12T22:38:41+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Z-字形变换"><a href="#Z-字形变换" class="headerlink" title="Z 字形变换"></a>Z 字形变换</h1><h2 id="一：题目"><a href="#一：题目" class="headerlink" title="一：题目"></a>一：题目</h2><p>将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。</p>
-<p>比如输入字符串为 <code>&quot;PAYPALISHIRING&quot;</code> 行数为 <code>3</code> 时，排列如下：</p>
-<p><img src="/2022/11/12/LeetCode-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/image-20221112223949179.png"></p>
-<p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;PAHNAPLSIIGYIR&quot;</code>。</p>
-<h2 id="二：实例"><a href="#二：实例" class="headerlink" title="二：实例"></a>二：实例</h2><p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 3</span><br><span class="line">输出：&quot;PAHNAPLSIIGYIR&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;PAYPALISHIRING&quot;, numRows = 4</span><br><span class="line">输出：&quot;PINALSIGYAHRPI&quot;</span><br><span class="line">解释：</span><br><span class="line">P     I    N</span><br><span class="line">A   L S  I G</span><br><span class="line">Y A   H R</span><br><span class="line">P     I</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;A&quot;, numRows = 1</span><br><span class="line">输出：&quot;A&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三：提示"><a href="#三：提示" class="headerlink" title="三：提示"></a>三：提示</h2><ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> 由英文字母（小写和大写）、<code>&#39;,&#39;</code> 和 <code>&#39;.&#39;</code> 组成</li>
-<li><code>1 &lt;= numRows &lt;= 1000</code></li>
-</ul>
-<h2 id="四：算法实现"><a href="#四：算法实现" class="headerlink" title="四：算法实现"></a>四：算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 18:54 2022/11/12</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * Z 字形变换</span></span><br><span class="line"><span class="comment"> * 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。</span></span><br><span class="line"><span class="comment"> * 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 比如输入字符串为 &quot;PAYPALISHIRING&quot; 行数为 3 时;</span></span><br><span class="line"><span class="comment"> * 输出需要从左往右逐行读取，产生出一个新的字符串为：&quot;PAHNAPLSIIGYIR&quot;。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Aigo_006</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;PAYPALISHIRING&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">res</span> <span class="operator">=</span> convert(str, <span class="number">3</span>);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">convert</span><span class="params">(String str, <span class="type">int</span> numRows)</span> &#123;</span><br><span class="line">        <span class="comment">// 单个字符情况</span></span><br><span class="line">        <span class="keyword">if</span> (numRows &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存放行结果</span></span><br><span class="line">        List&lt;StringBuilder&gt; rows = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 生成指定行数 stringbuilder</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">            rows.add(<span class="keyword">new</span> <span class="title class_">StringBuilder</span>());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 行数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 首位变换标识</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">flag</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历字符串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : str.toCharArray()) &#123;</span><br><span class="line">            <span class="comment">// 向目标行添加字符</span></span><br><span class="line">            rows.get(i).append(c);</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || i == numRows - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">// 首尾标志变换</span></span><br><span class="line">                flag = -flag;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 行数变换</span></span><br><span class="line">            i += flag;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存储结果</span></span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="comment">// 遍历添加结果</span></span><br><span class="line">        <span class="keyword">for</span> (StringBuilder row : rows) &#123;</span><br><span class="line">            result.append(row);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="五：思路总结"><a href="#五：思路总结" class="headerlink" title="五：思路总结"></a>五：思路总结</h2><ul>
-<li>将 Z 形变换的结果，存储到一个父 StringBuilder 中。通过下标，控制向子 StringBuilder 中添加字符，即添加到对应的行中。</li>
-<li>通过 flag 变量，来控制遍历字符串时，对子 StringBuilder 的选择。</li>
-<li>遍历父 StringBuilder ，获取最终的输出结果。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Rupert-Tears"
-      src="/images/RupertTears.jpg">
-  <p class="site-author-name" itemprop="name">Rupert-Tears</p>
-  <div class="site-description" itemprop="description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">68</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Ghost-Ying" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ghost-Ying" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/MIRACLE_Ying" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;MIRACLE_Ying" rel="noopener" target="_blank"><i class="fab fa-codiepie fa-fw"></i>CSDN</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      友情链接
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">GitHub</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  &copy; 2022-10 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Rupert-Tears</span>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">本博客全站共47.2k字</span>
-</div>
-
-
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
-    <span class="post-meta-divider">|</span>
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {            
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
-            clearInterval(int);
-        }                  
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
-            clearInterval(int); // 停止检测
-        }  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
     }
-        
-});
-</script> 
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">爱影客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/800cc2a8.html/" title="crunch 使用教程"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="crunch 使用教程"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/800cc2a8.html/" title="crunch 使用教程">crunch 使用教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-26T08:07:25.000Z" title="发表于 2022-11-26 16:07:25">2022-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="content">一：简介crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。
+使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。
+crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。
+二：规则2.1 生成方式crunch生成字典的方式：
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+指定生成26个字母或者数字的随机字典
+指定格式生成字典
+指定模板生成字典
+指定字符串生成字典
+
+2.2 参数详情
+min：设定最小字符串长度（必选）
+max：设定最大字符串长度（必选）
+-o 将生成的字典保存在指定文件
+-t 指定密码输出的格式
+-p 指定元素组合
+特殊字符
+%：代表数字
+^：代表特殊符号
+@：代表小写字母
+.：代表大写字母
 
 
 
+三：命令2.1 crunch1234567891011121314crunch   crunch version 3.6Crunch can create a wordlist based on criteria you specify.  The output from crunch can be sent to the scr ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/a6c19022.html/" title="Hydra 使用教程"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hydra 使用教程"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/a6c19022.html/" title="Hydra 使用教程">Hydra 使用教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-26T05:37:27.000Z" title="发表于 2022-11-26 13:37:27">2022-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="content">一：简介Hydra 是一款非常强大的暴力破解工具，可以利用它对众多协议进行口令、账号、密码的爆破，支持FTP、MySQL、SMTP、TELNET、SSH等众多的协议爆破。
+Hydra 是一个验证性质的工具，主要目的是：展示安全研究人员从远程获取一个系统认证权限。
+二：基础指令2.1 概述1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950hydraHydra v9.3 (c) 2022 by van Hauser/THC &amp; David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).Hydra v9.3 2022的作者：van Hauser/THC &amp; David Mac ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/35e10325.html/" title="网络安全概述"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络安全概述"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/35e10325.html/" title="网络安全概述">网络安全概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T20:42:36.000Z" title="发表于 2022-11-26 04:42:36">2022-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="content">一：什么是黑客？电影：《我是谁：没有绝对安全的系统》
+黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。
+
+黑帽黑客
+
+
+专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。
+
+
+白帽黑客
+
+
+指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。
+
+
+红客
+
+
+指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。
 
 
 
+二：法律法规中华人民共和国刑法：
+
+第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。
+第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。
+
+三：渗透测试3.1 概念通过模拟恶意黑客的攻击方式，同时是在授 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/cf508180.html/" title="Nmap 使用教程"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nmap 使用教程"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/cf508180.html/" title="Nmap 使用教程">Nmap 使用教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-25T20:37:45.000Z" title="发表于 2022-11-26 04:37:45">2022-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="content">一：Nmap Commands（诸神之眼）
+扫描对方网站端口
+扫描对方网站服务
+操作系统、版本相关信息
+配合脚本去扫描对方存在的漏洞
+
+二：常用扫描命令2.1 简单扫描目标12345678910111213141516# namp + 目标ip/域名（简单扫描目标）nmap 192.168.1.106Starting Nmap 7.92 ( https://nmap.org ) at 2022-11-26 04:17 CSTNmap scan report for localhost (192.168.1.106)Host is up (0.00076s latency).Not shown: 992 filtered tcp ports (no-response)PORT     STATE SERVICE135/tcp  open  msrpc139/tcp  open  netbios-ssn443/tcp  open  https445/tcp  open  microsoft-ds902/tcp  open  iss-realsecure912/tcp  open  apex ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/bd69f69c.html/" title="Word模板导出功能实现"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Word模板导出功能实现"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/bd69f69c.html/" title="Word模板导出功能实现">Word模板导出功能实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-21T16:22:32.000Z" title="发表于 2022-11-22 00:22:32">2022-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E7%BC%96%E7%A8%8B/">Java编程</a></span></div><div class="content">Wrod 模板导出功能实现一：准备Word模板根据自身需求，准备响应的模板，并提取模板文件；
+二：核心类123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118/** * Author: Rupert Tears * Date: Created in 19:01 2022/11/20 * Description: Thought is already is late, exactly is the earliest time. */public class GenerateDocxUtil &#123;    private static Logger lo ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2b798803.html/" title="SpringBoot配置连接MySQL数据库"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringBoot配置连接MySQL数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2b798803.html/" title="SpringBoot配置连接MySQL数据库">SpringBoot配置连接MySQL数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-21T14:29:50.000Z" title="发表于 2022-11-21 22:29:50">2022-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E7%BC%96%E7%A8%8B/">Java编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/">SpringBoot</a></span></div><div class="content">SpringBoot 配置连接 MySQL 数据库一：引入依赖1234567891011121314&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;&lt;/dependency&gt;&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;&lt;/dependency&gt;&lt;dependency&gt;    &lt;groupId&gt;mysql&lt;/groupId&gt;    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;&lt;/depen ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/5171df44.html/" title="Lombok之@EqualsAndHashCode"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lombok之@EqualsAndHashCode"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/5171df44.html/" title="Lombok之@EqualsAndHashCode">Lombok之@EqualsAndHashCode</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-20T15:16:18.000Z" title="发表于 2022-11-20 23:16:18">2022-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E7%BC%96%E7%A8%8B/">Java编程</a></span></div><div class="content">Lombok 之 @EqualsAndHashCode 使用一：作用该注解的作用就是自动给 model bean 实现 equals 方法和 hashcode 方法。
+二：参数
+@EqualsAndHashCode(callSuper &#x3D; false ) 默认参数，父类属性不参与比较。
+@EqualsAndHashCode(callSuper &#x3D; true) 调用父类属性，进行比较。
+
+三：代码示例（1）实体类1234567@Data@AllArgsConstructor@NoArgsConstructorpublic class TV &#123;    private int id;    private String name;&#125;
+
+123456789101112131415@Data@AllArgsConstructor@NoArgsConstructor@EqualsAndHashCode(callSuper = true)public class XiaoMiTV extends TV &#123;    private float price ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/f631dc76.html/" title="Java抽象类"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java抽象类"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/f631dc76.html/" title="Java抽象类">Java抽象类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-20T13:36:29.000Z" title="发表于 2022-11-20 21:36:29">2022-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">Java理论基础</a></span></div><div class="content">Java 抽象类一：什么是抽象类？在面向对象的概念中在，所有的对象都是通过类来描绘的，但反过来讲，并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这个类就是抽象类。父类包含了之类集合的常用方法，但是由于父类本身是抽象的，所以不能使用这些方法。
+
+抽象类是指不允许被实例化的类；抽象方法是没有方法体的方法。
 
 
-      </div>
-    </footer>
-  </div>
+抽象类可以不包括抽象方法，反正它不会被实例化，里面的方法是不是抽象的本质上没有任何影响。
+但是含有抽象方法的类绝不能被实例化，否则执行这个方法的时候，应该怎么办！
+如果子类是非抽象的，那么它就必须实现父类中的抽象方法；否则，它继承来的抽象方法仍然没有方法体，也是个抽象方法，因此之类必须实现父类的抽象方法。
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+二：抽象类可以被继承吗？
+抽象类可以被继承。
+抽象类除了不能被实例化对象之外，类的其他功能依然存在，成员变量、成员方法及构造方法的访问方式和普通的类一样。
+由于抽象类不能被实例化对象，所以抽象类必须被继承才能使用。也正因如此，在设计阶段决定要不要设计抽象类。
 
-<script src="/js/utils.js"></script>
+三：知识汇总
+abstract 是一个修饰符；
+使用 abstract 修饰的类 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/5ce6ff36.html/" title="专业词汇积累009"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专业词汇积累009"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/5ce6ff36.html/" title="专业词汇积累009">专业词汇积累009</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-20T13:02:31.000Z" title="发表于 2022-11-20 21:02:31">2022-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/">专业词汇</a></span></div><div class="content">Professional Vocabulary Accumulation_009
+The method allows to retrieve items according to the given parameters.
+此方法允许根据给定的参数获取监控项。
+inlay hints
+内置的提醒
+Contains
+包括
+use a like with ‘%’ wildcard added to the beginning and end.
+使用在开头和结尾添加一个 ‘%’ 的通配符
+the equal to bind value.
+等于绑定值
+the root query bean instance.
+根查询Bean实例
+navigate to previous declared variable ‘ids’
+导航到之前声明的变量 ‘ids’
+shows project statistic
+显示项目统计信息
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/canvas_lines.min.js"></script>
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-
-</body>
-</html>
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/c67f80b7.html/" title="EasyExcel Manual"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="EasyExcel Manual"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/c67f80b7.html/" title="EasyExcel Manual">EasyExcel Manual</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-20T10:15:25.000Z" title="发表于 2022-11-20 18:15:25">2022-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E7%BC%96%E7%A8%8B/">Java编程</a></span></div><div class="content">EasyExcel Manual一：引入依赖1234567891011121314151617181920212223242526272829303132333435363738&lt;!--excel操作工具--&gt;&lt;dependency&gt;    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;    &lt;artifactId&gt;easyexcel&lt;/artifactId&gt;    &lt;version&gt;3.1.3&lt;/version&gt;&lt;/dependency&gt;&lt;!--日期格式化工具--&gt;&lt;dependency&gt;    &lt;groupId&gt;joda-time&lt;/groupId&gt;    &lt;artifactId&gt;joda-time&lt;/artifactId&gt;    &lt;version&gt;2.12.1&lt;/version&gt;&lt;/dependency&gt;&lt;!--实体工具--&gt;&lt;dep ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/48907d56.html/" title="计算机网络 Http协议"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络 Http协议"/></a><div class="content"><a class="title" href="/blog/48907d56.html/" title="计算机网络 Http协议">计算机网络 Http协议</a><time datetime="2022-12-06T04:57:45.000Z" title="发表于 2022-12-06 12:57:45">2022-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/829e9d92.html/" title="Linux 思维导图"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 思维导图"/></a><div class="content"><a class="title" href="/blog/829e9d92.html/" title="Linux 思维导图">Linux 思维导图</a><time datetime="2022-12-04T11:41:02.000Z" title="发表于 2022-12-04 19:41:02">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/88d9b703.html/" title="Linux 软件包管理"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 软件包管理"/></a><div class="content"><a class="title" href="/blog/88d9b703.html/" title="Linux 软件包管理">Linux 软件包管理</a><time datetime="2022-12-04T08:36:34.000Z" title="发表于 2022-12-04 16:36:34">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/f0317602.html/" title="Linux 定时任务"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 定时任务"/></a><div class="content"><a class="title" href="/blog/f0317602.html/" title="Linux 定时任务">Linux 定时任务</a><time datetime="2022-12-04T07:59:47.000Z" title="发表于 2022-12-04 15:59:47">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2aa41515.html/" title="Linux 进程管理类"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 进程管理类"/></a><div class="content"><a class="title" href="/blog/2aa41515.html/" title="Linux 进程管理类">Linux 进程管理类</a><time datetime="2022-12-04T07:18:01.000Z" title="发表于 2022-12-04 15:18:01">2022-12-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Java理论基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">Java编程</span><span class="card-category-list-count">4</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/"><span class="card-category-list-name">SpringBoot</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"><span class="card-category-list-name">专业词汇</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">思科CCNA网络基础入门</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Cisco-IOS/" style="font-size: 1.1em; color: #999">Cisco IOS</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">Java基础</a> <a href="/tags/Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" style="font-size: 1.16em; color: #999b9e">Java开发手册</a> <a href="/tags/LeetCode/" style="font-size: 1.27em; color: #99a0a9">LeetCode</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/PNETLab/" style="font-size: 1.1em; color: #999">PNETLab</a> <a href="/tags/SpringBoot/" style="font-size: 1.1em; color: #999">SpringBoot</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" style="font-size: 1.39em; color: #99a4b4">专业词汇</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.44em; color: #99a7ba">人工智能</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">渗透测试</a> <a href="/tags/%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" style="font-size: 1.1em; color: #999">算法思想</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%85%A5%E9%97%A8/" style="font-size: 1.1em; color: #999">网安入门</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/" style="font-size: 1.33em; color: #99a2af">网安工具</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.21em; color: #999ea4">计算机网络</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">46</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-06T10:56:36.571Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

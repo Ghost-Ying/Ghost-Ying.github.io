@@ -1,1558 +1,416 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="爱影客">
 <meta property="og:url" content="https://aiyingke.cn/page/5/index.html">
 <meta property="og:site_name" content="爱影客">
 <meta property="og:description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiyingke.cn/img/RupertTears.jpg">
 <meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="爱影客 影客之家">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://aiyingke.cn/page/5/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>爱影客</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://aiyingke.cn/img/RupertTears.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '爱影客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-06 18:56:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-      <a target="_blank" rel="noopener" href="https://github.com/Ghost-Ying" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">爱影客</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-resources">
-
-    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（2）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 14:08:50 / 修改时间：17:08:16" itemprop="dateCreated datePublished" datetime="2022-11-12T14:08:50+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：复杂的分类问题"><a href="#一：复杂的分类问题" class="headerlink" title="一：复杂的分类问题"></a>一：复杂的分类问题</h2><h3 id="1-直线决策边界"><a href="#1-直线决策边界" class="headerlink" title="1. 直线决策边界"></a>1. 直线决策边界</h3><p>通过 x<sub>1</sub> 和 x<sub>2</sub> 去判断 y的值</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141044914.png" style="zoom: 33%;">
-
-<p>概念分布函数</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141306835.png" style="zoom: 50%;">
-
-<p>核心问题：找到 g(x)，即蓝色的直线；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141349124.png" style="zoom:50%;">
-
-<p>决策边界：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141504765.png" style="zoom:50%;">
-
-<h3 id="2-圆形决策边界"><a href="#2-圆形决策边界" class="headerlink" title="2. 圆形决策边界"></a>2. 圆形决策边界</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141701950.png" style="zoom: 33%;">
-
-<p>获取概念分布，逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112141808332.png" style="zoom: 50%;">
-
-<p>圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142014947.png" style="zoom: 50%;">
-
-<p>决策边界：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142059035.png"></p>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><ul>
-<li>当使用逻辑回归去求解问题时，核心即找到决策边界。</li>
-<li>逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。<ul>
-<li>线性边界，即多项式为1次；</li>
-<li>圆形边界，即多项式为2次；</li>
-</ul>
-</li>
-</ul>
-<h2 id="二：逻辑回归问题求解"><a href="#二：逻辑回归问题求解" class="headerlink" title="二：逻辑回归问题求解"></a>二：逻辑回归问题求解</h2><ul>
-<li>概念分布函数</li>
-<li>对应的边界函数关系</li>
-</ul>
-<h3 id="1-寻找类别边界"><a href="#1-寻找类别边界" class="headerlink" title="1. 寻找类别边界"></a>1. 寻找类别边界</h3><p>根据训练样本，寻找类别边界；</p>
-<p>即：根据训练样本，寻找找 θ<sub>0</sub>、θ<sub>1</sub>、θ<sub>2</sub></p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142629280.png" style="zoom:50%;">
-
-<h3 id="2-如何求解系数"><a href="#2-如何求解系数" class="headerlink" title="2.  如何求解系数"></a>2.  如何求解系数</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112142953201.png" style="zoom:50%;">
-
-<p>分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112143359941.png" style="zoom: 50%;">
-
-<p>图像：</p>
-<p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/20200407084418389.png"></p>
-<p>等效转换关系式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112144946188.png" style="zoom: 50%;">
-
-<p>带入P(x)，求解</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145047414.png" style="zoom:50%;">
-
-<p>采用梯度下降法，获取最小化的损失函数 J</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112145205900.png" style="zoom:50%;">
-
-<h2 id="三：命名问题"><a href="#三：命名问题" class="headerlink" title="三：命名问题"></a>三：命名问题</h2><p>逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？</p>
-<p>逻辑回归虽然名字中有回归，但实际上它是一个<code>二分类算法</code>。</p>
-<p>逻辑回归实际上就是在多元线性回归（θᵀx）的基础上，多嵌套了一个函数，这个函数就是 sigmoid 函数，也被称为 S 型曲线。 </p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153624030.png" style="zoom: 67%;">
-
-<p>简化表达：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112153714798.png" style="zoom:67%;">
-
-<p>函数图像：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112162347188.png" style="zoom:50%;">
-
-<p style="text-indent:2em">由 sigmoid 函数图像看知，其值域为(0,1)。因此逻辑回归就是在多元线性回归的基础上，讲结果缩放到了0 和 1 之间。</p>
-
-<p style="text-indent:2em">当我们通过线性函数得到一个结果，这个结果越小于0，函数输出就越接近0；结果越大于0，函数输出就越接近1，而分类算法的输出一般情况下都会是 input 属于某个类别的概念大小，因此用0到1之间的范围刚好可以表示概念。中间的0.5则将结果划分为两个类别。所以，我们可以简单的将 sigmoid 函数理解成一个将输出转化为属于某个类别的概念的函数。</p>
-
-<p style="text-indent:2em">综上所述，逻辑回归的大体思想就是，多元线性回归算法回归出一个分类超平面，预测样本通过代入这个超平面，如果是负就说明在这个超平面的下方，如果是正就说明是在这个超平面的上方。再通过 sigmoid 转换为概率，最好通过概率输出类别。</p>
-
-<h2 id="四：逻辑回归统计学模型：伯努利分布"><a href="#四：逻辑回归统计学模型：伯努利分布" class="headerlink" title="四：逻辑回归统计学模型：伯努利分布"></a>四：逻辑回归统计学模型：伯努利分布</h2><p style="text-indent:2em">我们知道，对于二分类算法，样本只有两个标签，要么是0要么是1，并且二分类有一个特点，那就是我们最终预测样本的概念，正例加上负例的概念总和是1。即每一次预测我们都可以这样表示：</p>
-
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164826386.png" style="zoom:50%;">
-
-<p>这个公式不就是伯努利分布（0-1分布）嘛！</p>
-<p>因此，对于模型每一次预测的输出，我们都可以写成伯努利分布的形式：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%882%EF%BC%89/image-20221112164938371.png" style="zoom:50%;">
-
-<p>细微差异：</p>
-<p>伯努利分布中，最经典的案例就是抛硬币。只不过在抛硬币前我们已经假设概率是对半分的。</p>
-<p>但是在逻辑回归中，概念是需要通过每一次模型预测给出的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/" class="post-title-link" itemprop="url">AI_逻辑回归（1）</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 13:17:29 / 修改时间：13:40:50" itemprop="dateCreated datePublished" datetime="2022-11-12T13:17:29+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><h2 id="一：分类任务"><a href="#一：分类任务" class="headerlink" title="一：分类任务"></a>一：分类任务</h2><p>任务：根据余额判断小明是否会去看电影；</p>
-<p>训练数据：</p>
-<p>余额为1、2、3、4、5，看电影（正样本）</p>
-<p>余额为-1、-2、-3、-4、-5，不看电源（负样本）</p>
-<p>作图：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132044937.png" style="zoom: 50%;">
-
-<h2 id="二：线性回归预测"><a href="#二：线性回归预测" class="headerlink" title="二：线性回归预测"></a>二：线性回归预测</h2><h3 id="1-预测结果"><a href="#1-预测结果" class="headerlink" title="1. 预测结果"></a>1. 预测结果</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132324518.png"></p>
-<h3 id="2-存在问题"><a href="#2-存在问题" class="headerlink" title="2. 存在问题"></a>2. 存在问题</h3><p>当样本量变大以后，准确率会下降；</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132447332.png" style="zoom:50%;">
-
-<p>当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132511717.png" style="zoom:50%;">
-
-<h2 id="三：逻辑回归预测"><a href="#三：逻辑回归预测" class="headerlink" title="三：逻辑回归预测"></a>三：逻辑回归预测</h2><h3 id="1-逻辑回归方程"><a href="#1-逻辑回归方程" class="headerlink" title="1.  逻辑回归方程"></a>1.  逻辑回归方程</h3><p><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132723062.png"></p>
-<h3 id="2-函数图像"><a href="#2-函数图像" class="headerlink" title="2. 函数图像"></a>2. 函数图像</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132801192.png" style="zoom:50%;">
-
-<h3 id="3-预测结果"><a href="#3-预测结果" class="headerlink" title="3. 预测结果"></a>3. 预测结果</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112132833753.png" style="zoom:67%;">
-
-<p>由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！</p>
-<h2 id="四：逻辑回归"><a href="#四：逻辑回归" class="headerlink" title="四：逻辑回归"></a>四：逻辑回归</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>用于解决<code>分类问题</code>的一种模型。</p>
-<p>根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。</p>
-<h3 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h3><p>二分类问题</p>
-<h3 id="3-数学表达式"><a href="#3-数学表达式" class="headerlink" title="3. 数学表达式"></a>3. 数学表达式</h3><p>逻辑回归方程，也称作 sigmoid 方程。</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133325084.png" style="zoom:50%;">
-
-<h3 id="4-典型逻辑回归概念分布曲线"><a href="#4-典型逻辑回归概念分布曲线" class="headerlink" title="4. 典型逻辑回归概念分布曲线"></a>4. 典型逻辑回归概念分布曲线</h3><img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133548301.png" style="zoom:50%;">
-
-<h3 id="5-任务预测"><a href="#5-任务预测" class="headerlink" title="5. 任务预测"></a>5. 任务预测</h3><p>根据余额判断小明是否会去看电影（余额-10，100）</p>
-<p>逻辑回归方程：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133800325.png" style="zoom:50%;">
-
-<p>带入参数值，获得结果：</p>
-<img src="/2022/11/12/AI-%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%881%EF%BC%89/image-20221112133827988.png" style="zoom:50%;">
-
-<p>结论：</p>
-<p>余额 -10，即 y &#x3D; 0，不去看电影；</p>
-<p>余额 100，即 y &#x3D; 1，去看电影；</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">AI_分类问题</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:16:36 / 修改时间：13:17:02" itemprop="dateCreated datePublished" datetime="2022-11-12T11:16:36+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="一：什么是分类问题？"><a href="#一：什么是分类问题？" class="headerlink" title="一：什么是分类问题？"></a>一：什么是分类问题？</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。</p>
-<h3 id="2-基本框架"><a href="#2-基本框架" class="headerlink" title="2. 基本框架"></a>2. 基本框架</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112112849719.png" style="zoom:50%;">
-
-<p>其中 x 为样本的特征，即属性。</p>
-<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><h3 id="（1）邮件分类"><a href="#（1）邮件分类" class="headerlink" title="（1）邮件分类"></a>（1）邮件分类</h3><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;">
-
-<h3 id="（2）任务"><a href="#（2）任务" class="headerlink" title="（2）任务"></a>（2）任务</h3><ul>
-<li>输入：电子邮件</li>
-<li>输出：此邮件为垃圾邮件 &#x2F; 普通邮件</li>
-</ul>
-<h3 id="（3）流程"><a href="#（3）流程" class="headerlink" title="（3）流程"></a>（3）流程</h3><ol>
-<li>标注样本邮件为垃圾&#x2F;普通邮件（人）</li>
-<li>获取批量的样本邮件及其标签，学习其特征（计算机）</li>
-<li>针对新的邮件，自动判断其类别（计算机）</li>
-</ol>
-<h3 id="（4）样本特征"><a href="#（4）样本特征" class="headerlink" title="（4）样本特征"></a>（4）样本特征</h3><ul>
-<li>发件人包含字符：% &amp; * …</li>
-<li>正文包含：现金、领取等</li>
-<li>其他特征</li>
-</ul>
-<h3 id="（5）处理流程"><a href="#（5）处理流程" class="headerlink" title="（5）处理流程"></a>（5）处理流程</h3><p>使得每一个特征例如：包含字符 %： x<sub>1</sub>&#x3D;0 或者 x<sub>1</sub>&#x3D;1 ；</p>
-<p>其次根据样本的特征值，获得 y &#x3D; 0；</p>
-<p>由此判断出是否为垃圾邮件。</p>
-<h2 id="二：解决分类问题的常用算法"><a href="#二：解决分类问题的常用算法" class="headerlink" title="二：解决分类问题的常用算法"></a>二：解决分类问题的常用算法</h2><h3 id="1-逻辑回归"><a href="#1-逻辑回归" class="headerlink" title="1. 逻辑回归"></a>1. 逻辑回归</h3><ul>
-<li><p>建立逻辑回归方程，判断样本属于哪一个样本类。</p>
-</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114123140.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="2-KNN邻近模型"><a href="#2-KNN邻近模型" class="headerlink" title="2. KNN邻近模型"></a>2. KNN邻近模型</h3><ul>
-<li>判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114257127.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="3-决策树"><a href="#3-决策树" class="headerlink" title="3. 决策树"></a>3. 决策树</h3><ul>
-<li>通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114503362.png" style="zoom:67%;"></li>
-</ul>
-<h3 id="4-神经网络"><a href="#4-神经网络" class="headerlink" title="4. 神经网络"></a>4. 神经网络</h3><ul>
-<li>基于一些输入，自动会输出一些信号，用来判断样本属于哪个样本类。</li>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112114543346.png" style="zoom:67%;"></li>
-</ul>
-<h2 id="三：常见的分类问题"><a href="#三：常见的分类问题" class="headerlink" title="三：常见的分类问题"></a>三：常见的分类问题</h2><ul>
-<li><p>垃圾邮件检测</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112121652551.png" style="zoom: 50%;"></li>
-</ul>
-</li>
-<li><p>图像分类</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122221334.png" style="zoom: 67%;"></li>
-</ul>
-</li>
-<li><p>数字识别</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122314909.png" style="zoom:80%;"></li>
-</ul>
-</li>
-<li><p>考试通过测试</p>
-<ul>
-<li><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122415827.png"></li>
-</ul>
-</li>
-</ul>
-<h2 id="四：分类任务与回归任务的区别"><a href="#四：分类任务与回归任务的区别" class="headerlink" title="四：分类任务与回归任务的区别"></a>四：分类任务与回归任务的区别</h2><h3 id="1-差异"><a href="#1-差异" class="headerlink" title="1. 差异"></a>1. 差异</h3><ul>
-<li>分类任务<ul>
-<li>分类目标：判断类别</li>
-<li>模型输出：非连续型标签</li>
-</ul>
-</li>
-<li>回归任务<ul>
-<li>回归目标：建立函数关系</li>
-<li>模型输出：连续型数值</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2022/11/12/AI-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/image-20221112122601219.png"></p>
-<h3 id="2-判断"><a href="#2-判断" class="headerlink" title="2. 判断"></a>2. 判断</h3><ul>
-<li><p>分类问题</p>
-<ul>
-<li>根据房屋信息预测其是否受欢迎</li>
-<li>猫狗图像识别</li>
-<li>股价涨跌预测</li>
-</ul>
-</li>
-<li><p>回归问题</p>
-<ul>
-<li>根据房屋信息预测房屋价格</li>
-<li>股价预测</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/12/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF008/" class="post-title-link" itemprop="url">专业词汇积累008</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-12 11:08:15 / 修改时间：22:37:26" itemprop="dateCreated datePublished" datetime="2022-11-12T11:08:15+08:00">2022-11-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-008"><a href="#Professional-Vocabulary-Accumulation-008" class="headerlink" title="Professional Vocabulary Accumulation_008"></a>Professional Vocabulary Accumulation_008</h1><ul>
-<li>Classification</li>
-<li>分类</li>
-<li>Decision Boundary</li>
-<li>决策边界</li>
-<li>Logistic Regression</li>
-<li>逻辑回归</li>
-<li>convert</li>
-<li>转换</li>
-<li>flag</li>
-<li>旗</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="post-title-link" itemprop="url">AI_多因子线性回归</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-11 22:26:41" itemprop="dateCreated datePublished" datetime="2022-11-11T22:26:41+08:00">2022-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-12 11:07:16" itemprop="dateModified" datetime="2022-11-12T11:07:16+08:00">2022-11-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">人工智能</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="多因子房价预测"><a href="#多因子房价预测" class="headerlink" title="多因子房价预测"></a>多因子房价预测</h1><h2 id="一：影响房屋价格因素"><a href="#一：影响房屋价格因素" class="headerlink" title="一：影响房屋价格因素"></a>一：影响房屋价格因素</h2><ul>
-<li>地区平均收入</li>
-<li>房屋平均年龄</li>
-<li>房屋房间数量</li>
-<li>地区人口数量</li>
-<li>房屋尺寸大小</li>
-</ul>
-<h2 id="二：实现目标"><a href="#二：实现目标" class="headerlink" title="二：实现目标"></a>二：实现目标</h2><p>基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：</p>
-<ol>
-<li>以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果</li>
-<li>以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现</li>
-<li>预测 收入&#x3D;65000，房屋年龄&#x3D;5，房间数量&#x3D;5，人口数量&#x3D;30000，房间尺寸&#x3D;200的合理房价</li>
-</ol>
-<h2 id="三：代码实现"><a href="#三：代码实现" class="headerlink" title="三：代码实现"></a>三：代码实现</h2><h3 id="1-加载数据"><a href="#1-加载数据" class="headerlink" title="1. 加载数据"></a>1. 加载数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load the data</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;housing_price.csv&#x27;</span>)</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111230129984.png"></p>
-<h3 id="2-可视化数据"><a href="#2-可视化数据" class="headerlink" title="2. 可视化数据"></a>2. 可视化数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing data</span></span><br><span class="line"><span class="comment"># 内嵌绘图，可省略 plt.show() 这一步</span></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">fig1 = plt.subplot(<span class="number">231</span>)  <span class="comment"># 两行三列第一个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Income&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Income&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig2 = plt.subplot(<span class="number">232</span>)  <span class="comment"># 两行三列第二个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area House Age&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS House Age&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig3 = plt.subplot(<span class="number">233</span>)  <span class="comment"># 两行三列第三个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Avg. Area Number of Rooms&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Number of Rooms&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig4 = plt.subplot(<span class="number">234</span>)  <span class="comment"># 两行三列第四个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;Area Population&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS Area Population&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig5 = plt.subplot(<span class="number">235</span>)  <span class="comment"># 两行三列第五个图</span></span><br><span class="line">plt.scatter(data.loc[:,<span class="string">&#x27;size&#x27;</span>],data.loc[:,<span class="string">&#x27;Price&#x27;</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Price VS size&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show() <span class="comment"># 可以省略</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221111233254168.png"></p>
-<h3 id="3-建立单因子模型（面积）"><a href="#3-建立单因子模型（面积）" class="headerlink" title="3. 建立单因子模型（面积）"></a>3. 建立单因子模型（面积）</h3><h4 id="（1）定义-X、Y"><a href="#（1）定义-X、Y" class="headerlink" title="（1）定义 X、Y"></a>（1）定义 X、Y</h4><p>X：影响因素；Y：结果值</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define x and y</span></span><br><span class="line">X = data.loc[:,<span class="string">&#x27;size&#x27;</span>]</span><br><span class="line">y = data.loc[:,<span class="string">&#x27;Price&#x27;</span>]</span><br><span class="line">y.head()</span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）建立回归模型"><a href="#（2）建立回归模型" class="headerlink" title="（2）建立回归模型"></a>（2）建立回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up the linear regression model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">LR1 = LinearRegression()</span><br><span class="line"><span class="comment"># reshape data</span></span><br><span class="line">X = np.array(X).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X.shape)</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR1.fit(X,y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（3）模型预测"><a href="#（3）模型预测" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># calulate the price vs size </span></span><br><span class="line">y_predict_1 = LR1.predict(X)</span><br><span class="line"><span class="built_in">print</span>(y_predict_1)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（4）模型评估"><a href="#（4）模型评估" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error,r2_score</span><br><span class="line">mean_squared_error_1 = mean_squared_error(y,y_predict_1)</span><br><span class="line">r2_score_1 = r2_score(y,y_predict_1)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_1,r2_score_1)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（5）可视化预测结果"><a href="#（5）可视化预测结果" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_res = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X,y)</span><br><span class="line">plt.plot(X,y_predict_1,<span class="string">&#x27;r&#x27;</span>) <span class="comment"># 红线表示</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112000554219.png" style="zoom:67%;">
-
-<h3 id="4-建立多因子模型"><a href="#4-建立多因子模型" class="headerlink" title="4. 建立多因子模型"></a>4. 建立多因子模型</h3><h4 id="（1）定义多因子-X"><a href="#（1）定义多因子-X" class="headerlink" title="（1）定义多因子 X"></a>（1）定义多因子 X</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># define X_multi</span></span><br><span class="line">X_multi = data.drop([<span class="string">&#x27;Price&#x27;</span>],axis=<span class="number">1</span>) <span class="comment"># 排除Price列，axis=1 表示横轴从左往右</span></span><br><span class="line">X_multi</span><br></pre></td></tr></table></figure>
-
-<h4 id="（2）建立多因子回归模型"><a href="#（2）建立多因子回归模型" class="headerlink" title="（2）建立多因子回归模型"></a>（2）建立多因子回归模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set up 2nd linear regression model</span></span><br><span class="line">LR_multi = LinearRegression()</span><br><span class="line"><span class="comment"># train the model</span></span><br><span class="line">LR_multi.fit(X_multi,y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（3）模型预测-1"><a href="#（3）模型预测-1" class="headerlink" title="（3）模型预测"></a>（3）模型预测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># make prediction</span></span><br><span class="line">y_predict_multi = LR_multi.predict(X_multi)</span><br><span class="line"><span class="built_in">print</span>(y_predict_multi)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（4）模型评估-1"><a href="#（4）模型评估-1" class="headerlink" title="（4）模型评估"></a>（4）模型评估</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># evaluate the model</span></span><br><span class="line">mean_squared_error_multi = mean_squared_error(y,y_predict_multi)</span><br><span class="line">r2_score_multi = r2_score(y,y_predict_multi)</span><br><span class="line"><span class="built_in">print</span>(mean_squared_error_multi,r2_score_multi)</span><br></pre></td></tr></table></figure>
-
-<h4 id="（5）可视化预测结果-1"><a href="#（5）可视化预测结果-1" class="headerlink" title="（5）可视化预测结果"></a>（5）可视化预测结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># visualizing predict result</span></span><br><span class="line">fig_multi = plt.figure(figsize=(<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(y,y_predict_multi)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/11/11/AI_%E5%A4%9A%E5%9B%A0%E5%AD%90%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/image-20221112002817697.png" style="zoom:67%;">
-
-<h3 id="5-规定因素值预测"><a href="#5-规定因素值预测" class="headerlink" title="5. 规定因素值预测"></a>5. 规定因素值预测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X_test = [<span class="number">65000</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">30000</span>,<span class="number">200</span>]</span><br><span class="line">X_test = np.array(X_test).reshape(<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(X_test)</span><br><span class="line"></span><br><span class="line">y_test_predict = LR_multi.predict(X_test)</span><br><span class="line"><span class="built_in">print</span>(y_test_predict)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/LeetCode_%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/11/LeetCode_%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" class="post-title-link" itemprop="url">LeetCode_最长回文子串</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-11 17:00:08 / 修改时间：17:14:46" itemprop="dateCreated datePublished" datetime="2022-11-11T17:00:08+08:00">2022-11-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;cbbd&quot;</span><br><span class="line">输出：&quot;bb&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> 仅由数字和英文字母组成</li>
-</ul>
-<h2 id="动态规划图解"><a href="#动态规划图解" class="headerlink" title="动态规划图解"></a>动态规划图解</h2><img src="/2022/11/11/LeetCode_%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/image-20221111171416473.png" style="zoom:50%;">
-
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> leetCode;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Rupert Tears</span></span><br><span class="line"><span class="comment"> * Date: Created in 15:42 2022/11/11</span></span><br><span class="line"><span class="comment"> * Description: Thought is already is late, exactly is the earliest time.</span></span><br><span class="line"><span class="comment"> * 给你一个字符串 s，找到 s 中最长的回文子串。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：s = &quot;babad&quot;</span></span><br><span class="line"><span class="comment"> * 输出：&quot;bab&quot;</span></span><br><span class="line"><span class="comment"> * 解释：&quot;aba&quot; 同样是符合题意的答案。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 输入：s = &quot;cbbd&quot;</span></span><br><span class="line"><span class="comment"> * 输出：&quot;bb&quot;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 1 &lt;= s.length &lt;= 1000</span></span><br><span class="line"><span class="comment"> * s 仅由数字和英文字母组成</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Aigo_005</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;babad&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;cbbd&quot;</span>;</span><br><span class="line">        System.out.println(longestPalindrome(str1));</span><br><span class="line">        System.out.println(longestPalindrome(str2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Author: Rupert-Tears</span></span><br><span class="line"><span class="comment">     * CreateTime: 15:51 2022/11/11</span></span><br><span class="line"><span class="comment">     * Description: 利用动态规划解决</span></span><br><span class="line"><span class="comment">     * 枚举所有的可能；作图二维表格</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">longestPalindrome</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        <span class="comment">// 特殊情况</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> str.length();</span><br><span class="line">        <span class="comment">// 单个字符为回文串</span></span><br><span class="line">        <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">maxlen</span> <span class="operator">=</span> <span class="number">1</span>; <span class="comment">// 最大长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">begin</span> <span class="operator">=</span> <span class="number">0</span>;  <span class="comment">// 开始下标</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 构建动态规划二维表格</span></span><br><span class="line">        <span class="type">boolean</span>[][] dp = <span class="keyword">new</span> <span class="title class_">boolean</span>[len][len];</span><br><span class="line">        <span class="comment">// 获取字符数组</span></span><br><span class="line">        <span class="type">char</span>[] chars = str.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对角线均为回文串，并不影响程序结果</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;    <span class="comment">// 表示为回文串</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从2位数开始判断(对角线上侧)</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; j; i++) &#123;</span><br><span class="line">                <span class="comment">// 判断首尾字符是否相等</span></span><br><span class="line">                <span class="keyword">if</span> (chars[i] != chars[j]) &#123;</span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;   <span class="comment">// 表示非回文串</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 首尾相等</span></span><br><span class="line">                    <span class="keyword">if</span> (j - i &lt;= <span class="number">2</span>) &#123;     <span class="comment">// 例如: aba aa b</span></span><br><span class="line">                        dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];    <span class="comment">// 赋值内部子串 boolean值</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 记录回文串起始位置及长度</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i][j] &amp;&amp; j - i + <span class="number">1</span> &gt; maxlen) &#123;</span><br><span class="line">                    maxlen = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str.substring(begin, begin + maxlen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li>时间复杂度：<em>O</em>(N<sup>2</sup>)，这里 N 是字符串的长度；</li>
-<li>空间复杂度：<em>O</em>(N<sup>2</sup>)，使用一张二维表记录所有的可能性。</li>
-</ul>
-<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><ul>
-<li>回文天然具备<code>状态转移</code>性质：一个长度严格大于<code>2</code>的回文串，去掉首位后仍然是回文串。</li>
-<li>根据状态转移方程进行分类讨论。</li>
-<li>考虑是否可用使用动态规划的思想去解决问题，首先要对问题的特征进行分析，是否能拆解为一个个的小问题，自底而上的解决。是否能抽离出 状态转移方程 ，从而进行分类讨论，解决问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/11/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF007/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/11/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF007/" class="post-title-link" itemprop="url">专业词汇积累007</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-11 13:53:40 / 修改时间：23:46:25" itemprop="dateCreated datePublished" datetime="2022-11-11T13:53:40+08:00">2022-11-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-007"><a href="#Professional-Vocabulary-Accumulation-007" class="headerlink" title="Professional Vocabulary Accumulation_007"></a>Professional Vocabulary Accumulation_007</h1><ul>
-<li>Grief is a complex emotion</li>
-<li>悲伤是一种复杂的感情</li>
-<li>that, as you konw, deals on its own terms.</li>
-<li>正如你所知，有它自己的应对方式。</li>
-<li>there is no “practice makes perfect.”</li>
-<li>没有孰能生巧这一说法</li>
-<li>Strength without faith means nothing</li>
-<li>没有信仰的力量毫无意义</li>
-<li>we need to have faith that we can get throught this together.</li>
-<li>我们要有信心，相信我们能一起度过难关。</li>
-</ul>
-<hr>
-<ul>
-<li>palindrome</li>
-<li>回文</li>
-<li>Visualizing Data</li>
-<li>可视化数据</li>
-<li>linear regression model </li>
-<li>回归模型</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF006/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF006/" class="post-title-link" itemprop="url">专业词汇积累006</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-06 11:58:07" itemprop="dateCreated datePublished" datetime="2022-11-06T11:58:07+08:00">2022-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-10 23:03:14" itemprop="dateModified" datetime="2022-11-10T23:03:14+08:00">2022-11-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-006"><a href="#Professional-Vocabulary-Accumulation-006" class="headerlink" title="Professional Vocabulary Accumulation_006"></a>Professional Vocabulary Accumulation_006</h1><ul>
-<li>Dynamic programing</li>
-<li>动态规划</li>
-<li>Using an Alternate Config</li>
-<li>使用代替配置</li>
-<li>Site</li>
-<li>网站</li>
-<li>URL（Uniform Resource Locator）</li>
-<li>统一资源定位器</li>
-<li>directory</li>
-<li>目录</li>
-<li>writing</li>
-<li>文章、作品</li>
-<li>category &amp; tag</li>
-<li>分类和标签</li>
-<li>home page setting</li>
-<li>首页设置</li>
-<li>Date&#x2F;Time format</li>
-<li>日期&#x2F;时间格式</li>
-<li>pagination</li>
-<li>页码</li>
-<li>extension</li>
-<li>扩展</li>
-<li>Alternate theme config</li>
-<li>备选主题设置</li>
-<li>include&#x2F;exclude files or folders</li>
-<li>包括&#x2F;排除文件或文件夹</li>
-<li>back to top</li>
-<li>回到顶部</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">动态规划</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-06 11:19:49 / 修改时间：12:06:08" itemprop="dateCreated datePublished" datetime="2022-11-06T11:19:49+08:00">2022-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="一：什么是动态规划？"><a href="#一：什么是动态规划？" class="headerlink" title="一：什么是动态规划？"></a>一：什么是动态规划？</h2><p>动态规划是运筹学的一个分支，是求解策略过程最优化的过程。</p>
-<p>动态规划并不是一种算法，而是一种思想，或者说策略。</p>
-<p>动态规划可以达到最优的 O(n<sup>2</sup>) 复杂度。</p>
-<h2 id="二：基本思想"><a href="#二：基本思想" class="headerlink" title="二：基本思想"></a>二：基本思想</h2><p>将大问题分解为一个一个的小问题，将小问题逐个击破，大问题就解决了。</p>
-<h2 id="三：实例"><a href="#三：实例" class="headerlink" title="三：实例"></a>三：实例</h2><p>假设有一个可容纳4kg商品的购物篮，现有四件商品可供选择，如何装购物篮的价值最高？</p>
-<h3 id="枚举法"><a href="#枚举法" class="headerlink" title="枚举法"></a>枚举法</h3><p><img src="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20221106113912236.png"></p>
-<p><img src="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20221106114122176.png"></p>
-<h3 id="动态规划-1"><a href="#动态规划-1" class="headerlink" title="动态规划"></a>动态规划</h3><p><img src="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20221106113805329.png"></p>
-<p><img src="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20221106114230001.png"></p>
-<p><img src="/2022/11/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20221106114327468.png"></p>
-<h3 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h3><ul>
-<li>动态规划可以帮助我们<code>在给定约束条件下找到最优解</code>。在上面的问题中，你必须在购物篮容量给定的情况下，拿到价值最高的商品。</li>
-<li><code>在问题可分解为彼此独立且离散的子问题时</code>，就可以采用动态规划来解决。</li>
-<li><code>每种动态规划解决方案都涉及网格</code></li>
-<li><code>表格中的值通常就是要优化的值</code>。在上面的问题中，表格的值为商品的价值。</li>
-<li><code>每个表格都是一个子问题</code>，因此你应该考虑如何将问题分成子问题，这样有助于找出网格的坐标轴。</li>
-</ul>
-<h2 id="四：动态规划的应用"><a href="#四：动态规划的应用" class="headerlink" title="四：动态规划的应用"></a>四：动态规划的应用</h2><ul>
-<li>最短路径（弗洛伊德算法）</li>
-<li>库存管理</li>
-<li>资源分配</li>
-<li>设备更新</li>
-<li>排序</li>
-<li>装载</li>
-</ul>
-<h2 id="五：策略"><a href="#五：策略" class="headerlink" title="五：策略"></a>五：策略</h2><ul>
-<li>没有放之四海皆准的公式，有的只是解决问题的方式。</li>
-<li>动态规划，并非无所不能，具体问题具体分析，选择合适的策略，才是最好的。</li>
-<li>自底而上的考虑问题，从最简单的情况出发，将大问题拆解为小问题，解决小问题，从而化解大问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/06/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF005/" class="post-title-link" itemprop="url">专业词汇积累005</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-11-06 00:37:45 / 修改时间：00:45:34" itemprop="dateCreated datePublished" datetime="2022-11-06T00:37:45+08:00">2022-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" itemprop="url" rel="index"><span itemprop="name">专业词汇</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Professional-Vocabulary-Accumulation-005"><a href="#Professional-Vocabulary-Accumulation-005" class="headerlink" title="Professional Vocabulary Accumulation_005"></a>Professional Vocabulary Accumulation_005</h1><ul>
-<li>Reshape you data </li>
-<li>either using array.reshape(-1,1) if you data has a single feather </li>
-<li>or array.reshape(1,-1) if it contains a single sample.</li>
-<li>如果数据只有一个要素，则使用 array.reshape(-1,1)重塑数据；</li>
-<li>如果数据包含单个样本，则使用 array.reshape(1,-1)重塑数据。</li>
-</ul>
-<hr>
-<ul>
-<li>Professional</li>
-<li>专业的</li>
-<li>Vocabulary</li>
-<li>词汇</li>
-<li>Accumulation</li>
-<li>积累</li>
-<li>Repository</li>
-<li>仓库</li>
-<li>Memorable</li>
-<li>难忘的</li>
-<li>Inspiration</li>
-<li>灵感</li>
-<li>Optional</li>
-<li>可选择的</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Rupert-Tears"
-      src="/images/RupertTears.jpg">
-  <p class="site-author-name" itemprop="name">Rupert-Tears</p>
-  <div class="site-description" itemprop="description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">68</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Ghost-Ying" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ghost-Ying" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/MIRACLE_Ying" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;MIRACLE_Ying" rel="noopener" target="_blank"><i class="fab fa-codiepie fa-fw"></i>CSDN</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      友情链接
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">GitHub</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  &copy; 2022-10 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Rupert-Tears</span>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">本博客全站共47.2k字</span>
-</div>
-
-
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
-    <span class="post-meta-divider">|</span>
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {            
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
-            clearInterval(int);
-        }                  
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
-            clearInterval(int); // 停止检测
-        }  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
     }
-        
-});
-</script> 
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">爱影客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/f5d7a02b.html/" title="LeetCode_Z字形变换"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode_Z字形变换"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/f5d7a02b.html/" title="LeetCode_Z字形变换">LeetCode_Z字形变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-12T14:38:41.000Z" title="发表于 2022-11-12 22:38:41">2022-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">算法练习</a></span></div><div class="content">Z 字形变换一：题目将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
+比如输入字符串为 &quot;PAYPALISHIRING&quot; 行数为 3 时，排列如下：
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：&quot;PAHNAPLSIIGYIR&quot;。
+二：实例示例 1：
+12输入：s = &quot;PAYPALISHIRING&quot;, numRows = 3输出：&quot;PAHNAPLSIIGYIR&quot;
+
+示例 2：
+1234567输入：s = &quot;PAYPALISHIRING&quot;, numRows = 4输出：&quot;PINALSIGYAHRPI&quot;解释：P     I    NA   L S  I GY A   H RP     I
+
+示例 3：
+12输入：s = &quot;A&quot;, numRows = 1输出：&quot;A&quot;
+
+三：提示
+1 &lt;= s.length &lt;= 1000
+s 由英文字母（小写和大写）、& ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/3975e23f.html/" title="AI_逻辑回归（2）"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI_逻辑回归（2）"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/3975e23f.html/" title="AI_逻辑回归（2）">AI_逻辑回归（2）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-12T06:08:50.000Z" title="发表于 2022-11-12 14:08:50">2022-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="content">逻辑回归一：复杂的分类问题1. 直线决策边界通过 x1 和 x2 去判断 y的值
 
 
+概念分布函数
 
 
+核心问题：找到 g(x)，即蓝色的直线；
 
 
+决策边界：
 
 
-      </div>
-    </footer>
-  </div>
+2. 圆形决策边界
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+获取概念分布，逻辑回归方程：
 
 
-<script src="/js/schemes/pisces.js"></script>
+圆形的 g(x) 与直线的 g(x) 不同，新增了2此项。由此获取一个曲线或者圆形。
 
 
-<script src="/js/next-boot.js"></script>
+决策边界：
 
-
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/canvas_lines.min.js"></script>
-
-
-  
+3. 总结
+当使用逻辑回归去求解问题时，核心即找到决策边界。
+逻辑回归结合多项式的边界函数，可以解决复杂的分类问题。
+线性边界，即多项式为1次；
+圆形边界，即多项式为2次；
 
 
 
+二：逻辑回归问题求解
+概念分布函数
+对应的边界函数关系
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
+1. 寻找类别边界根据训练样本，寻找类别边界；
+即：根据训练样本，寻找找 θ0、θ1、θ2
 
 
+2.  如何求解系数
+
+分类问题，标签与预测结果都是离散的点，使用该损失函数无法寻找到极小值点。
+
+
+图像：
+
+等效转换关系式：
+
+
+带入P(x)，求解
+
+
+采用梯度下降法，获取最小化的损失函数 J
+
+
+三：命名问题逻辑回归的主要场景是分类问题，称其为逻辑回归是否合适，为什么？
+逻辑回归虽然名字中有回归，但实际上它是一个二分类算法。
+逻辑 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2bc04dd1.html/" title="AI_逻辑回归（1）"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI_逻辑回归（1）"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2bc04dd1.html/" title="AI_逻辑回归（1）">AI_逻辑回归（1）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-12T05:17:29.000Z" title="发表于 2022-11-12 13:17:29">2022-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="content">逻辑回归一：分类任务任务：根据余额判断小明是否会去看电影；
+训练数据：
+余额为1、2、3、4、5，看电影（正样本）
+余额为-1、-2、-3、-4、-5，不看电源（负样本）
+作图：
+
+
+二：线性回归预测1. 预测结果
+2. 存在问题当样本量变大以后，准确率会下降；
+
+
+当 x&#x3D;1 时，受到很远处离散点的影响，预测结果开始出现偏差。
+
+
+三：逻辑回归预测1.  逻辑回归方程
+2. 函数图像
+
+3. 预测结果
+
+由上可知，相比线性回归而言，采用逻辑回归拟合数据，可以更好的完成分类任务！
+四：逻辑回归1. 概念用于解决分类问题的一种模型。
+根据数据特征或者属性，计算其归属于某一类别的概念P(x)，根据概念数值判断其所属类别。
+2. 应用场景二分类问题
+3. 数学表达式逻辑回归方程，也称作 sigmoid 方程。
+
+
+4. 典型逻辑回归概念分布曲线
+
+5. 任务预测根据余额判断小明是否会去看电影（余额-10，100）
+逻辑回归方程：
+
+
+带入参数值，获得结果：
+
+
+结论：
+余额 -10，即 y &#x3D; 0，不去看电影；
+余额 100，即 y &#x3D; 1，去看电影；
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/cebf40ec.html/" title="AI_分类问题"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI_分类问题"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/cebf40ec.html/" title="AI_分类问题">AI_分类问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-12T03:16:36.000Z" title="发表于 2022-11-12 11:16:36">2022-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="content">分类问题一：什么是分类问题？1. 概念根据已知样本的某些特征，判断一个新样本属于哪一个已知样本类。
+2. 基本框架
+
+其中 x 为样本的特征，即属性。
+3. 案例（1）邮件分类
+
+（2）任务
+输入：电子邮件
+输出：此邮件为垃圾邮件 &#x2F; 普通邮件
+
+（3）流程
+标注样本邮件为垃圾&#x2F;普通邮件（人）
+获取批量的样本邮件及其标签，学习其特征（计算机）
+针对新的邮件，自动判断其类别（计算机）
+
+（4）样本特征
+发件人包含字符：% &amp; * …
+正文包含：现金、领取等
+其他特征
+
+（5）处理流程使得每一个特征例如：包含字符 %： x1&#x3D;0 或者 x1&#x3D;1 ；
+其次根据样本的特征值，获得 y &#x3D; 0；
+由此判断出是否为垃圾邮件。
+二：解决分类问题的常用算法1. 逻辑回归
+建立逻辑回归方程，判断样本属于哪一个样本类。
 
 
 
+2. KNN邻近模型
+判断样本与周边样本点之间的距离，来决定样本属于哪个样本类。
+
+
+3. 决策树
+通过大量的问题，来建立许多的分支，来逐步判断样本属于哪个样本类。
+
+
+4. 神经网络
+基于一些输入，自动会输出一些信号，用来判 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2be1cfa0.html/" title="专业词汇积累008"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专业词汇积累008"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2be1cfa0.html/" title="专业词汇积累008">专业词汇积累008</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-12T03:08:15.000Z" title="发表于 2022-11-12 11:08:15">2022-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/">专业词汇</a></span></div><div class="content">Professional Vocabulary Accumulation_008
+Classification
+分类
+Decision Boundary
+决策边界
+Logistic Regression
+逻辑回归
+convert
+转换
+flag
+旗
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2539a3f8.html/" title="AI_多因子线性回归"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI_多因子线性回归"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2539a3f8.html/" title="AI_多因子线性回归">AI_多因子线性回归</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-11T14:26:41.000Z" title="发表于 2022-11-11 22:26:41">2022-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="content">多因子房价预测一：影响房屋价格因素
+地区平均收入
+房屋平均年龄
+房屋房间数量
+地区人口数量
+房屋尺寸大小
+
+二：实现目标基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：
+
+以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果
+以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现
+预测 收入&#x3D;65000，房屋年龄&#x3D;5，房间数量&#x3D;5，人口数量&#x3D;30000，房间尺寸&#x3D;200的合理房价
+
+三：代码实现1. 加载数据12345# load the dataimport pandas as pdimport numpy as npdata = pd.read_csv(&#x27;housing_price.csv&#x27;)data.head()
+
+
+2. 可视化数据1234567891011121314151617181920212223242526# visualizing data# 内嵌绘图，可省略 plt.show() 这一步%matplotlib inli ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/f7f91f40.html/" title="LeetCode_最长回文子串"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode_最长回文子串"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/f7f91f40.html/" title="LeetCode_最长回文子串">LeetCode_最长回文子串</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-11T09:00:08.000Z" title="发表于 2022-11-11 17:00:08">2022-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">算法练习</a></span></div><div class="content">最长回文子串题目给你一个字符串 s，找到 s 中最长的回文子串。
+示例123输入：s = &quot;babad&quot;输出：&quot;bab&quot;解释：&quot;aba&quot; 同样是符合题意的答案。
+
+12输入：s = &quot;cbbd&quot;输出：&quot;bb&quot;
+
+提示
+1 &lt;= s.length &lt;= 1000
+s 仅由数字和英文字母组成
+
+动态规划图解
+
+算法实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677package leetCode;/** * Author: Rupert Tears * Date: Created in 15:42 2022/11/11 * Description: Thought is already is late, exactly is the ear ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/bb5ed231.html/" title="专业词汇积累007"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专业词汇积累007"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/bb5ed231.html/" title="专业词汇积累007">专业词汇积累007</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-11T05:53:40.000Z" title="发表于 2022-11-11 13:53:40">2022-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/">专业词汇</a></span></div><div class="content">Professional Vocabulary Accumulation_007
+Grief is a complex emotion
+悲伤是一种复杂的感情
+that, as you konw, deals on its own terms.
+正如你所知，有它自己的应对方式。
+there is no “practice makes perfect.”
+没有孰能生巧这一说法
+Strength without faith means nothing
+没有信仰的力量毫无意义
+we need to have faith that we can get throught this together.
+我们要有信心，相信我们能一起度过难关。
 
 
 
-  
+palindrome
+回文
+Visualizing Data
+可视化数据
+linear regression model 
+回归模型
 
-  
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/cc59e2a7.html/" title="专业词汇积累006"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专业词汇积累006"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/cc59e2a7.html/" title="专业词汇积累006">专业词汇积累006</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-06T03:58:07.000Z" title="发表于 2022-11-06 11:58:07">2022-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/">专业词汇</a></span></div><div class="content">Professional Vocabulary Accumulation_006
+Dynamic programing
+动态规划
+Using an Alternate Config
+使用代替配置
+Site
+网站
+URL（Uniform Resource Locator）
+统一资源定位器
+directory
+目录
+writing
+文章、作品
+category &amp; tag
+分类和标签
+home page setting
+首页设置
+Date&#x2F;Time format
+日期&#x2F;时间格式
+pagination
+页码
+extension
+扩展
+Alternate theme config
+备选主题设置
+include&#x2F;exclude files or folders
+包括&#x2F;排除文件或文件夹
+back to top
+回到顶部
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/a80d0031.html/" title="动态规划"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="动态规划"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/a80d0031.html/" title="动态规划">动态规划</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-11-06T03:19:49.000Z" title="发表于 2022-11-06 11:19:49">2022-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">动态规划一：什么是动态规划？动态规划是运筹学的一个分支，是求解策略过程最优化的过程。
+动态规划并不是一种算法，而是一种思想，或者说策略。
+动态规划可以达到最优的 O(n2) 复杂度。
+二：基本思想将大问题分解为一个一个的小问题，将小问题逐个击破，大问题就解决了。
+三：实例假设有一个可容纳4kg商品的购物篮，现有四件商品可供选择，如何装购物篮的价值最高？
+枚举法
+
+动态规划
 
 
-</body>
-</html>
+启示
+动态规划可以帮助我们在给定约束条件下找到最优解。在上面的问题中，你必须在购物篮容量给定的情况下，拿到价值最高的商品。
+在问题可分解为彼此独立且离散的子问题时，就可以采用动态规划来解决。
+每种动态规划解决方案都涉及网格
+表格中的值通常就是要优化的值。在上面的问题中，表格的值为商品的价值。
+每个表格都是一个子问题，因此你应该考虑如何将问题分成子问题，这样有助于找出网格的坐标轴。
+
+四：动态规划的应用
+最短路径（弗洛伊德算法）
+库存管理
+资源分配
+设备更新
+排序
+装载
+
+五：策略
+没有放之四海皆准的公式，有的只是解决问题的方式。
+动态规划，并非无所不能，具体问题具体分析，选择合适的策略，才是最好的。
+自底而上的考 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/48907d56.html/" title="计算机网络 Http协议"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络 Http协议"/></a><div class="content"><a class="title" href="/blog/48907d56.html/" title="计算机网络 Http协议">计算机网络 Http协议</a><time datetime="2022-12-06T04:57:45.000Z" title="发表于 2022-12-06 12:57:45">2022-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/829e9d92.html/" title="Linux 思维导图"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 思维导图"/></a><div class="content"><a class="title" href="/blog/829e9d92.html/" title="Linux 思维导图">Linux 思维导图</a><time datetime="2022-12-04T11:41:02.000Z" title="发表于 2022-12-04 19:41:02">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/88d9b703.html/" title="Linux 软件包管理"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 软件包管理"/></a><div class="content"><a class="title" href="/blog/88d9b703.html/" title="Linux 软件包管理">Linux 软件包管理</a><time datetime="2022-12-04T08:36:34.000Z" title="发表于 2022-12-04 16:36:34">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/f0317602.html/" title="Linux 定时任务"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 定时任务"/></a><div class="content"><a class="title" href="/blog/f0317602.html/" title="Linux 定时任务">Linux 定时任务</a><time datetime="2022-12-04T07:59:47.000Z" title="发表于 2022-12-04 15:59:47">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2aa41515.html/" title="Linux 进程管理类"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 进程管理类"/></a><div class="content"><a class="title" href="/blog/2aa41515.html/" title="Linux 进程管理类">Linux 进程管理类</a><time datetime="2022-12-04T07:18:01.000Z" title="发表于 2022-12-04 15:18:01">2022-12-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Java理论基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">Java编程</span><span class="card-category-list-count">4</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/"><span class="card-category-list-name">SpringBoot</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"><span class="card-category-list-name">专业词汇</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">思科CCNA网络基础入门</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Cisco-IOS/" style="font-size: 1.1em; color: #999">Cisco IOS</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">Java基础</a> <a href="/tags/Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" style="font-size: 1.16em; color: #999b9e">Java开发手册</a> <a href="/tags/LeetCode/" style="font-size: 1.27em; color: #99a0a9">LeetCode</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/PNETLab/" style="font-size: 1.1em; color: #999">PNETLab</a> <a href="/tags/SpringBoot/" style="font-size: 1.1em; color: #999">SpringBoot</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" style="font-size: 1.39em; color: #99a4b4">专业词汇</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.44em; color: #99a7ba">人工智能</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">渗透测试</a> <a href="/tags/%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" style="font-size: 1.1em; color: #999">算法思想</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%85%A5%E9%97%A8/" style="font-size: 1.1em; color: #999">网安入门</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/" style="font-size: 1.33em; color: #99a2af">网安工具</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.21em; color: #999ea4">计算机网络</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">46</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-06T10:56:36.571Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,1639 +1,367 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"aiyingke.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="爱影客">
 <meta property="og:url" content="https://aiyingke.cn/page/2/index.html">
 <meta property="og:site_name" content="爱影客">
 <meta property="og:description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiyingke.cn/img/RupertTears.jpg">
 <meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="爱影客 影客之家">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://aiyingke.cn/page/2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>爱影客</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://aiyingke.cn/img/RupertTears.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '爱影客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-06 18:56:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-      <a target="_blank" rel="noopener" href="https://github.com/Ghost-Ying" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">爱影客</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-resources">
-
-    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>资源</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux 系统管理</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 19:13:55 / 修改时间：22:13:45" itemprop="dateCreated datePublished" datetime="2022-12-03T19:13:55+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Linux-中的进程和服务"><a href="#一：Linux-中的进程和服务" class="headerlink" title="一：Linux 中的进程和服务"></a>一：Linux 中的进程和服务</h1><ul>
-<li>计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。</li>
-<li>启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。</li>
-</ul>
-<h1 id="二：service-服务管理（CentOS-6）"><a href="#二：service-服务管理（CentOS-6）" class="headerlink" title="二：service 服务管理（CentOS 6）"></a>二：service 服务管理（CentOS 6）</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><p>service 服务名 start | stop | restart | status</p>
-<h2 id="2-2-系统位置"><a href="#2-2-系统位置" class="headerlink" title="2.2 系统位置"></a>2.2 系统位置</h2><p>查看服务的方法：&#x2F;etc&#x2F;init.d&#x2F;服务名，.d表示是一个守护进程；</p>
-<h1 id="三：systemctl-服务管理（CentOS-7）"><a href="#三：systemctl-服务管理（CentOS-7）" class="headerlink" title="三：systemctl 服务管理（CentOS 7）"></a>三：systemctl 服务管理（CentOS 7）</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><p>systemctl start | stop | restart | status 服务名</p>
-<h2 id="3-2-系统位置"><a href="#3-2-系统位置" class="headerlink" title="3.2 系统位置"></a>3.2 系统位置</h2><p>查看服务的方法：&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system</p>
-<h1 id="四：网络服务示例"><a href="#四：网络服务示例" class="headerlink" title="四：网络服务示例"></a>四：网络服务示例</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止老版本的网络服务</span></span><br><span class="line">[root@hadoop100 ~]# service network stop </span><br><span class="line">Stopping network (via systemctl):                          [  确定  ]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启新版本网络服务</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart NetworkManager</span><br><span class="line">[root@hadoop100 ~]# systemctl status NetworkManager</span><br><span class="line">● NetworkManager.service - Network Manager</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 19:29:45 CST; 14s ago</span><br><span class="line">     Docs: man:NetworkManager(8)</span><br><span class="line"> Main PID: 63186 (NetworkManager)</span><br><span class="line">    Tasks: 4</span><br><span class="line">   CGroup: /system.slice/NetworkManager.service</span><br><span class="line">           └─63186 /usr/sbin/NetworkManager --no-daemon # daemon 守护进程</span><br></pre></td></tr></table></figure>
-
-<h1 id="五：设置开机启动服务"><a href="#五：设置开机启动服务" class="headerlink" title="五：设置开机启动服务"></a>五：设置开机启动服务</h1><h2 id="5-1-使用命令进入"><a href="#5-1-使用命令进入" class="headerlink" title="5.1 使用命令进入"></a>5.1 使用命令进入</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 system]# setup</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">带*的服务：开机自动启动，按空格取消；</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203193553730.png"></p>
-<h2 id="5-2-查看开机自启动服务"><a href="#5-2-查看开机自启动服务" class="headerlink" title="5.2 查看开机自启动服务"></a>5.2 查看开机自启动服务</h2><h3 id="（1）CentOS-6"><a href="#（1）CentOS-6" class="headerlink" title="（1）CentOS 6"></a>（1）CentOS 6</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看列表</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --list</span><br><span class="line"></span><br><span class="line">注：该输出结果只显示 SysV 服务，并不包含</span><br><span class="line">原生 systemd 服务。SysV 配置数据</span><br><span class="line">可能被原生 systemd 配置覆盖。 </span><br><span class="line"></span><br><span class="line">      要列出 systemd 服务，请执行 &#x27;systemctl list-unit-files&#x27;。</span><br><span class="line">      查看在具体 target 启用的服务请执行</span><br><span class="line">      &#x27;systemctl list-dependencies [target]&#x27;。</span><br><span class="line"></span><br><span class="line">netconsole     	0:关	1:关	2:关	3:关	4:关	5:关	6:关</span><br><span class="line">network        	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network on	</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭系统级别3的 network服务</span></span><br><span class="line">[root@hadoop100 ~]# chkconfig --level 3 network off</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）CentOS-7"><a href="#（2）CentOS-7" class="headerlink" title="（2）CentOS 7"></a>（2）CentOS 7</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl list-unit-files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">enabled 开机启动</span></span><br><span class="line">runlevel5.target                              enabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">disable</span> 开机不启动</span> </span><br><span class="line">runlevel6.target                              disabled</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">static 无法觉得开启是否启动，依赖其他进程、服务</span></span><br><span class="line">shutdown.target                               static  </span><br></pre></td></tr></table></figure>
-
-<h1 id="六：系统运行级别"><a href="#六：系统运行级别" class="headerlink" title="六：系统运行级别"></a>六：系统运行级别</h1><h2 id="6-1-介绍"><a href="#6-1-介绍" class="headerlink" title="6.1 介绍"></a>6.1 介绍</h2><p><img src="/2022/12/03/Linux-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/image-20221203195001223.png"></p>
-<ul>
-<li>CenOS 7 运行级别简化为：<ul>
-<li>multi-user.target：运行级别3（多用户有网，无图形界面）</li>
-<li>graphical.target：运行级别5（多用户有网，有图形界面）</li>
-</ul>
-</li>
-</ul>
-<h2 id="6-2-命令"><a href="#6-2-命令" class="headerlink" title="6.2 命令"></a>6.2 命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前运行级别</span></span><br><span class="line">[root@hadoop100 ~]# systemctl get-default </span><br><span class="line">graphical.target</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改运行级别</span></span><br><span class="line">systemctl set-default graphical/multi-user</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者 init 3  or init 5</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="七：防火墙设置"><a href="#七：防火墙设置" class="headerlink" title="七：防火墙设置"></a>七：防火墙设置</h1><h2 id="7-1-操作指令"><a href="#7-1-操作指令" class="headerlink" title="7.1 操作指令"></a>7.1 操作指令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">vim /etc/firewalld/firewalld.conf </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启防火墙</span></span><br><span class="line">[root@hadoop100 ~]# systemctl restart firewalld.service </span><br><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl disable firewalld.service </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启用开机自启</span></span><br><span class="line">[root@hadoop100 ~]# systemctl enable firewalld.service </span><br></pre></td></tr></table></figure>
-
-<h2 id="7-2-实例"><a href="#7-2-实例" class="headerlink" title="7.2 实例"></a>7.2 实例</h2><p>vendor preset: enabled，供应商预设开机自启；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# systemctl status firewalld.service </span><br><span class="line">● firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: active (running) since 六 2022-12-03 20:21:56 CST; 2min 42s ago</span><br><span class="line">     Docs: man:firewalld(1)</span><br><span class="line"> Main PID: 693 (firewalld)</span><br><span class="line">    Tasks: 2</span><br><span class="line">   CGroup: /system.slice/firewalld.service</span><br><span class="line">           └─693 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid</span><br><span class="line"></span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Starting firewalld - dynamic firewall daemon...</span><br><span class="line">12月 03 20:21:56 hadoop100 systemd[1]: Started firewalld - dynamic firewall daemon.</span><br><span class="line">12月 03 20:21:57 hadoop100 firewalld[693]: WARNING: AllowZoneDrifting is enabled. This is considered an insecure configuratio...it now.</span><br><span class="line">Hint: Some lines were ellipsized, use -l to show in full.</span><br></pre></td></tr></table></figure>
-
-<h1 id="八：关机重启命令"><a href="#八：关机重启命令" class="headerlink" title="八：关机重启命令"></a>八：关机重启命令</h1><h2 id="8-1-常用关机命令"><a href="#8-1-常用关机命令" class="headerlink" title="8.1 常用关机命令"></a>8.1 常用关机命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sync	# 将数据手动存盘，由内存同步到硬盘中</span><br><span class="line">halt	# 停机，关闭系统、不断电</span><br><span class="line">poweroff	# 关机、断电</span><br><span class="line">reboot		# 重启，等同于 shutdown -r now</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-2-shutdown-命令详解"><a href="#8-2-shutdown-命令详解" class="headerlink" title="8.2 shutdown 命令详解"></a>8.2 shutdown 命令详解</h2><ul>
-<li>shutdown：默认一分钟后关机</li>
-<li>shutdown now：立即关机</li>
-<li>shutdown -c：取消关机</li>
-<li>shutdown 3：三分钟后关机</li>
-<li>shutdown 23:00 定时关机</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">Linux 远程登录</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 18:10:52 / 修改时间：19:13:26" itemprop="dateCreated datePublished" datetime="2022-12-03T18:10:52+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Windows-远程登录"><a href="#一：Windows-远程登录" class="headerlink" title="一：Windows 远程登录"></a>一：Windows 远程登录</h1><p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203181208088.png"></p>
-<h1 id="二：远程工具登录"><a href="#二：远程工具登录" class="headerlink" title="二：远程工具登录"></a>二：远程工具登录</h1><h2 id="2-1-Xshell"><a href="#2-1-Xshell" class="headerlink" title="2.1 Xshell"></a>2.1 Xshell</h2><p>远程终端操作工具；</p>
-<p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203185341175.png"></p>
-<h2 id="2-2-Xftp"><a href="#2-2-Xftp" class="headerlink" title="2.2 Xftp"></a>2.2 Xftp</h2><p>文件上传下载工具；</p>
-<p><img src="/2022/12/03/Linux-%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/image-20221203185456884.png"></p>
-<h2 id="2-3-下载地址"><a href="#2-3-下载地址" class="headerlink" title="2.3 下载地址"></a>2.3 下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.xshell.com/zh/xshell/">XSHELL - NetSarang Website</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Linux 网络配置</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-03 15:53:04" itemprop="dateCreated datePublished" datetime="2022-12-03T15:53:04+08:00">2022-12-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-04 17:18:10" itemprop="dateModified" datetime="2022-12-04T17:18:10+08:00">2022-12-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：网络连接测试"><a href="#一：网络连接测试" class="headerlink" title="一：网络连接测试"></a>一：网络连接测试</h1><ul>
-<li>windows：ipconfig</li>
-<li>linux：ifconfig</li>
-<li>采用ping命令，检测网络连通性；</li>
-</ul>
-<h1 id="二：网络连接模式"><a href="#二：网络连接模式" class="headerlink" title="二：网络连接模式"></a>二：网络连接模式</h1><h2 id="2-1-桥接模式"><a href="#2-1-桥接模式" class="headerlink" title="2.1 桥接模式"></a>2.1 桥接模式</h2><p>虚拟机直接连接外部物理网络的模式，主机起到了网桥的作用。这种模式下，虚拟机可以直接访问外部网络，并且对外部网络是可见的。占用IP资源；</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165906263.png"></p>
-<h2 id="2-2-NAT模式"><a href="#2-2-NAT模式" class="headerlink" title="2.2 NAT模式"></a>2.2 NAT模式</h2><p>虚拟机和主机构建一个专用网络，并通过虚拟网络地址转换（NAT）设备对IP进行转换。虚拟机通过共享主机IP可以访问外部网络，但外部网络无法访问虚拟机。</p>
-<p>PC主机也属于外部网络设备，如何解决自己的PC机访问虚拟机呢？</p>
-<p>VMware 在我们的PC机上虚拟了网卡，通过它我们与虚拟机进行网络通信。</p>
-<p>图解：</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165113113.png"></p>
-<h2 id="2-3-仅主机模式"><a href="#2-3-仅主机模式" class="headerlink" title="2.3 仅主机模式"></a>2.3 仅主机模式</h2><p>虚拟机只与主机共享一个专用网络，与外部网络无法通信。</p>
-<p><img src="/2022/12/03/Linux-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/image-20221203165215099.png"></p>
-<h1 id="三：修改静态-IP"><a href="#三：修改静态-IP" class="headerlink" title="三：修改静态 IP"></a>三：修改静态 IP</h1><h2 id="3-1-查看当前-IP-配置信息"><a href="#3-1-查看当前-IP-配置信息" class="headerlink" title="3.1 查看当前 IP 配置信息"></a>3.1 查看当前 IP 配置信息</h2><p>使用的网卡：ens33</p>
-<p>使用的IP：172.16.80.128</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ifconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前正在使用的网卡</span></span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.16.80.128  netmask 255.255.255.0  broadcast 172.16.80.255</span><br><span class="line">        inet6 fe80::e4c4:6675:18b7:2a07  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:2f:4b:6c  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 472392  bytes 666108098 (635.2 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 221586  bytes 13463899 (12.8 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">回环</span></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">虚拟机内部虚拟的网卡</span></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:cb:22:09  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2-修改-IP"><a href="#3-2-修改-IP" class="headerlink" title="3.2 修改 IP"></a>3.2 修改 IP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# vim /etc/sysconfig/network-scripts/ifcfg-ens33 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改前</span></span><br><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PROXY_METHOD=&quot;none&quot;</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;</span><br><span class="line">BOOTPROTO=&quot;dhcp&quot;</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;83568189-0a43-4b75-ad3b-babee2ade453&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPV6_PRIVACY=&quot;no&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改后</span></span><br><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">PROXY_METHOD=&quot;none&quot;</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;</span><br><span class="line">BOOTPROTO=&quot;static&quot;</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;83568189-0a43-4b75-ad3b-babee2ade453&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPV6_PRIVACY=&quot;no&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置静态IP</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">IP地址</span></span><br><span class="line">IPADDR=172.16.80.100</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网关</span></span><br><span class="line">GATEWAY=172.16.80.2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名解析器</span></span><br><span class="line">DNS1=172.16.80.2</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-3-重启服务"><a href="#3-3-重启服务" class="headerlink" title="3.3 重启服务"></a>3.3 重启服务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# service network restart </span><br><span class="line">Restarting network (via systemctl):                        [  确定  ]</span><br></pre></td></tr></table></figure>
-
-<p>查看当前配置，修改成功；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.16.80.100  netmask 255.255.0.0  broadcast 172.16.255.255</span><br><span class="line">        inet6 fe80::e4c4:6675:18b7:2a07  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:2f:4b:6c  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 472425  bytes 666113613 (635.2 MiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 221637  bytes 13471275 (12.8 MiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 8  bytes 672 (672.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">virbr0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255</span><br><span class="line">        ether 52:54:00:cb:22:09  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
-
-<h1 id="四：主机名配置"><a href="#四：主机名配置" class="headerlink" title="四：主机名配置"></a>四：主机名配置</h1><h2 id="4-1-修改文件"><a href="#4-1-修改文件" class="headerlink" title="4.1 修改文件"></a>4.1 修改文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# hostname</span><br><span class="line">hadoop100</span><br><span class="line">[root@hadoop100 ~]# vim /etc/hostname </span><br><span class="line">[root@hadoop100 ~]# reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2-命令修改"><a href="#4-2-命令修改" class="headerlink" title="4.2 命令修改"></a>4.2 命令修改</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# hostnamectl </span><br><span class="line">   Static hostname: hadoop100</span><br><span class="line">         Icon name: computer-vm</span><br><span class="line">           Chassis: vm</span><br><span class="line">        Machine ID: 39df9729a6ec4ccba224bc5857c84886</span><br><span class="line">           Boot ID: a45d9de9a8ab481ca0c95be5c3640020</span><br><span class="line">    Virtualization: vmware</span><br><span class="line">  Operating System: CentOS Linux 7 (Core)</span><br><span class="line">       CPE OS Name: cpe:/o:centos:centos:7</span><br><span class="line">            Kernel: Linux 3.10.0-1160.el7.x86_64</span><br><span class="line">      Architecture: x86-64</span><br><span class="line">[root@hadoop100 ~]# hostnamectl set-hostname spark100</span><br><span class="line">[root@hadoop100 ~]# hostname</span><br><span class="line">spark100</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-3-配置主机映射文件"><a href="#4-3-配置主机映射文件" class="headerlink" title="4.3 配置主机映射文件"></a>4.3 配置主机映射文件</h2><h3 id="（1）Linux-主机修改"><a href="#（1）Linux-主机修改" class="headerlink" title="（1）Linux 主机修改"></a>（1）Linux 主机修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# vim /etc/hosts</span><br><span class="line"></span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line"></span><br><span class="line">172.16.80.100 hadoop100</span><br><span class="line">172.16.80.101 hadoop101</span><br><span class="line">172.16.80.102 hadoop102</span><br><span class="line">172.16.80.103 hadoop103</span><br><span class="line">172.16.80.104 hadoop104</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）windows-主机修改"><a href="#（2）windows-主机修改" class="headerlink" title="（2）windows 主机修改"></a>（2）windows 主机修改</h3><p>C:\Windows\System32\drivers\etc\hosts</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">172.16.80.100 hadoop100</span><br><span class="line">172.16.80.101 hadoop101</span><br><span class="line">172.16.80.102 hadoop102</span><br><span class="line">172.16.80.103 hadoop103</span><br><span class="line">172.16.80.104 hadoop104</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）检验是否生效"><a href="#（3）检验是否生效" class="headerlink" title="（3）检验是否生效"></a>（3）检验是否生效</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ping hadoop100</span><br><span class="line">PING hadoop100 (172.16.80.100) 56(84) bytes of data.</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=1 ttl=64 time=0.075 ms</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=2 ttl=64 time=0.038 ms</span><br><span class="line">64 bytes from hadoop100 (172.16.80.100): icmp_seq=3 ttl=64 time=0.037 ms</span><br><span class="line">^C</span><br><span class="line">--- hadoop100 ping statistics ---</span><br><span class="line">3 packets transmitted, 3 received, 0% packet loss, time 2001ms</span><br><span class="line">rtt min/avg/max/mdev = 0.037/0.050/0.075/0.017 ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\lenovo&gt;ping hadoop100</span><br><span class="line"></span><br><span class="line">正在 Ping hadoop100 [172.16.80.100] 具有 32 字节的数据:</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间&lt;1ms TTL=64</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间=1ms TTL=64</span><br><span class="line">来自 172.16.80.100 的回复: 字节=32 时间=1ms TTL=64</span><br><span class="line"></span><br><span class="line">172.16.80.100 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 3，已接收 = 3，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 0ms，最长 = 1ms，平均 = 0ms</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux%20VIM-%E7%BC%96%E8%BE%91%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux%20VIM-%E7%BC%96%E8%BE%91%E5%99%A8/" class="post-title-link" itemprop="url">Linux-VIM编辑器</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 14:38:26 / 修改时间：16:07:35" itemprop="dateCreated datePublished" datetime="2022-12-03T14:38:26+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：VIM-是什么"><a href="#一：VIM-是什么" class="headerlink" title="一：VIM 是什么"></a>一：VIM 是什么</h1><p>VI 是 Unix 操作系统和类 Unix 操作系统中最通用的文本编辑器。</p>
-<p>切换输入法快捷键：super + space；</p>
-<h1 id="二：三种模式"><a href="#二：三种模式" class="headerlink" title="二：三种模式"></a>二：三种模式</h1><ul>
-<li>编辑完成后，返回一般模式，进入命令模式，输入 : w 保存文件；</li>
-<li>若不想保存刚才的修改，直接按 U 回退到编辑之前，相当于撤回操作；</li>
-</ul>
-<h2 id="（1）普通模式"><a href="#（1）普通模式" class="headerlink" title="（1）普通模式"></a>（1）普通模式</h2><ul>
-<li><p>yy：复制当前行</p>
-<ul>
-<li>输入数字，然后按 yy，复制多行；</li>
-<li>按 y ，然后按 $ ，复制光标开始到当前行结尾部分；</li>
-<li>按 y ，然后按 ^ ，复制当前行开始到光标部分；</li>
-<li>按 y ，然后按 w，复制当前单词；</li>
-</ul>
-</li>
-<li><p>p：粘贴</p>
-<ul>
-<li>输入数字，然后按 P，直接粘贴多行；</li>
-</ul>
-</li>
-<li><p>u：回退上一步操作；</p>
-</li>
-<li><p>w：跳到下一个单词；</p>
-</li>
-<li><p>dd：删除当前行</p>
-<ul>
-<li>按 d ，然后按 w，删除当前单词；</li>
-</ul>
-</li>
-<li><p>x：截切当前位字符；</p>
-<ul>
-<li>Shift + x，退格（当前光标之前的部分被删除）；</li>
-</ul>
-</li>
-<li><p>r：替换当前光标处字符；</p>
-<ul>
-<li>Shift + r，替换模式；</li>
-</ul>
-</li>
-<li><p>光标移动</p>
-<ul>
-<li><p>Shift + 4，移动到当前行尾；</p>
-</li>
-<li><p>Shift + 6，移动到当前行头；</p>
-</li>
-<li><p>e，跳到词尾；</p>
-</li>
-<li><p>b，跳到词头；</p>
-</li>
-<li><p>gg 或者 Shift + h，跳到开头；</p>
-</li>
-<li><p>L 或者 G，跳到行尾；</p>
-<ul>
-<li>输入数字，然后按G，跳到指定行；</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>命令行：</p>
-<ul>
-<li>set nu：显示行号；</li>
-<li>set nonu：隐藏行号；</li>
-</ul>
-</li>
-</ul>
-<h2 id="（2）插入模式"><a href="#（2）插入模式" class="headerlink" title="（2）插入模式"></a>（2）插入模式</h2><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>i</td>
-<td>当前光标前</td>
-</tr>
-<tr>
-<td>a</td>
-<td>当前光标后</td>
-</tr>
-<tr>
-<td>o</td>
-<td>当前光标的下一行</td>
-</tr>
-<tr>
-<td>I</td>
-<td>光标所在行最前</td>
-</tr>
-<tr>
-<td>A</td>
-<td>光标所在行最后</td>
-</tr>
-<tr>
-<td>O</td>
-<td>当前光标的上一行</td>
-</tr>
-</tbody></table>
-<h2 id="（3）命令模式"><a href="#（3）命令模式" class="headerlink" title="（3）命令模式"></a>（3）命令模式</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>:noh</td>
-<td>取消高亮显示</td>
-</tr>
-<tr>
-<td>:set nu</td>
-<td>显示行号</td>
-</tr>
-<tr>
-<td>:set nonu</td>
-<td>关闭行号</td>
-</tr>
-<tr>
-<td>:s&#x2F;old&#x2F;new</td>
-<td>替换当前行匹配到的第一个old为new</td>
-</tr>
-<tr>
-<td>:s&#x2F;old&#x2F;new&#x2F;g</td>
-<td>替换当前行匹配到的所有old为new</td>
-</tr>
-<tr>
-<td>:%s&#x2F;old&#x2F;new&#x2F;</td>
-<td>替换文档中每一行匹配到的第一个old为new</td>
-</tr>
-<tr>
-<td>:%s&#x2F;old&#x2F;new&#x2F;g</td>
-<td>替换文档中匹配到的所有old为new</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">Linux 文件系统</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 13:56:54 / 修改时间：14:38:34" itemprop="dateCreated datePublished" datetime="2022-12-03T13:56:54+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Linux-文件"><a href="#一：Linux-文件" class="headerlink" title="一：Linux 文件"></a>一：Linux 文件</h1><p>Linux 系统中，一切皆文件！</p>
-<h1 id="二：Linux-文件目录"><a href="#二：Linux-文件目录" class="headerlink" title="二：Linux 文件目录"></a>二：Linux 文件目录</h1><h2 id="2-1-文件分区"><a href="#2-1-文件分区" class="headerlink" title="2.1 文件分区"></a>2.1 文件分区</h2><ul>
-<li>&#x2F; ：根目录分区</li>
-<li>&#x2F;boot：引导分区</li>
-<li>swap：虚拟内存分区</li>
-</ul>
-<p>文件系统使用的是xfs（高性能日志文件系统），通过挂载点将目录，指定挂载到硬盘的哪个分区；</p>
-<p>所以Linux的文件目录，实际上是虚拟目录。</p>
-<h2 id="2-2-根目录文件分类"><a href="#2-2-根目录文件分类" class="headerlink" title="2.2 根目录文件分类"></a>2.2 根目录文件分类</h2><p><img src="/2022/12/03/Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/image-20221203141820689.png"></p>
-<h3 id="（1）超链接目录"><a href="#（1）超链接目录" class="headerlink" title="（1）超链接目录"></a>（1）超链接目录</h3><ul>
-<li><p>bin：二进制目录，执行命令；</p>
-</li>
-<li><p>sbin：系统二进制目录，系统命令；</p>
-</li>
-<li><p>lib：库文件目录，存储的系统动态链接依赖库文件，类似与windows的 system32目录；</p>
-</li>
-<li><p>lib64：64位相关的系统动态链接库文件目录；</p>
-</li>
-<li><p>以上4个文件均链接到的是usr下面的目录；</p>
-</li>
-</ul>
-<h3 id="（2）普通目录"><a href="#（2）普通目录" class="headerlink" title="（2）普通目录"></a>（2）普通目录</h3><ul>
-<li>usr：存放应用程序和用户相关的数据文件目录；</li>
-<li>boot：引导目录；</li>
-<li>dev：设备目录，管理当前的设备的；</li>
-<li>etc：系统管理所需要的配置文件；</li>
-<li>home：家目录，普通用户的文件夹；</li>
-<li>root：系统超级管理员的主目录；</li>
-<li>opt：可选目录，给第三方软件预留的目录，约定熟成的目录；</li>
-<li>media：媒体目录，可移动媒体设备的挂载点；</li>
-<li>mnt：挂载目录，任何的移动化存储目录的另一个挂载点；</li>
-<li>proc：process缩写，存放的是现有的一些硬件和进程的信息；</li>
-<li>run：运行目录，当前系统运行起来的所有实时信息，临时的文件系统，重启后清零；</li>
-<li>srv：service的缩写，存放的跟系统服务相关的文件；</li>
-<li>sys：存放的是系统硬件信息的相关文件；</li>
-<li>tmp：临时目录；</li>
-<li>var：可变目录，存放经常会变化，修改的东西；如日志文件；</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E6%A1%8C%E9%9D%A2%E5%8F%8A%E7%BB%88%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E6%A1%8C%E9%9D%A2%E5%8F%8A%E7%BB%88%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">Linux 桌面及终端基础操作</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 13:39:40 / 修改时间：13:55:20" itemprop="dateCreated datePublished" datetime="2022-12-03T13:39:40+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：桌面"><a href="#一：桌面" class="headerlink" title="一：桌面"></a>一：桌面</h1><ul>
-<li>新建文件夹</li>
-<li>新建文本</li>
-<li>修改桌面</li>
-<li>打开终端</li>
-<li>快捷键设置：super 相当于 windows键</li>
-<li>修改屏幕分辨率</li>
-</ul>
-<h1 id="二：终端"><a href="#二：终端" class="headerlink" title="二：终端"></a>二：终端</h1><ul>
-<li>修改终端打开字体</li>
-<li>修改终端配色方案</li>
-</ul>
-<h1 id="三：常用快捷键"><a href="#三：常用快捷键" class="headerlink" title="三：常用快捷键"></a>三：常用快捷键</h1><ul>
-<li>当前窗口全屏：Alt + F10</li>
-<li>切换桌面系统：Ctrl + Alt + F1</li>
-<li>切换命令行系统：Ctrl + Alt + F2<ul>
-<li>F2~F6 均为命令行模式，多用户登录；</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/03/Linux-%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux 安装</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-03 11:35:34 / 修改时间：13:36:46" itemprop="dateCreated datePublished" datetime="2022-12-03T11:35:34+08:00">2022-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：下载"><a href="#一：下载" class="headerlink" title="一：下载"></a>一：下载</h1><h2 id="1-1-Linux-系统镜像下载"><a href="#1-1-Linux-系统镜像下载" class="headerlink" title="1.1 Linux 系统镜像下载"></a>1.1 Linux 系统镜像下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.centos.org/">The CentOS Project</a></p>
-<h2 id="1-2-VMware-虚拟化平台下载"><a href="#1-2-VMware-虚拟化平台下载" class="headerlink" title="1.2 VMware 虚拟化平台下载"></a>1.2 VMware 虚拟化平台下载</h2><p>官方地址：<a target="_blank" rel="noopener" href="https://www.vmware.com/">VMware - Delivering a Digital Foundation For Businesses</a></p>
-<p>VMware WorkStation Pro：商用付费版本</p>
-<p>VMware WorkStation Player：个人免费版本</p>
-<h1 id="二：创建虚拟机"><a href="#二：创建虚拟机" class="headerlink" title="二：创建虚拟机"></a>二：创建虚拟机</h1><h2 id="2-1-CPU配置"><a href="#2-1-CPU配置" class="headerlink" title="2.1 CPU配置"></a>2.1 CPU配置</h2><ul>
-<li>处理器数量：对应CPU插槽数量；</li>
-<li>每个处理器的内核数量：一个CPU插槽上的CPU有几个处理核心；</li>
-</ul>
-<p>参考主机 任务管理器 参数设置：</p>
-<p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203120359609.png"></p>
-<ul>
-<li>逻辑处理器：每个CPU内核通过超线程技术，可以模拟出2个逻辑处理器。</li>
-</ul>
-<h2 id="2-2-网络连接方式"><a href="#2-2-网络连接方式" class="headerlink" title="2.2 网络连接方式"></a>2.2 网络连接方式</h2><ul>
-<li>桥接：将主机作为一个桥，使得创建的虚拟机与主机处于同等地位，共同连接同一个路由器下的网络。</li>
-<li>NAT：将主机看做一个虚拟机的路由器，虚拟机借助主机与外部网络连通。</li>
-</ul>
-<h1 id="三：安装CentOS系统"><a href="#三：安装CentOS系统" class="headerlink" title="三：安装CentOS系统"></a>三：安装CentOS系统</h1><h2 id="3-1-启用虚拟化"><a href="#3-1-启用虚拟化" class="headerlink" title="3.1 启用虚拟化"></a>3.1 启用虚拟化</h2><p>在BIOS中开启虚拟化；</p>
-<h2 id="3-2-挂载镜像"><a href="#3-2-挂载镜像" class="headerlink" title="3.2 挂载镜像"></a>3.2 挂载镜像</h2><p><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203130557001.png"></p>
-<h2 id="3-3-磁盘分区"><a href="#3-3-磁盘分区" class="headerlink" title="3.3 磁盘分区"></a>3.3 磁盘分区</h2><ul>
-<li>创建引导分区：&#x2F;boot，必须位于该目录；1G即可；文件系统xfp；</li>
-</ul>
-<p>创建交换分区：swap，没有“&#x2F;”，单独设置硬盘的一块区域，作为一个扩展的内存。</p>
-<ul>
-<li>当内存用满的时候，我们此时还要开启另一个应用，内存会把当前未在使用的应用放入交换分区，空闲出空间，让我们启动新的应用，而不至于程序卡死。（虚拟内存）</li>
-<li>实际内存的1倍或者2倍</li>
-<li>文件系统：swap</li>
-</ul>
-<p>剩余空间分区：全部挂载至 “&#x2F;” 根目录下；</p>
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131342655.png">
-
-<h2 id="3-4-网络及主机名"><a href="#3-4-网络及主机名" class="headerlink" title="3.4 网络及主机名"></a>3.4 网络及主机名</h2><p>修改主机名称；</p>
-<p>开启以太网；</p>
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131443676.png">
-
-<h2 id="3-5-创建用户"><a href="#3-5-创建用户" class="headerlink" title="3.5 创建用户"></a>3.5 创建用户</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131508491.png">
-
-<img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203131642696.png">
-
-<h1 id="四：开机测试"><a href="#四：开机测试" class="headerlink" title="四：开机测试"></a>四：开机测试</h1><h2 id="4-1-桌面"><a href="#4-1-桌面" class="headerlink" title="4.1 桌面"></a>4.1 桌面</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133153586.png" style="zoom:67%;">
-
-<h2 id="4-2-网络"><a href="#4-2-网络" class="headerlink" title="4.2 网络"></a>4.2 网络</h2><img src="/2022/12/03/Linux-%E5%AE%89%E8%A3%85/image-20221203133337906.png" style="zoom:67%;">
-
-<p>至此，Linux 系统安装就完成了，网络连接也可以正常使用！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">Linux 概述</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-02 00:55:57 / 修改时间：01:18:28" itemprop="dateCreated datePublished" datetime="2022-12-02T00:55:57+08:00">2022-12-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p>
-<img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010250119.png" style="zoom:50%;">
-
-<h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010332476.png" style="zoom: 67%;">
-
-<h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202010434500.png"></p>
-<ul>
-<li>Dennis Ritchie：开发了C语言；</li>
-<li>Linus Torvalds：开发了 Git 工具；</li>
-<li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li>
-</ul>
-<h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011012214.png" style="zoom:67%;">
-
-<ul>
-<li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li>
-<li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li>
-</ul>
-<h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011436019.png" style="zoom:80%;">
-
-<h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/2022/12/02/Linux-%E6%A6%82%E8%BF%B0/image-20221202011609137.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">ARP 协议</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-01 12:17:04" itemprop="dateCreated datePublished" datetime="2022-12-01T12:17:04+08:00">2022-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-02 09:12:22" itemprop="dateModified" datetime="2022-12-02T09:12:22+08:00">2022-12-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：概念"><a href="#一：概念" class="headerlink" title="一：概念"></a>一：概念</h1><ul>
-<li>ARP：address resolution protocol，地址解析协议</li>
-<li>作用：将已知的IP地址解析为MAC地址</li>
-</ul>
-<h1 id="二：实验"><a href="#二：实验" class="headerlink" title="二：实验"></a>二：实验</h1><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133858284.png" style="zoom:50%;">
-
-<h2 id="2-1-对首次ping进行抓包"><a href="#2-1-对首次ping进行抓包" class="headerlink" title="2.1 对首次ping进行抓包"></a>2.1 对首次ping进行抓包</h2><h3 id="（1）路由器R1"><a href="#（1）路由器R1" class="headerlink" title="（1）路由器R1"></a>（1）路由器R1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.1     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#ping 192.168.1.3</span></span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.3, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">.!!!!</span><br><span class="line">Success rate is 80 percent (4/5), round-trip min/avg/max = 2/2/4 ms</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）路由器R2"><a href="#（2）路由器R2" class="headerlink" title="（2）路由器R2"></a>（2）路由器R2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip interface brief </span></span><br><span class="line">Interface                  IP-Address      OK? Method Status                Protocol</span><br><span class="line">GigabitEthernet0/0         192.168.1.3     YES manual up                    up      </span><br><span class="line">GigabitEthernet0/1         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/2         unassigned      YES <span class="built_in">unset</span>  administratively down down    </span><br><span class="line">GigabitEthernet0/3         unassigned      YES <span class="built_in">unset</span>  administratively down down</span><br></pre></td></tr></table></figure>
-
-<h3 id="（3）使用-wireshark-进行抓包"><a href="#（3）使用-wireshark-进行抓包" class="headerlink" title="（3）使用 wireshark 进行抓包"></a>（3）使用 wireshark 进行抓包</h3><p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201133530514.png"></p>
-<p>由抓包结果进行分析，首次的Ping发送了一个ARP广播；192.168.1.3 接收到后保存了发送方的Mac地址，并做出了单播响应，告知了对方自己的Mac地址。因此，此后的5次PING命令，分别抓到发送和响应8个ICMP包。</p>
-<h2 id="2-2-查看-ARP"><a href="#2-2-查看-ARP" class="headerlink" title="2.2 查看 ARP"></a>2.2 查看 ARP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.1             -   5061.e800.1400  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            27   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3            12   50ea.cd00.1500  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>以太网的头部，每经过一个路由器都会从新编写一个新的头部，修改源MAC和目的MAC。</p>
-<h1 id="三：代理-ARP"><a href="#三：代理-ARP" class="headerlink" title="三：代理 ARP"></a>三：代理 ARP</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>代理ARP（proxy arp）：通常就是一个主机（路由器），作为指定的设备（路由器代替该设备）对另一台设备的APR请求做出响应。</p>
-<h2 id="3-2-实例"><a href="#3-2-实例" class="headerlink" title="3.2 实例"></a>3.2 实例</h2><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221201153651270.png" style="zoom:50%;">
-
-<h3 id="（1）R1-路由"><a href="#（1）R1-路由" class="headerlink" title="（1）R1 路由"></a>（1）R1 路由</h3><p>通过出接口方式，将数据包通过Gi0&#x2F;0接口发送出去；路由表新增一条静态路由；</p>
-<p>通过 wireshark 抓包情况，发现若不配置出接口，数据将因无法定位到目标MAC而在路由器内部发不出去。</p>
-<p>当配置出接口后，首次PING进行广播，获取到目标设备的MAC地址，wireshark 抓取到 8次通信数据包。</p>
-<p>由此，R1和R2路由互通。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R1: 通过出接口方式配置路由</span></span><br><span class="line">ip route 192.168.1.0 255.255.255.0 Gi0/0 </span><br><span class="line"></span><br><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.1/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">S     192.168.1.0/24 is directly connected, GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<h3 id="（2）R2-路由"><a href="#（2）R2-路由" class="headerlink" title="（2）R2 路由"></a>（2）R2 路由</h3><p>仅仅配置了2个接口的IP地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip route</span></span><br><span class="line">Codes: L - <span class="built_in">local</span>, C - connected, S - static, R - RIP, M - mobile, B - BGP</span><br><span class="line">       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area </span><br><span class="line">       N1 - OSPF NSSA external <span class="built_in">type</span> 1, N2 - OSPF NSSA external <span class="built_in">type</span> 2</span><br><span class="line">       E1 - OSPF external <span class="built_in">type</span> 1, E2 - OSPF external <span class="built_in">type</span> 2</span><br><span class="line">       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2</span><br><span class="line">       ia - IS-IS inter area, * - candidate default, U - per-user static route</span><br><span class="line">       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP</span><br><span class="line">       a - application route</span><br><span class="line">       + - replicated route, % - next hop override, p - overrides from PfR</span><br><span class="line"></span><br><span class="line">Gateway of last resort is not <span class="built_in">set</span></span><br><span class="line"></span><br><span class="line">      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.0.0/24 is directly connected, GigabitEthernet0/0</span><br><span class="line">L        192.168.0.2/32 is directly connected, GigabitEthernet0/0</span><br><span class="line">      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks</span><br><span class="line">C        192.168.1.0/24 is directly connected, GigabitEthernet0/1</span><br><span class="line">L        192.168.1.2/32 is directly connected, GigabitEthernet0/1</span><br></pre></td></tr></table></figure>
-
-<p>配置R2路由，关于1网段的出接口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.1.0 255.255.255.0 Gi0/1</span></span><br></pre></td></tr></table></figure>
-
-<p>此时，若要从R1向R3发送数据包，通过 wireshark 抓包分析，数据包成功发送出去，却没有响应，所以此时，我们应该配置R3路由通往0网段的出接口。</p>
-<h3 id="（3）R3-路由"><a href="#（3）R3-路由" class="headerlink" title="（3）R3 路由"></a>（3）R3 路由</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="comment">#ip route 192.168.0.0 255.255.255.0 Gi0/0</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;ping 192.168.0.1</span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.0.1, <span class="built_in">timeout</span> is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/7 ms</span><br></pre></td></tr></table></figure>
-
-<p>此时可以观察到R1路由与R3路由实现了互通。</p>
-<h2 id="3-3-ARP-变化"><a href="#3-3-ARP-变化" class="headerlink" title="3.3 ARP 变化"></a>3.3 ARP 变化</h2><p>当我们R1与R3未进行通信时，此时R3的ARP表的情况是这样的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.1.2            62   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>当完成上述实例通信时，两者互通，此时查看R3的ARP表如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Router<span class="comment">#show ip arp</span></span><br><span class="line">Protocol  Address          Age (min)  Hardware Addr   Type   Interface</span><br><span class="line">Internet  192.168.0.1             1   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.2            65   506e.b500.1701  ARPA   GigabitEthernet0/0</span><br><span class="line">Internet  192.168.1.3             -   502e.cd00.1800  ARPA   GigabitEthernet0/0</span><br></pre></td></tr></table></figure>
-
-<p>由上述两表观察可知，R1路由的地址被存储在了R3的ARP表中，且因为有存活时间，更值得注意的是此处用到了 APR代理，代理地址即为我们的R2路由。因此此处由于设计本身的缺陷，存在漏洞，故而当代理ARP进行广播请求时，我们可以冒充网关（被攻击机的下一跳地址），给被攻击机做出单播响应，这样被攻击机就会存储攻击机的MAC地址，下次发送数据就会发送给攻击机，被攻击方可以直观的感受到不能上网（地址冲突），或者网络请求超时等。</p>
-<p><img src="/2022/12/01/ARP-%E5%8D%8F%E8%AE%AE/image-20221202090929264.png"></p>
-<h1 id="四：总结"><a href="#四：总结" class="headerlink" title="四：总结"></a>四：总结</h1><ul>
-<li>APR 后到优先，当下一跳存在2台路由器时，广播响应会被两台路由都响应，后者会将前者的响应覆盖，可能会导致我们的路由寻址不是最优路径；</li>
-<li>只写出接口的静态路由会依赖代理ARP，若关闭代理ARP则不能实现通信； </li>
-<li>代理ARP 会产生大量ARP映射列表，这些数据会占用内存；</li>
-<li>最好的静态路由写法就是既有出接口，又有下一跳；</li>
-<li>仅写下一跳会触发自身的递归查询；</li>
-<li>ARP攻击：由于自身广播请求，所以请求的目的IP会被当前广播域内，所有的主机听到；若此时，黑客伪装自己的IP地址，就是我们请求的地址，再回访我们一次；即使我们之前请求到了真的服务器地址，但由于ARP本身后到优先的机制，黑客的地址会覆盖之前真正服务器的地址；我们的ARP映射列表中存储了黑客电脑的MAC，此时发送消息，我们就把数据全部发送到了黑客的电脑。</li>
-<li>防止ARP攻击：人为手动绑定MAC地址，arp IP address MAC address arpa；ARP映射表中就有了对方的MAC，无法被后到优先覆盖，防止被ARP欺骗。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aiyingke.cn/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/RupertTears.jpg">
-      <meta itemprop="name" content="Rupert-Tears">
-      <meta itemprop="description" content="每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱影客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">静态路由协议</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-12-01 09:19:43 / 修改时间：12:15:02" itemprop="dateCreated datePublished" datetime="2022-12-01T09:19:43+08:00">2022-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">思科CCNA网络基础入门</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><ul>
-<li>一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。</li>
-<li>静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。</li>
-</ul>
-<h1 id="二：优缺点"><a href="#二：优缺点" class="headerlink" title="二：优缺点"></a>二：优缺点</h1><ul>
-<li>优点：<ul>
-<li>对路由器CPU没有管理开销</li>
-<li>在路由器间没有宽带占用</li>
-<li>增加安全性</li>
-</ul>
-</li>
-<li>缺点：<ul>
-<li>必须真正的了解网络</li>
-<li>对于新添加网络配置繁琐</li>
-<li>对于大型网络工作量巨大</li>
-</ul>
-</li>
-</ul>
-<h1 id="三：静态路由配置"><a href="#三：静态路由配置" class="headerlink" title="三：静态路由配置"></a>三：静态路由配置</h1><ul>
-<li>配置命令<ul>
-<li>ip route newwork-address subnet-mask { ip-add | exit-interface } </li>
-<li>ip route 192.168.1.0 255.255.255.0 192.168.12.2</li>
-<li>ip route 192.168.1.0 255.255.255.0 serial 0</li>
-</ul>
-</li>
-<li>查看路由表<ul>
-<li>show ip route</li>
-<li>do show ip route</li>
-</ul>
-</li>
-</ul>
-<h1 id="四：实验"><a href="#四：实验" class="headerlink" title="四：实验"></a>四：实验</h1><h2 id="4-1-实验目录"><a href="#4-1-实验目录" class="headerlink" title="4.1 实验目录"></a>4.1 实验目录</h2><p>练习对静态路由配置的使用；</p>
-<h2 id="4-2-实验内容"><a href="#4-2-实验内容" class="headerlink" title="4.2 实验内容"></a>4.2 实验内容</h2><p>通过 PNETLab Box 新建3台路由器，分别为三台路由器配置 IP 地址，并将三台路由器接线依次连通。通过在路由器上配置静态路由，使得三个路由器之间信息可以达到互传的目的。</p>
-<h2 id="4-3-实验过程"><a href="#4-3-实验过程" class="headerlink" title="4.3 实验过程"></a>4.3 实验过程</h2><ol>
-<li><p>新建PNETLab Box实验室</p>
-</li>
-<li><p>新建3个路由器</p>
-</li>
-<li><p>配置基础设置</p>
-<ul>
-<li>工程三招</li>
-</ul>
-</li>
-<li><p>为路由器配置IP地址</p>
-<ul>
-<li>enable</li>
-<li>configure terminal</li>
-<li>interface 接口类型 插槽&#x2F;接口编号</li>
-<li>ip address ip地址 子网掩码</li>
-<li>no shutdown</li>
-<li>end</li>
-<li>show ip interface brief</li>
-</ul>
-</li>
-<li><p>配置静态路由</p>
-<img src="/2022/12/01/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/image-20221201115529110.png" style="zoom:50%;"></li>
-</ol>
-<ul>
-<li>为中间路由配置2个IP地址</li>
-<li>通过下一跳方式配置路由<ul>
-<li>实现192.168.1.110 与 192.168.2.111 通信</li>
-<li>ip route 192.168.2.0 255.255.255.0 192.168.1.111</li>
-<li>该指令明通过明确下一跳地址，源路由通过递归查询出接口（与192.168.1.111可实现互通的出接口），将数据发送到目标路由器上。</li>
-</ul>
-</li>
-<li>通过配置出接口方式<ul>
-<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0</li>
-<li>该方法通过直接指定出接口，将数据包发送出去。</li>
-</ul>
-</li>
-<li>通过配置出接口+IP地址方式<ul>
-<li>ip route 192.168.2.0 255.255.255.0 Gi0&#x2F;0 192.168.1.111</li>
-<li>更加详细的指出对方接收数据的ip地址，安全可靠。</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-4-实验总结"><a href="#4-4-实验总结" class="headerlink" title="4.4 实验总结"></a>4.4 实验总结</h2><ol>
-<li>一个路由器，可以通过配置IP来标识自身，以及所处网段。</li>
-<li>两个路由器通过线路直接连接，即可互通。</li>
-<li>三台路由器通过搭桥的方式实现互通，两端路由器分别都要与桥的对端出接口互通，即可完成三者互通。</li>
-<li>路由通信的本质是：当发送一个数据包时，已知自身IP，通过路由表查询目标地址或下一跳地址，数据被推送出去；当数据被下一跳接受到时，该路由器检索自身的路由表，再次进行数据转发，直到目标地址接收到为止。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Rupert-Tears"
-      src="/images/RupertTears.jpg">
-  <p class="site-author-name" itemprop="name">Rupert-Tears</p>
-  <div class="site-description" itemprop="description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">68</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Ghost-Ying" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ghost-Ying" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/MIRACLE_Ying" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;MIRACLE_Ying" rel="noopener" target="_blank"><i class="fab fa-codiepie fa-fw"></i>CSDN</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      友情链接
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">GitHub</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  &copy; 2022-10 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Rupert-Tears</span>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">本博客全站共47.2k字</span>
-</div>
-
-
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
-    <span class="post-meta-divider">|</span>
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {            
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
-            clearInterval(int);
-        }                  
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
-            clearInterval(int); // 停止检测
-        }  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
     }
-        
-});
-</script> 
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/background.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">爱影客</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/5a8f7354.html/" title="Linux 文件目录类"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 文件目录类"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/5a8f7354.html/" title="Linux 文件目录类">Linux 文件目录类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T14:14:43.000Z" title="发表于 2022-12-03 22:14:43">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：帮助命令1.1 man 获得帮助信息（1）基础语法
+man [命令或配置文件]
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+（2）显示说明
+1.2 help 获取内置命令帮助信息（1）基础语法
+help [命令] ，获得 shell 内置命令的帮助信息。
 
+（2）实例
+help cd：查看 cd 命令的帮助信息
 
-
-
+二：文件目录类2.1 常用命令
+pwd 显示当前工作目录的绝对路径
+ls 列出目录
+cd 切换目录
+mkdir 创建一个新的目录
+rmdir 删除一个空的目录
+touch 创建空文件
+cp 复制文件或目录
+rm 删除文件或目录
+mv 移动文件与目录或重命名
+cat 查看文件内容
+more 文件内容分屏查看器
+less 分屏显示文件内容
+echo 输出内容到控制台
+-e： 支持反斜线控制的字符转换
 
 
+head 显示文件头部内容
+tail 输出文件尾部内容
+&gt; 输出重定向和 &gt;&gt; 追加
+ln 软链接
+history 查看已经执行过历史命令
+
+2.2 经验汇总
+\cp origin target：直接跳过询问，使用原生命令进行拷贝；
+pwd -P：当含有软连接的目录时，显示实际路径；
+more 查看 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/3de350d3.html/" title="Linux 系统管理"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 系统管理"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/3de350d3.html/" title="Linux 系统管理">Linux 系统管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T11:13:55.000Z" title="发表于 2022-12-03 19:13:55">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：Linux 中的进程和服务
+计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。
+启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。
+
+二：service 服务管理（CentOS 6）2.1 基本语法service 服务名 start | stop | restart | status
+2.2 系统位置查看服务的方法：&#x2F;etc&#x2F;init.d&#x2F;服务名，.d表示是一个守护进程；
+三：systemctl 服务管理（CentOS 7）3.1 基本语法systemctl start | stop | restart | status 服务名
+3.2 系统位置查看服务的方法：&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system
+四：网络服务示例1234567891011121314# 停止老版本的网络服务[root@hadoop100 ~]# service network stop Stopping network (via systemctl):                      ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2fcd7eb.html/" title="Linux 远程登录"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 远程登录"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2fcd7eb.html/" title="Linux 远程登录">Linux 远程登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T10:10:52.000Z" title="发表于 2022-12-03 18:10:52">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：Windows 远程登录
+二：远程工具登录2.1 Xshell远程终端操作工具；
+
+2.2 Xftp文件上传下载工具；
+
+2.3 下载地址XSHELL - NetSarang Website
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/75626fa7.html/" title="Linux 网络配置"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 网络配置"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/75626fa7.html/" title="Linux 网络配置">Linux 网络配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T07:53:04.000Z" title="发表于 2022-12-03 15:53:04">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：网络连接测试
+windows：ipconfig
+linux：ifconfig
+采用ping命令，检测网络连通性；
+
+二：网络连接模式2.1 桥接模式虚拟机直接连接外部物理网络的模式，主机起到了网桥的作用。这种模式下，虚拟机可以直接访问外部网络，并且对外部网络是可见的。占用IP资源；
+
+2.2 NAT模式虚拟机和主机构建一个专用网络，并通过虚拟网络地址转换（NAT）设备对IP进行转换。虚拟机通过共享主机IP可以访问外部网络，但外部网络无法访问虚拟机。
+PC主机也属于外部网络设备，如何解决自己的PC机访问虚拟机呢？
+VMware 在我们的PC机上虚拟了网卡，通过它我们与虚拟机进行网络通信。
+图解：
+
+2.3 仅主机模式虚拟机只与主机共享一个专用网络，与外部网络无法通信。
+
+三：修改静态 IP3.1 查看当前 IP 配置信息使用的网卡：ens33
+使用的IP：172.16.80.128
+123456789101112131415161718192021222324252627[root@hadoop100 ~]# ifconfig# 当前正在使用的网卡ens33: flags=4163& ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/13ea15c4.html/" title="Linux-VIM编辑器"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-VIM编辑器"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/13ea15c4.html/" title="Linux-VIM编辑器">Linux-VIM编辑器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T06:38:26.000Z" title="发表于 2022-12-03 14:38:26">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：VIM 是什么VI 是 Unix 操作系统和类 Unix 操作系统中最通用的文本编辑器。
+切换输入法快捷键：super + space；
+二：三种模式
+编辑完成后，返回一般模式，进入命令模式，输入 : w 保存文件；
+若不想保存刚才的修改，直接按 U 回退到编辑之前，相当于撤回操作；
+
+（1）普通模式
+yy：复制当前行
+
+输入数字，然后按 yy，复制多行；
+按 y ，然后按 $ ，复制光标开始到当前行结尾部分；
+按 y ，然后按 ^ ，复制当前行开始到光标部分；
+按 y ，然后按 w，复制当前单词；
 
 
-      </div>
-    </footer>
-  </div>
+p：粘贴
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+输入数字，然后按 P，直接粘贴多行；
 
 
-<script src="/js/schemes/pisces.js"></script>
+u：回退上一步操作；
+
+w：跳到下一个单词；
+
+dd：删除当前行
+
+按 d ，然后按 w，删除当前单词；
 
 
-<script src="/js/next-boot.js"></script>
+x：截切当前位字符；
+
+Shift + x，退格（当前光标之前的部分被删除）；
 
 
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/canvas_lines.min.js"></script>
+r：替换当前光标处字符；
+
+Shift + r，替换模式；
 
 
-  
+光标移动
+
+Shift + 4，移动到当前行尾；
+
+Shift + 6，移动到当前行头；
+
+e，跳到词尾；
+
+b，跳到词头；
+
+gg 或者 Shift + h，跳到开头；
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/f525ac74.html/" title="Linux 文件系统"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 文件系统"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/f525ac74.html/" title="Linux 文件系统">Linux 文件系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T05:56:54.000Z" title="发表于 2022-12-03 13:56:54">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：Linux 文件Linux 系统中，一切皆文件！
+二：Linux 文件目录2.1 文件分区
+&#x2F; ：根目录分区
+&#x2F;boot：引导分区
+swap：虚拟内存分区
+
+文件系统使用的是xfs（高性能日志文件系统），通过挂载点将目录，指定挂载到硬盘的哪个分区；
+所以Linux的文件目录，实际上是虚拟目录。
+2.2 根目录文件分类
+（1）超链接目录
+bin：二进制目录，执行命令；
+
+sbin：系统二进制目录，系统命令；
+
+lib：库文件目录，存储的系统动态链接依赖库文件，类似与windows的 system32目录；
+
+lib64：64位相关的系统动态链接库文件目录；
+
+以上4个文件均链接到的是usr下面的目录；
+
+
+（2）普通目录
+usr：存放应用程序和用户相关的数据文件目录；
+boot：引导目录；
+dev：设备目录，管理当前的设备的；
+etc：系统管理所需要的配置文件；
+home：家目录，普通用户的文件夹；
+root：系统超级管理员的主目录；
+opt：可选目录，给第三方软件预留的目录，约定熟成的目录；
+media：媒体目录，可移动媒体设备的挂载点；
+mnt：挂载目录，任何 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/e34058e3.html/" title="Linux 桌面及终端基础操作"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 桌面及终端基础操作"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/e34058e3.html/" title="Linux 桌面及终端基础操作">Linux 桌面及终端基础操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T05:39:40.000Z" title="发表于 2022-12-03 13:39:40">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：桌面
+新建文件夹
+新建文本
+修改桌面
+打开终端
+快捷键设置：super 相当于 windows键
+修改屏幕分辨率
+
+二：终端
+修改终端打开字体
+修改终端配色方案
+
+三：常用快捷键
+当前窗口全屏：Alt + F10
+切换桌面系统：Ctrl + Alt + F1
+切换命令行系统：Ctrl + Alt + F2
+F2~F6 均为命令行模式，多用户登录；
 
 
 
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/6f1dea9.html/" title="Linux 安装"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 安装"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/6f1dea9.html/" title="Linux 安装">Linux 安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-03T03:35:34.000Z" title="发表于 2022-12-03 11:35:34">2022-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：下载1.1 Linux 系统镜像下载官方地址：The CentOS Project
+1.2 VMware 虚拟化平台下载官方地址：VMware - Delivering a Digital Foundation For Businesses
+VMware WorkStation Pro：商用付费版本
+VMware WorkStation Player：个人免费版本
+二：创建虚拟机2.1 CPU配置
+处理器数量：对应CPU插槽数量；
+每个处理器的内核数量：一个CPU插槽上的CPU有几个处理核心；
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
+参考主机 任务管理器 参数设置：
 
 
+逻辑处理器：每个CPU内核通过超线程技术，可以模拟出2个逻辑处理器。
+
+2.2 网络连接方式
+桥接：将主机作为一个桥，使得创建的虚拟机与主机处于同等地位，共同连接同一个路由器下的网络。
+NAT：将主机看做一个虚拟机的路由器，虚拟机借助主机与外部网络连通。
+
+三：安装CentOS系统3.1 启用虚拟化在BIOS中开启虚拟化；
+3.2 挂载镜像
+3.3 磁盘分区
+创建引导分区：&#x2F;boot，必须位于该目录；1G即可；文件系统xfp；
+
+创建交换分区 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/d7d0f9b9.html/" title="Linux 概述"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 概述"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/d7d0f9b9.html/" title="Linux 概述">Linux 概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-01T16:55:57.000Z" title="发表于 2022-12-02 00:55:57">2022-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">一：Linux 是什么？Linux 是一个操作系统（OS）
 
 
+二：Linux 的诞生
 
-  
+三：Linux 与 Unix 的渊源
 
-  
+Dennis Ritchie：开发了C语言；
+Linus Torvalds：开发了 Git 工具；
+FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。
+
+四：GUN&#x2F;Linux
 
 
-</body>
-</html>
+Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。
+Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。
+
+五：Linux 发行版本
+
+六：Linux VS Windows
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/481361ad.html/" title="ARP 协议"><img class="post_bg" src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ARP 协议"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/481361ad.html/" title="ARP 协议">ARP 协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-01T04:17:04.000Z" title="发表于 2022-12-01 12:17:04">2022-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">思科CCNA网络基础入门</a></span></div><div class="content">一：概念
+ARP：address resolution protocol，地址解析协议
+作用：将已知的IP地址解析为MAC地址
+
+二：实验
+
+2.1 对首次ping进行抓包（1）路由器R1123456789101112Router#show ip interface brief Interface                  IP-Address      OK? Method Status                ProtocolGigabitEthernet0/0         192.168.1.1     YES manual up                    up      GigabitEthernet0/1         unassigned      YES unset  administratively down down    GigabitEthernet0/2         unassigned      YES unset  administratively down down    GigabitEthernet0/3       ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1148921513@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/48907d56.html/" title="计算机网络 Http协议"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络 Http协议"/></a><div class="content"><a class="title" href="/blog/48907d56.html/" title="计算机网络 Http协议">计算机网络 Http协议</a><time datetime="2022-12-06T04:57:45.000Z" title="发表于 2022-12-06 12:57:45">2022-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/829e9d92.html/" title="Linux 思维导图"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 思维导图"/></a><div class="content"><a class="title" href="/blog/829e9d92.html/" title="Linux 思维导图">Linux 思维导图</a><time datetime="2022-12-04T11:41:02.000Z" title="发表于 2022-12-04 19:41:02">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/88d9b703.html/" title="Linux 软件包管理"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 软件包管理"/></a><div class="content"><a class="title" href="/blog/88d9b703.html/" title="Linux 软件包管理">Linux 软件包管理</a><time datetime="2022-12-04T08:36:34.000Z" title="发表于 2022-12-04 16:36:34">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/f0317602.html/" title="Linux 定时任务"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 定时任务"/></a><div class="content"><a class="title" href="/blog/f0317602.html/" title="Linux 定时任务">Linux 定时任务</a><time datetime="2022-12-04T07:59:47.000Z" title="发表于 2022-12-04 15:59:47">2022-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2aa41515.html/" title="Linux 进程管理类"><img src="/img/background.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 进程管理类"/></a><div class="content"><a class="title" href="/blog/2aa41515.html/" title="Linux 进程管理类">Linux 进程管理类</a><time datetime="2022-12-04T07:18:01.000Z" title="发表于 2022-12-04 15:18:01">2022-12-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Java理论基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">Java编程</span><span class="card-category-list-count">4</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E7%BC%96%E7%A8%8B/SpringBoot/"><span class="card-category-list-name">SpringBoot</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/"><span class="card-category-list-name">专业词汇</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">思科CCNA网络基础入门</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Cisco-IOS/" style="font-size: 1.1em; color: #999">Cisco IOS</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">Java基础</a> <a href="/tags/Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" style="font-size: 1.16em; color: #999b9e">Java开发手册</a> <a href="/tags/LeetCode/" style="font-size: 1.27em; color: #99a0a9">LeetCode</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/PNETLab/" style="font-size: 1.1em; color: #999">PNETLab</a> <a href="/tags/SpringBoot/" style="font-size: 1.1em; color: #999">SpringBoot</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E8%AF%8D%E6%B1%87/" style="font-size: 1.39em; color: #99a4b4">专业词汇</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.44em; color: #99a7ba">人工智能</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">渗透测试</a> <a href="/tags/%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" style="font-size: 1.1em; color: #999">算法思想</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%85%A5%E9%97%A8/" style="font-size: 1.1em; color: #999">网安入门</a> <a href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/" style="font-size: 1.33em; color: #99a2af">网安工具</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.21em; color: #999ea4">计算机网络</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">21</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">46</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-12-06T10:56:36.571Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
