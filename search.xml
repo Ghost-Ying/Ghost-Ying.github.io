@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>网络安全 信息收集</title>
+      <link href="/blog/7e9dc4c3.html/"/>
+      <url>/blog/7e9dc4c3.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：敏感文件扫描"><a href="#一：敏感文件扫描" class="headerlink" title="一：敏感文件扫描"></a>一：敏感文件扫描</h1><p>扫描目标网站敏感文件也是信息收集中重要的一步。如果能找到源码泄露，我们可以进一步配合代码审计工具来寻找漏洞。常见的源码泄露有.get，.svn，rar等；</p><h1 id="二：寻找网站后台"><a href="#二：寻找网站后台" class="headerlink" title="二：寻找网站后台"></a>二：寻找网站后台</h1><h2 id="2-1-网站后台简介"><a href="#2-1-网站后台简介" class="headerlink" title="2.1 网站后台简介"></a>2.1 网站后台简介</h2><p>网站后台管理系统：主要用于对网站前台的信息管理，如文字，图片，影音和其他日常使用的文件发布、更新、删除等操作，同时也包含用户信息、订单信息、访客信息的统计和管理。</p><p>简单来说就是对网站数据库的文件的快速操作和管理系统，以使得前台内容能够及时更新和调整。</p><h2 id="2-2-网站后台的寻找方式"><a href="#2-2-网站后台的寻找方式" class="headerlink" title="2.2 网站后台的寻找方式"></a>2.2 网站后台的寻找方式</h2><h3 id="（1）通过-robots-txt-文件寻找"><a href="#（1）通过-robots-txt-文件寻找" class="headerlink" title="（1）通过 robots.txt 文件寻找"></a>（1）通过 robots.txt 文件寻找</h3><p>该文件用于限制一些爬虫爬取目录文件，可以向这个文件中写入规则让爬虫无法爬取。若此文件中有限制网站后台的爬取，我们可以通过它限制的目录来找到网站后台的路径。</p><h3 id="（2）通过谷歌语法寻找"><a href="#（2）通过谷歌语法寻找" class="headerlink" title="（2）通过谷歌语法寻找"></a>（2）通过谷歌语法寻找</h3><p>结合 site + inurl&#x2F;intext&#x2F;intitle 我们也行能够找到目标网站后台。</p><h3 id="（3）查看网站底部管理入口"><a href="#（3）查看网站底部管理入口" class="headerlink" title="（3）查看网站底部管理入口"></a>（3）查看网站底部管理入口</h3><p>我们可以查看网站页面底部和网站版权信息，看看会不会有网站后台入口和版权网站信息，如果有网站后台入口，我们便可以直接找到后台。</p><h3 id="（4）尝试请求不存在的错误路径"><a href="#（4）尝试请求不存在的错误路径" class="headerlink" title="（4）尝试请求不存在的错误路径"></a>（4）尝试请求不存在的错误路径</h3><p>通过这样的方式寻找有没有可能爆出一些网站路径，进一步发现网站后台。</p><h3 id="（5）在线网站指纹识别"><a href="#（5）在线网站指纹识别" class="headerlink" title="（5）在线网站指纹识别"></a>（5）在线网站指纹识别</h3><p>通过在线网站识别目标CMS指纹，进一步寻找目标后台。</p><h3 id="（6）猜测常见后台路径"><a href="#（6）猜测常见后台路径" class="headerlink" title="（6）猜测常见后台路径"></a>（6）猜测常见后台路径</h3><p>尝试在主站后方跟上一些常见路径，比如admin、login、system、admin&#x2F;login、admin_login等，有些网站可能会使用这些默认路径。</p><h3 id="（7）字典爆破后台路径"><a href="#（7）字典爆破后台路径" class="headerlink" title="（7）字典爆破后台路径"></a>（7）字典爆破后台路径</h3><p>通过使用御剑&#x2F;dirsearch等工具来扫描目标后台。</p><h3 id="（8）目标子域名寻找"><a href="#（8）目标子域名寻找" class="headerlink" title="（8）目标子域名寻找"></a>（8）目标子域名寻找</h3><p>有的网站后台可能是在子域名上面，所以不要忘记子域名的寻找。</p><h3 id="（9）js文件寻找"><a href="#（9）js文件寻找" class="headerlink" title="（9）js文件寻找"></a>（9）js文件寻找</h3><p>通过F12打开开发者工具，我们可以看见html代码中的一些js文件。除了框架自带的js文件，有些是网站后期开发的。对于这些文件，我们可以利用脚本去爬取js文件中的一些接口，然后对这些接口做检测，扩大我们的攻击面。</p><h1 id="三：寻找真实IP"><a href="#三：寻找真实IP" class="headerlink" title="三：寻找真实IP"></a>三：寻找真实IP</h1><h2 id="3-1-绕过CDN寻找真实IP"><a href="#3-1-绕过CDN寻找真实IP" class="headerlink" title="3.1 绕过CDN寻找真实IP"></a>3.1 绕过CDN寻找真实IP</h2><h3 id="（1）CDN简介"><a href="#（1）CDN简介" class="headerlink" title="（1）CDN简介"></a>（1）CDN简介</h3><p>CDN，即内容分发网络，主要解决因传输距离和不同运营商节点造成的网络速度性能低下的问题。</p><p>简单来说就是一组在不同运营商之间的对接节点上的高速缓存服务器，把用户经常访问的静态数据资源直接缓存在CDN服务器上，当用户再次请求时，会直接分发在离用户近的节点服务器上响应给用户，当用户有实际数据交互时，才会从远程web服务器上响应。</p><h3 id="（2）判断目标是否使用CDN"><a href="#（2）判断目标是否使用CDN" class="headerlink" title="（2）判断目标是否使用CDN"></a>（2）判断目标是否使用CDN</h3><ul><li>直接ping域名</li><li>在线网站 <a href="http://17ce.com/">http://17ce.com/</a> 对比ping出的结果，查看这些 IP 是否一致，如果都是一样，即有可能不存在CDN。如果IP地址很多，则大概率存在CDN。</li></ul><h3 id="（3）绕过CDN寻找真实IP方法"><a href="#（3）绕过CDN寻找真实IP方法" class="headerlink" title="（3）绕过CDN寻找真实IP方法"></a>（3）绕过CDN寻找真实IP方法</h3><ol><li>扫描子域名寻找真实IP</li><li>国外网站多地ping <a href="http://asm.ca.com/">http://asm.ca.com</a></li><li>查询历史域名解析记录<ul><li><a href="https://www.netcraft.com/">https://www.netcraft.com/</a></li><li><a href="https://x.threadbook.cn/">https://x.threadbook.cn/</a></li></ul></li><li>phpinfo信息泄露寻找真实IP，server_addr记录了服务器的真实IP。</li></ol><h1 id="四：工具型站点"><a href="#四：工具型站点" class="headerlink" title="四：工具型站点"></a>四：工具型站点</h1><p>在渗透中，我们会经常使用一些工具型网站来收集信息，利用这些工具型站点我们能够快速的得到一些有用信息。</p><h2 id="4-1-云悉"><a href="#4-1-云悉" class="headerlink" title="4.1 云悉"></a>4.1 云悉</h2><ul><li><a href="http://www.yunsee.cn/">http://www.yunsee.cn</a></li><li>利用这个网站来快速收集对方网站的指纹信息，域名信息，ip信息，子域名等。</li></ul><h2 id="4-2-在线指纹识别"><a href="#4-2-在线指纹识别" class="headerlink" title="4.2 在线指纹识别"></a>4.2 在线指纹识别</h2><ul><li><a href="http://whatweb.bugscaner.com/">http://whatweb.bugscaner.com/</a></li><li>利用这个网站来扫描对方网站指纹信息</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络 Http协议</title>
       <link href="/blog/48907d56.html/"/>
       <url>/blog/48907d56.html/</url>
@@ -588,7 +613,7 @@
       
       <categories>
           
-          <category> 网络安全 </category>
+          <category> 思科CCNA网络基础入门 </category>
           
       </categories>
       
