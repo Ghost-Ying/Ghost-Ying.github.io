@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-12-07T03:58:43.526Z</updated>
+  <updated>2022-12-11T07:33:11.037Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shell 脚本</title>
+    <link href="https://aiyingke.cn/blog/dc3000b8.html/"/>
+    <id>https://aiyingke.cn/blog/dc3000b8.html/</id>
+    <published>2022-12-11T06:51:02.000Z</published>
+    <updated>2022-12-11T07:33:11.037Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：脚本格式"><a href="#一：脚本格式" class="headerlink" title="一：脚本格式"></a>一：脚本格式</h1><h2 id="1-1-指定解析器"><a href="#1-1-指定解析器" class="headerlink" title="1.1 指定解析器"></a>1.1 指定解析器</h2><p>脚本以 <code> #!/bin/bash</code> 开头，指定使用bash解析脚本；</p><h2 id="1-2-新建-bash-脚本"><a href="#1-2-新建-bash-脚本" class="headerlink" title="1.2 新建 bash 脚本"></a>1.2 新建 bash 脚本</h2><ul><li>创建一个bash脚本，输出 hello world；</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# cat hello.txt </span><br><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;hello world&quot;</span><br></pre></td></tr></table></figure><h1 id="二：执行方式"><a href="#二：执行方式" class="headerlink" title="二：执行方式"></a>二：执行方式</h1><h2 id="2-1-采用-bash-或-sh-脚本的相对路径或绝对路径（不用赋予脚本-x-权限）"><a href="#2-1-采用-bash-或-sh-脚本的相对路径或绝对路径（不用赋予脚本-x-权限）" class="headerlink" title="2.1 采用 bash 或 sh + 脚本的相对路径或绝对路径（不用赋予脚本+x 权限）"></a>2.1 采用 bash 或 sh + 脚本的相对路径或绝对路径（不用赋予脚本+x 权限）</h2><h3 id="（1）sh-脚本的相对路径"><a href="#（1）sh-脚本的相对路径" class="headerlink" title="（1）sh + 脚本的相对路径"></a>（1）sh + 脚本的相对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# sh ./hello.txt </span><br><span class="line">hello world</span><br><span class="line">[root@hadoop100 shell]# sh hello.txt </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h3 id="（2）sh-脚本的绝对路径"><a href="#（2）sh-脚本的绝对路径" class="headerlink" title="（2）sh + 脚本的绝对路径"></a>（2）sh + 脚本的绝对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# pwd</span><br><span class="line">/root/RupertTears/shell</span><br><span class="line">[root@hadoop100 shell]# sh /root/RupertTears/shell/hello.txt </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h3 id="（3）bash-脚本的相对路径"><a href="#（3）bash-脚本的相对路径" class="headerlink" title="（3）bash + 脚本的相对路径"></a>（3）bash + 脚本的相对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# bash ./hello.txt </span><br><span class="line">hello world</span><br><span class="line">[root@hadoop100 shell]# bash hello.txt </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h3 id="（4）bash-脚本的绝对路径"><a href="#（4）bash-脚本的绝对路径" class="headerlink" title="（4）bash + 脚本的绝对路径"></a>（4）bash + 脚本的绝对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# pwd</span><br><span class="line">/root/RupertTears/shell</span><br><span class="line">[root@hadoop100 shell]# bash /root/RupertTears/shell/hello.txt </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h2 id="2-2-采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限-x）"><a href="#2-2-采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限-x）" class="headerlink" title="2.2 采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限+x）"></a>2.2 采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限+x）</h2><h3 id="（1）绝对路径"><a href="#（1）绝对路径" class="headerlink" title="（1）绝对路径"></a>（1）绝对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# pwd</span><br><span class="line">/root/RupertTears/shell</span><br><span class="line">[root@hadoop100 shell]# ls</span><br><span class="line">hello.txt</span><br><span class="line">[root@hadoop100 shell]# /root/RupertTears/shell/hello.txt</span><br><span class="line">-bash: /root/RupertTears/shell/hello.txt: 权限不够</span><br><span class="line">[root@hadoop100 shell]# chmod +x hello.txt </span><br><span class="line">[root@hadoop100 shell]# ll</span><br><span class="line">总用量 4</span><br><span class="line">-rwxr-xr-x. 1 root root 31 12月 11 14:56 hello.txt</span><br><span class="line">[root@hadoop100 shell]# /root/RupertTears/shell/hello.txt</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h3 id="（2）相对路径"><a href="#（2）相对路径" class="headerlink" title="（2）相对路径"></a>（2）相对路径</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# ./hello.txt </span><br><span class="line">hello world</span><br></pre></td></tr></table></figure><h2 id="2-3-在脚本的路径前加上“-”或者-source"><a href="#2-3-在脚本的路径前加上“-”或者-source" class="headerlink" title="2.3 在脚本的路径前加上“.”或者 source"></a>2.3 在脚本的路径前加上“.”或者 source</h2><h3 id="（1）新建脚本文件"><a href="#（1）新建脚本文件" class="headerlink" title="（1）新建脚本文件"></a>（1）新建脚本文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# cat test.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">A=97</span><br><span class="line">echo $A</span><br></pre></td></tr></table></figure><h3 id="（2）采用-bash-或-sh-脚本路径，执行脚本文件"><a href="#（2）采用-bash-或-sh-脚本路径，执行脚本文件" class="headerlink" title="（2）采用 bash 或 sh + 脚本路径，执行脚本文件"></a>（2）采用 bash 或 sh + 脚本路径，执行脚本文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# ll</span><br><span class="line">总用量 8</span><br><span class="line">-rwxr-xr-x. 1 root root 31 12月 11 14:56 hello.txt</span><br><span class="line">-rw-r--r--. 1 root root 25 12月 11 15:13 test.sh</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line"></span><br><span class="line">[root@hadoop100 shell]# bash test.sh </span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line"></span><br><span class="line">[root@hadoop100 shell]# sh test.sh </span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="（3）采用脚本的绝对路径或者相对路径，执行脚本文件"><a href="#（3）采用脚本的绝对路径或者相对路径，执行脚本文件" class="headerlink" title="（3）采用脚本的绝对路径或者相对路径，执行脚本文件"></a>（3）采用脚本的绝对路径或者相对路径，执行脚本文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# chmod +x test.sh </span><br><span class="line">[root@hadoop100 shell]# ll</span><br><span class="line">总用量 8</span><br><span class="line">-rwxr-xr-x. 1 root root 31 12月 11 14:56 hello.txt</span><br><span class="line">-rwxr-xr-x. 1 root root 25 12月 11 15:13 test.sh</span><br><span class="line">[root@hadoop100 shell]# ./test.sh </span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line"></span><br><span class="line">[root@hadoop100 shell]# pwd</span><br><span class="line">/root/RupertTears/shell</span><br><span class="line">[root@hadoop100 shell]# /root/RupertTears/shell/test.sh </span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="（4）采用-source-或-“-”-执行"><a href="#（4）采用-source-或-“-”-执行" class="headerlink" title="（4）采用 source 或 “.” 执行"></a>（4）采用 source 或 “.” 执行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# source test.sh </span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line">97</span><br><span class="line">[root@hadoop100 shell]# vim test.sh </span><br><span class="line">[root@hadoop100 shell]# cat test.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">A=99</span><br><span class="line">echo $A</span><br><span class="line">[root@hadoop100 shell]# . test.sh </span><br><span class="line">99</span><br><span class="line">[root@hadoop100 shell]# echo $A</span><br><span class="line">99</span><br></pre></td></tr></table></figure><h1 id="三：执行方式的区别"><a href="#三：执行方式的区别" class="headerlink" title="三：执行方式的区别"></a>三：执行方式的区别</h1><ul><li>采用 bash 或者 sh + 脚本路径执行，本质上是在当前的 shell 中，打开了一个子 shell 来执行脚本，bash 解析器来执行该脚本，所以脚本本身不需要执行权限；当脚本执行完毕后，子 shell 关闭，回到父 shell 中；</li><li>采用脚本的绝对路径或相对路径，本质上是脚本需要自己执行，所以需要执行权限；</li><li>采用 “.”或者 source 的方式，使脚本在当前的shell中执行，无需打开子 shell ！这就是为什么我们每次修改完 &#x2F;etc&#x2F;profile 文件后，需要 source 一下的原因。</li><li>开启子 shell 与不开启子 shell 的区别就在于环境变量的继承关系，若在子 shell 中设置当前变量，在父 shell 中是不可见的。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：脚本格式&quot;&gt;&lt;a href=&quot;#一：脚本格式&quot; class=&quot;headerlink&quot; title=&quot;一：脚本格式&quot;&gt;&lt;/a&gt;一：脚本格式&lt;/h1&gt;&lt;h2 id=&quot;1-1-指定解析器&quot;&gt;&lt;a href=&quot;#1-1-指定解析器&quot; class=&quot;headerlink</summary>
+      
+    
+    
+    
+    <category term="Shell" scheme="https://aiyingke.cn/categories/Shell/"/>
+    
+    
+    <category term="Shell" scheme="https://aiyingke.cn/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell 概述</title>
+    <link href="https://aiyingke.cn/blog/68a064f8.html/"/>
+    <id>https://aiyingke.cn/blog/68a064f8.html/</id>
+    <published>2022-12-10T03:56:58.000Z</published>
+    <updated>2022-12-10T05:24:18.952Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：概述"><a href="#一：概述" class="headerlink" title="一：概述"></a>一：概述</h1><ul><li>Shell 是一个命令行解释器，它接收应用程序或者用户命令，然后调用操作系统内核。</li><li>Shell 还是一个功能强大的编程语言，易编写、易调试、灵活性强。</li></ul><img src="/blog/68a064f8.html/image-20221210120049097.png" style="zoom:67%;"><h1 id="二：常识"><a href="#二：常识" class="headerlink" title="二：常识"></a>二：常识</h1><h2 id="2-1-Linux-提供的-Shell-解释器"><a href="#2-1-Linux-提供的-Shell-解释器" class="headerlink" title="2.1 Linux 提供的 Shell 解释器"></a>2.1 Linux 提供的 Shell 解释器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# cat /etc/shells </span><br><span class="line">/bin/sh</span><br><span class="line">/bin/bash</span><br><span class="line">/usr/bin/sh</span><br><span class="line">/usr/bin/bash</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/csh</span><br></pre></td></tr></table></figure><h2 id="2-2-bash-和-sh-的关系"><a href="#2-2-bash-和-sh-的关系" class="headerlink" title="2.2 bash 和 sh 的关系"></a>2.2 bash 和 sh 的关系</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# ls -l /bin/ | grep bash</span><br><span class="line">-rwxr-xr-x. 1 root root     964536 4月   1 2020 bash</span><br><span class="line">lrwxrwxrwx. 1 root root         10 12月  3 13:16 bashbug -&gt; bashbug-64</span><br><span class="line">-rwxr-xr-x. 1 root root       6964 4月   1 2020 bashbug-64</span><br><span class="line">lrwxrwxrwx. 1 root root          4 12月  3 13:16 sh -&gt; bash</span><br></pre></td></tr></table></figure><h2 id="2-3-Centos-默认解释器"><a href="#2-3-Centos-默认解释器" class="headerlink" title="2.3 Centos 默认解释器"></a>2.3 Centos 默认解释器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# echo $SHELL</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：概述&quot;&gt;&lt;a href=&quot;#一：概述&quot; class=&quot;headerlink&quot; title=&quot;一：概述&quot;&gt;&lt;/a&gt;一：概述&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Shell 是一个命令行解释器，它接收应用程序或者用户命令，然后调用操作系统内核。&lt;/li&gt;
+&lt;li&gt;Shell</summary>
+      
+    
+    
+    
+    <category term="Shell" scheme="https://aiyingke.cn/categories/Shell/"/>
+    
+    
+    <category term="Shell" scheme="https://aiyingke.cn/tags/Shell/"/>
+    
+  </entry>
   
   <entry>
     <title>网络安全 信息收集</title>
@@ -436,7 +486,7 @@
     <link href="https://aiyingke.cn/blog/e34058e3.html/"/>
     <id>https://aiyingke.cn/blog/e34058e3.html/</id>
     <published>2022-12-03T05:39:40.000Z</published>
-    <updated>2022-12-10T02:18:10.611Z</updated>
+    <updated>2022-12-10T03:42:53.086Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一：桌面"><a href="#一：桌面" class="headerlink" title="一：桌面"></a>一：桌面</h1><ul><li>新建文件夹</li><li>新建文本</li><li>修改桌面</li><li>打开终端</li><li>快捷键设置：super 相当于 windows键</li><li>修改屏幕分辨率</li></ul><h1 id="二：终端"><a href="#二：终端" class="headerlink" title="二：终端"></a>二：终端</h1><ul><li>修改终端打开字体</li><li>修改终端配色方案</li></ul><h1 id="三：常用快捷键"><a href="#三：常用快捷键" class="headerlink" title="三：常用快捷键"></a>三：常用快捷键</h1><ul><li>当前窗口全屏：Alt + F10</li><li>切换桌面系统：Ctrl + Alt + F1</li><li>切换命令行系统：Ctrl + Alt + F2<ul><li>F2~F6 均为命令行模式，多用户登录；</li></ul></li></ul>]]></content>
     
@@ -449,55 +499,6 @@
 &lt;li&gt;修改桌面&lt;/li&gt;
 &lt;li&gt;打开终端&lt;/li&gt;
 &lt;li</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://aiyingke.cn/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://aiyingke.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 安装</title>
-    <link href="https://aiyingke.cn/blog/6f1dea9.html/"/>
-    <id>https://aiyingke.cn/blog/6f1dea9.html/</id>
-    <published>2022-12-03T03:35:34.000Z</published>
-    <updated>2022-12-10T02:16:53.874Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一：下载"><a href="#一：下载" class="headerlink" title="一：下载"></a>一：下载</h1><h2 id="1-1-Linux-系统镜像下载"><a href="#1-1-Linux-系统镜像下载" class="headerlink" title="1.1 Linux 系统镜像下载"></a>1.1 Linux 系统镜像下载</h2><p>官方地址：<a href="https://www.centos.org/">The CentOS Project</a></p><h2 id="1-2-VMware-虚拟化平台下载"><a href="#1-2-VMware-虚拟化平台下载" class="headerlink" title="1.2 VMware 虚拟化平台下载"></a>1.2 VMware 虚拟化平台下载</h2><p>官方地址：<a href="https://www.vmware.com/">VMware - Delivering a Digital Foundation For Businesses</a></p><p>VMware WorkStation Pro：商用付费版本</p><p>VMware WorkStation Player：个人免费版本</p><h1 id="二：创建虚拟机"><a href="#二：创建虚拟机" class="headerlink" title="二：创建虚拟机"></a>二：创建虚拟机</h1><h2 id="2-1-CPU配置"><a href="#2-1-CPU配置" class="headerlink" title="2.1 CPU配置"></a>2.1 CPU配置</h2><ul><li>处理器数量：对应CPU插槽数量；</li><li>每个处理器的内核数量：一个CPU插槽上的CPU有几个处理核心；</li></ul><p>参考主机 任务管理器 参数设置：</p><p><img src="/blog/6f1dea9.html/image-20221203120359609.png"></p><ul><li>逻辑处理器：每个CPU内核通过超线程技术，可以模拟出2个逻辑处理器。</li></ul><h2 id="2-2-网络连接方式"><a href="#2-2-网络连接方式" class="headerlink" title="2.2 网络连接方式"></a>2.2 网络连接方式</h2><ul><li>桥接：将主机作为一个桥，使得创建的虚拟机与主机处于同等地位，共同连接同一个路由器下的网络。</li><li>NAT：将主机看做一个虚拟机的路由器，虚拟机借助主机与外部网络连通。</li></ul><h1 id="三：安装CentOS系统"><a href="#三：安装CentOS系统" class="headerlink" title="三：安装CentOS系统"></a>三：安装CentOS系统</h1><h2 id="3-1-启用虚拟化"><a href="#3-1-启用虚拟化" class="headerlink" title="3.1 启用虚拟化"></a>3.1 启用虚拟化</h2><p>在BIOS中开启虚拟化；</p><h2 id="3-2-挂载镜像"><a href="#3-2-挂载镜像" class="headerlink" title="3.2 挂载镜像"></a>3.2 挂载镜像</h2><p><img src="/blog/6f1dea9.html/image-20221203130557001.png"></p><h2 id="3-3-磁盘分区"><a href="#3-3-磁盘分区" class="headerlink" title="3.3 磁盘分区"></a>3.3 磁盘分区</h2><ul><li>创建引导分区：&#x2F;boot，必须位于该目录；1G即可；文件系统xfp；</li></ul><p>创建交换分区：swap，没有“&#x2F;”，单独设置硬盘的一块区域，作为一个扩展的内存。</p><ul><li>当内存用满的时候，我们此时还要开启另一个应用，内存会把当前未在使用的应用放入交换分区，空闲出空间，让我们启动新的应用，而不至于程序卡死。（虚拟内存）</li><li>实际内存的1倍或者2倍</li><li>文件系统：swap</li></ul><p>剩余空间分区：全部挂载至 “&#x2F;” 根目录下；</p><img src="/blog/6f1dea9.html/image-20221203131342655.png"><h2 id="3-4-网络及主机名"><a href="#3-4-网络及主机名" class="headerlink" title="3.4 网络及主机名"></a>3.4 网络及主机名</h2><p>修改主机名称；</p><p>开启以太网；</p><img src="/blog/6f1dea9.html/image-20221203131443676.png"><h2 id="3-5-创建用户"><a href="#3-5-创建用户" class="headerlink" title="3.5 创建用户"></a>3.5 创建用户</h2><img src="/blog/6f1dea9.html/image-20221203131508491.png"><img src="/blog/6f1dea9.html/image-20221203131642696.png"><h1 id="四：开机测试"><a href="#四：开机测试" class="headerlink" title="四：开机测试"></a>四：开机测试</h1><h2 id="4-1-桌面"><a href="#4-1-桌面" class="headerlink" title="4.1 桌面"></a>4.1 桌面</h2><img src="/blog/6f1dea9.html/image-20221203133153586.png" style="zoom:67%;"><h2 id="4-2-网络"><a href="#4-2-网络" class="headerlink" title="4.2 网络"></a>4.2 网络</h2><img src="/blog/6f1dea9.html/image-20221203133337906.png" style="zoom:67%;"><p>至此，Linux 系统安装就完成了，网络连接也可以正常使用！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一：下载&quot;&gt;&lt;a href=&quot;#一：下载&quot; class=&quot;headerlink&quot; title=&quot;一：下载&quot;&gt;&lt;/a&gt;一：下载&lt;/h1&gt;&lt;h2 id=&quot;1-1-Linux-系统镜像下载&quot;&gt;&lt;a href=&quot;#1-1-Linux-系统镜像下载&quot; class=&quot;head</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://aiyingke.cn/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://aiyingke.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 概述</title>
-    <link href="https://aiyingke.cn/blog/d7d0f9b9.html/"/>
-    <id>https://aiyingke.cn/blog/d7d0f9b9.html/</id>
-    <published>2022-12-01T16:55:57.000Z</published>
-    <updated>2022-12-10T02:15:52.569Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一：Linux-是什么？"><a href="#一：Linux-是什么？" class="headerlink" title="一：Linux 是什么？"></a>一：Linux 是什么？</h1><p>Linux 是一个操作系统（OS）</p><img src="/blog/d7d0f9b9.html/image-20221202010250119.png" style="zoom:50%;"><h1 id="二：Linux-的诞生"><a href="#二：Linux-的诞生" class="headerlink" title="二：Linux 的诞生"></a>二：Linux 的诞生</h1><img src="/blog/d7d0f9b9.html/image-20221202010332476.png" style="zoom: 67%;"><h1 id="三：Linux-与-Unix-的渊源"><a href="#三：Linux-与-Unix-的渊源" class="headerlink" title="三：Linux 与 Unix 的渊源"></a>三：Linux 与 Unix 的渊源</h1><p><img src="/blog/d7d0f9b9.html/image-20221202010434500.png"></p><ul><li>Dennis Ritchie：开发了C语言；</li><li>Linus Torvalds：开发了 Git 工具；</li><li>FreeBSD：开源协议限制较少，不要求需要全部公开源码，便于商业使用，Mac OS 系统也基于其开发而成。</li></ul><h1 id="四：GUN-x2F-Linux"><a href="#四：GUN-x2F-Linux" class="headerlink" title="四：GUN&#x2F;Linux"></a>四：GUN&#x2F;Linux</h1><img src="/blog/d7d0f9b9.html/image-20221202011012214.png" style="zoom:67%;"><ul><li>Richard Stallman：黑客大神，自由软件开拓者，GNU协议发起者与倡导者；GUN协议要求，基于其开发的应用程序都要公布源代码，用户友好性。</li><li>Linus Torvalds 写的是 Linux 的内核，内核搭配上外围应用（GUN提供）组成一个完整的操作系统。</li></ul><h1 id="五：Linux-发行版本"><a href="#五：Linux-发行版本" class="headerlink" title="五：Linux 发行版本"></a>五：Linux 发行版本</h1><img src="/blog/d7d0f9b9.html/image-20221202011436019.png" style="zoom:80%;"><h1 id="六：Linux-VS-Windows"><a href="#六：Linux-VS-Windows" class="headerlink" title="六：Linux VS Windows"></a>六：Linux VS Windows</h1><p><img src="/blog/d7d0f9b9.html/image-20221202011609137.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一：Linux-是什么？&quot;&gt;&lt;a href=&quot;#一：Linux-是什么？&quot; class=&quot;headerlink&quot; title=&quot;一：Linux 是什么？&quot;&gt;&lt;/a&gt;一：Linux 是什么？&lt;/h1&gt;&lt;p&gt;Linux 是一个操作系统（OS）&lt;/p&gt;
-&lt;img src</summary>
       
     
     
