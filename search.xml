@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hadoop 大数据概论</title>
+      <link href="/blog/d983fcd2.html/"/>
+      <url>/blog/d983fcd2.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：大数据概念"><a href="#一：大数据概念" class="headerlink" title="一：大数据概念"></a>一：大数据概念</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><ul><li>大数据（Big Data）：指无法在一定时间范围内用常规软件工具进行捕捉、管理和 处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化 能力的海量、高增长率和多样化的信息资产。</li><li>大数据主要解决，海量数据的<code>采集</code>、<code>存储</code>和<code>分析计算</code>问题。</li></ul><h2 id="1-2-存储单位"><a href="#1-2-存储单位" class="headerlink" title="1.2 存储单位"></a>1.2 存储单位</h2><ul><li><p>按顺序给出数据存储单位：bit、Byte、 KB、MB、GB、TB、PB、EB、ZB、YB、 BB、NB、DB。</p></li><li><p>1Byte &#x3D; 8bit 1K &#x3D; 1024Byte 1MB &#x3D; 1024K 1G &#x3D; 1024M 1T &#x3D; 1024G 1P &#x3D; 1024T</p></li></ul><h1 id="二：大数据特点"><a href="#二：大数据特点" class="headerlink" title="二：大数据特点"></a>二：大数据特点</h1><h2 id="2-1-Volume（大量）"><a href="#2-1-Volume（大量）" class="headerlink" title="2.1 Volume（大量）"></a>2.1 Volume（大量）</h2><p>截至目前，人类生产的所有印刷材料的数据量是200PB，而历史上全人类总共 说过的话的数据量大约是5EB。当前，典型个人计算机硬盘的容量为TB量级，而 一些大企业的数据量已经接近EB量级。</p><h2 id="2-2-Velocity（高速）"><a href="#2-2-Velocity（高速）" class="headerlink" title="2.2 Velocity（高速）"></a>2.2 Velocity（高速）</h2><p>这是大数据区分于传统数据挖掘的最显著特征。根据IDC的“数字宇宙”的报告，预计到2025年，全球数据使用量将达到163ZB。在如此海量的数据面前，处理数据的效率就是企业的生命。 </p><ul><li>天猫双十一：<ul><li>2017年3分01秒，天猫交易额超过100亿 </li><li>2020年96秒，天猫交易额超过100亿</li></ul></li></ul><h2 id="2-3-Variety（多样）"><a href="#2-3-Variety（多样）" class="headerlink" title="2.3 Variety（多样）"></a>2.3 Variety（多样）</h2><ul><li>这种类型的多样性也让数据被分为<code>结构化数据</code>和<code>非结构化数据</code>。</li><li>相对于以往便于存储的 以数据库&#x2F;文本为主的结构化数据，非结构化数据越来越多，包括网络日志、音频、视频、图 片、地理位置信息等，这些多类型的数据对数据的处理能力提出了更高要求。</li></ul><h2 id="2-4-Value（低价值密度）"><a href="#2-4-Value（低价值密度）" class="headerlink" title="2.4 Value（低价值密度）"></a>2.4 Value（低价值密度）</h2><ul><li>价值密度的高低与数据总量的大小成反比。</li><li>如何快速对有价值数 据“提纯”成为目前大数据背景下待解决的难题。</li></ul><h1 id="三：大数据应用场景"><a href="#三：大数据应用场景" class="headerlink" title="三：大数据应用场景"></a>三：大数据应用场景</h1><ul><li>抖音：推荐的都是你喜欢的视频</li><li>电商站内广告推荐：给用户推荐可能喜欢的商品</li><li>零售：分析用户消费习惯，为用户购买商品提供方便，从而提升商品销量。 经典案例，纸尿布+啤酒。</li><li>物流仓储：京东物流，上午下单下午送达、下午下单次日上午送达；</li><li>保险：海量数据挖掘及风险预测，助力保险 行业精准营销，提升精细化定价能力。</li><li>金融：多维度体现用户特征，帮助金融机构 推荐优质客户，防范欺诈风险。</li><li>房产：大数据全面助力房地产行业，打造精 准投策与营销，选出更合适的地，建造更合适的楼， 卖给更合适的人。</li><li>人工智能 + 5G + 物联网 + 虚拟与现实</li></ul><h1 id="四：大数据发展前景"><a href="#四：大数据发展前景" class="headerlink" title="四：大数据发展前景"></a>四：大数据发展前景</h1><ul><li>党的十九大提出“推动互联网、大数据、人工智能和实体经济深度融合”。</li><li>2020年初，中央推出34万亿“新基建”投资计划</li></ul><p><img src="/blog/d983fcd2.html/image-20221213010047791.png"></p><ul><li>2020年是5G的元年，国家在大力铺设5G设备，2021年就是5G手机应用的开 始，也是大数据要爆发的1年。5G带来的是每秒钟10g的数据，会给每家公司都 带来海量的数据。那么传统的Java工具根本解决不了海量数据的存储。就更不用 说海量数据的计算了。</li><li>人才紧缺、竞争压力小<ul><li>有句话叫：“选择大于努力”选择一个好的方向，少奋斗十年。是否记得 国家在2017年才开设大数据课程，当时是北京大学、人民大学等25所高校开设 第一批大数据课程。</li></ul></li><li>Boss直聘网站上的部分大数据工程师薪资水平</li></ul><h1 id="五：大数据部门业务流程分析"><a href="#五：大数据部门业务流程分析" class="headerlink" title="五：大数据部门业务流程分析"></a>五：大数据部门业务流程分析</h1><p><img src="/blog/d983fcd2.html/image-20221213010323402.png"></p><h1 id="六：大数据部门内部组织结构"><a href="#六：大数据部门内部组织结构" class="headerlink" title="六：大数据部门内部组织结构"></a>六：大数据部门内部组织结构</h1><p><img src="/blog/d983fcd2.html/image-20221213010352060.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Shell 应用案例</title>
       <link href="/blog/f2380f63.html/"/>
       <url>/blog/f2380f63.html/</url>
