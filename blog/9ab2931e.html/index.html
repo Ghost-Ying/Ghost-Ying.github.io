@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>计算机网络基础 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：网络是什么？将地理位置不同的多台计算机，通过通信线路连接起来，在网络操作系统，网络管理软件及网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统。 二：网络的类型2.1 局域网（LAN）LAN（local area network）：一组终端设备和由共同的组织管理的用户。 2.2 广域网（WAN）WAN（wide area network）：连接分布于不同地理位置的 LAN。 2.3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络基础">
+<meta property="og:url" content="https://aiyingke.cn/blog/9ab2931e.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一：网络是什么？将地理位置不同的多台计算机，通过通信线路连接起来，在网络操作系统，网络管理软件及网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统。 二：网络的类型2.1 局域网（LAN）LAN（local area network）：一组终端设备和由共同的组织管理的用户。 2.2 广域网（WAN）WAN（wide area network）：连接分布于不同地理位置的 LAN。 2.3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg">
+<meta property="article:published_time" content="2022-11-29T00:53:00.000Z">
+<meta property="article:modified_time" content="2022-12-06T05:04:22.021Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/9ab2931e.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-06 13:04:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-29T00:53:00.000Z" title="发表于 2022-11-29 08:53:00">2022-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-06T05:04:22.021Z" title="更新于 2022-12-06 13:04:22">2022-12-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%80%9D%E7%A7%91CCNA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">思科CCNA网络基础入门</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一：网络是什么？"><a href="#一：网络是什么？" class="headerlink" title="一：网络是什么？"></a>一：网络是什么？</h1><p>将地理位置不同的多台计算机，通过通信线路连接起来，在网络操作系统，网络管理软件及网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统。</p>
+<h1 id="二：网络的类型"><a href="#二：网络的类型" class="headerlink" title="二：网络的类型"></a>二：网络的类型</h1><h2 id="2-1-局域网（LAN）"><a href="#2-1-局域网（LAN）" class="headerlink" title="2.1 局域网（LAN）"></a>2.1 局域网（LAN）</h2><p>LAN（local area network）：一组终端设备和由共同的组织管理的用户。</p>
+<h2 id="2-2-广域网（WAN）"><a href="#2-2-广域网（WAN）" class="headerlink" title="2.2 广域网（WAN）"></a>2.2 广域网（WAN）</h2><p>WAN（wide area network）：连接分布于不同地理位置的 LAN。</p>
+<h2 id="2-3-LAN-与-WAN-的关系"><a href="#2-3-LAN-与-WAN-的关系" class="headerlink" title="2.3 LAN 与 WAN 的关系"></a>2.3 LAN 与 WAN 的关系</h2><p>局域网与广域网的概念是相对的，弹性的，针对不同的场景，所指定的网络可能即是局域网、又是广域网。</p>
+<h1 id="三：常见的网络设备"><a href="#三：常见的网络设备" class="headerlink" title="三：常见的网络设备"></a>三：常见的网络设备</h1><ul>
+<li>交换机（switch）</li>
+<li>路由器（router）</li>
+</ul>
+<h1 id="四：OSI-参考模型"><a href="#四：OSI-参考模型" class="headerlink" title="四：OSI 参考模型"></a>四：OSI 参考模型</h1><ul>
+<li>20世纪70年代后期，ISO创建OSI参考模型，希望不同供应商的网络能够相互协同工作。</li>
+<li>OSI：开放系统互联（open system interconnection）</li>
+<li>ISO：国际化标准组织（International organization for standardization）</li>
+</ul>
+<h1 id="五：为什么要进行分层"><a href="#五：为什么要进行分层" class="headerlink" title="五：为什么要进行分层"></a>五：为什么要进行分层</h1><ul>
+<li>分层的优点<ul>
+<li>促进标准化工作，允许各个供应商进行开发；</li>
+<li>各层间相互独立，把网络操作分成低复杂性单元</li>
+<li>灵活性好，某一层变换不会影响到别层，设计者可专心设计和开发模块功能。</li>
+</ul>
+</li>
+</ul>
+<h1 id="六：OSI-amp-TCP-x2F-IP"><a href="#六：OSI-amp-TCP-x2F-IP" class="headerlink" title="六：OSI &amp; TCP&#x2F;IP"></a>六：OSI &amp; TCP&#x2F;IP</h1><h2 id="OSI-参考模型"><a href="#OSI-参考模型" class="headerlink" title="OSI 参考模型"></a>OSI 参考模型</h2><ul>
+<li>物理层</li>
+<li>链路层</li>
+<li>网络层</li>
+<li>传输层</li>
+<li>会话层</li>
+<li>表示层</li>
+<li>应用层</li>
+</ul>
+<h2 id="TCP-x2F-IP-协议"><a href="#TCP-x2F-IP-协议" class="headerlink" title="TCP&#x2F;IP 协议"></a>TCP&#x2F;IP 协议</h2><ul>
+<li>网络接口层</li>
+<li>网络互联层</li>
+<li>传输层</li>
+<li>应用层</li>
+</ul>
+<h1 id="七：物理层"><a href="#七：物理层" class="headerlink" title="七：物理层"></a>七：物理层</h1><ul>
+<li>物理层的主要作用是产生并检测电压发送和接收带有数据的电气信号。</li>
+<li>物理层不是提供数据的纠错服务的，但是在物理层上能对数据的传输速度作一定的控制，并能监测数据的出错率。</li>
+<li>在物理层传输电气信号的载体我们称之为位流或者比特流。</li>
+</ul>
+<h2 id="物理层设备"><a href="#物理层设备" class="headerlink" title="物理层设备"></a>物理层设备</h2><ul>
+<li>双绞线（twisted pair）：又两根具有绝缘保护层的铜导线相互缠绕而成。<ul>
+<li>屏蔽双绞线（STP）：shielded twisted pair</li>
+<li>非屏蔽双绞线（UTP）：unshielde twisted pair</li>
+<li>区别：物理结构上，屏蔽双绞线比非屏蔽双绞线多了全屏蔽层（和&#x2F;或）线对屏蔽层，通过屏蔽的方式，减少了衰减和噪音，而提供了更加干净的电子信号，和更长的电缆长度，与此同时带来的是更加昂贵的价格和重量，且不易安装。</li>
+</ul>
+</li>
+<li>集线器<ul>
+<li>又称Hub，中心的意思。主要功能是对接收到的信号进行再生整形和放大，以扩大网络的传输距离，同时把所有的节点集中在以它为中心的节点上。</li>
+</ul>
+</li>
+<li>转换器<ul>
+<li>converter，将一种信号转换成另一种信号的装置。</li>
+<li>网络中常见的数模转换。</li>
+</ul>
+</li>
+<li>中继器<ul>
+<li>RP repeater，适用于完全相同的两个网络互联，主要用于对数据信号的重新发送或者转发，来扩大网络传输距离。</li>
+<li>在局域网环境下用来延长网络距离，但其属于网络互联设备。在对线路上的信号具有放大再生的功能，用于扩展局域网网段长度（仅连接相同的局域网网段）。</li>
+<li>常用于两个网络节点之间物理信号的双向转发工作。</li>
+</ul>
+</li>
+</ul>
+<h1 id="八：数据链路层"><a href="#八：数据链路层" class="headerlink" title="八：数据链路层"></a>八：数据链路层</h1><ul>
+<li>数据链路层决定数据通讯的机制，差错检测</li>
+<li>提供对网络层的服务</li>
+<li>合成传输的帧数据</li>
+</ul>
+<h2 id="数据链路层设备"><a href="#数据链路层设备" class="headerlink" title="数据链路层设备"></a>数据链路层设备</h2><ul>
+<li>交换机<ul>
+<li>switch，一种用于电（光）信号转发的网络设备。</li>
+</ul>
+</li>
+<li>网桥<ul>
+<li>bridge，早期的两端口二层网络设备</li>
+<li>网桥的两个端口分别有一条独立的交换信道，不是共享一条背板总线，可以隔离冲突域。</li>
+</ul>
+</li>
+<li>网卡<ul>
+<li>network interface controller，被设计用于允许计算机在计算机网络上进行通讯的计算机硬件。</li>
+<li>拥有独一无二的MAC（media access control address，媒体存取控制位址）地址。</li>
+<li>以太网地址（ethernet address）或者物理地址（physical address）</li>
+</ul>
+</li>
+</ul>
+<h1 id="九：MAC-地址"><a href="#九：MAC-地址" class="headerlink" title="九：MAC 地址"></a>九：MAC 地址</h1><p>Mac（media access control address），标识硬件可达网络的唯一地址符。</p>
+<p>Mac 地址的结构：</p>
+<ul>
+<li>由48位二进制数组成，通常表示为12个16进制数</li>
+<li>前24位是标准组织（IEEE）制定的，后24位是厂家自己制定的节点标识符</li>
+<li>例如：00-1C-25-91-65-48<ul>
+<li>00-1C-25：<ul>
+<li>24比特，供应商标识</li>
+<li>对于目的地址：<ul>
+<li>0 物理地址（单播地址）</li>
+<li>1 逻辑地址（组播地址）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>91-65-48：<ul>
+<li>供应商对网卡的唯一编号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="十：网络层"><a href="#十：网络层" class="headerlink" title="十：网络层"></a>十：网络层</h1><ul>
+<li>负责为网络设备提供逻辑地址</li>
+<li>负责数据从源端发送到目的端</li>
+<li>负责数据传输的寻径和转发</li>
+</ul>
+<h1 id="十一：应用层"><a href="#十一：应用层" class="headerlink" title="十一：应用层"></a>十一：应用层</h1><ul>
+<li>应用层的作用主要是为应用软件提供接口，从而使得应用程序能够使用网络服务。</li>
+<li>http，ftp，telnet，dns，smtp…</li>
+</ul>
+<h2 id="常见端口"><a href="#常见端口" class="headerlink" title="常见端口"></a>常见端口</h2><ul>
+<li>80：http</li>
+<li>21：ftp</li>
+<li>23：telnet</li>
+<li>25：smtp</li>
+<li>53：dns</li>
+<li>69：tftp</li>
+<li>161：snmp</li>
+<li>rip：520</li>
+</ul>
+<h1 id="十二：传输层"><a href="#十二：传输层" class="headerlink" title="十二：传输层"></a>十二：传输层</h1><ul>
+<li>传输层负责建立端到端的连接，负责数据在端到端之间的传输</li>
+<li>传输层通过端口号区分上层服务</li>
+</ul>
+<h1 id="十三：TCP-与-UDP-的区别"><a href="#十三：TCP-与-UDP-的区别" class="headerlink" title="十三：TCP 与 UDP 的区别"></a>十三：TCP 与 UDP 的区别</h1><ul>
+<li>传输控制协议（TCP，transmission control protocol）<ul>
+<li>面向连接</li>
+<li>可靠传输</li>
+<li>流控及窗口机制</li>
+<li>使用TCP的应用<ul>
+<li>web浏览器</li>
+<li>电子邮件</li>
+<li>文件传输程序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用户数据报协议（UDP，user datagram protocol）<ul>
+<li>无连接</li>
+<li>不可靠传输</li>
+<li>尽力而为的传输</li>
+<li>使用 UDP 的应用<ul>
+<li>域名系统（DNS，domain name system）</li>
+<li>视频流</li>
+<li>IP语音</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="十四：数据传输过程"><a href="#十四：数据传输过程" class="headerlink" title="十四：数据传输过程"></a>十四：数据传输过程</h1><p>首先，客户端应用程序产生数据，形成 payload 有效载荷。</p>
+<p>传输层接受到应用层数据后，将其加封装成 segment（片段），成为其头部。</p>
+<p>网络层接受到传输层的数据后，将其再次加封装成 packet（包），成为其头部。</p>
+<p>网络接口层接收到网络层的数据后，将其再次加封装成为 frame（帧），成为其头部。</p>
+<p>在数据进行网络传递过程中，会经过网络设备，如进过路由器时，路由器会将其解封装至网络层，再为其进行重新加封装 packet，转发数据，直至服务器接收。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/9ab2931e.html/">https://aiyingke.cn/blog/9ab2931e.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/7c0df4a5.html/"><img class="prev-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PNETLab 模拟器</div></div></a></div><div class="next-post pull-right"><a href="/blog/312e3d12.html/"><img class="next-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">信息收集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/48907d56.html/" title="计算机网络 Http协议"><img class="cover" src="/img/jinx.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-06</div><div class="title">计算机网络 Http协议</div></div></a></div><div><a href="/blog/481361ad.html/" title="ARP 协议"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-01</div><div class="title">ARP 协议</div></div></a></div><div><a href="/blog/d18d3c00.html/" title="静态路由协议"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-01</div><div class="title">静态路由协议</div></div></a></div><div><a href="/blog/d1b25a9b.html/" title="IP地址及子网掩码划分"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-30</div><div class="title">IP地址及子网掩码划分</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%EF%BC%9A%E7%BD%91%E7%BB%9C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一：网络是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二：网络的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%88LAN%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 局域网（LAN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%B9%BF%E5%9F%9F%E7%BD%91%EF%BC%88WAN%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 广域网（WAN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-LAN-%E4%B8%8E-WAN-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 LAN 与 WAN 的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87"><span class="toc-number">3.</span> <span class="toc-text">三：常见的网络设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9AOSI-%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">四：OSI 参考模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%88%86%E5%B1%82"><span class="toc-number">5.</span> <span class="toc-text">五：为什么要进行分层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%EF%BC%9AOSI-amp-TCP-x2F-IP"><span class="toc-number">6.</span> <span class="toc-text">六：OSI &amp; TCP&#x2F;IP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI-%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">OSI 参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-x2F-IP-%E5%8D%8F%E8%AE%AE"><span class="toc-number">6.2.</span> <span class="toc-text">TCP&#x2F;IP 协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%EF%BC%9A%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">7.</span> <span class="toc-text">七：物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E8%AE%BE%E5%A4%87"><span class="toc-number">7.1.</span> <span class="toc-text">物理层设备</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">8.</span> <span class="toc-text">八：数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E8%AE%BE%E5%A4%87"><span class="toc-number">8.1.</span> <span class="toc-text">数据链路层设备</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%EF%BC%9AMAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">9.</span> <span class="toc-text">九：MAC 地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">10.</span> <span class="toc-text">十：网络层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%EF%BC%9A%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">11.</span> <span class="toc-text">十一：应用层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%AB%AF%E5%8F%A3"><span class="toc-number">11.1.</span> <span class="toc-text">常见端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">12.</span> <span class="toc-text">十二：传输层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%EF%BC%9ATCP-%E4%B8%8E-UDP-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">13.</span> <span class="toc-text">十三：TCP 与 UDP 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%EF%BC%9A%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B"><span class="toc-number">14.</span> <span class="toc-text">十四：数据传输过程</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/854ee684.html/" title="HDFS DataNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS DataNode"/></a><div class="content"><a class="title" href="/blog/854ee684.html/" title="HDFS DataNode">HDFS DataNode</a><time datetime="2022-12-15T08:01:23.000Z" title="发表于 2022-12-15 16:01:23">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS NameNode和SecondaryNameNode"/></a><div class="content"><a class="title" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode">HDFS NameNode和SecondaryNameNode</a><time datetime="2022-12-15T07:21:25.000Z" title="发表于 2022-12-15 15:21:25">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b08a5f1f.html/" title="HDFS 读写流程"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS 读写流程"/></a><div class="content"><a class="title" href="/blog/b08a5f1f.html/" title="HDFS 读写流程">HDFS 读写流程</a><time datetime="2022-12-15T05:53:12.000Z" title="发表于 2022-12-15 13:53:12">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/addda9af.html/" title="HDFS API操作"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS API操作"/></a><div class="content"><a class="title" href="/blog/addda9af.html/" title="HDFS API操作">HDFS API操作</a><time datetime="2022-12-15T01:54:22.000Z" title="发表于 2022-12-15 09:54:22">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/d3bc9b59.html/" title="HDFS shell操作"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS shell操作"/></a><div class="content"><a class="title" href="/blog/d3bc9b59.html/" title="HDFS shell操作">HDFS shell操作</a><time datetime="2022-12-14T10:37:15.000Z" title="发表于 2022-12-14 18:37:15">2022-12-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

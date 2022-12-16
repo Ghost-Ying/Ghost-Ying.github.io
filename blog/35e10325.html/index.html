@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>网络安全概述 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：什么是黑客？电影：《我是谁：没有绝对安全的系统》 黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。  黑帽黑客   专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。   白帽黑客   指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全概述">
+<meta property="og:url" content="https://aiyingke.cn/blog/35e10325.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一：什么是黑客？电影：《我是谁：没有绝对安全的系统》 黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。  黑帽黑客   专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。   白帽黑客   指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg">
+<meta property="article:published_time" content="2022-11-25T20:42:36.000Z">
+<meta property="article:modified_time" content="2022-12-06T05:04:22.019Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="网安入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/35e10325.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络安全概述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-06 13:04:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络安全概述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-25T20:42:36.000Z" title="发表于 2022-11-26 04:42:36">2022-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-06T05:04:22.019Z" title="更新于 2022-12-06 13:04:22">2022-12-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="网络安全概述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一：什么是黑客？"><a href="#一：什么是黑客？" class="headerlink" title="一：什么是黑客？"></a>一：什么是黑客？</h1><p>电影：《我是谁：没有绝对安全的系统》</p>
+<p>黑客（hacker）：指的是在信息安全里，能够自由的出入对方系统，擅长IT技术的电脑高手。</p>
+<ul>
+<li><p>黑帽黑客</p>
+</li>
+<li><ul>
+<li>专门研究病毒木马、研究操作系统，寻找漏洞，并且以个人意志为出发点，，攻击网络或者计算机，利用漏洞为自己牟利或者破坏别人的系统、数据等。</li>
+</ul>
+</li>
+<li><p>白帽黑客</p>
+</li>
+<li><ul>
+<li>指那些专门研究或者从事网络计算机技术防御的人，他们通常受雇于各大公司，是维护世界网络、计算机安全的主要力量。很多白帽受雇于公司，对产品进行模拟黑客攻击，以检测产品的可靠性。</li>
+</ul>
+</li>
+<li><p>红客</p>
+</li>
+<li><ul>
+<li>指维护国家利益，不利用网络技术入侵自己国家电脑，而是“维护正义”，为自己国家争光的黑客。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二：法律法规"><a href="#二：法律法规" class="headerlink" title="二：法律法规"></a>二：法律法规</h1><p>中华人民共和国刑法：</p>
+<ul>
+<li>第285条：违反国家规定，侵入国家事务、国防建设、尖端科学技术领域的计算机信息系统的，处三年以下有期徒刑或者拘役。</li>
+<li>第286条：违反国家规定，对计算机信息系统功能进行删除、修改、增加、干扰，造成计算机信息系统不能正常运行，后果严重的，处五年以下有期徒刑或者拘役：后果特别严重的，处五年以上有期徒刑。</li>
+</ul>
+<h1 id="三：渗透测试"><a href="#三：渗透测试" class="headerlink" title="三：渗透测试"></a>三：渗透测试</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>通过模拟恶意黑客的攻击方式，同时是在授权情况下对目标系统进行安全性测试和评估的过程。</p>
+<p>重点是测试，是过程，而不是不计后果的攻击或测试防御，它是一套科学流程，不局限于某一工具或者技巧的运用。</p>
+<p>很多白帽子在各大公司从事的工作便是web渗透测试。</p>
+<h2 id="3-2-流程"><a href="#3-2-流程" class="headerlink" title="3.2 流程"></a>3.2 流程</h2><p>确定目标👉信息收集👉漏洞探测👉漏洞利用，获取webshell👉内网渗透👉漏洞验证与修复👉撰写渗透测试报告</p>
+<ul>
+<li>第一步：确定要渗透的目标，也就是选择要测试的目标网站。</li>
+<li>第二步：收集目标网站的相关信息，比如操作系统，数据库，端口服务，所使用的脚本语言，子域名以及CMS系统等等。</li>
+<li>第三步：漏洞探测。利用收集到的信息，寻找目标的脆弱点。</li>
+<li>第四步：漏洞利用，找到对方系统的弱点后，进一步攻克对方系统，拿到目标系统的权限。</li>
+<li>第五步：渗透目标内网的其他主机，把获得的目标机器权限，当作跳板，进一步攻克内网其他主机。</li>
+<li>第六步：验证漏洞与修复漏洞。</li>
+<li>第七步：清除渗透痕迹，撰写测试报告。</li>
+</ul>
+<h1 id="四：网站运行原理"><a href="#四：网站运行原理" class="headerlink" title="四：网站运行原理"></a>四：网站运行原理</h1><h2 id="4-1-网站运行原理"><a href="#4-1-网站运行原理" class="headerlink" title="4.1 网站运行原理"></a>4.1 网站运行原理</h2><p>服务器的操作系统👉中间件👉数据库👉代码👉静态资源</p>
+<ul>
+<li>网站搭建在服务器的操作系统之上，例如windows、linux；</li>
+<li>网站的搭建需要中间件的支撑，例如：tomcat、nginx、apache software foundation；</li>
+<li>网站的搭建需要数据库存放数据，例如：MySQL、SQL Server；</li>
+<li>网站页面是由代码编写的，例如：PHP、JSP、ASP（动态服务器页面）；</li>
+<li>网站页面由部分静态资源组成，例如：html、css、JavaScript；</li>
+</ul>
+<h2 id="4-2-网站运行流程"><a href="#4-2-网站运行流程" class="headerlink" title="4.2 网站运行流程"></a>4.2 网站运行流程</h2><ul>
+<li>第一步：浏览器输入网址，进行网站访问，通过DNS解析域名，找到服务器IP地址</li>
+<li>第二步：发送请求指服务器</li>
+<li>第三步：服务器接收到请求，并响应请求返回给浏览器</li>
+</ul>
+<h1 id="五：环境准备"><a href="#五：环境准备" class="headerlink" title="五：环境准备"></a>五：环境准备</h1><h2 id="5-1-VM-WARE"><a href="#5-1-VM-WARE" class="headerlink" title="5.1 VM WARE"></a>5.1 VM WARE</h2><p>VM WARE 是一款虚拟化软件，利用它，我们能够在自己物理机的 windows 系统上再去安装其他的操作系统；</p>
+<p>官方Windosws版本： </p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.vmware.com/go/getworkstation-win">https://www.vmware.com/go/getworkstation-win</a></strong></p>
+<p>使用激活码进行激活服务；</p>
+<h2 id="5-2-kali-linux"><a href="#5-2-kali-linux" class="headerlink" title="5.2 kali linux"></a>5.2 kali linux</h2><p>官方镜像源下载：</p>
+<p><a target="_blank" rel="noopener" href="http://old.kali.org/kali-images/kali-2022.3/">http://old.kali.org/kali-images/kali-2022.3/</a></p>
+<p>阿里镜像：</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA">https://mirrors.aliyun.com/kali-images/kali-2022.3/?spm=a2c6h.25603864.0.0.53e4571cpseXgA</a></p>
+<h2 id="5-3-VMware-tools"><a href="#5-3-VMware-tools" class="headerlink" title="5.3 VMware-tools"></a>5.3 VMware-tools</h2><p>方便操作虚拟机，可以实现复制粘贴功能；</p>
+<ol>
+<li>挂载安装包</li>
+<li>复制安装包到tmp目录下方</li>
+<li>进入tmp目录</li>
+<li>解压安装包</li>
+<li>执行安装脚本</li>
+<li>安装完成过后重启kali</li>
+</ol>
+<h2 id="5-4-kali-APT源"><a href="#5-4-kali-APT源" class="headerlink" title="5.4 kali APT源"></a>5.4 kali APT源</h2><p>kail 的 APT 源就相当于一个软件包管理器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开配置文件</span></span><br><span class="line">leafpad /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>通过 leafpad 打开源的配置文件 sources.list</li>
+<li>复制粘贴中科大源进去</li>
+<li>ctrl + s 保存并退出</li>
+<li>输入命令 apt-get update</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　kali 写入时出现 E121：无法打开并写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">　解决方案</span></span><br><span class="line">1.保存的时候使用：ｗ !sudo tee %</span><br><span class="line">2.输入密码即可 </span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/35e10325.html/">https://aiyingke.cn/blog/35e10325.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E5%AE%89%E5%85%A5%E9%97%A8/">网安入门</a></div><div class="post_share"><div class="social-share" data-image="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/a6c19022.html/"><img class="prev-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hydra 使用教程</div></div></a></div><div class="next-post pull-right"><a href="/blog/cf508180.html/"><img class="next-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Nmap 使用教程</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E9%BB%91%E5%AE%A2%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一：什么是黑客？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9A%E6%B3%95%E5%BE%8B%E6%B3%95%E8%A7%84"><span class="toc-number">2.</span> <span class="toc-text">二：法律法规</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">三：渗透测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%B5%81%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9A%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">四：网站运行原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 网站运行原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 网站运行流程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">5.</span> <span class="toc-text">五：环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-VM-WARE"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 VM WARE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-kali-linux"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 kali linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-VMware-tools"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 VMware-tools</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-kali-APT%E6%BA%90"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 kali APT源</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/854ee684.html/" title="HDFS DataNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS DataNode"/></a><div class="content"><a class="title" href="/blog/854ee684.html/" title="HDFS DataNode">HDFS DataNode</a><time datetime="2022-12-15T08:01:23.000Z" title="发表于 2022-12-15 16:01:23">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS NameNode和SecondaryNameNode"/></a><div class="content"><a class="title" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode">HDFS NameNode和SecondaryNameNode</a><time datetime="2022-12-15T07:21:25.000Z" title="发表于 2022-12-15 15:21:25">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b08a5f1f.html/" title="HDFS 读写流程"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS 读写流程"/></a><div class="content"><a class="title" href="/blog/b08a5f1f.html/" title="HDFS 读写流程">HDFS 读写流程</a><time datetime="2022-12-15T05:53:12.000Z" title="发表于 2022-12-15 13:53:12">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/addda9af.html/" title="HDFS API操作"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS API操作"/></a><div class="content"><a class="title" href="/blog/addda9af.html/" title="HDFS API操作">HDFS API操作</a><time datetime="2022-12-15T01:54:22.000Z" title="发表于 2022-12-15 09:54:22">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/d3bc9b59.html/" title="HDFS shell操作"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS shell操作"/></a><div class="content"><a class="title" href="/blog/d3bc9b59.html/" title="HDFS shell操作">HDFS shell操作</a><time datetime="2022-12-14T10:37:15.000Z" title="发表于 2022-12-14 18:37:15">2022-12-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
