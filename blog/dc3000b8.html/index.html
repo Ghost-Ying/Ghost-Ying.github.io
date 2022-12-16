@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 脚本 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：脚本格式1.1 指定解析器脚本以  #!&#x2F;bin&#x2F;bash 开头，指定使用bash解析脚本； 1.2 新建 bash 脚本 创建一个bash脚本，输出 hello world；  123[root@hadoop100 shell]# cat hello.txt #!&#x2F;bin&#x2F;bashecho &quot;hello world&quot;  二：执行方式2.1 采用 bash 或 sh + 脚">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 脚本 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：脚本格式1.1 指定解析器脚本以  #!&#x2F;bin&#x2F;bash 开头，指定使用bash解析脚本； 1.2 新建 bash 脚本 创建一个bash脚本，输出 hello world；  123[root@hadoop100 shell]# cat hello.txt #!&#x2F;bin&#x2F;bashecho &quot;hello world&quot;  二：执行方式2.1 采用 bash 或 sh + 脚">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 脚本">
 <meta property="og:url" content="https://aiyingke.cn/blog/dc3000b8.html/index.html">

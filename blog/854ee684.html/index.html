@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HDFS DataNode | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：DataNode 工作机制 （1）一个数据块在 DataNode 上以文件形式存储在磁盘上，包括两个文件，一个是数据 本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。 （2）DataNode 启动后向 NameNode 注册，通过后，周期性（6 小时）的向 NameNode 上 报所有的块信息。  DN 向 NN 汇报当前解读信息的时间间隔，默认 6 小时；  12345&amp;lt">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HDFS DataNode | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：DataNode 工作机制 （1）一个数据块在 DataNode 上以文件形式存储在磁盘上，包括两个文件，一个是数据 本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。 （2）DataNode 启动后向 NameNode 注册，通过后，周期性（6 小时）的向 NameNode 上 报所有的块信息。  DN 向 NN 汇报当前解读信息的时间间隔，默认 6 小时；  12345&amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS DataNode">
 <meta property="og:url" content="https://aiyingke.cn/blog/854ee684.html/index.html">

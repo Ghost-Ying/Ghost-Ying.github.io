@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>静态路由协议 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。 静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。  二：优缺点 优点： 对路由器CPU没有管理开销 在路由器间没有宽带占用 增加安全性   缺点： 必须真正的了解网络 对于新添加网络配置繁琐 对于大型网络工作量巨大    三：静态路由配置 配置命令 ip route newwork-addres">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>静态路由协议 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 一个小型到中型的网络适合静态路由，而且没有或只有较小的扩充计划时。 静态路由需要手工输入、手工管理；管理开销对于动态路由来说是一个大大的负担。  二：优缺点 优点： 对路由器CPU没有管理开销 在路由器间没有宽带占用 增加安全性   缺点： 必须真正的了解网络 对于新添加网络配置繁琐 对于大型网络工作量巨大    三：静态路由配置 配置命令 ip route newwork-addres">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态路由协议">
 <meta property="og:url" content="https://aiyingke.cn/blog/d18d3c00.html/index.html">

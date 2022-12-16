@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 概述 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 Shell 是一个命令行解释器，它接收应用程序或者用户命令，然后调用操作系统内核。 Shell 还是一个功能强大的编程语言，易编写、易调试、灵活性强。    二：常识2.1 Linux 提供的 Shell 解释器1234567[root@hadoop100 ~]# cat &#x2F;etc&#x2F;shells &#x2F;bin&#x2F;sh&#x2F;bin&#x2F;bash&#x2F;usr&#x2F;bin&#x2F;sh&#x2F;usr&#x2F;bin&#x2F;bash&#x2F;bin&#x2F;t">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 概述 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 Shell 是一个命令行解释器，它接收应用程序或者用户命令，然后调用操作系统内核。 Shell 还是一个功能强大的编程语言，易编写、易调试、灵活性强。    二：常识2.1 Linux 提供的 Shell 解释器1234567[root@hadoop100 ~]# cat &#x2F;etc&#x2F;shells &#x2F;bin&#x2F;sh&#x2F;bin&#x2F;bash&#x2F;usr&#x2F;bin&#x2F;sh&#x2F;usr&#x2F;bin&#x2F;bash&#x2F;bin&#x2F;t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 概述">
 <meta property="og:url" content="https://aiyingke.cn/blog/68a064f8.html/index.html">

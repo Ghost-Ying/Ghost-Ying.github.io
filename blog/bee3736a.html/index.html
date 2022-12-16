@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hadoop 运行环境搭建 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：模板虚拟机准备1.1 安装模板虚拟机IP 地址 192.31.58.100、主机名称 hadoop100、内存 4G、硬盘 40G，采用CentOS-7-x86_64-DVD-2009_2.iso镜像。 1.2 查看网络情况123456789[root@hadoop100 ~]# ping baidu.comPING baidu.com (110.242.68.66) 56(84) bytes">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hadoop 运行环境搭建 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：模板虚拟机准备1.1 安装模板虚拟机IP 地址 192.31.58.100、主机名称 hadoop100、内存 4G、硬盘 40G，采用CentOS-7-x86_64-DVD-2009_2.iso镜像。 1.2 查看网络情况123456789[root@hadoop100 ~]# ping baidu.comPING baidu.com (110.242.68.66) 56(84) bytes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop 运行环境搭建">
 <meta property="og:url" content="https://aiyingke.cn/blog/bee3736a.html/index.html">

@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux 系统管理 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：Linux 中的进程和服务 计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。 启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。  二：service 服务管理（CentOS 6）2.1 基本语法service 服务名 start | stop | restart | status 2.2 系统位置查看服务的方法：&#x2F;etc&#x2F;ini">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux 系统管理 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：Linux 中的进程和服务 计算机中，一个正在执行的程序或者命令，叫做“进程”（process）。 启动之后一只存在、常驻内存的进程，一般被称作“服务”（service）。  二：service 服务管理（CentOS 6）2.1 基本语法service 服务名 start | stop | restart | status 2.2 系统位置查看服务的方法：&#x2F;etc&#x2F;ini">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 系统管理">
 <meta property="og:url" content="https://aiyingke.cn/blog/3de350d3.html/index.html">

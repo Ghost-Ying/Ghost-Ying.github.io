@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>环境及工具包介绍 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境及工具准备PythonPython 是一种解释型的、面向对象的、移植性强的高级程序设计语言。 开发者：吉多·范罗苏姆  解释型：不需要编译成二进制代码，可以直接从源码运行 面向对象：Python既支持面向过程的编程也支持面向对象的编程 可移植性：由于它的开源本质，可以在不同的平台开发 高层语言：无须考虑诸如如何管理程序使用的内存一类的底层细节 官网：www.python.org&#x2F;  优点 简单">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>环境及工具包介绍 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="环境及工具准备PythonPython 是一种解释型的、面向对象的、移植性强的高级程序设计语言。 开发者：吉多·范罗苏姆  解释型：不需要编译成二进制代码，可以直接从源码运行 面向对象：Python既支持面向过程的编程也支持面向对象的编程 可移植性：由于它的开源本质，可以在不同的平台开发 高层语言：无须考虑诸如如何管理程序使用的内存一类的底层细节 官网：www.python.org&#x2F;  优点 简单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="环境及工具包介绍">
 <meta property="og:url" content="https://aiyingke.cn/blog/5d914a79.html/index.html">

@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>AI_多因子线性回归 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="多因子房价预测一：影响房屋价格因素 地区平均收入 房屋平均年龄 房屋房间数量 地区人口数量 房屋尺寸大小  二：实现目标基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：  以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果 以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现 预测 收入&#x3D;65000，房屋年">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>AI_多因子线性回归 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="多因子房价预测一：影响房屋价格因素 地区平均收入 房屋平均年龄 房屋房间数量 地区人口数量 房屋尺寸大小  二：实现目标基于 housing_price.csv 数据，建立线性回归模型，预测合理房价：  以面积为输入变量，建立单因子模型，评估模型表现，可视化线性回归预测结果 以收入、房屋年龄、房间数量、人口数量、房屋尺寸为输入变量，建立多因子模型，评估表现 预测 收入&#x3D;65000，房屋年">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI_多因子线性回归">
 <meta property="og:url" content="https://aiyingke.cn/blog/2539a3f8.html/index.html">

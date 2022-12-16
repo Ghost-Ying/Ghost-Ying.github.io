@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>动态规划 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="动态规划一：什么是动态规划？动态规划是运筹学的一个分支，是求解策略过程最优化的过程。 动态规划并不是一种算法，而是一种思想，或者说策略。 动态规划可以达到最优的 O(n2) 复杂度。 二：基本思想将大问题分解为一个一个的小问题，将小问题逐个击破，大问题就解决了。 三：实例假设有一个可容纳4kg商品的购物篮，现有四件商品可供选择，如何装购物篮的价值最高？ 枚举法  动态规划   启示 动态规划可以帮">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>动态规划 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="动态规划一：什么是动态规划？动态规划是运筹学的一个分支，是求解策略过程最优化的过程。 动态规划并不是一种算法，而是一种思想，或者说策略。 动态规划可以达到最优的 O(n2) 复杂度。 二：基本思想将大问题分解为一个一个的小问题，将小问题逐个击破，大问题就解决了。 三：实例假设有一个可容纳4kg商品的购物篮，现有四件商品可供选择，如何装购物篮的价值最高？ 枚举法  动态规划   启示 动态规划可以帮">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划">
 <meta property="og:url" content="https://aiyingke.cn/blog/a80d0031.html/index.html">

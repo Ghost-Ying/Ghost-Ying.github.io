@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>机器学习简介 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：什么是机器学习？（Machine Learning）定义机器学习是一种实现人工智能的方法。 从数据中寻找规律、建立关系，根据建立的关系去解决问题。 从数据中学习实现自我优化与升级。 二：机器学习与计算机程序的差异例如：小明1个月工资1000，每月增长10%，问第10个月小明的工资是多少？ 传统算法：y &#x3D; 1000 × 1.1 x    月份 x 工资 y    1 1000   2">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>机器学习简介 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：什么是机器学习？（Machine Learning）定义机器学习是一种实现人工智能的方法。 从数据中寻找规律、建立关系，根据建立的关系去解决问题。 从数据中学习实现自我优化与升级。 二：机器学习与计算机程序的差异例如：小明1个月工资1000，每月增长10%，问第10个月小明的工资是多少？ 传统算法：y &#x3D; 1000 × 1.1 x    月份 x 工资 y    1 1000   2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习简介">
 <meta property="og:url" content="https://aiyingke.cn/blog/21043101.html/index.html">

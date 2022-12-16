@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>单因子线性回归 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="单因子线性回归一：LR实现线性预测任务：  基于data.csv数据，建立线性回归模型。 预测 x&#x3D;3.5 对应的 y 值。 评估模型表现。  二：实现流程 建立线性回归模型 导入数据，查看数据 数据赋值，查看数据类型 可视化数据 建立 Linear Regression 模型 根据需求重塑数据 模型训练   数据预测 查看预测结果 对指定值进行预测   评估模型表现 通过 Excel">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>单因子线性回归 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="单因子线性回归一：LR实现线性预测任务：  基于data.csv数据，建立线性回归模型。 预测 x&#x3D;3.5 对应的 y 值。 评估模型表现。  二：实现流程 建立线性回归模型 导入数据，查看数据 数据赋值，查看数据类型 可视化数据 建立 Linear Regression 模型 根据需求重塑数据 模型训练   数据预测 查看预测结果 对指定值进行预测   评估模型表现 通过 Excel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单因子线性回归">
 <meta property="og:url" content="https://aiyingke.cn/blog/e0f9d9f4.html/index.html">

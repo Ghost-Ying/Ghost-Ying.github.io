@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>PNETLab 模拟器 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：PNETLab 是什么？PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。  PNETLab Box 它是一个虚拟机，安装在本地机器上，实验室将在上面运行。 模式 线上模式 线下模式     PNETLab Store 一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>PNETLab 模拟器 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：PNETLab 是什么？PNETLab（分组网络仿真器工具实验室）是一个允许您下载并与社区共享实验室的平台，它包括 PNETLab Box 和 PNETLab store。  PNETLab Box 它是一个虚拟机，安装在本地机器上，实验室将在上面运行。 模式 线上模式 线下模式     PNETLab Store 一个网络平台，提供了成百上千个免费的实验室，可以获取实验室和将其下载学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PNETLab 模拟器">
 <meta property="og:url" content="https://aiyingke.cn/blog/7c0df4a5.html/index.html">

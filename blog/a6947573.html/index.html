@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 条件判断 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：基本语法 test condition  [ condition ]（注意 condition 前后要有空格）  注意：条件非空即为 true，[  ] 为空返回 fasle；  二：常用判断条件2.1 两个整数之间比较 -eq 等于（equal）  -ne 不等于（not equal）  -lt 小于（less than）  -le 小于等于（less equal）  -gt 大于（grea">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 条件判断 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：基本语法 test condition  [ condition ]（注意 condition 前后要有空格）  注意：条件非空即为 true，[  ] 为空返回 fasle；  二：常用判断条件2.1 两个整数之间比较 -eq 等于（equal）  -ne 不等于（not equal）  -lt 小于（less than）  -le 小于等于（less equal）  -gt 大于（grea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 条件判断">
 <meta property="og:url" content="https://aiyingke.cn/blog/a6947573.html/index.html">

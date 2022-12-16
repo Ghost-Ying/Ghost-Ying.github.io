@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>crunch 使用教程 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：简介crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。 使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。 crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。 二：规则2.1 生成方式crunch生成字典的方式：  指定生成26个字母或者数字的随机字典 指定格式生成字典 指定模板生成字典 指定字符">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>crunch 使用教程 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：简介crunch 是一种创建密码字典的工具，按照指定的规则生成密码字典，可以灵活的定制自己的字典文件。 使用 crunch 工具生成的密码可以输出到屏幕，保存到文件、或者另一个程序。 crunch 最厉害的就是知道密码的一部分细节后，可以针对性的生成字典。 二：规则2.1 生成方式crunch生成字典的方式：  指定生成26个字母或者数字的随机字典 指定格式生成字典 指定模板生成字典 指定字符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="crunch 使用教程">
 <meta property="og:url" content="https://aiyingke.cn/blog/800cc2a8.html/index.html">

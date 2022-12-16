@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 函数 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：系统函数1.1 basename（1）基本语法 basename [string &#x2F; pathname] [suffix]  basename 命令会删掉所有的前缀包括最后一个（‘&#x2F;’）字符，然后将字符串显示出来。  basename 可以理解为取路径里的文件名称  选项  suffix 为后缀，如果 suffix 被指定了，basename 会将 pathname 或 s">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 函数 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：系统函数1.1 basename（1）基本语法 basename [string &#x2F; pathname] [suffix]  basename 命令会删掉所有的前缀包括最后一个（‘&#x2F;’）字符，然后将字符串显示出来。  basename 可以理解为取路径里的文件名称  选项  suffix 为后缀，如果 suffix 被指定了，basename 会将 pathname 或 s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 函数">
 <meta property="og:url" content="https://aiyingke.cn/blog/df281937.html/index.html">

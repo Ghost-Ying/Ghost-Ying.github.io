@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 正则表达式 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 正则表达式使用单个字符串来描述、匹配一系列符合某个语法规则的字符串。 通常被用来检索、替换那些符合某个模式的文本。 在 Linux 中，grep， sed，awk 等文本处理工具都支持通过正则表达式进行模式匹配。  二：常规匹配一串不包含特殊字符的正则表达式匹配自身； 123# 匹配所有包含 ghost 的行[root@hadoop100 ~]# cat &#x2F;etc&#x2F;passwd | gr">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Shell 正则表达式 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：概述 正则表达式使用单个字符串来描述、匹配一系列符合某个语法规则的字符串。 通常被用来检索、替换那些符合某个模式的文本。 在 Linux 中，grep， sed，awk 等文本处理工具都支持通过正则表达式进行模式匹配。  二：常规匹配一串不包含特殊字符的正则表达式匹配自身； 123# 匹配所有包含 ghost 的行[root@hadoop100 ~]# cat &#x2F;etc&#x2F;passwd | gr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 正则表达式">
 <meta property="og:url" content="https://aiyingke.cn/blog/90b27957.html/index.html">

@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux 桌面及终端基础操作 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：桌面 新建文件夹 新建文本 修改桌面 打开终端 快捷键设置：super 相当于 windows键 修改屏幕分辨率  二：终端 修改终端打开字体 修改终端配色方案  三：常用快捷键 当前窗口全屏：Alt + F10 切换桌面系统：Ctrl + Alt + F1 切换命令行系统：Ctrl + Alt + F2 F2~F6 均为命令行模式，多用户登录；">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux 桌面及终端基础操作 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：桌面 新建文件夹 新建文本 修改桌面 打开终端 快捷键设置：super 相当于 windows键 修改屏幕分辨率  二：终端 修改终端打开字体 修改终端配色方案  三：常用快捷键 当前窗口全屏：Alt + F10 切换桌面系统：Ctrl + Alt + F1 切换命令行系统：Ctrl + Alt + F2 F2~F6 均为命令行模式，多用户登录；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 桌面及终端基础操作">
 <meta property="og:url" content="https://aiyingke.cn/blog/e34058e3.html/index.html">
