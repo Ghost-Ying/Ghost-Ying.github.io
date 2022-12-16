@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux 磁盘分区类 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：du 查看文件和目录占用的磁盘空间1.1 基本语法 du: disk usage 磁盘占用情况 du 目录&#x2F;文件 （功能描述：显示目录下每个子目录的磁盘使用情况）  1.2 选项说明 1.3 案例操作（1）du  -h  查看当前目录容量最后一行显示当前目录总大小；  （2）du -ah  查看子目录及文件 （3）du -c  最后一行显示总大小 （4）du -h –max-dept">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 磁盘分区类">
+<meta property="og:url" content="https://aiyingke.cn/blog/88f27417.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一：du 查看文件和目录占用的磁盘空间1.1 基本语法 du: disk usage 磁盘占用情况 du 目录&#x2F;文件 （功能描述：显示目录下每个子目录的磁盘使用情况）  1.2 选项说明 1.3 案例操作（1）du  -h  查看当前目录容量最后一行显示当前目录总大小；  （2）du -ah  查看子目录及文件 （3）du -c  最后一行显示总大小 （4）du -h –max-dept">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiyingke.cn/img/linux.jpg">
+<meta property="article:published_time" content="2022-12-04T05:04:41.000Z">
+<meta property="article:modified_time" content="2022-12-10T02:16:51.169Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aiyingke.cn/img/linux.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/88f27417.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux 磁盘分区类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-10 10:16:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">93</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/linux.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux 磁盘分区类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-04T05:04:41.000Z" title="发表于 2022-12-04 13:04:41">2022-12-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-10T02:16:51.169Z" title="更新于 2022-12-10 10:16:51">2022-12-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux 磁盘分区类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一：du-查看文件和目录占用的磁盘空间"><a href="#一：du-查看文件和目录占用的磁盘空间" class="headerlink" title="一：du 查看文件和目录占用的磁盘空间"></a>一：du 查看文件和目录占用的磁盘空间</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul>
+<li>du: disk usage 磁盘占用情况</li>
+<li>du 目录&#x2F;文件 （功能描述：显示目录下每个子目录的磁盘使用情况）</li>
+</ul>
+<h2 id="1-2-选项说明"><a href="#1-2-选项说明" class="headerlink" title="1.2 选项说明"></a>1.2 选项说明</h2><p><img src="/blog/88f27417.html/image-20221204130651774.png"></p>
+<h2 id="1-3-案例操作"><a href="#1-3-案例操作" class="headerlink" title="1.3 案例操作"></a>1.3 案例操作</h2><h3 id="（1）du-h-查看当前目录容量"><a href="#（1）du-h-查看当前目录容量" class="headerlink" title="（1）du  -h  查看当前目录容量"></a>（1）du  -h  查看当前目录容量</h3><p>最后一行显示当前目录总大小；</p>
+<p><img src="/blog/88f27417.html/image-20221204130934616.png"></p>
+<h3 id="（2）du-ah-查看子目录及文件"><a href="#（2）du-ah-查看子目录及文件" class="headerlink" title="（2）du -ah  查看子目录及文件"></a>（2）du -ah  查看子目录及文件</h3><p><img src="/blog/88f27417.html/image-20221204131201303.png"></p>
+<h3 id="（3）du-c-最后一行显示总大小"><a href="#（3）du-c-最后一行显示总大小" class="headerlink" title="（3）du -c  最后一行显示总大小"></a>（3）du -c  最后一行显示总大小</h3><p><img src="/blog/88f27417.html/image-20221204131359782.png"></p>
+<h3 id="（4）du-h-–max-depth-x3D-1-统计当前目录下所有子目录信息"><a href="#（4）du-h-–max-depth-x3D-1-统计当前目录下所有子目录信息" class="headerlink" title="（4）du -h –max-depth&#x3D;1 统计当前目录下所有子目录信息"></a>（4）du -h –max-depth&#x3D;1 统计当前目录下所有子目录信息</h3><ul>
+<li>为0是只统计当前目录；</li>
+</ul>
+<p><img src="/blog/88f27417.html/image-20221204131615907.png"></p>
+<h3 id="（5）使用-tree-查看目录树"><a href="#（5）使用-tree-查看目录树" class="headerlink" title="（5）使用 tree 查看目录树"></a>（5）使用 tree 查看目录树</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# yum install tree</span><br><span class="line">[root@hadoop100 ~]# tree ./</span><br><span class="line">./</span><br><span class="line">├── anaconda-ks.cfg</span><br><span class="line">├── Ghost</span><br><span class="line">├── initial-setup-ks.cfg</span><br><span class="line">├── RupertTears</span><br><span class="line">│?? └── hello.txt</span><br><span class="line">├── vim_\347\273\203\344\271\240.txt</span><br><span class="line">├── \345\205\254\345\205\261</span><br><span class="line">├── \346\250\241\346\235\277</span><br><span class="line">├── \350\247\206\351\242\221</span><br><span class="line">├── \345\233\276\347\211\207</span><br><span class="line">├── \346\226\207\346\241\243</span><br><span class="line">├── \344\270\213\350\275\275</span><br><span class="line">├── \351\237\263\344\271\220</span><br><span class="line">└── \346\241\214\351\235\242</span><br></pre></td></tr></table></figure>
+
+<h1 id="二：df-查看磁盘空间使用情况"><a href="#二：df-查看磁盘空间使用情况" class="headerlink" title="二：df 查看磁盘空间使用情况"></a>二：df 查看磁盘空间使用情况</h1><h2 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h2><ul>
+<li><p>df: disk free 空余磁盘</p>
+</li>
+<li><p>df 选项 （功能描述：列出文件系统的整体磁盘使用量，检查文件系统的磁盘空间占用情况）</p>
+</li>
+</ul>
+<h2 id="2-2-选项说明"><a href="#2-2-选项说明" class="headerlink" title="2.2 选项说明"></a>2.2 选项说明</h2><ul>
+<li>-h 以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显</li>
+</ul>
+<h2 id="2-3-案例操作"><a href="#2-3-案例操作" class="headerlink" title="2.3 案例操作"></a>2.3 案例操作</h2><h3 id="（1）df-h查看空余磁盘"><a href="#（1）df-h查看空余磁盘" class="headerlink" title="（1）df -h	查看空余磁盘"></a>（1）df -h	查看空余磁盘</h3><ul>
+<li>tmpfs：临时文件系统，即内存文件系统，swap；</li>
+<li>shm：shared memory，共享内存，大家都可以访问这里；</li>
+</ul>
+<p><img src="/blog/88f27417.html/image-20221204132140425.png"></p>
+<h3 id="（2）ls-lh-x2F-查看根目录磁盘占用情况"><a href="#（2）ls-lh-x2F-查看根目录磁盘占用情况" class="headerlink" title="（2）ls -lh &#x2F;	查看根目录磁盘占用情况"></a>（2）ls -lh &#x2F;	查看根目录磁盘占用情况</h3><p>这里统计的是目录的大小，，而非磁盘占用大小；</p>
+<p><img src="/blog/88f27417.html/image-20221204132355090.png"></p>
+<h3 id="（3）free-h-查看当前内存占用"><a href="#（3）free-h-查看当前内存占用" class="headerlink" title="（3）free -h  查看当前内存占用"></a>（3）free -h  查看当前内存占用</h3><p><img src="/blog/88f27417.html/image-20221204133504022.png"></p>
+<h1 id="三：lsblk-查看设备挂载情"><a href="#三：lsblk-查看设备挂载情" class="headerlink" title="三：lsblk 查看设备挂载情"></a>三：lsblk 查看设备挂载情</h1><h2 id="3-1-基本语法"><a href="#3-1-基本语法" class="headerlink" title="3.1 基本语法"></a>3.1 基本语法</h2><ul>
+<li>lsblk （功能描述：查看设备挂载情况）</li>
+</ul>
+<h2 id="3-2-选项说明"><a href="#3-2-选项说明" class="headerlink" title="3.2 选项说明"></a>3.2 选项说明</h2><ul>
+<li>-f 查看详细的设备挂载情况，显示文件系统信息</li>
+</ul>
+<h2 id="3-3-案例操作"><a href="#3-3-案例操作" class="headerlink" title="3.3 案例操作"></a>3.3 案例操作</h2><h3 id="（1）查看设备挂载情况"><a href="#（1）查看设备挂载情况" class="headerlink" title="（1）查看设备挂载情况"></a>（1）查看设备挂载情况</h3><ul>
+<li>rom：光驱类型；</li>
+<li>mountpoint：挂载点；</li>
+<li>sda：磁盘类型为 SCSI；<ul>
+<li>IDE–&gt; hda</li>
+<li>SATA &#x2F; SCSI –&gt; 第一块磁盘叫 sda，第一个分区叫 sda1，一共能分 4个分区，也可将其中一个分区分成16个逻辑分区；第二块磁盘叫 sdb，以此类推。</li>
+<li>vda：虚拟磁盘；</li>
+</ul>
+</li>
+</ul>
+<p><img src="/blog/88f27417.html/image-20221204132835007.png"></p>
+<p>启动图形化界面后：光驱被自动挂载：</p>
+<p><img src="/blog/88f27417.html/image-20221204134123785.png"></p>
+<h3 id="（2）lsblk-f-查看详细的设备挂载情况，显示文件系统信息"><a href="#（2）lsblk-f-查看详细的设备挂载情况，显示文件系统信息" class="headerlink" title="（2）lsblk -f  查看详细的设备挂载情况，显示文件系统信息"></a>（2）lsblk -f  查看详细的设备挂载情况，显示文件系统信息</h3><p><img src="/blog/88f27417.html/image-20221204133954306.png"></p>
+<h1 id="四：mount-x2F-umount-挂载-x2F-卸载"><a href="#四：mount-x2F-umount-挂载-x2F-卸载" class="headerlink" title="四：mount&#x2F;umount 挂载&#x2F;卸载"></a>四：mount&#x2F;umount 挂载&#x2F;卸载</h1><ul>
+<li>对于Linux用户来讲，不论有几个分区，分别分给哪一个目录使用，它总归就是一个根目录、一个独立且唯一的文件结构。 </li>
+<li>Linux中每个分区都是用来组成整个文件系统的一部分，它在用一种叫做“挂载”的处理方法，它整个文件系统中包含了一整套的文件和目录，并将一个分区和一个目录联系起来， 要载入的那个分区将使它的存储空间在这个目录下获得。</li>
+</ul>
+<h2 id="4-1-基本语法"><a href="#4-1-基本语法" class="headerlink" title="4.1 基本语法"></a>4.1 基本语法</h2><ul>
+<li>mount [-t vfstype] [-o options] device dir （功能描述：挂载设备） </li>
+<li>umount 设备文件名或挂载点 （功能描述：卸载设备）</li>
+</ul>
+<h2 id="4-2-参数说明"><a href="#4-2-参数说明" class="headerlink" title="4.2 参数说明"></a>4.2 参数说明</h2><ul>
+<li>-t vfstyp：指定文件系统的类型，通常不必指定；<ul>
+<li>mount 会自动选择正确的类型。</li>
+<li>常用类型有：<ul>
+<li>光盘或光盘镜像：iso9660</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>-o option：主要用来描述设备或档案的挂接方式；<ul>
+<li>loop：用来把一个文件当成硬盘分区挂接上系统</li>
+<li>ro：采用只读方式挂接设备</li>
+<li>rw：采用读写方式挂接设备<ul>
+<li>iocharset：指定访问文件系统所用字符集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>device：要挂接(mount)的设备</li>
+<li>dir：设备在系统上的挂接点(mount point)</li>
+</ul>
+<h2 id="4-3-案例实操"><a href="#4-3-案例实操" class="headerlink" title="4.3 案例实操"></a>4.3 案例实操</h2><h3 id="（1）查看挂载详情"><a href="#（1）查看挂载详情" class="headerlink" title="（1）查看挂载详情"></a>（1）查看挂载详情</h3><p><img src="/blog/88f27417.html/image-20221204134218300.png"></p>
+<h3 id="（2）弹出光驱，退出图形化界面"><a href="#（2）弹出光驱，退出图形化界面" class="headerlink" title="（2）弹出光驱，退出图形化界面"></a>（2）弹出光驱，退出图形化界面</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 ~]# lsblk -f</span><br><span class="line">NAME   FSTYPE  LABEL           UUID                                 MOUNTPOINT</span><br><span class="line">sda                                                                 </span><br><span class="line">├─sda1 xfs                     24b7785a-8859-4e2b-b5d6-9e6297b9bf2d /boot</span><br><span class="line">├─sda2 swap                    6328672f-80b5-4794-87c7-b37327bde79a [SWAP]</span><br><span class="line">└─sda3 xfs                     021f8456-c948-4667-8c64-09d753c0c0b8 /</span><br><span class="line">sr0    iso9660 CentOS 7 x86_64 2020-11-04-11-36-43-00      </span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）挂载光盘到mnt目录下的cdrom"><a href="#（3）挂载光盘到mnt目录下的cdrom" class="headerlink" title="（3）挂载光盘到mnt目录下的cdrom"></a>（3）挂载光盘到mnt目录下的cdrom</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建挂载目录</span></span><br><span class="line">[root@hadoop100 ~]# mkdir /mnt/cdrom/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载</span></span><br><span class="line">[root@hadoop100 ~]# mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置光驱已连接，启动时连接，不进入图形化界面，就不会自动挂载</span></span><br><span class="line">[root@hadoop100 ~]#  ls /mnt/cdrom/</span><br><span class="line">CentOS_BuildTag  EULA  images    LiveOS    repodata              RPM-GPG-KEY-CentOS-Testing-7</span><br><span class="line">EFI              GPL   isolinux  Packages  RPM-GPG-KEY-CentOS-7  TRANS.TBL</span><br></pre></td></tr></table></figure>
+
+<h3 id="（4）卸载光驱"><a href="#（4）卸载光驱" class="headerlink" title="（4）卸载光驱"></a>（4）卸载光驱</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">两者是一一对应关系，任选其一</span></span><br><span class="line">[root@hadoop100 ~]# umount /mnt/cdrom</span><br><span class="line">[root@hadoop100 ~]# umount /dev/cdrom</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-开机自动挂载"><a href="#4-4-开机自动挂载" class="headerlink" title="4.4 开机自动挂载"></a>4.4 开机自动挂载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑配置文件</span></span><br><span class="line">[root@hadoop100 ~]# vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/88f27417.html/image-20221204140129411.png"></p>
+<p>编辑配置文件；0 0 代表挂载优先级；</p>
+<p><img src="/blog/88f27417.html/image-20221204140422176.png"></p>
+<h1 id="五：fdisk-分区"><a href="#五：fdisk-分区" class="headerlink" title="五：fdisk 分区"></a>五：fdisk 分区</h1><h2 id="5-1-基本语法"><a href="#5-1-基本语法" class="headerlink" title="5.1 基本语法"></a>5.1 基本语法</h2><ul>
+<li>fdisk -l （功能描述：查看磁盘分区详情） </li>
+<li>fdisk 硬盘设备名 （功能描述：对新增硬盘进行分区操作）</li>
+</ul>
+<h2 id="5-2-选项说明"><a href="#5-2-选项说明" class="headerlink" title="5.2 选项说明"></a>5.2 选项说明</h2><ul>
+<li>-l 显示所有硬盘的分区列表</li>
+</ul>
+<h2 id="5-3-案例操作"><a href="#5-3-案例操作" class="headerlink" title="5.3 案例操作"></a>5.3 案例操作</h2><h3 id="（1）fdisk-l-查看当前分区情况"><a href="#（1）fdisk-l-查看当前分区情况" class="headerlink" title="（1）fdisk -l 查看当前分区情况"></a>（1）fdisk -l 查看当前分区情况</h3><p><img src="/blog/88f27417.html/image-20221204140850463.png"></p>
+<h3 id="（2）新增磁盘"><a href="#（2）新增磁盘" class="headerlink" title="（2）新增磁盘"></a>（2）新增磁盘</h3><p>新增磁盘后，重启服务器，查看设备挂载详细信息；</p>
+<p><img src="/blog/88f27417.html/image-20221204141324917.png"></p>
+<h3 id="（3）为新增磁盘创建文件系统"><a href="#（3）为新增磁盘创建文件系统" class="headerlink" title="（3）为新增磁盘创建文件系统"></a>（3）为新增磁盘创建文件系统</h3><p><img src="/blog/88f27417.html/image-20221204141837011.png"></p>
+<h3 id="（4）创建挂载点"><a href="#（4）创建挂载点" class="headerlink" title="（4）创建挂载点"></a>（4）创建挂载点</h3><p><img src="/blog/88f27417.html/image-20221204142035414.png"></p>
+<h3 id="（5）查看挂载情况"><a href="#（5）查看挂载情况" class="headerlink" title="（5）查看挂载情况"></a>（5）查看挂载情况</h3><p><img src="/blog/88f27417.html/image-20221204142114489.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/88f27417.html/">https://aiyingke.cn/blog/88f27417.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="/img/linux.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/2aa41515.html/"><img class="prev-cover" src="/img/linux.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux 进程管理类</div></div></a></div><div class="next-post pull-right"><a href="/blog/36e89543.html/"><img class="next-cover" src="/img/linux.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux 压缩解压类</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/829e9d92.html/" title="Linux 思维导图"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 思维导图</div></div></a></div><div><a href="/blog/88d9b703.html/" title="Linux 软件包管理"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 软件包管理</div></div></a></div><div><a href="/blog/f0317602.html/" title="Linux 定时任务"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 定时任务</div></div></a></div><div><a href="/blog/2aa41515.html/" title="Linux 进程管理类"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 进程管理类</div></div></a></div><div><a href="/blog/36e89543.html/" title="Linux 压缩解压类"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 压缩解压类</div></div></a></div><div><a href="/blog/f902cab.html/" title="Linux 搜索查找类"><img class="cover" src="/img/linux.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Linux 搜索查找类</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">93</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%EF%BC%9Adu-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E5%8D%A0%E7%94%A8%E7%9A%84%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">一：du 查看文件和目录占用的磁盘空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 选项说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%A1%88%E4%BE%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 案例操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89du-h-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E5%AE%B9%E9%87%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">（1）du  -h  查看当前目录容量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89du-ah-%E6%9F%A5%E7%9C%8B%E5%AD%90%E7%9B%AE%E5%BD%95%E5%8F%8A%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">（2）du -ah  查看子目录及文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89du-c-%E6%9C%80%E5%90%8E%E4%B8%80%E8%A1%8C%E6%98%BE%E7%A4%BA%E6%80%BB%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">（3）du -c  最后一行显示总大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89du-h-%E2%80%93max-depth-x3D-1-%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E5%AD%90%E7%9B%AE%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">1.3.4.</span> <span class="toc-text">（4）du -h –max-depth&#x3D;1 统计当前目录下所有子目录信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E4%BD%BF%E7%94%A8-tree-%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E6%A0%91"><span class="toc-number">1.3.5.</span> <span class="toc-text">（5）使用 tree 查看目录树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9Adf-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">2.</span> <span class="toc-text">二：df 查看磁盘空间使用情况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 选项说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%A1%88%E4%BE%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 案例操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89df-h%E6%9F%A5%E7%9C%8B%E7%A9%BA%E4%BD%99%E7%A3%81%E7%9B%98"><span class="toc-number">2.3.1.</span> <span class="toc-text">（1）df -h	查看空余磁盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89ls-lh-x2F-%E6%9F%A5%E7%9C%8B%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">2.3.2.</span> <span class="toc-text">（2）ls -lh &#x2F;	查看根目录磁盘占用情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89free-h-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-number">2.3.3.</span> <span class="toc-text">（3）free -h  查看当前内存占用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%EF%BC%9Alsblk-%E6%9F%A5%E7%9C%8B%E8%AE%BE%E5%A4%87%E6%8C%82%E8%BD%BD%E6%83%85"><span class="toc-number">3.</span> <span class="toc-text">三：lsblk 查看设备挂载情</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 选项说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%A1%88%E4%BE%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 案例操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%9F%A5%E7%9C%8B%E8%AE%BE%E5%A4%87%E6%8C%82%E8%BD%BD%E6%83%85%E5%86%B5"><span class="toc-number">3.3.1.</span> <span class="toc-text">（1）查看设备挂载情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89lsblk-f-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E7%BB%86%E7%9A%84%E8%AE%BE%E5%A4%87%E6%8C%82%E8%BD%BD%E6%83%85%E5%86%B5%EF%BC%8C%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">3.3.2.</span> <span class="toc-text">（2）lsblk -f  查看详细的设备挂载情况，显示文件系统信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9Amount-x2F-umount-%E6%8C%82%E8%BD%BD-x2F-%E5%8D%B8%E8%BD%BD"><span class="toc-number">4.</span> <span class="toc-text">四：mount&#x2F;umount 挂载&#x2F;卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 参数说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%93%8D"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 案例实操</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%9F%A5%E7%9C%8B%E6%8C%82%E8%BD%BD%E8%AF%A6%E6%83%85"><span class="toc-number">4.3.1.</span> <span class="toc-text">（1）查看挂载详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%BC%B9%E5%87%BA%E5%85%89%E9%A9%B1%EF%BC%8C%E9%80%80%E5%87%BA%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="toc-number">4.3.2.</span> <span class="toc-text">（2）弹出光驱，退出图形化界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%8C%82%E8%BD%BD%E5%85%89%E7%9B%98%E5%88%B0mnt%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84cdrom"><span class="toc-number">4.3.3.</span> <span class="toc-text">（3）挂载光盘到mnt目录下的cdrom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E5%8D%B8%E8%BD%BD%E5%85%89%E9%A9%B1"><span class="toc-number">4.3.4.</span> <span class="toc-text">（4）卸载光驱</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 开机自动挂载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%EF%BC%9Afdisk-%E5%88%86%E5%8C%BA"><span class="toc-number">5.</span> <span class="toc-text">五：fdisk 分区</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 选项说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E6%A1%88%E4%BE%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 案例操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89fdisk-l-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%88%86%E5%8C%BA%E6%83%85%E5%86%B5"><span class="toc-number">5.3.1.</span> <span class="toc-text">（1）fdisk -l 查看当前分区情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%96%B0%E5%A2%9E%E7%A3%81%E7%9B%98"><span class="toc-number">5.3.2.</span> <span class="toc-text">（2）新增磁盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E4%B8%BA%E6%96%B0%E5%A2%9E%E7%A3%81%E7%9B%98%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.3.3.</span> <span class="toc-text">（3）为新增磁盘创建文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BD%E7%82%B9"><span class="toc-number">5.3.4.</span> <span class="toc-text">（4）创建挂载点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E6%9F%A5%E7%9C%8B%E6%8C%82%E8%BD%BD%E6%83%85%E5%86%B5"><span class="toc-number">5.3.5.</span> <span class="toc-text">（5）查看挂载情况</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/5bb35ccf.html/" title="MapReduce WordCount案例"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MapReduce WordCount案例"/></a><div class="content"><a class="title" href="/blog/5bb35ccf.html/" title="MapReduce WordCount案例">MapReduce WordCount案例</a><time datetime="2022-12-16T15:18:02.000Z" title="发表于 2022-12-16 23:18:02">2022-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b6d0a624.html/" title="MapReduce 概述"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MapReduce 概述"/></a><div class="content"><a class="title" href="/blog/b6d0a624.html/" title="MapReduce 概述">MapReduce 概述</a><time datetime="2022-12-16T14:52:05.000Z" title="发表于 2022-12-16 22:52:05">2022-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/854ee684.html/" title="HDFS DataNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS DataNode"/></a><div class="content"><a class="title" href="/blog/854ee684.html/" title="HDFS DataNode">HDFS DataNode</a><time datetime="2022-12-15T08:01:23.000Z" title="发表于 2022-12-15 16:01:23">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS NameNode和SecondaryNameNode"/></a><div class="content"><a class="title" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode">HDFS NameNode和SecondaryNameNode</a><time datetime="2022-12-15T07:21:25.000Z" title="发表于 2022-12-15 15:21:25">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b08a5f1f.html/" title="HDFS 读写流程"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS 读写流程"/></a><div class="content"><a class="title" href="/blog/b08a5f1f.html/" title="HDFS 读写流程">HDFS 读写流程</a><time datetime="2022-12-15T05:53:12.000Z" title="发表于 2022-12-15 13:53:12">2022-12-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

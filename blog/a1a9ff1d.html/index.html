@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ettercap 使用教程 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：DNS 概述在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。 123456789101112ping baidu.com正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:来自 110.242.68.66 的回复: 字节&#x3D;3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ettercap 使用教程">
+<meta property="og:url" content="https://aiyingke.cn/blog/a1a9ff1d.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一：DNS 概述在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。 123456789101112ping baidu.com正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:来自 110.242.68.66 的回复: 字节&#x3D;3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg">
+<meta property="article:published_time" content="2022-11-26T16:24:59.000Z">
+<meta property="article:modified_time" content="2022-12-06T05:04:21.946Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="网安工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/a1a9ff1d.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ettercap 使用教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-06 13:04:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">93</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ettercap 使用教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-26T16:24:59.000Z" title="发表于 2022-11-27 00:24:59">2022-11-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-06T05:04:21.946Z" title="更新于 2022-12-06 13:04:21">2022-12-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ettercap 使用教程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一：DNS-概述"><a href="#一：DNS-概述" class="headerlink" title="一：DNS 概述"></a>一：DNS 概述</h1><p>在网络中，机器之间只认识 IP 地址，机器之间最终都要通过IP来相互访问。但是为了方便记忆，可以为 IP 地址设置一个对应的域名，通过访问域名，就可以找到对应的 IP 地址的网站。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ping baidu.com</span><br><span class="line"></span><br><span class="line">正在 Ping baidu.com [110.242.68.66] 具有 32 字节的数据:</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=20ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=19ms TTL=54</span><br><span class="line">来自 110.242.68.66 的回复: 字节=32 时间=21ms TTL=54</span><br><span class="line"></span><br><span class="line">110.242.68.66 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = 19ms，最长 = 21ms，平均 = 20ms</span><br></pre></td></tr></table></figure>
+
+<p>看似我们访问的是域名，而实际上是通过 IP 地址访问的百度。由 ping 命令，我们可以看出 baidu.com 到 110.242.68.66 的转换工作称为域名解析，域名解析需要专门的域名解析服务器来完成，DNS就是进行域名解析的服务器（Domain Name System 或者 Domain Name Service）。</p>
+<h1 id="二：DNS-原理"><a href="#二：DNS-原理" class="headerlink" title="二：DNS 原理"></a>二：DNS 原理</h1><p>DNS 查询时，会先在本地缓存中尝试查找，如果不存在或者记录过期，就继续向 DNS 服务器发起递归查询，这里的 DNS 服务器一般就是运营商的 DNS 服务器。</p>
+<ul>
+<li>第一步：客户机提出域名解析请求，并将该请求发送给本地的域名服务器。</li>
+<li>第二步：当本地的域名服务器收到请求后，就查询本地的缓存，如果有该记录项，则本地的域名服务器就直接把查询结果（域名对应的IP地址）返回。</li>
+<li>第三步：如果本地的缓存中没有该记录，则本地域名服务器就直接请求发给根域名服务器，然后根域名服务器再返回本地域名服务器一个所查询域（根的子域）的主域名服务器地址。</li>
+<li>第四步：本地服务器再向上一步返回的域名服务器发送请求，然后接受请求的服务器查询自己的缓存，如果没有该记录，则返回相关的下级的域名服务器地址。</li>
+<li>第五步：重复第四步，直到找到正确的记录。</li>
+<li>第六步：本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时还将结果返回给客户机。</li>
+</ul>
+<h1 id="三：什么是-DNS-劫持"><a href="#三：什么是-DNS-劫持" class="headerlink" title="三：什么是 DNS 劫持"></a>三：什么是 DNS 劫持</h1><p>DNS 劫持又称域名劫持，是指通过某些手段取得某域名的解析控制权，修改此域名的解析结果，导致对该域名的访问由原 IP 地址转入到修改之后指定的 IP，其结果就是对特定网址不能访问或者访问的是假网址。</p>
+<p>如果可以冒充域名服务器，然后把查询的IP地址设置为攻击者的IP地址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站主页，这就是DNS劫持的基本原理。</p>
+<p>DNS劫持其实并不是真的 “黑掉” 了对方的网站，而是冒名顶替、招摇撞骗罢了。</p>
+<h1 id="四：DNS-劫持危害"><a href="#四：DNS-劫持危害" class="headerlink" title="四：DNS 劫持危害"></a>四：DNS 劫持危害</h1><ul>
+<li>钓鱼诈骗<ul>
+<li>网上购物，网上支付有可能被恶意指向别的网站，泄密个人账户；</li>
+</ul>
+</li>
+<li>网站内出现恶意广告</li>
+<li>轻则影响网速，重则不能上网</li>
+</ul>
+<h1 id="五：Ettercap-进行内网-DNS-劫持"><a href="#五：Ettercap-进行内网-DNS-劫持" class="headerlink" title="五：Ettercap 进行内网 DNS 劫持"></a>五：Ettercap 进行内网 DNS 劫持</h1><ol>
+<li>准备欺骗页面，放在 &#x2F;var&#x2F;www&#x2F;html 目录下并启动</li>
+<li>配置 ettercap 工具配置文件<ul>
+<li>leafpad &#x2F;etc&#x2F;ettercap&#x2F;etter.dns</li>
+<li>注释记录→添加记录→保存退出</li>
+</ul>
+</li>
+<li>设置 ettercap 的配置<ul>
+<li>ettercap -G 启动 Ettercap</li>
+<li>启动嗅探→ 设置eth0网卡 → 扫描主机 → 将网关与主机添加到target选项 → 选择ARP欺骗 → 选择 DNS spoof 欺骗模块 → 点击start 开始欺骗</li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/a1a9ff1d.html/">https://aiyingke.cn/blog/a1a9ff1d.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E5%AE%89%E5%B7%A5%E5%85%B7/">网安工具</a></div><div class="post_share"><div class="social-share" data-image="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/ce00cf55.html/"><img class="prev-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">john 使用教程</div></div></a></div><div class="next-post pull-right"><a href="/blog/800cc2a8.html/"><img class="next-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">crunch 使用教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/addc4e16.html/" title="Dirbuster 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-28</div><div class="title">Dirbuster 使用教程</div></div></a></div><div><a href="/blog/47950b11.html/" title="Metasploit framework 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-27</div><div class="title">Metasploit framework 使用教程</div></div></a></div><div><a href="/blog/ce00cf55.html/" title="john 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-27</div><div class="title">john 使用教程</div></div></a></div><div><a href="/blog/800cc2a8.html/" title="crunch 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-26</div><div class="title">crunch 使用教程</div></div></a></div><div><a href="/blog/a6c19022.html/" title="Hydra 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-26</div><div class="title">Hydra 使用教程</div></div></a></div><div><a href="/blog/cf508180.html/" title="Nmap 使用教程"><img class="cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-26</div><div class="title">Nmap 使用教程</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">93</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%EF%BC%9ADNS-%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一：DNS 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9ADNS-%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二：DNS 原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF-DNS-%E5%8A%AB%E6%8C%81"><span class="toc-number">3.</span> <span class="toc-text">三：什么是 DNS 劫持</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9ADNS-%E5%8A%AB%E6%8C%81%E5%8D%B1%E5%AE%B3"><span class="toc-number">4.</span> <span class="toc-text">四：DNS 劫持危害</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%EF%BC%9AEttercap-%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91-DNS-%E5%8A%AB%E6%8C%81"><span class="toc-number">5.</span> <span class="toc-text">五：Ettercap 进行内网 DNS 劫持</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/5bb35ccf.html/" title="MapReduce WordCount案例"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MapReduce WordCount案例"/></a><div class="content"><a class="title" href="/blog/5bb35ccf.html/" title="MapReduce WordCount案例">MapReduce WordCount案例</a><time datetime="2022-12-16T15:18:02.000Z" title="发表于 2022-12-16 23:18:02">2022-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b6d0a624.html/" title="MapReduce 概述"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MapReduce 概述"/></a><div class="content"><a class="title" href="/blog/b6d0a624.html/" title="MapReduce 概述">MapReduce 概述</a><time datetime="2022-12-16T14:52:05.000Z" title="发表于 2022-12-16 22:52:05">2022-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/854ee684.html/" title="HDFS DataNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS DataNode"/></a><div class="content"><a class="title" href="/blog/854ee684.html/" title="HDFS DataNode">HDFS DataNode</a><time datetime="2022-12-15T08:01:23.000Z" title="发表于 2022-12-15 16:01:23">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS NameNode和SecondaryNameNode"/></a><div class="content"><a class="title" href="/blog/a5404ebd.html/" title="HDFS NameNode和SecondaryNameNode">HDFS NameNode和SecondaryNameNode</a><time datetime="2022-12-15T07:21:25.000Z" title="发表于 2022-12-15 15:21:25">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/b08a5f1f.html/" title="HDFS 读写流程"><img src="/img/hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDFS 读写流程"/></a><div class="content"><a class="title" href="/blog/b08a5f1f.html/" title="HDFS 读写流程">HDFS 读写流程</a><time datetime="2022-12-15T05:53:12.000Z" title="发表于 2022-12-15 13:53:12">2022-12-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
