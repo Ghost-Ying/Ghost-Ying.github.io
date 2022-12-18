@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MapReduce 工作流程</title>
+      <link href="/blog/d1b2c594.html/"/>
+      <url>/blog/d1b2c594.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：MapReduce详细工作流程图"><a href="#一：MapReduce详细工作流程图" class="headerlink" title="一：MapReduce详细工作流程图"></a>一：MapReduce详细工作流程图</h1><p><img src="/blog/d1b2c594.html/image-20221218153651886.png"></p><p><img src="/blog/d1b2c594.html/image-20221218154214498.png"></p><p>上面的流程是整个 MapReduce 最全工作流程，但是 Shuffle 过程只是从第 7 步开始到第 16 步结束，具体 Shuffle 过程详解，如下：</p><p>（1）MapTask 收集我们的 map()方法输出的 kv 对，放到内存缓冲区中</p><p>（2）从内存缓冲区不断溢出本地磁盘文件，可能会溢出多个文件</p><p>（3）多个溢出文件会被合并成大的溢出文件</p><p>（4）在溢出过程及合并的过程中，都要调用 Partitioner 进行分区和针对 key 进行排序</p><p>（5）ReduceTask 根据自己的分区号，去各个 MapTask 机器上取相应的结果分区数据</p><p>（6）ReduceTask 会抓取到同一个分区的来自不同 MapTask 的结果文件，ReduceTask 会将这些文件再进行合并（归并排序）</p><p>（7）合并成大文件后，Shuffle 的过程也就结束了，后面进入 ReduceTask 的逻辑运算过程（从文件中取出一个一个的键值对 Group，调用用户自定义的 reduce()方法）</p><p><strong>注意：</strong> </p><ul><li>（1）Shuffle 中的缓冲区大小会影响到 MapReduce 程序的执行效率，原则上说，缓冲区 越大，磁盘 io 的次数越少，执行速度就越快。 </li><li>（2）缓冲区的大小可以通过参数调整，参数：mapreduce.task.io.sort.mb 默认 100M。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MapReduce 切片原理</title>
       <link href="/blog/f5d61b06.html/"/>
       <url>/blog/f5d61b06.html/</url>
