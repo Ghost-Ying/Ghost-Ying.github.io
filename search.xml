@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MapReduce Shuffle机制</title>
+      <link href="/blog/6b6718d7.html/"/>
+      <url>/blog/6b6718d7.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：Shuffle-机制"><a href="#一：Shuffle-机制" class="headerlink" title="一：Shuffle 机制"></a>一：Shuffle 机制</h1><ul><li>Map 方法之后，Reduce 方法之前的数据处理过程称之为 Shuffle。</li></ul><p><img src="/blog/6b6718d7.html/image-20221218165425041.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MapReduce 工作流程</title>
       <link href="/blog/d1b2c594.html/"/>
       <url>/blog/d1b2c594.html/</url>

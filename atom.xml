@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2022-12-18T07:45:27.434Z</updated>
+  <updated>2022-12-18T08:58:42.434Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MapReduce Shuffle机制</title>
+    <link href="https://aiyingke.cn/blog/6b6718d7.html/"/>
+    <id>https://aiyingke.cn/blog/6b6718d7.html/</id>
+    <published>2022-12-18T08:51:03.000Z</published>
+    <updated>2022-12-18T08:58:42.434Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：Shuffle-机制"><a href="#一：Shuffle-机制" class="headerlink" title="一：Shuffle 机制"></a>一：Shuffle 机制</h1><ul><li>Map 方法之后，Reduce 方法之前的数据处理过程称之为 Shuffle。</li></ul><p><img src="/blog/6b6718d7.html/image-20221218165425041.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：Shuffle-机制&quot;&gt;&lt;a href=&quot;#一：Shuffle-机制&quot; class=&quot;headerlink&quot; title=&quot;一：Shuffle 机制&quot;&gt;&lt;/a&gt;一：Shuffle 机制&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Map 方法之后，Reduce 方法之前的数据处</summary>
+      
+    
+    
+    
+    <category term="Hadoop" scheme="https://aiyingke.cn/categories/Hadoop/"/>
+    
+    
+    <category term="Hadoop" scheme="https://aiyingke.cn/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MapReduce 工作流程</title>
     <link href="https://aiyingke.cn/blog/d1b2c594.html/"/>
     <id>https://aiyingke.cn/blog/d1b2c594.html/</id>
     <published>2022-12-18T07:31:04.000Z</published>
-    <updated>2022-12-18T07:45:27.434Z</updated>
+    <updated>2022-12-18T07:45:45.573Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一：MapReduce详细工作流程图"><a href="#一：MapReduce详细工作流程图" class="headerlink" title="一：MapReduce详细工作流程图"></a>一：MapReduce详细工作流程图</h1><p><img src="/blog/d1b2c594.html/image-20221218153651886.png"></p><p><img src="/blog/d1b2c594.html/image-20221218154214498.png"></p><p>上面的流程是整个 MapReduce 最全工作流程，但是 Shuffle 过程只是从第 7 步开始到第 16 步结束，具体 Shuffle 过程详解，如下：</p><p>（1）MapTask 收集我们的 map()方法输出的 kv 对，放到内存缓冲区中</p><p>（2）从内存缓冲区不断溢出本地磁盘文件，可能会溢出多个文件</p><p>（3）多个溢出文件会被合并成大的溢出文件</p><p>（4）在溢出过程及合并的过程中，都要调用 Partitioner 进行分区和针对 key 进行排序</p><p>（5）ReduceTask 根据自己的分区号，去各个 MapTask 机器上取相应的结果分区数据</p><p>（6）ReduceTask 会抓取到同一个分区的来自不同 MapTask 的结果文件，ReduceTask 会将这些文件再进行合并（归并排序）</p><p>（7）合并成大文件后，Shuffle 的过程也就结束了，后面进入 ReduceTask 的逻辑运算过程（从文件中取出一个一个的键值对 Group，调用用户自定义的 reduce()方法）</p><p><strong>注意：</strong> </p><ul><li>（1）Shuffle 中的缓冲区大小会影响到 MapReduce 程序的执行效率，原则上说，缓冲区 越大，磁盘 io 的次数越少，执行速度就越快。 </li><li>（2）缓冲区的大小可以通过参数调整，参数：mapreduce.task.io.sort.mb 默认 100M。</li></ul>]]></content>
     
@@ -468,30 +493,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;一：系统函数&quot;&gt;&lt;a href=&quot;#一：系统函数&quot; class=&quot;headerlink&quot; title=&quot;一：系统函数&quot;&gt;&lt;/a&gt;一：系统函数&lt;/h1&gt;&lt;h2 id=&quot;1-1-basename&quot;&gt;&lt;a href=&quot;#1-1-basename&quot; class=&quot;head</summary>
-      
-    
-    
-    
-    <category term="Shell" scheme="https://aiyingke.cn/categories/Shell/"/>
-    
-    
-    <category term="Shell" scheme="https://aiyingke.cn/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell IO交互</title>
-    <link href="https://aiyingke.cn/blog/42ce300b.html/"/>
-    <id>https://aiyingke.cn/blog/42ce300b.html/</id>
-    <published>2022-12-11T12:51:42.000Z</published>
-    <updated>2022-12-11T12:57:33.665Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一：read-读取控制台输入"><a href="#一：read-读取控制台输入" class="headerlink" title="一：read 读取控制台输入"></a>一：read 读取控制台输入</h1><h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><ul><li><p>read (选项) (参数) </p></li><li><p>①选项： </p><ul><li>-p：指定读取值时的提示符； </li><li>-t：指定读取值时等待的时间（秒）如果-t 不加表示一直等待</li></ul></li><li><p>②参数：</p><ul><li>变量：指定读取值的变量名</li></ul></li></ul><h2 id="1-2-案例实操"><a href="#1-2-案例实操" class="headerlink" title="1.2 案例实操"></a>1.2 案例实操</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop100 shell]# cat while.sh </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">i=0</span><br><span class="line">sum=0</span><br><span class="line">while [ $i -le 100 ]</span><br><span class="line">do</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">sum</span>=$[<span class="variable">$sum</span>+<span class="variable">$i</span>]</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">i=$[<span class="variable">$i</span>+1]</span></span><br><span class="line">let sum+=i</span><br><span class="line">let i++</span><br><span class="line">done</span><br><span class="line">echo $sum</span><br><span class="line">[root@hadoop100 shell]# ./read.sh </span><br><span class="line">请在10秒内输入参数: Ghost</span><br><span class="line">welcome Ghost</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一：read-读取控制台输入&quot;&gt;&lt;a href=&quot;#一：read-读取控制台输入&quot; class=&quot;headerlink&quot; title=&quot;一：read 读取控制台输入&quot;&gt;&lt;/a&gt;一：read 读取控制台输入&lt;/h1&gt;&lt;h2 id=&quot;1-1-基本语法&quot;&gt;&lt;a href</summary>
       
     
     
