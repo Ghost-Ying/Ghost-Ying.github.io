@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MapReduce 开发总结</title>
+      <link href="/blog/6e775d30.html/"/>
+      <url>/blog/6e775d30.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：输入数据接口：InputFormat"><a href="#一：输入数据接口：InputFormat" class="headerlink" title="一：输入数据接口：InputFormat"></a>一：输入数据接口：InputFormat</h1><ul><li>默认使用的实现类是：TextInputFormat</li><li>TextInputFormat 的功能逻辑是：一次读一行文本，然后将该行的起始偏移量作为 key，行内容作为 value 返回。</li><li>CombineTextInputFormat 可以把多个小文件合并成一个切片处理，提高处理效率。</li></ul><h1 id="二：逻辑处理接口：Mapper"><a href="#二：逻辑处理接口：Mapper" class="headerlink" title="二：逻辑处理接口：Mapper"></a>二：逻辑处理接口：Mapper</h1><ul><li>用户根据业务需求实现其中三个方法：map() setup() cleanup ()</li></ul><h1 id="三：Partitioner-分区"><a href="#三：Partitioner-分区" class="headerlink" title="三：Partitioner 分区"></a>三：Partitioner 分区</h1><ul><li>有默认实现 HashPartitioner，逻辑是根据 key 的哈希值和 numReduces 来返回一个 分区号；key.hashCode()&amp;Integer.MAXVALUE % numReduces</li><li>如果业务上有特别的需求，可以自定义分区。</li></ul><h1 id="四：Comparable-排序"><a href="#四：Comparable-排序" class="headerlink" title="四：Comparable 排序"></a>四：Comparable 排序</h1><ul><li>当我们用自定义的对象作为 key 来输出时，就必须要实现 WritableComparable 接 口，重写其中的 compareTo()方法。</li><li>部分排序：对最终输出的每一个文件进行内部排序。</li><li>全排序：对所有数据进行排序，通常只有一个 Reduce。</li><li>二次排序：排序的条件有两个。</li></ul><h1 id="五：Combiner-合并"><a href="#五：Combiner-合并" class="headerlink" title="五：Combiner 合并"></a>五：Combiner 合并</h1><ul><li>Combiner 合并可以提高程序执行效率，减少 IO 传输。但是使用时必须不能影响原有的 业务处理结果。</li></ul><h1 id="六：逻辑处理接口：Reducer"><a href="#六：逻辑处理接口：Reducer" class="headerlink" title="六：逻辑处理接口：Reducer"></a>六：逻辑处理接口：Reducer</h1><ul><li>用户根据业务需求实现其中三个方法：reduce() setup() cleanup ()</li></ul><h1 id="七：输出数据接口：OutputFormat"><a href="#七：输出数据接口：OutputFormat" class="headerlink" title="七：输出数据接口：OutputFormat"></a>七：输出数据接口：OutputFormat</h1><ul><li>用户根据业务需求实现其中三个方法：reduce() setup() cleanup ()</li><li>用户还可以自定义 OutputFormat。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MapReduce-ETL数据清洗</title>
       <link href="/blog/e164e43a.html/"/>
       <url>/blog/e164e43a.html/</url>
