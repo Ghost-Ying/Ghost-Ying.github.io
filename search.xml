@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Spark 相关术语</title>
+      <link href="/blog/f278f015.html/"/>
+      <url>/blog/f278f015.html/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spark 架构设计</title>
+      <link href="/blog/6a386de9.html/"/>
+      <url>/blog/6a386de9.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一：架构总览"><a href="#一：架构总览" class="headerlink" title="一：架构总览"></a>一：架构总览</h1><p><img src="/blog/6a386de9.html/1629182444027-d40b52f7-91de-4983-9fe1-c9c7e82c2a3d.png"></p><h1 id="二：角色作用"><a href="#二：角色作用" class="headerlink" title="二：角色作用"></a>二：角色作用</h1><ul><li>Client：面向用户，对外提供接口，提交代码的入口。</li><li>Driver Program：驱动器程序，用于解耦客户端和内部实际操作，将用户程序转化为任务。</li><li>SparkContent：Spark 上下文，承接作用，用于配置上下文环境。</li><li>Cluster Manager（Resource Manager）：集群资源管理器，统一资源管理与任务调度。</li><li>Application Master：任务的执行，调度指挥者。</li><li>Worker Node：工作节点，任务的实际执行者。</li></ul><h1 id="三：角色间关系"><a href="#三：角色间关系" class="headerlink" title="三：角色间关系"></a>三：角色间关系</h1><ol><li>客户端接收到用户指令、代码；</li><li>驱动器服务于客户端，承接指令传达给集群资源管理器；</li><li>集群资源管理器根据当前情况，进行资源调度，生成一个任务调度者 AM（Application Master）</li><li>AM 给相应的工作节点分配任务；</li><li>工作节点执行任务，执行完毕，结果返回给 AM，并向资源管理器汇报自身资源情况，任务已完成当前空闲状态。</li><li>AM 接收到计算结果进行汇总，返回给客户端。</li></ol><h1 id="四：工作特性"><a href="#四：工作特性" class="headerlink" title="四：工作特性"></a>四：工作特性</h1><ul><li>内存计算</li><li>多线程</li><li>缓存</li><li>每一个 AM 都有一批专享的 Executor，以多线程方式启动多个 Task 任务，并行的线程计算任务缓存 RDD数据缓存块，存储复用的数据模块。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hadoop 数据压缩</title>
       <link href="/blog/40919b9a.html/"/>
       <url>/blog/40919b9a.html/</url>
