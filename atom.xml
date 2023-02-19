@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2023-02-19T07:00:48.270Z</updated>
+  <updated>2023-02-19T07:19:37.117Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -21,11 +21,22 @@
     <link href="https://aiyingke.cn/blog/f278f015.html/"/>
     <id>https://aiyingke.cn/blog/f278f015.html/</id>
     <published>2023-02-19T07:00:48.000Z</published>
-    <updated>2023-02-19T07:00:48.270Z</updated>
+    <updated>2023-02-19T07:19:37.117Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一：RDD-Resilient-Distributed-DataSet"><a href="#一：RDD-Resilient-Distributed-DataSet" class="headerlink" title="一：RDD (Resilient Distributed DataSet)"></a>一：RDD (Resilient Distributed DataSet)</h1><ul><li>弹性分布式数据集，是对数据集在spark存储和计算过程中的一种抽象。</li><li>是一组只读、可分区的分布式数据集合。</li><li>一个RDD 包含多个分区Partition(类似于MapReduce中的InputSplit中的block)，分区是依照一定的规则的，将具有相同规则的属性的数据记录放在一起。</li><li>横向上可切分并行计算，以分区Partition为切分后的最小存储和计算单元。</li><li>纵向上可进行内外存切换使用，即当数据在内存不足时，可以用外存磁盘来补充。</li></ul><h1 id="二：Partition-（分区）"><a href="#二：Partition-（分区）" class="headerlink" title="二：Partition （分区）"></a>二：Partition （分区）</h1><ul><li>Partition类似hadoop的Split中的block，计算是以partition为单位进行的，提供了一种划分数据的方式。</li><li>Partition的划分依据有很多，常见的有Hash分区、范围分区等，也可以自己定义的，像HDFS文件，划分的方式就和MapReduce一样，以文件的block来划分不同的partition。</li><li>一个Partition交给一个Task去计算处理。</li></ul><h1 id="三：算子"><a href="#三：算子" class="headerlink" title="三：算子"></a>三：算子</h1><ul><li>英文简称：Operator，简称op</li><li>广义上讲，对任何函数进行某一项操作都可以认为是一个算子</li><li>通俗上讲，算子即为映射、关系、变换。</li><li>MapReduce算子，主要分为两个，即为Map和Reduce两个主要操作的算子，导致灵活可用性比较差。</li><li>Spark算子，分为两大类，即为Transformation和Action类，合计有80多个。</li></ul><h1 id="四：Transformation类算子"><a href="#四：Transformation类算子" class="headerlink" title="四：Transformation类算子"></a>四：Transformation类算子</h1><ul><li>操作是延迟计算的，也就是说从一个RDD 转换生成另一个 RDD 的转换操作不是马上执行，需要等到有 Action 操作的时候才会真正触发运算。</li><li>细分类<ul><li>Value数据类型的Transformation算子</li><li>Key-Value数据类型的Transfromation算子</li></ul></li></ul><h1 id="五：Action类算子"><a href="#五：Action类算子" class="headerlink" title="五：Action类算子"></a>五：Action类算子</h1><ul><li>会触发 Spark 提交作业（Job），并将数据输出 Spark 系统。</li></ul><h1 id="六：窄依赖"><a href="#六：窄依赖" class="headerlink" title="六：窄依赖"></a>六：窄依赖</h1><ul><li>如果一个父RDD的每个分区只被子RDD的一个分区使用 —-&gt; 一对一关系</li></ul><h1 id="七：宽依赖"><a href="#七：宽依赖" class="headerlink" title="七：宽依赖"></a>七：宽依赖</h1><ul><li>如果一个父RDD的每个分区要被子RDD 的多个分区使用 —-&gt; 一对多关系</li></ul><h1 id="八：Application"><a href="#八：Application" class="headerlink" title="八：Application"></a>八：Application</h1><ul><li>Spark Application的概念和MapReduce中的job或者yarn中的application类似，指的是用户编写的Spark应用程序，包含了一个Driver功能的代码和分布在集群中多个节点上运行的Executor代码</li><li>一般是指整个Spark项目从开发、测试、布署、运行的全部。</li></ul><h1 id="九：Driver"><a href="#九：Driver" class="headerlink" title="九：Driver"></a>九：Driver</h1><ul><li>运行main函数并且创建SparkContext的程序。</li><li>称为驱动程序，Driver Program类似于hadoop的wordcount程序中的driver类的main函数。</li></ul><h1 id="十：Cluster-Manager"><a href="#十：Cluster-Manager" class="headerlink" title="十：Cluster Manager"></a>十：Cluster Manager</h1><ul><li>集群的资源管理器，在集群上获取资源的服务。如Yarn、Mesos、Spark Standalone等。</li><li>以Yarn为例，驱动程序会向Yarn申请计算我这个任务需要多少的内存，多少CPU等，后由Cluster Manager会通过调度告诉驱动程序可以使用，然后驱动程序将任务分配到既定的Worker Node上面执行。</li></ul><h1 id="十一：WorkerNode"><a href="#十一：WorkerNode" class="headerlink" title="十一：WorkerNode"></a>十一：WorkerNode</h1><ul><li>集群中任何一个可以运行spark应用代码的节点。</li><li>Worker Node就是物理机器节点，可以在上面启动Executor进程。</li></ul><h1 id="十二：Executor"><a href="#十二：Executor" class="headerlink" title="十二：Executor"></a>十二：Executor</h1><ul><li>Application运行在Worker节点上的一个进程，该进程负责运行Task，并且负责将数据存在内存或者磁盘上，每个Application都有各自独立专享的一批Executor。</li><li>Executor即为spark概念的资源容器，类比于yarn的container容器，真正承载Task的运行与管理，以多线程的方式运行Task，更加高效快速。</li></ul><h1 id="十三：Task"><a href="#十三：Task" class="headerlink" title="十三：Task"></a>十三：Task</h1><ul><li>与Hadoop中的Map Task或者Reduce Task是类同的。</li><li>分配到executor上的基本工作单元，执行实际的计算任务。</li><li>Task分为两类，即为ShuffleMapTask和ResultTask。<ul><li>ShuffleMapTask：即为Map任务和发生Shuffle的任务的操作，由Transformation操作组成，其输出结果是为下个阶段任务(ResultTask)进行做准备，不是最终要输出的结果。</li><li>ResultTask：即为Action操作触发的Job作业的最后一个阶段任务，其输出结果即为Application最终的输出或存储结果。</li></ul></li></ul><h1 id="十四：Job（作业）"><a href="#十四：Job（作业）" class="headerlink" title="十四：Job（作业）"></a>十四：Job（作业）</h1><ul><li>Spark RDD里的每个action的计算会生成一个job。</li><li>用户提交的Job会提交给DAGScheduler（Job调度器），Job会被分解成Stage去执行，每个Stage由一组相同计算规则的Task组成，该组Task也称为TaskSet，实际交由TaskScheduler去调度Task的机器执行节点，最终完成作业的执行。</li></ul><h1 id="十五：Stage（阶段）"><a href="#十五：Stage（阶段）" class="headerlink" title="十五：Stage（阶段）"></a>十五：Stage（阶段）</h1><ul><li>Stage是Job的组成部分，每个Job可以包含1个或者多个Stage。</li><li>Job切分成Stage是以Shuffle作为分隔依据，Shuffle前是一个Stage，Shuffle后是一个Stage。即为按RDD宽窄依赖来划分Stage。  </li><li>每个Job会被拆分很多组Task，每组任务被称为Stage，也可称TaskSet，一个作业可以被分为一个或多个阶段。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一：RDD-Resilient-Distributed-DataSet&quot;&gt;&lt;a href=&quot;#一：RDD-Resilient-Distributed-DataSet&quot; class=&quot;headerlink&quot; title=&quot;一：RDD (Resilient Distr</summary>
+      
     
     
     
+    <category term="Spark" scheme="https://aiyingke.cn/categories/Spark/"/>
     
+    
+    <category term="Spark" scheme="https://aiyingke.cn/tags/Spark/"/>
     
   </entry>
   
@@ -34,7 +45,7 @@
     <link href="https://aiyingke.cn/blog/6a386de9.html/"/>
     <id>https://aiyingke.cn/blog/6a386de9.html/</id>
     <published>2023-02-19T06:36:20.000Z</published>
-    <updated>2023-02-19T07:00:07.278Z</updated>
+    <updated>2023-02-19T07:06:56.914Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一：架构总览"><a href="#一：架构总览" class="headerlink" title="一：架构总览"></a>一：架构总览</h1><p><img src="/blog/6a386de9.html/1629182444027-d40b52f7-91de-4983-9fe1-c9c7e82c2a3d.png"></p><h1 id="二：角色作用"><a href="#二：角色作用" class="headerlink" title="二：角色作用"></a>二：角色作用</h1><ul><li>Client：面向用户，对外提供接口，提交代码的入口。</li><li>Driver Program：驱动器程序，用于解耦客户端和内部实际操作，将用户程序转化为任务。</li><li>SparkContent：Spark 上下文，承接作用，用于配置上下文环境。</li><li>Cluster Manager（Resource Manager）：集群资源管理器，统一资源管理与任务调度。</li><li>Application Master：任务的执行，调度指挥者。</li><li>Worker Node：工作节点，任务的实际执行者。</li></ul><h1 id="三：角色间关系"><a href="#三：角色间关系" class="headerlink" title="三：角色间关系"></a>三：角色间关系</h1><ol><li>客户端接收到用户指令、代码；</li><li>驱动器服务于客户端，承接指令传达给集群资源管理器；</li><li>集群资源管理器根据当前情况，进行资源调度，生成一个任务调度者 AM（Application Master）</li><li>AM 给相应的工作节点分配任务；</li><li>工作节点执行任务，执行完毕，结果返回给 AM，并向资源管理器汇报自身资源情况，任务已完成当前空闲状态。</li><li>AM 接收到计算结果进行汇总，返回给客户端。</li></ol><h1 id="四：工作特性"><a href="#四：工作特性" class="headerlink" title="四：工作特性"></a>四：工作特性</h1><ul><li>内存计算</li><li>多线程</li><li>缓存</li><li>每一个 AM 都有一批专享的 Executor，以多线程方式启动多个 Task 任务，并行的线程计算任务缓存 RDD数据缓存块，存储复用的数据模块。</li></ul>]]></content>
     
@@ -46,7 +57,7 @@
     
     
     
-    <category term="Hadoop" scheme="https://aiyingke.cn/categories/Hadoop/"/>
+    <category term="Spark" scheme="https://aiyingke.cn/categories/Spark/"/>
     
     
     <category term="Spark" scheme="https://aiyingke.cn/tags/Spark/"/>
