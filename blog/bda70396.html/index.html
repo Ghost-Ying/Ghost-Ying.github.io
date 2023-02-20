@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spark 常用算子 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一：算子概述1.1 什么是算子？ 英文：Operator  狭义：一个函数空间到另一个函数空间的映射  广义：一个空间到另个一个空间的映射  白话：一个事物从一个状态到另一个状态的过程  实质：映射，即关系   1.2 算子的重要作用 算子越多，灵活性越高，编程的可选方式就越多 算子越多，表现能力强，可以灵活应对各种复杂场景  1.3 MapReduce 和 Spark 算子比较 MapReduc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark 常用算子">
+<meta property="og:url" content="https://aiyingke.cn/blog/bda70396.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一：算子概述1.1 什么是算子？ 英文：Operator  狭义：一个函数空间到另一个函数空间的映射  广义：一个空间到另个一个空间的映射  白话：一个事物从一个状态到另一个状态的过程  实质：映射，即关系   1.2 算子的重要作用 算子越多，灵活性越高，编程的可选方式就越多 算子越多，表现能力强，可以灵活应对各种复杂场景  1.3 MapReduce 和 Spark 算子比较 MapReduc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiyingke.cn/img/spark.jpg">
+<meta property="article:published_time" content="2023-02-20T08:43:05.000Z">
+<meta property="article:modified_time" content="2023-02-20T10:07:09.566Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="Spark">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aiyingke.cn/img/spark.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/bda70396.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spark 常用算子',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-20 18:07:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/spark.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spark 常用算子</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-20T08:43:05.000Z" title="发表于 2023-02-20 16:43:05">2023-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-20T10:07:09.566Z" title="更新于 2023-02-20 18:07:09">2023-02-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Spark/">Spark</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spark 常用算子"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一：算子概述"><a href="#一：算子概述" class="headerlink" title="一：算子概述"></a>一：算子概述</h1><h2 id="1-1-什么是算子？"><a href="#1-1-什么是算子？" class="headerlink" title="1.1 什么是算子？"></a>1.1 什么是算子？</h2><ul>
+<li><p>英文：Operator</p>
+</li>
+<li><p>狭义：一个函数空间到另一个函数空间的映射</p>
+</li>
+<li><p>广义：一个空间到另个一个空间的映射</p>
+</li>
+<li><p>白话：一个事物从一个状态到另一个状态的过程</p>
+</li>
+<li><p>实质：映射，即关系</p>
+</li>
+</ul>
+<h2 id="1-2-算子的重要作用"><a href="#1-2-算子的重要作用" class="headerlink" title="1.2 算子的重要作用"></a>1.2 算子的重要作用</h2><ul>
+<li>算子越多，灵活性越高，编程的可选方式就越多</li>
+<li>算子越多，表现能力强，可以灵活应对各种复杂场景</li>
+</ul>
+<h2 id="1-3-MapReduce-和-Spark-算子比较"><a href="#1-3-MapReduce-和-Spark-算子比较" class="headerlink" title="1.3 MapReduce 和 Spark 算子比较"></a>1.3 MapReduce 和 Spark 算子比较</h2><ul>
+<li>MapReduce 只有2个算子，map和reduce，绝大多数场景下，需要复杂的编程来完成业务需求</li>
+<li>Spark 有80多个算子，可以灵活组合应对不同的业务场景</li>
+</ul>
+<h1 id="二：Spark算子"><a href="#二：Spark算子" class="headerlink" title="二：Spark算子"></a>二：Spark算子</h1><h2 id="2-1-转换算子（transformation）"><a href="#2-1-转换算子（transformation）" class="headerlink" title="2.1 转换算子（transformation）"></a>2.1 转换算子（transformation）</h2><p>此种算子不会真正的触发提交作业，只有作业被提交后才会触发转换计算</p>
+<ul>
+<li>value型转换算子（处理的数据项是value型）<ul>
+<li>输入分区：输出分区 &#x3D; 1 ： 1<ul>
+<li>map算子</li>
+<li>flatMap算子</li>
+<li>mapPartitions算子</li>
+</ul>
+</li>
+<li>输入分区：输出分区 &#x3D; n ： 1<ul>
+<li>union算子</li>
+<li>cartesian算子</li>
+</ul>
+</li>
+<li>输入分区 ：输出分区 &#x3D; n ： n<ul>
+<li>groupBy算子</li>
+</ul>
+</li>
+<li>输出分区为输入分区的子集<ul>
+<li>filter算子</li>
+<li>distinct算子</li>
+<li>substract算子</li>
+<li>sample算子</li>
+<li>takeSample算子</li>
+</ul>
+</li>
+<li>cache型算子<ul>
+<li>cache算子</li>
+<li>persist算子</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>key-value型转换算子（处理的数据类型是key-value型）<ul>
+<li>输入分区：输出分区 &#x3D; 1： 1<ul>
+<li>mapValues 算子</li>
+</ul>
+</li>
+<li>对单个RDD聚集<ul>
+<li>combineByKey算子</li>
+<li>reduceByKey算子</li>
+<li>partitionBy算子</li>
+</ul>
+</li>
+<li>对两个RDD聚合<ul>
+<li>cogroup算子</li>
+</ul>
+</li>
+<li>连接<ul>
+<li>join算子</li>
+<li>leftOutJoin算子</li>
+<li>rightOutJoin算子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-行动算子（action）"><a href="#2-2-行动算子（action）" class="headerlink" title="2.2 行动算子（action）"></a>2.2 行动算子（action）</h2><p>这种算子会触发sparkContent提交作业；</p>
+<ul>
+<li>无输出（不生成文件）<ul>
+<li>foreach算子</li>
+</ul>
+</li>
+<li>HDFS<ul>
+<li>saveAsTextFile算子</li>
+<li>saveAsObjectFile算子</li>
+</ul>
+</li>
+<li>scala集合和数据类型<ul>
+<li>collect算子</li>
+<li>collectAsMap算子</li>
+<li>reduceByKeyLocally算子</li>
+<li>lookup算子</li>
+<li>count算子</li>
+<li>top算子</li>
+<li>reduce算子</li>
+<li>fold算子</li>
+<li>aggregate算子</li>
+</ul>
+</li>
+</ul>
+<h1 id="三：常见算子的应用场景"><a href="#三：常见算子的应用场景" class="headerlink" title="三：常见算子的应用场景"></a>三：常见算子的应用场景</h1><h2 id="3-1-转换算子（transformation）"><a href="#3-1-转换算子（transformation）" class="headerlink" title="3.1 转换算子（transformation）"></a>3.1 转换算子（transformation）</h2><h3 id="3-1-1-value型转换算子"><a href="#3-1-1-value型转换算子" class="headerlink" title="3.1.1 value型转换算子"></a>3.1.1 value型转换算子</h3><h4 id="（1）map"><a href="#（1）map" class="headerlink" title="（1）map"></a>（1）map</h4><p>类比mapreduce中的map操作，给定一个输入，由map函数操作后，成为一个新的元素输出；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List(&quot;Hello&quot;,&quot;Word&quot;,&quot;你好&quot;,&quot;世界&quot;),2)</span><br><span class="line">val second = first.map(_.length)</span><br><span class="line">second.collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629361528641-4cccbb47-74f0-4033-a43f-a80da85ecadd.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(1 to 5,2)</span><br><span class="line">first.map(1 to _).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629361687877-18444583-2032-4606-b1c2-59d7a858da27.png"></p>
+<h4 id="（2）flatMap"><a href="#（2）flatMap" class="headerlink" title="（2）flatMap"></a>（2）flatMap</h4><p>给定一个二维的输入（线式输入），将返回的所有结果打平成一个一维的集合结构（点式集合输出）;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(1 to 5,2)</span><br><span class="line">first.flatMap(1 to _).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629361925095-d5967335-e5d8-4136-b9dc-40aeaf574e03.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;),2)</span><br><span class="line">first.flatMap(x =&gt;List(x,x,x)).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629362079746-1298c815-0023-41a3-9c3c-d3adf7f565c4.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;),2)</span><br><span class="line">first.flatMap(x =&gt; List(x+&quot;_1&quot;,x+&quot;_2&quot;,x+&quot;_3&quot;)).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629362222555-086c43f1-848f-4990-9fbd-d369bdb90f42.png"></p>
+<h4 id="（3）mapPartitions"><a href="#（3）mapPartitions" class="headerlink" title="（3）mapPartitions"></a>（3）mapPartitions</h4><p>以分区为单位进行计算处理；</p>
+<p>在map过程中，需要频繁创建额外对象时，如文件输出流操作、jdbc操作、socket操作，使用mapPartitions算子；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">val rdd = sc.parallelize(Seq(1,2,3,4,5),3)</span><br><span class="line">var rdd2 = rdd.mapPartitions(partition =&gt; &#123;</span><br><span class="line">// 在此处可以加入jdbc一次初始化多少次使用的代码</span><br><span class="line">partition.map(num =&gt; num * num)</span><br><span class="line">&#125;)</span><br><span class="line">rdd2.max</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629362591147-55198903-ddac-4824-9735-ad45e0648084.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val rdd = sc.parallelize(Seq(1,2,3,4),3)</span><br><span class="line">var rdd2 = rdd.mapPartitions(partition =&gt;&#123;</span><br><span class="line">partition.flatMap(1 to _)</span><br><span class="line">&#125;)</span><br><span class="line">rdd2.count</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629362787238-09fde06d-4c8a-4a76-bf4f-81cd63d4888d.png"></p>
+<h4 id="（4）glom"><a href="#（4）glom" class="headerlink" title="（4）glom"></a>（4）glom</h4><p>以分区为单位，将每个分区的值形成一个数组；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(Seq(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;),3)</span><br><span class="line">a.glom.collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629362965109-f019c760-0cca-48e7-b77e-72a72b865c73.png"></p>
+<p>由上诉得到：分组的依据是平均分组</p>
+<h4 id="（5）union"><a href="#（5）union" class="headerlink" title="（5）union"></a>（5）union</h4><p>将2个rdd合并成一个rdd，不去重；有时可能会发生多个分区合并成一个分区的情况。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(1 to 4,2)</span><br><span class="line">val b = sc.parallelize(6 to 10,2)</span><br><span class="line">a.union(b).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363148863-5e326e0c-8090-44dc-9235-fc502b1b020d.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a union b).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363185922-78c5a488-f745-423f-ba9f-5a1a8aed72f0.png"></p>
+<h4 id="（6）groupBy"><a href="#（6）groupBy" class="headerlink" title="（6）groupBy"></a>（6）groupBy</h4><p>输入分区和输出分区 n : n型</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(Seq(1,2,3,4,5,56,67),3)</span><br><span class="line">a.groupBy(x =&gt; &#123;if(x&gt;10) &quot;&gt;10&quot; else &quot;&lt;=10&quot;&#125;).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363353742-3a6f1e5a-9e2b-4830-aa7a-6746670268cf.png"></p>
+<h4 id="（7）filter"><a href="#（7）filter" class="headerlink" title="（7）filter"></a>（7）filter</h4><p>输出为输入的子集；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(1 to 4,3)</span><br><span class="line">val b = a.filter(_%4 == 0)</span><br><span class="line">b.collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363470345-d3527b6f-d8cc-4cda-9075-5295be2fc72f.png"></p>
+<h4 id="（8）distinct"><a href="#（8）distinct" class="headerlink" title="（8）distinct"></a>（8）distinct</h4><p>输出分区为输入分区的子集，全局去重；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(1 to 3,3)</span><br><span class="line">val b = sc.parallelize(2 to 9,3)</span><br><span class="line">a.union(b).distinct().collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363723963-576ad83b-d590-475d-81b6-09e20703585d.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val c = sc.parallelize(List(&quot;小红&quot;,&quot;消化&quot;,&quot;不良&quot;,&quot;消化&quot;))</span><br><span class="line">c.distinct.collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629363870738-97f17c6b-c2c6-4145-be17-a744e0697ecb.png"></p>
+<h4 id="（9）cache"><a href="#（9）cache" class="headerlink" title="（9）cache"></a>（9）cache</h4><p>cache将rdd元素从磁盘缓存到内存中，数据反复被使用的场景使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(1 to 3,2)</span><br><span class="line">val b = sc.parallelize(2 to 4,2)</span><br><span class="line">a.union(b).count</span><br><span class="line">a.distinct().collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629365250564-1438ac38-78bf-4c84-b7c5-1337feebeeca.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val a = sc.parallelize(1 to 3,2)</span><br><span class="line">val b = sc.parallelize(2 to 5,3)</span><br><span class="line">val c = a.union(b).cache</span><br><span class="line">c.count</span><br><span class="line">c.distinct().collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629365410401-cff04c88-5a41-4aa0-a8cd-3d9bc4f8c045.png"></p>
+<h3 id="3-1-2-key-value型转换算子"><a href="#3-1-2-key-value型转换算子" class="headerlink" title="3.1.2 key-value型转换算子"></a>3.1.2 key-value型转换算子</h3><h4 id="（1）mapValues"><a href="#（1）mapValues" class="headerlink" title="（1）mapValues"></a>（1）mapValues</h4><p>输入分区：输出分区 &#x3D; 1 ： 1</p>
+<p>针对key-value型数据中的value进行map操作，而不对key进行处理；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List((&quot;张三&quot;,1),(&quot;李四&quot;,2),(&quot;王五&quot;,3)),2)</span><br><span class="line">val second = first.mapValues(x =&gt; x+1)</span><br><span class="line">second.collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629366240118-49f73664-486d-4acd-a779-46fe1aa28042.png"></p>
+<h4 id="（2）★-combineByKey-★"><a href="#（2）★-combineByKey-★" class="headerlink" title="（2）★ combineByKey ★"></a>（2）★ combineByKey ★</h4><p>定义</p>
+<p>def combineByKey [C] (</p>
+<p>createCombiner: (V) &#x3D;&gt; C,</p>
+<p>mergeValue: (C,V) &#x3D;&gt; C,</p>
+<p>mergeCombiners: (C,C) &#x3D;&gt; C): RDD[(String, C)]</p>
+<p>元素</p>
+<p>createCombiner对每个分区内的同组元素如何聚合，形成一个累加器</p>
+<p>mergeValue 将累加器与新遇到的值进行合并的方法</p>
+<p>mergeCombiners 每个分区都是独立处理，故同一个键可以有多个累加器。如果两个或者多个分区都对应同一个键的累加器，用方法将各个分区的结果进行合并。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List((&quot;张一&quot;,4),(&quot;张一&quot;,2),(&quot;张三&quot;,3)),2)</span><br><span class="line">val second =first.combineByKey(List(_), (x:List[Int],y:Int) =&gt; y::x, (x:List[Int], y:List[Int]) =&gt; x:::y)</span><br><span class="line">second.collect </span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629367854547-9a9fa874-7f66-4d7d-a216-a511bfb5b502.png"></p>
+<h4 id="（3）reduceByKey"><a href="#（3）reduceByKey" class="headerlink" title="（3）reduceByKey"></a>（3）reduceByKey</h4><p>按key聚合后对组进行规约处理，求和</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List(&quot;小米&quot;,&quot;华为&quot;,&quot;小米&quot;,&quot;华硕&quot;,&quot;很郁闷&quot;),2)</span><br><span class="line">val second = first.map(x =&gt; (x,1))</span><br><span class="line">second.reduceByKey(_+_).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629370722139-e07aa367-7b31-4818-a81e-fb58087606bf.png"></p>
+<h4 id="（4）join"><a href="#（4）join" class="headerlink" title="（4）join"></a>（4）join</h4><p>对 key-value 结构的rdd进行按key的join操作，最后将V部分做flatMap打平操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List((&quot;张三&quot;,11),(&quot;李四&quot;,12)),2)</span><br><span class="line">val seconed = sc.parallelize(List((&quot;张一&quot;,2),(&quot;李二&quot;,3),(&quot;李四&quot;,3)),3)</span><br><span class="line">first.join(seconed).collect</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629371167534-5d370cc0-f9b8-4785-a30a-f89d51d0d802.png"></p>
+<h2 id="3-2-行动算子-action"><a href="#3-2-行动算子-action" class="headerlink" title="3.2 行动算子 action"></a>3.2 行动算子 action</h2><p>该类型算子会触发SparkContext提交作业，触发RDD DAG的执行</p>
+<h4 id="（1）无输出型，不落地本地文件或hsfs文件"><a href="#（1）无输出型，不落地本地文件或hsfs文件" class="headerlink" title="（1）无输出型，不落地本地文件或hsfs文件"></a>（1）无输出型，不落地本地文件或hsfs文件</h4><p>foreach算子</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val first = sc.parallelize(List(&quot;小米&quot;,&quot;华为&quot;,&quot;华米&quot;,&quot;小米&quot;,&quot;苹果&quot;,&quot;华米&quot;,&quot;三星&quot;),2)</span><br><span class="line">first.foreach(println _)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog/bda70396.html/1629371520895-6d080f91-c686-4d4f-9dfa-514612d51c7e.png"></p>
+<h4 id="（2）HDFS输出型"><a href="#（2）HDFS输出型" class="headerlink" title="（2）HDFS输出型"></a>（2）HDFS输出型</h4><p>saveAsTextFile算子</p>
+<h4 id="（3）scala集合和数据类型"><a href="#（3）scala集合和数据类型" class="headerlink" title="（3）scala集合和数据类型"></a>（3）scala集合和数据类型</h4><h4 id="（4）collectAsMap算子"><a href="#（4）collectAsMap算子" class="headerlink" title="（4）collectAsMap算子"></a>（4）collectAsMap算子</h4><h4 id="（5）lookup算子"><a href="#（5）lookup算子" class="headerlink" title="（5）lookup算子"></a>（5）lookup算子</h4><h4 id="（6）reduce算子"><a href="#（6）reduce算子" class="headerlink" title="（6）reduce算子"></a>（6）reduce算子</h4><h4 id="（7）fold算子fold算子："><a href="#（7）fold算子fold算子：" class="headerlink" title="（7）fold算子fold算子："></a>（7）fold算子fold算子：</h4><p>def fold (zeroValue: T)(op: (T, T) &#x3D;&gt; T) : T</p>
+<p>先对rdd分区的每一个分区进行op函数</p>
+<p>在调用op函数过程中将zeroValue参与计算</p>
+<p>最后在对所有分区的结果调用op函数，同事在此处进行zeroValue再次参与计算</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 和是41 公式：（1+2+3+4+5+6+10）+10</span><br><span class="line">sc.parallelize(List(1,2,3,4,5,6),1).fold(10)(_+_)</span><br></pre></td></tr></table></figure>
+
+<h1 id="四：其他常用算子"><a href="#四：其他常用算子" class="headerlink" title="四：其他常用算子"></a>四：其他常用算子</h1><ul>
+<li>cartesian算子</li>
+<li>subtract算子</li>
+<li>sample算子</li>
+<li>takeSample算子</li>
+<li>persist算子</li>
+<li>cogroup算子</li>
+<li>leftOuterJoin算子</li>
+<li>rightOuterJoin算子</li>
+<li>saveAsObjectFile算子</li>
+<li>count算子</li>
+<li>top算子</li>
+<li>aggregate算子</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/bda70396.html/">https://aiyingke.cn/blog/bda70396.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spark/">Spark</a></div><div class="post_share"><div class="social-share" data-image="/img/spark.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/blog/50ac08de.html/"><img class="next-cover" src="/img/flink.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Flink 架构设计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/75610dc7.html/" title="Spark 交互操作"><img class="cover" src="/img/spark.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-19</div><div class="title">Spark 交互操作</div></div></a></div><div><a href="/blog/f278f015.html/" title="Spark 相关术语"><img class="cover" src="/img/spark.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-19</div><div class="title">Spark 相关术语</div></div></a></div><div><a href="/blog/6a386de9.html/" title="Spark 架构设计"><img class="cover" src="/img/spark.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-19</div><div class="title">Spark 架构设计</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%EF%BC%9A%E7%AE%97%E5%AD%90%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一：算子概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E5%AD%90%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 什么是算子？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%AE%97%E5%AD%90%E7%9A%84%E9%87%8D%E8%A6%81%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 算子的重要作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-MapReduce-%E5%92%8C-Spark-%E7%AE%97%E5%AD%90%E6%AF%94%E8%BE%83"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 MapReduce 和 Spark 算子比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9ASpark%E7%AE%97%E5%AD%90"><span class="toc-number">2.</span> <span class="toc-text">二：Spark算子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E8%BD%AC%E6%8D%A2%E7%AE%97%E5%AD%90%EF%BC%88transformation%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 转换算子（transformation）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%A1%8C%E5%8A%A8%E7%AE%97%E5%AD%90%EF%BC%88action%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 行动算子（action）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%AE%97%E5%AD%90%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">三：常见算子的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E8%BD%AC%E6%8D%A2%E7%AE%97%E5%AD%90%EF%BC%88transformation%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 转换算子（transformation）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-value%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AE%97%E5%AD%90"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 value型转换算子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89map"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">（1）map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89flatMap"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">（2）flatMap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89mapPartitions"><span class="toc-number">3.1.1.3.</span> <span class="toc-text">（3）mapPartitions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89glom"><span class="toc-number">3.1.1.4.</span> <span class="toc-text">（4）glom</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89union"><span class="toc-number">3.1.1.5.</span> <span class="toc-text">（5）union</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89groupBy"><span class="toc-number">3.1.1.6.</span> <span class="toc-text">（6）groupBy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%887%EF%BC%89filter"><span class="toc-number">3.1.1.7.</span> <span class="toc-text">（7）filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%888%EF%BC%89distinct"><span class="toc-number">3.1.1.8.</span> <span class="toc-text">（8）distinct</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%889%EF%BC%89cache"><span class="toc-number">3.1.1.9.</span> <span class="toc-text">（9）cache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-key-value%E5%9E%8B%E8%BD%AC%E6%8D%A2%E7%AE%97%E5%AD%90"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 key-value型转换算子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89mapValues"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">（1）mapValues</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E2%98%85-combineByKey-%E2%98%85"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">（2）★ combineByKey ★</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89reduceByKey"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">（3）reduceByKey</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89join"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">（4）join</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E8%A1%8C%E5%8A%A8%E7%AE%97%E5%AD%90-action"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 行动算子 action</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%97%A0%E8%BE%93%E5%87%BA%E5%9E%8B%EF%BC%8C%E4%B8%8D%E8%90%BD%E5%9C%B0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E6%88%96hsfs%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.0.1.</span> <span class="toc-text">（1）无输出型，不落地本地文件或hsfs文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89HDFS%E8%BE%93%E5%87%BA%E5%9E%8B"><span class="toc-number">3.2.0.2.</span> <span class="toc-text">（2）HDFS输出型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89scala%E9%9B%86%E5%90%88%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.2.0.3.</span> <span class="toc-text">（3）scala集合和数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89collectAsMap%E7%AE%97%E5%AD%90"><span class="toc-number">3.2.0.4.</span> <span class="toc-text">（4）collectAsMap算子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89lookup%E7%AE%97%E5%AD%90"><span class="toc-number">3.2.0.5.</span> <span class="toc-text">（5）lookup算子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89reduce%E7%AE%97%E5%AD%90"><span class="toc-number">3.2.0.6.</span> <span class="toc-text">（6）reduce算子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%887%EF%BC%89fold%E7%AE%97%E5%AD%90fold%E7%AE%97%E5%AD%90%EF%BC%9A"><span class="toc-number">3.2.0.7.</span> <span class="toc-text">（7）fold算子fold算子：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9A%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E7%AE%97%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">四：其他常用算子</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/bda70396.html/" title="Spark 常用算子"><img src="/img/spark.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spark 常用算子"/></a><div class="content"><a class="title" href="/blog/bda70396.html/" title="Spark 常用算子">Spark 常用算子</a><time datetime="2023-02-20T08:43:05.000Z" title="发表于 2023-02-20 16:43:05">2023-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/50ac08de.html/" title="Flink 架构设计"><img src="/img/flink.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flink 架构设计"/></a><div class="content"><a class="title" href="/blog/50ac08de.html/" title="Flink 架构设计">Flink 架构设计</a><time datetime="2023-02-19T17:27:27.000Z" title="发表于 2023-02-20 01:27:27">2023-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/72cd4c87.html/" title="Flink 概述"><img src="/img/flink.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flink 概述"/></a><div class="content"><a class="title" href="/blog/72cd4c87.html/" title="Flink 概述">Flink 概述</a><time datetime="2023-02-19T16:45:05.000Z" title="发表于 2023-02-20 00:45:05">2023-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/75610dc7.html/" title="Spark 交互操作"><img src="/img/spark.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spark 交互操作"/></a><div class="content"><a class="title" href="/blog/75610dc7.html/" title="Spark 交互操作">Spark 交互操作</a><time datetime="2023-02-19T07:25:39.000Z" title="发表于 2023-02-19 15:25:39">2023-02-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/f278f015.html/" title="Spark 相关术语"><img src="/img/spark.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spark 相关术语"/></a><div class="content"><a class="title" href="/blog/f278f015.html/" title="Spark 相关术语">Spark 相关术语</a><time datetime="2023-02-19T07:00:48.000Z" title="发表于 2023-02-19 15:00:48">2023-02-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
