@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2024-01-02T16:31:41.688Z</updated>
+  <updated>2024-01-02T16:32:27.220Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aiyingke.cn/blog/e250d75f.html/"/>
     <id>https://aiyingke.cn/blog/e250d75f.html/</id>
     <published>2024-01-02T16:29:23.000Z</published>
-    <updated>2024-01-02T16:31:41.688Z</updated>
+    <updated>2024-01-02T16:32:27.220Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一：采集项目-amp-数据仓库项目的区别"><a href="#一：采集项目-amp-数据仓库项目的区别" class="headerlink" title="一：采集项目&amp;数据仓库项目的区别"></a>一：采集项目&amp;数据仓库项目的区别</h1><ol><li><p>从功能角度：</p></li><li><ol><li>采集：以数据为主，传输为主；</li><li>数仓：以数据的计算为主，同时也能存储数据；</li></ol></li><li><p>从技术角度：</p></li><li><ol><li>采集：flume、kafka、datax、maxwell</li><li>数仓：mysql、hdfs、spark、flink、mr、hive</li></ol></li></ol><h1 id="二：数据库和数据仓库的区别"><a href="#二：数据库和数据仓库的区别" class="headerlink" title="二：数据库和数据仓库的区别"></a>二：数据库和数据仓库的区别</h1><ol><li><p>从名称上区分：</p></li><li><ol><li>数据库：database（基础、核心的数据）</li><li>数据仓库：data warehouse（货栈、大商店、小卖店），注重于对外提供服务</li></ol></li><li><p>从数据的来源区分：</p></li><li><ol><li>数据库：企业中基础核心的业务数据</li><li>数据仓库：数据库中的数据</li></ol></li><li><p>从数据存储的角度区分：</p></li><li><ol><li>数据库：核心作用是查找业务数据</li></ol></li><li><ol><li><ol><li>如何存储有利于查询：行式存储（底层使用索引），不能存储海量数据；</li></ol></li></ol></li><li><ol><li>数据仓库：统计分析数据</li></ol></li><li><ol><li><ol><li>如何存储有利于统计、分析：列式存储，可以存储海量数据；</li></ol></li></ol></li><li><p>从数据的价值区分：</p></li><li><ol><li>数据库：保障全企业、全业务的正常运行；</li><li>数据仓库：将数据的统计的结果为企业的经营决策提供数据支撑；</li></ol></li><li><ol><li><ol><li>数据仓库不是数据流转的终点，需要将统计的结果通过可视化呈现；</li></ol></li></ol></li></ol><h1 id="三：数据流转的过程"><a href="#三：数据流转的过程" class="headerlink" title="三：数据流转的过程"></a>三：数据流转的过程</h1><ol><li><ol><li>用户</li><li>业务服务器</li><li>数据存储：行为数据库（文件）</li><li>数据的统计分析：数据仓库</li><li>数据可视化</li></ol></li></ol><h1 id="四：数据统计分析的基本步骤"><a href="#四：数据统计分析的基本步骤" class="headerlink" title="四：数据统计分析的基本步骤"></a>四：数据统计分析的基本步骤</h1><ol><li><p>确定数据源；</p></li><li><p>加工数据；（可以过滤、补全、脱敏等）</p></li><li><p>统计数据；</p></li><li><p>分析数据；</p></li><li><ol><li>spark on hive；（spark 解析 sql）</li><li>hive on spark；（hive 解析 sql）</li></ol></li></ol><h1 id="五：数据仓库-架构"><a href="#五：数据仓库-架构" class="headerlink" title="五：数据仓库-架构"></a>五：数据仓库-架构</h1><p>如果将数据库（MySQL）直接作为数据仓库的数据源，存在的问题：</p><ol><li><p>业务数据库的数据存储为行式存储，而数据仓库的数据要求为列式存储；</p></li><li><ol><li>数据不能直接对接：行式数据转换为列式数据</li></ol></li><li><p>业务数据库中存储的数据不是海量数据，但数据仓库要求为海量数据；</p></li><li><ol><li>数据不能直接对接：数据量不够</li></ol></li><li><p>数据库不是为数据仓库服务的</p></li><li><ol><li>数据仓库在对接数据库数据时，会对数据库的性能造成影响；</li><li>数据仓库应该设计一个自己的数据源；</li></ol></li><li><ol><li><ol><li>同步数据库数据，为了代替和补充数据库；</li><li>汇总数据库数据（海量数据）</li></ol></li></ol></li></ol><h1 id="六：数据采集和数据仓库-架构"><a href="#六：数据采集和数据仓库-架构" class="headerlink" title="六：数据采集和数据仓库-架构"></a>六：数据采集和数据仓库-架构</h1><p>数据仓库中的数据源需要从数据库中周期性（以天为单位）同步；一般情况下，这个同步的过程，称之为“采集”；</p><p>数据采集的时候，如果想要将数据同步到数据仓库的数据源，那么就必须知道业务数据库的表结构；那么采集项目和数据仓库项目就存在耦合性，因此需要解耦合，解耦合的核心就在于增加中间件；数据源为文件或者表，因此最好的中间件就是HDFS；</p><p><img src="/blog/e250d75f.html/1704212740438-0dced7e4-1274-4288-973f-d2c865c38e71.png" alt="img"></p><p><img src="/blog/e250d75f.html/1704212766094-dd64e588-44c5-4965-9d2f-b2678047e7d0.png" alt="img"></p>]]></content>
     
