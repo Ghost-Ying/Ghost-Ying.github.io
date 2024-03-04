@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>每日分享 Kafka | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、Kafka是什么? Kafka 一个分布式的、多分区、多副本、多订阅者，流式数据处理的平台。它具有消息系统（发布、订阅）的能力，也有实时流式数据处理和分析的能力，我们更多偏向于把它当做消息队列系统来使用。  以时间复杂度O(1)的方式提供持久化能力，即使应对TB以上的数据也能保证常数时间复杂度的访问性能 高吞吐率，廉价商用机器也能作做到单机每秒100K条以上的消息传输 支持消息分区、及分布式消">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日分享 Kafka">
+<meta property="og:url" content="https://aiyingke.cn/blog/c8b53445.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一、Kafka是什么? Kafka 一个分布式的、多分区、多副本、多订阅者，流式数据处理的平台。它具有消息系统（发布、订阅）的能力，也有实时流式数据处理和分析的能力，我们更多偏向于把它当做消息队列系统来使用。  以时间复杂度O(1)的方式提供持久化能力，即使应对TB以上的数据也能保证常数时间复杂度的访问性能 高吞吐率，廉价商用机器也能作做到单机每秒100K条以上的消息传输 支持消息分区、及分布式消">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg">
+<meta property="article:published_time" content="2024-03-04T14:46:17.000Z">
+<meta property="article:modified_time" content="2024-03-04T17:42:30.662Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="每日分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://aiyingke.cn/blog/c8b53445.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '每日分享 Kafka',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-05 01:42:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">122</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">每日分享 Kafka</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-04T14:46:17.000Z" title="发表于 2024-03-04 22:46:17">2024-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-04T17:42:30.662Z" title="更新于 2024-03-05 01:42:30">2024-03-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="每日分享 Kafka"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、Kafka是什么"><a href="#一、Kafka是什么" class="headerlink" title="一、Kafka是什么?"></a>一、Kafka是什么?</h1><blockquote>
+<p>Kafka 一个分布式的、多分区、多副本、多订阅者，流式数据处理的平台。它具有消息系统（发布、订阅）的能力，也有实时流式数据处理和分析的能力，我们更多偏向于把它当做消息队列系统来使用。</p>
+<ul>
+<li>以时间复杂度O(1)的方式提供持久化能力，即使应对TB以上的数据也能保证常数时间复杂度的访问性能</li>
+<li>高吞吐率，廉价商用机器也能作做到单机每秒100K条以上的消息传输</li>
+<li>支持消息分区、及分布式消费，同时保证每个Partition内的消息顺序传输</li>
+<li>同时支持离线数据处理和实时数据处理</li>
+<li>支持在线水平拓展</li>
+</ul>
+</blockquote>
+<h1 id="二、相关名词解释"><a href="#二、相关名词解释" class="headerlink" title="二、相关名词解释"></a>二、相关名词解释</h1><h2 id="（1）Broker-代理服务器"><a href="#（1）Broker-代理服务器" class="headerlink" title="（1）Broker 代理服务器"></a>（1）Broker 代理服务器</h2><blockquote>
+<p>一个kafka代理服务器也被称之为Broker，它接收生产者发送的消息并存入磁盘。</p>
+<p>Broker同时服务消费者拉取分区消息的请求，返回目前已经提交的消息。</p>
+</blockquote>
+<h2 id="（2）Topic-主题"><a href="#（2）Topic-主题" class="headerlink" title="（2）Topic 主题"></a>（2）Topic 主题</h2><blockquote>
+<p>在kafka中消息以主题（topic）来分类，每一个主题都对应一个消息队列。</p>
+</blockquote>
+<h2 id="（3）Partition-分区"><a href="#（3）Partition-分区" class="headerlink" title="（3）Partition 分区"></a>（3）Partition 分区</h2><blockquote>
+<p>topic物理上的分组，一个topic可以分为多个partition，每一个partition是一个有序的队列。</p>
+</blockquote>
+<h2 id="（4）Segment-段"><a href="#（4）Segment-段" class="headerlink" title="（4）Segment 段"></a>（4）Segment 段</h2><blockquote>
+<p>partition物理上由多个segment组成。</p>
+</blockquote>
+<h2 id="（5）offset-偏移量"><a href="#（5）offset-偏移量" class="headerlink" title="（5）offset 偏移量"></a>（5）offset 偏移量</h2><blockquote>
+<p>每个partition都由一系列有序的、不可变的消息组成，这些消息被连续的追加到partition中。partition中每个消息都有一个连续的序号叫做offset，用于partition唯一标记一条信息。</p>
+</blockquote>
+<h2 id="（6）Leader-x2F-Follower-主副本-x2F-从副本"><a href="#（6）Leader-x2F-Follower-主副本-x2F-从副本" class="headerlink" title="（6）Leader&#x2F;Follower 主副本&#x2F;从副本"></a>（6）Leader&#x2F;Follower 主副本&#x2F;从副本</h2><blockquote>
+<p>分区的副本。为了保障数据的高可用，分区都会有一些副本，每个分区都会有一个leader主副本负责读写数据，follower从副本只负责同步leader主副本数据，不对外提供服务。</p>
+</blockquote>
+<h2 id="（7）Consumer-group-消费者组"><a href="#（7）Consumer-group-消费者组" class="headerlink" title="（7）Consumer group 消费者组"></a>（7）Consumer group 消费者组</h2><blockquote>
+<p>消费者组，由多个消费者组成，一个组内只会有一个消费者去消费一个分区的消息。</p>
+</blockquote>
+<h2 id="（8）Coordinator-协调者"><a href="#（8）Coordinator-协调者" class="headerlink" title="（8）Coordinator 协调者"></a>（8）Coordinator 协调者</h2><blockquote>
+<p>协调者，主要是为消费者组分配分区以及重平衡操作（Rebalance）。</p>
+</blockquote>
+<h2 id="（9）Producer-生产者"><a href="#（9）Producer-生产者" class="headerlink" title="（9）Producer 生产者"></a>（9）Producer 生产者</h2><blockquote>
+<p>生产者，负责发送消息</p>
+</blockquote>
+<h2 id="（10）Consumer-消费者"><a href="#（10）Consumer-消费者" class="headerlink" title="（10）Consumer 消费者"></a>（10）Consumer 消费者</h2><blockquote>
+<p>消费者，负责消费消息</p>
+</blockquote>
+<h1 id="三、消息队列模型"><a href="#三、消息队列模型" class="headerlink" title="三、消息队列模型"></a>三、消息队列模型</h1><blockquote>
+<p>对于传统的消息队列系统支持两个模型：点对点、发布订阅；</p>
+<ul>
+<li>点对点：消息只能被一个消费者消费，消费完后就删除</li>
+<li>发布订阅：相当于广播模式，消息可以被所有的消费者消费</li>
+</ul>
+<p>Kafka通过消费者组实现了同时支持上述2个模型，如果说消费者都属于一个消费者组，那么消息只能被一个消费者消费，即点对点的模型；如果每个消费者都是一个单独的消费者组，那么便是发布订阅模型。</p>
+</blockquote>
+<h1 id="四、kafka-通信过程原理"><a href="#四、kafka-通信过程原理" class="headerlink" title="四、kafka 通信过程原理"></a>四、kafka 通信过程原理</h1><blockquote>
+<ol>
+<li>生产者启动的时候会指定bootstrap.servers，通过指定的broker地址，kafka就会和这些broker创建tcp连接。</li>
+<li>连接到任意一台broker之后，然后发送获取元数据请求（有哪些主题、主题有哪些分区、分区有哪些副本、分区的主从副本等信息）</li>
+<li>接着创建和所有的broker的tcp连接</li>
+<li>发送消息</li>
+<li>消费者和生产者一样，也会指定bootstrap.servers属性，然后选择一台broker创建tcp连接，发送请求到找到协调者所在的broker</li>
+<li>再和协调者broker创建tcp连接，获取元数据</li>
+<li>根据分区leader节点所在的broker节点，和这些broker分别创建连接</li>
+<li>消费消息</li>
+</ol>
+</blockquote>
+<p><img src="/blog/c8b53445.html/image-20240304235511766.png" alt="image-20240304235511766"></p>
+<h1 id="五、发送消息时如何选择分区"><a href="#五、发送消息时如何选择分区" class="headerlink" title="五、发送消息时如何选择分区?"></a>五、发送消息时如何选择分区?</h1><blockquote>
+<p>主要有两种方式：</p>
+<ol>
+<li>轮询，安装顺序消息依次发送到不同的分区</li>
+<li>随机，随机发送到某个分区</li>
+</ol>
+<p>如果消息指定key，那么会根据消息的key进行hash，然后对partition数量取模，绝对落在哪个分区上。所以，对于相同key的消息来说，总会发送到一个分区上，也就是我们常常说的消息分区有序性。</p>
+</blockquote>
+<h1 id="六、分区的意义及优势？"><a href="#六、分区的意义及优势？" class="headerlink" title="六、分区的意义及优势？"></a>六、分区的意义及优势？</h1><blockquote>
+<p>若不分区的话，消息只能落在一个节点上，这样就算再好的服务器，性能也是承受不住的。</p>
+<p>实际上，分布式系统都面临这个问题，要么收到消息时，进行消息切分，要么提前切分。kafka选择了前者，通过分区可以把数据均匀的分布到不同节点。</p>
+<p>分区带来负载均衡和横向扩展的能力。</p>
+<p>发送消息时可以根据分区的数量落在不同的kafka服务器节点上，提升了并发写消息的性能，消费消息的时候有和消费者绑定了关系，可以从不同节点的不同分区消费消息，提高的读取消息的能力。</p>
+<p>另外一个就是分区引入了副本，冗余的副本保证了kafka的高可用和高持久性。</p>
+</blockquote>
+<h1 id="七、消费者组和消费者重平衡"><a href="#七、消费者组和消费者重平衡" class="headerlink" title="七、消费者组和消费者重平衡"></a>七、消费者组和消费者重平衡</h1><blockquote>
+<p>kafka中消费者组订阅topic主题的消息，一般来说消费者的数量最好和所有主题分区的数量保持一一致。</p>
+<ul>
+<li>消费者数量&lt;分区数量，必然会有一个消费者消费多个分区</li>
+<li>消费者数量&gt;分区数量，必然有一个消费者没有分区可以消费</li>
+</ul>
+</blockquote>
+<p><img src="/blog/c8b53445.html/image-20240305001717005.png" alt="image-20240305001717005"></p>
+<blockquote>
+<p>消费者消费的分区是怎么分配的，有先加入的消费者时候怎么办？</p>
+<p>由协调器来组织完成，每一次新的消费者加入消费者组时，都会先向协调器发送请求，从而获取分区的分配，这个分区分配的算法逻辑由协调者来完成。</p>
+<p>重平衡就是指有新消费者加入的情况。例如起初我们只有消费者A在消费数据，后来加入了消费者B和C，这时候分区就需要被重新分配了，这就是重平衡，也叫做再平衡，这个期间会导致整个消费者停止工作，重平衡期间都无法消费消息。</p>
+<p>发送重平衡的决定因素：消费者数量、主题数量（用正则订阅的主题）、分区数量，其中任何一个改变都会触发重平衡</p>
+<p>重平衡的过程：</p>
+<p>重平衡的机制依赖于消费者和协调器直接的心跳来维持，消费者会有一个独立的线程会定时去发送心跳给协调者，可以通过heartbeat.interval.ms来控制发送心跳的间隔时间。</p>
+<ol>
+<li>每个消费者第一次加入组的时候都会向协调者发送join group请求，第一个发送请求的消费者会成为“群主”，协调者会返回群成员列表给群主</li>
+<li>群主执行分区分配策略，然后把分配结果通过sync group请求发送给协调者，协调者收到分区分配结果</li>
+<li>其他成员想协调者发送 sync group，协调者把每个消费者的分区分别响应给他们</li>
+</ol>
+</blockquote>
+<p><img src="/blog/c8b53445.html/image-20240305003002497.png" alt="image-20240305003002497"></p>
+<h1 id="八、分区分配策略"><a href="#八、分区分配策略" class="headerlink" title="八、分区分配策略"></a>八、分区分配策略</h1><blockquote>
+<p>主要有3种分配策略：</p>
+<p>range，默认策略，对分区进行排序，越靠前的消费者能够分配到的分区数越多。</p>
+<p><img src="/blog/c8b53445.html/image-20240305003219550.png" alt="image-20240305003219550"></p>
+<p>默认策略的弊端（根据主题进行分配的）在于如果消费者组订阅了多个主题，就可能会导致分区分配不均衡。</p>
+<p><img src="/blog/c8b53445.html/image-20240305003639102.png" alt="image-20240305003639102"></p>
+<p>RoundRobin</p>
+<p>这个就是我们常说的轮询，会根据所有的主题进行轮询分配，不会出现range那种主题越多可能导致分区分配不均衡的问题。</p>
+<p><img src="/blog/c8b53445.html/image-20240305003908189.png" alt="image-20240305003908189"></p>
+<p>Sticky</p>
+<p>粘性策略：在分配均衡的前提下，让分区的分配更小的改动。</p>
+<p>比如P0\P1分配给消费者A，那么下一次尽量还是分配给A。这样做的好处是连接可以复用，要消费消息总是要和broker去连接的，如果能保持上一次分配分区的话，那就不用频繁的销毁创建连接了。</p>
+</blockquote>
+<h1 id="九、如何保证消息可靠？"><a href="#九、如何保证消息可靠？" class="headerlink" title="九、如何保证消息可靠？"></a>九、如何保证消息可靠？</h1><blockquote>
+<p>什么是消息可靠？就是如何确保消息一定能发送到服务器并进行存储，并且发生宕机等异常场景，能够从备份数据中恢复。</p>
+<p>消息的可靠性需要从3方面来保证：</p>
+<ul>
+<li>第一：发送端能否保证发送的消息是可靠的</li>
+<li>第二：kafka broker 自身保证不丢数据，安全落盘</li>
+<li>第三：接收端能够可靠的消费消息</li>
+</ul>
+<p>发送端：通过ack机制，定义不同策略。</p>
+<p>发送端如何保证高可用？源于kafka健壮的副本（replication）策略。通过调节其副本相关参数，可以使得kafka在性能和可靠性之间运转的游刃有余。replication的数量可以在server.properties中配置。</p>
+<p>kafka中的消息是以topic进行分类的，生产者通过topic向kafka broker发送消息，消费者通过topic读取数据。然而topic在物料层面又能以partition为分组，一个topic可以分成若干个partition，kafka中的消息又以顺序的方式存储在文件中。</p>
+<p>kafka中的topic的partition有N个副本（replicas）。N个replicas中，其中一个replicas为leader，其他都是follower，leader处理partition中的读写请求，其余follower定期去复制leader上的数据。</p>
+<p>如果leader发生故障或者挂掉，一个新的leader被选举并接收客户端的消息成功写入。kafka确保从同步副本列表中选举一个副本为leader。</p>
+<p>当生产者向leader发生数据时，可以通过request.required.acks参数来设置可靠性的级别：</p>
+<p>1：默认级别，意味着生产者在ISR中的leader已成功收到数据并确认后发送下一条信息。如果leader宕机了，则会丢失数据。</p>
+<p>0：这个意味着生产者无需等待来着broker的确认而继续发送下一批消息，这种情况下消息的传输效率是最高的，但数据可靠性是最低的。此时retires参数失效，因为客户端无法判断是否失败，也就无法重试。</p>
+<p>all&#x2F;-1：生产者需要等待ISR中所有的follower都确认接收到数据后才算完成一次发送，可靠性最高，但这样也不能保证数据不丢失，比如ISR中只有一个leader时，就会变成acks&#x3D;1的情况。</p>
+<p>retries &#x3D; N，设置一个非常大的值，让生产者发送消息失败后不断重试。</p>
+<p>kafka自身：消息的写入是通过page cache异步写入磁盘的，因此仍然存在丢失消息的可能。针对kafka自身丢消息可能设置的参数：</p>
+<ul>
+<li>replication.factor&#x3D;N，设置一个较大的值，保证至少有2个或以上的副本；</li>
+<li>min.insync.replicas&#x3D;N，代表消息如何才能被认为是写入成功，设置大于1的数，保证至少写一个或者以上的副本才算写入成功</li>
+<li>unclear.leader.election.enable&#x3D;false，这个设置意味着没有完全同步的分区副本不能成为leader副本，如果true的话，那些没有完全同步的副本成为leader副本后，就会有消息丢失的风险。</li>
+</ul>
+<p>接收到：若配置了自动提交，万一消费的数据没有处理完，就自动提交了offset，然后consumer直接宕机了，未处理完的数据丢失了，下次也消费不到了。故而消费端是靠offset来保证的。</p>
+<p>消费者丢失数据，通过关闭自动提交即可，改为业务处理成功后手动提交。</p>
+<p>因为重平衡发送的时候，消费者会去读上一次的偏移量，自动提交默认是5秒一次，这个会导致重复消费或者丢失消息。</p>
+<p>enable.auto.commit&#x3D;false，设置为手动提交。</p>
+<p>auto.offset.reset&#x3D;earliest，这个参数代表没有偏移量可以提交或者broker上不存在偏移量的时候，消费者如何处理。earliest代表从分区的开始位置读取，可能会重复读取消息，但不会丢失。另外一种latest表示从末尾读取，有概率丢失消息。</p>
+</blockquote>
+<h1 id="十、副本同步原理"><a href="#十、副本同步原理" class="headerlink" title="十、副本同步原理"></a>十、副本同步原理</h1><blockquote>
+<p>Kafka的副本分为leader主副本和follower从副本。其中只有leader主副本会对外提供辅助，follower从副本只负责与leader保持数据同步，作为数据冗余容灾的作用。</p>
+<p>在Kafka中所有的副本集合统称为AR（assigned replicas），和leader主副本保持同步的副本集合称之为ISR（InSyncReplicas）</p>
+<p>ISR是一个动态集合，维持这个集合通过replica.lag.time.max.ms参数来控制，这个代表落后leader副本的最长时间，默认为10秒，所以只要follower副本没有落后leader副本10秒以上，就认为是和leader是同步的</p>
+<p>HW（high watermark）：高水位，也叫做复制点，表示副本间同步的位置。</p>
+<p>LEO（log end offset）：下一条待写入消息的位移</p>
+<p>如下图所示，0<del>4绿色表示已经提交的消息，这些消息已经在副本之间进行同步，消费者可以看见这些消息并且进行消费，4</del>6黄色的则是表示未提交的消息，可能还没有在副本间同步，这些消息对于消费者是不可见的。</p>
+<p><img src="/blog/c8b53445.html/640.jpeg" alt="图片"></p>
+<p>副本间同步的过程依赖的就是HW和LEO的更新，以他们的值变化来演示副本同步消息的过程，绿色表示Leader副本，黄色表示Follower副本。</p>
+<p>首先，生产者不停地向Leader写入数据，这时候Leader的LEO可能已经达到了10，但是HW依然是0，两个Follower向Leader请求同步数据，他们的值都是0。</p>
+<p><img src="/blog/c8b53445.html/image-20240305012659056.png" alt="image-20240305012659056"></p>
+<p>然后，消息还在继续写入，Leader的LEO值又发生了变化，两个Follower也各自拉取到了自己的消息，于是更新自己的LEO值，但是这时候Leader的HW依然没有改变。</p>
+<p><img src="/blog/c8b53445.html/image-20240305012712392.png" alt="image-20240305012712392"></p>
+<p>此时，Follower再次向Leader拉取数据，这时候Leader会更新自己的HW值，取Follower中的最小的LEO值来更新。</p>
+<p><img src="/blog/c8b53445.html/image-20240305012730661.png" alt="image-20240305012730661"></p>
+<p>之后，Leader响应自己的HW给Follower，Follower更新自己的HW值，因为又拉取到了消息，所以再次更新LEO，流程以此类推。</p>
+<p><img src="/blog/c8b53445.html/image-20240305012740752.png" alt="image-20240305012740752"></p>
+</blockquote>
+<h1 id="十一、Kafka为什么快？"><a href="#十一、Kafka为什么快？" class="headerlink" title="十一、Kafka为什么快？"></a>十一、Kafka为什么快？</h1><blockquote>
+<ul>
+<li>顺序IO：kafka写消息到分区采用顺序追加的方式，也就是顺序写入磁盘，不是随机写入，这个速度比普通的随机IO快非常多，几乎可以和网络IO相媲美。</li>
+<li>Page Cache 和零拷贝：kafka在写入消息数据的时候通过mmap内存映射的方式，不是真正立刻写入磁盘，而是利用操作系统的文件缓存page cache异步写入，提高写入消息的性能，另外消费消息的时候又通过sendfile实现了零拷贝。</li>
+<li>批处理和压缩：kafka发送消息时，不是一条条的发送的，而是会把多条消息合并为一个批次进行处理发送，消费也是一个道理一次拉取一批次的消息进行消费。并且producer、broker、consumer都使用了优化后的压缩算法，发送和消费消息使用压缩节省了网络传输的开销，broker存储使用压缩降低了磁盘存储空间。</li>
+</ul>
+</blockquote>
+<h1 id="十二、CAP原理"><a href="#十二、CAP原理" class="headerlink" title="十二、CAP原理"></a>十二、CAP原理</h1><blockquote>
+<p>CAP是“一致性（Consistency）、可用性（Availability）以及分区容忍性（Partition Tolerance）”的缩写。</p>
+<p>1）C 即一致性（Consistency）：要求分布式系统要保障，一旦数据写入到分布式存储系统之后，所有访问数据的请求不管是访问分布式存储的那个节点上，查到到该写入的数据都是一致的，不能出现3个副本中有的副本有该条数据，有的副本没有该条数据（插入问题），更不能是有的副本该条数据和另外一个副本该条数据是不一样的（更新问题）。</p>
+<p>2）A 即可用性（Availability）：可用性就是要求分布式系统要保障，一旦数据写入到分布式存储系统之后，所有访问该数据的请求都可以正常响应，不管该数据能不能查到，又或者该条数据查出来的一不一致，不能出现查询该数据时出现长期等待或者报错的发生。</p>
+<p>3）P 即分区容忍性 （Partition Tolerance）：分区容忍性时要求分布式系统要保障，一旦数据写入到分布式存储系统的主本文件后，因为网络的的问题无法同步到副本的时候，系统依然能够对外提供服务，网络在分布式系统来讲是不敢绝对保障的，如果因为网络问题，导致写入数据无法向副本同步，这时候就是分区的情况出现，但网络的绝对的可靠从科学角度上来讲是无法做到的，因此，所有分布式系统必须是满足“P”的存在，不然就只能使用单机系统来解决，那就不是分布式系统了。</p>
+<p>综上所述，分布式系统基本上所有的都必须满足“P”，在“A”和“C”之间来选择，要么是AP，要么是CP。</p>
+<p>CAP原理定义的就是3个原则在分布式存储系统中只能满足其中两个，无法全部都满足，因为要求网络绝对的可靠是不可能的，因此，所有的分布式系统都必须满足P，然后AP和CP之间做出抉择，是保性能牺牲一致（AP），或者是保一致牺牲性能（CP）要根据实际的应用场景来确定。</p>
+<p>Kafka提供了一些配置，用户可以根据具体的业务需求，进行不同的配置，使得Kafka满足AP或者CP，或者它们之间的一种平衡。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">比如下面这种配置，就保证强一致性，使得Kafka满足CP。任意写入一条数据，都需要等到replicate到所有节点之后才返回ack；接下来，在任意节点都可以消费到这条数据，即是在有节点宕机的情况下，包括主节点。</span><br><span class="line"></span><br><span class="line">replication.factor = 3</span><br><span class="line">min.insync.replicas = 3</span><br><span class="line">acks = all</span><br><span class="line"></span><br><span class="line">而下面的配置，就主要保证可用性，使得Kafka满足AP。对于任意写入一条数据，当主节点commmit了之后就返回ack；如果主节点在数据被replicate到从节点之前就宕机，这时，重新选举之后，消费端就读不到这条数据。这种配置，保证了availability，但是损失了consistency。</span><br><span class="line"></span><br><span class="line">replication.factor = 3</span><br><span class="line">min.insync.replicas = 3</span><br><span class="line">acks = 1</span><br><span class="line"></span><br><span class="line">还有一种配置是公认比较推荐的一种配置，基于这种配置，损失了一定的consistency和availability，使得Kafka满足的是一种介于AP和CP之间的一种平衡状态。因为，在这种配置下，可以在容忍一个节点（包括主节点）宕机的情况下，任然保证数据强一致性和整体可用性；但是，有两个节点宕机的情况，就整体不可用了。</span><br><span class="line"></span><br><span class="line">replication.factor = 3</span><br><span class="line">min.insync.replicas = 2</span><br><span class="line">acks = all</span><br></pre></td></tr></table></figure>
+
+<p>对于这种配置，其实Kafka不光可以容忍一个节点宕机，同时也可以容忍这个节点和其它节点产生网络分区，它们都可以看成是Kafka的容错（Fault tolerance）机制。</p>
+<p>除了上面的几个常用配置项，下面这个配置项也跟consistency和availability相关。这个配置项的作用是控制，在所有节点宕机之后，如果有一个节点之前不是在ISR列表里面，启动起来之后是否可以成为leader。当设置成默认值false时，表示不可以，因为这个节点的数据很可能不是最新的，如果它成为了主节点，那么就可能导致一些数据丢失，从而损失consistency，但是却可以保证availability。如果设置成true，则相反。这个配置项让用户可以基于自己的业务需要，在consistency和availability之间做一个选择。</p>
+<p>unclean.leader.election.enable&#x3D;false</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aiyingke.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aiyingke.cn/blog/c8b53445.html/">https://aiyingke.cn/blog/c8b53445.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aiyingke.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/">每日分享</a></div><div class="post_share"><div class="social-share" data-image="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/blog/667e5b09.html/"><img class="next-cover" src="/img/%E5%85%AB%E8%A7%92%E7%AC%BC%E4%B8%AD.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">八角笼中</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">122</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Kafka%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">一、Kafka是什么?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%9B%B8%E5%85%B3%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="toc-number">2.</span> <span class="toc-text">二、相关名词解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Broker-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">（1）Broker 代理服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89Topic-%E4%B8%BB%E9%A2%98"><span class="toc-number">2.2.</span> <span class="toc-text">（2）Topic 主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%883%EF%BC%89Partition-%E5%88%86%E5%8C%BA"><span class="toc-number">2.3.</span> <span class="toc-text">（3）Partition 分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%884%EF%BC%89Segment-%E6%AE%B5"><span class="toc-number">2.4.</span> <span class="toc-text">（4）Segment 段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%885%EF%BC%89offset-%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-number">2.5.</span> <span class="toc-text">（5）offset 偏移量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%886%EF%BC%89Leader-x2F-Follower-%E4%B8%BB%E5%89%AF%E6%9C%AC-x2F-%E4%BB%8E%E5%89%AF%E6%9C%AC"><span class="toc-number">2.6.</span> <span class="toc-text">（6）Leader&#x2F;Follower 主副本&#x2F;从副本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%887%EF%BC%89Consumer-group-%E6%B6%88%E8%B4%B9%E8%80%85%E7%BB%84"><span class="toc-number">2.7.</span> <span class="toc-text">（7）Consumer group 消费者组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%888%EF%BC%89Coordinator-%E5%8D%8F%E8%B0%83%E8%80%85"><span class="toc-number">2.8.</span> <span class="toc-text">（8）Coordinator 协调者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%889%EF%BC%89Producer-%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-number">2.9.</span> <span class="toc-text">（9）Producer 生产者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%8810%EF%BC%89Consumer-%E6%B6%88%E8%B4%B9%E8%80%85"><span class="toc-number">2.10.</span> <span class="toc-text">（10）Consumer 消费者</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">三、消息队列模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81kafka-%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">四、kafka 通信过程原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%88%86%E5%8C%BA"><span class="toc-number">5.</span> <span class="toc-text">五、发送消息时如何选择分区?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%88%86%E5%8C%BA%E7%9A%84%E6%84%8F%E4%B9%89%E5%8F%8A%E4%BC%98%E5%8A%BF%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">六、分区的意义及优势？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%B6%88%E8%B4%B9%E8%80%85%E7%BB%84%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85%E9%87%8D%E5%B9%B3%E8%A1%A1"><span class="toc-number">7.</span> <span class="toc-text">七、消费者组和消费者重平衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%88%86%E5%8C%BA%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-number">8.</span> <span class="toc-text">八、分区分配策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">九、如何保证消息可靠？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%89%AF%E6%9C%AC%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86"><span class="toc-number">10.</span> <span class="toc-text">十、副本同步原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Kafka%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%AB%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">十一、Kafka为什么快？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81CAP%E5%8E%9F%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">十二、CAP原理</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/c8b53445.html/" title="每日分享 Kafka"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日分享 Kafka"/></a><div class="content"><a class="title" href="/blog/c8b53445.html/" title="每日分享 Kafka">每日分享 Kafka</a><time datetime="2024-03-04T14:46:17.000Z" title="发表于 2024-03-04 22:46:17">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/667e5b09.html/" title="八角笼中"><img src="/img/%E5%85%AB%E8%A7%92%E7%AC%BC%E4%B8%AD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八角笼中"/></a><div class="content"><a class="title" href="/blog/667e5b09.html/" title="八角笼中">八角笼中</a><time datetime="2024-01-03T16:05:10.000Z" title="发表于 2024-01-04 00:05:10">2024-01-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/e250d75f.html/" title="数仓项目-概念及架构"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数仓项目-概念及架构"/></a><div class="content"><a class="title" href="/blog/e250d75f.html/" title="数仓项目-概念及架构">数仓项目-概念及架构</a><time datetime="2024-01-02T16:29:23.000Z" title="发表于 2024-01-03 00:29:23">2024-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/3af10b62.html/" title="OpenTSDB原理、存储及查询"><img src="/img/OpenTSDB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenTSDB原理、存储及查询"/></a><div class="content"><a class="title" href="/blog/3af10b62.html/" title="OpenTSDB原理、存储及查询">OpenTSDB原理、存储及查询</a><time datetime="2023-12-04T14:19:05.000Z" title="发表于 2023-12-04 22:19:05">2023-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/e2b59d56.html/" title="SpringBoot 快速上手"><img src="/img/spring.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringBoot 快速上手"/></a><div class="content"><a class="title" href="/blog/e2b59d56.html/" title="SpringBoot 快速上手">SpringBoot 快速上手</a><time datetime="2023-05-23T15:37:57.000Z" title="发表于 2023-05-23 23:37:57">2023-05-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
