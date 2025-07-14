@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>每日分享 Spark</title>
+      <link href="/blog/e1a8e7f.html/"/>
+      <url>/blog/e1a8e7f.html/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、简述什么是spark？"><a href="#一、简述什么是spark？" class="headerlink" title="一、简述什么是spark？"></a>一、简述什么是spark？</h1><blockquote><ol><li>spark是一个计算引擎；</li><li>spark是基于内存运算的，比传统的hadoop计算引擎速度要快；</li><li>spark支持多种部署模式，单机部署、独立部署模式、yarn、mesos、k8s等；</li><li>spark可以读取多种数据存储系统或者组件数据，例如hdfs、hbase、hive等；</li></ol></blockquote><blockquote><p>首先描述spark的简介，一句话概括。其次描述其特点，最后理论到实践，描述其应用场景。</p><p>简介 → 特点 → 应用场景</p><ul><li>简介：spark由scala语言构建的、内存计算引擎，针对大规模数据集和复杂的数据处理任务，提供了高效的数据处理能力。</li><li>特点：<ul><li>易用：<ul><li>（数据介质自由）它可以和任何存储系统进行连接，如本地存储系统、HDFS、Hive、Hbase等；</li><li>（资源管理器自由）资源管理器可选本地模式、独立部署模式、yarn、mesos、k8s等；</li><li>（编程语言自由）spark提供了丰富的api和易于使用的编程模型；</li></ul></li><li>快速：<ul><li>源于其利用内存进行计算和基于RDD的弹性数据集模型；</li></ul></li><li>通用：（神通广大）<ul><li>批处理、流处理、交互式查询（spark sql）、机器学习（MLlib）</li></ul></li></ul></li><li>应用场景：<ul><li>大规模数据处理：适用于PB级别的数据，可以快速执行复杂的数据转换和分析任务。</li><li>实时数据处理：spark streaming 处理实时流数据，支持低时延的数据处理需求。</li><li>机器学习：MLlib提供了一系列机器学习算法，可用于大规模数据的建模和预测。</li><li>数据探索和可视化：通过spark  sql 和 dataframe api 可以进行交互式的数据探索和分析，支持复杂的查询和可视化操作。</li></ul></li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 每日分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>华为OD 机考面试题</title>
       <link href="/blog/de43bd01.html/"/>
       <url>/blog/de43bd01.html/</url>

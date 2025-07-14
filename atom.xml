@@ -6,7 +6,7 @@
   <link href="https://aiyingke.cn/atom.xml" rel="self"/>
   
   <link href="https://aiyingke.cn/"/>
-  <updated>2024-03-06T16:19:46.004Z</updated>
+  <updated>2024-03-07T15:58:37.575Z</updated>
   <id>https://aiyingke.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日分享 Spark</title>
+    <link href="https://aiyingke.cn/blog/e1a8e7f.html/"/>
+    <id>https://aiyingke.cn/blog/e1a8e7f.html/</id>
+    <published>2024-03-07T11:30:14.000Z</published>
+    <updated>2024-03-07T15:58:37.575Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、简述什么是spark？"><a href="#一、简述什么是spark？" class="headerlink" title="一、简述什么是spark？"></a>一、简述什么是spark？</h1><blockquote><ol><li>spark是一个计算引擎；</li><li>spark是基于内存运算的，比传统的hadoop计算引擎速度要快；</li><li>spark支持多种部署模式，单机部署、独立部署模式、yarn、mesos、k8s等；</li><li>spark可以读取多种数据存储系统或者组件数据，例如hdfs、hbase、hive等；</li></ol></blockquote><blockquote><p>首先描述spark的简介，一句话概括。其次描述其特点，最后理论到实践，描述其应用场景。</p><p>简介 → 特点 → 应用场景</p><ul><li>简介：spark由scala语言构建的、内存计算引擎，针对大规模数据集和复杂的数据处理任务，提供了高效的数据处理能力。</li><li>特点：<ul><li>易用：<ul><li>（数据介质自由）它可以和任何存储系统进行连接，如本地存储系统、HDFS、Hive、Hbase等；</li><li>（资源管理器自由）资源管理器可选本地模式、独立部署模式、yarn、mesos、k8s等；</li><li>（编程语言自由）spark提供了丰富的api和易于使用的编程模型；</li></ul></li><li>快速：<ul><li>源于其利用内存进行计算和基于RDD的弹性数据集模型；</li></ul></li><li>通用：（神通广大）<ul><li>批处理、流处理、交互式查询（spark sql）、机器学习（MLlib）</li></ul></li></ul></li><li>应用场景：<ul><li>大规模数据处理：适用于PB级别的数据，可以快速执行复杂的数据转换和分析任务。</li><li>实时数据处理：spark streaming 处理实时流数据，支持低时延的数据处理需求。</li><li>机器学习：MLlib提供了一系列机器学习算法，可用于大规模数据的建模和预测。</li><li>数据探索和可视化：通过spark  sql 和 dataframe api 可以进行交互式的数据探索和分析，支持复杂的查询和可视化操作。</li></ul></li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一、简述什么是spark？&quot;&gt;&lt;a href=&quot;#一、简述什么是spark？&quot; class=&quot;headerlink&quot; title=&quot;一、简述什么是spark？&quot;&gt;&lt;/a&gt;一、简述什么是spark？&lt;/h1&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;spark是一</summary>
+      
+    
+    
+    
+    <category term="大数据" scheme="https://aiyingke.cn/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="每日分享" scheme="https://aiyingke.cn/tags/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>华为OD 机考面试题</title>
@@ -468,30 +494,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;一：概述&quot;&gt;&lt;a href=&quot;#一：概述&quot; class=&quot;headerlink&quot; title=&quot;一：概述&quot;&gt;&lt;/a&gt;一：概述&lt;/h1&gt;&lt;h2 id=&quot;1-1-优缺点&quot;&gt;&lt;a href=&quot;#1-1-优缺点&quot; class=&quot;headerlink&quot; title=&quot;1.1</summary>
-      
-    
-    
-    
-    <category term="Hadoop" scheme="https://aiyingke.cn/categories/Hadoop/"/>
-    
-    
-    <category term="Hadoop" scheme="https://aiyingke.cn/tags/Hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MapReduce 开发总结</title>
-    <link href="https://aiyingke.cn/blog/6e775d30.html/"/>
-    <id>https://aiyingke.cn/blog/6e775d30.html/</id>
-    <published>2023-02-10T06:58:36.000Z</published>
-    <updated>2023-02-10T07:37:33.108Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一：输入数据接口：InputFormat"><a href="#一：输入数据接口：InputFormat" class="headerlink" title="一：输入数据接口：InputFormat"></a>一：输入数据接口：InputFormat</h1><ul><li>默认使用的实现类是：TextInputFormat</li><li>TextInputFormat 的功能逻辑是：一次读一行文本，然后将该行的起始偏移量作为 key，行内容作为 value 返回。</li><li>CombineTextInputFormat 可以把多个小文件合并成一个切片处理，提高处理效率。</li></ul><h1 id="二：逻辑处理接口：Mapper"><a href="#二：逻辑处理接口：Mapper" class="headerlink" title="二：逻辑处理接口：Mapper"></a>二：逻辑处理接口：Mapper</h1><ul><li>用户根据业务需求实现其中三个方法：map() setup() cleanup ()</li></ul><h1 id="三：Partitioner-分区"><a href="#三：Partitioner-分区" class="headerlink" title="三：Partitioner 分区"></a>三：Partitioner 分区</h1><ul><li>有默认实现 HashPartitioner，逻辑是根据 key 的哈希值和 numReduces 来返回一个 分区号；key.hashCode()&amp;Integer.MAXVALUE % numReduces</li><li>如果业务上有特别的需求，可以自定义分区。</li></ul><h1 id="四：Comparable-排序"><a href="#四：Comparable-排序" class="headerlink" title="四：Comparable 排序"></a>四：Comparable 排序</h1><ul><li>当我们用自定义的对象作为 key 来输出时，就必须要实现 WritableComparable 接 口，重写其中的 compareTo()方法。</li><li>部分排序：对最终输出的每一个文件进行内部排序。</li><li>全排序：对所有数据进行排序，通常只有一个 Reduce。</li><li>二次排序：排序的条件有两个。</li></ul><h1 id="五：Combiner-合并"><a href="#五：Combiner-合并" class="headerlink" title="五：Combiner 合并"></a>五：Combiner 合并</h1><ul><li>Combiner 合并可以提高程序执行效率，减少 IO 传输。但是使用时必须不能影响原有的 业务处理结果。</li></ul><h1 id="六：逻辑处理接口：Reducer"><a href="#六：逻辑处理接口：Reducer" class="headerlink" title="六：逻辑处理接口：Reducer"></a>六：逻辑处理接口：Reducer</h1><ul><li>用户根据业务需求实现其中三个方法：reduce() setup() cleanup ()</li></ul><h1 id="七：输出数据接口：OutputFormat"><a href="#七：输出数据接口：OutputFormat" class="headerlink" title="七：输出数据接口：OutputFormat"></a>七：输出数据接口：OutputFormat</h1><ul><li>用户根据业务需求实现其中三个方法：reduce() setup() cleanup ()</li><li>用户还可以自定义 OutputFormat。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一：输入数据接口：InputFormat&quot;&gt;&lt;a href=&quot;#一：输入数据接口：InputFormat&quot; class=&quot;headerlink&quot; title=&quot;一：输入数据接口：InputFormat&quot;&gt;&lt;/a&gt;一：输入数据接口：InputFormat&lt;/h1&gt;&lt;</summary>
       
     
     
