@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>日拱一卒 Vol.001 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="问题： 假设你负责电商交易数据的分析，现有以下三张核心表：  orders（订单表）：order_id, user_id, order_time, total_amount order_items（订单明细）：item_id, order_id, product_id, quantity, price users（用户表）：user_id, registration_time, city  业务需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日拱一卒 Vol.001">
+<meta property="og:url" content="https://tuumest.cn/blog/bd61c145.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="问题： 假设你负责电商交易数据的分析，现有以下三张核心表：  orders（订单表）：order_id, user_id, order_time, total_amount order_items（订单明细）：item_id, order_id, product_id, quantity, price users（用户表）：user_id, registration_time, city  业务需">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuumest.cn/img/tech_data.png">
+<meta property="article:published_time" content="2025-11-04T13:47:18.000Z">
+<meta property="article:modified_time" content="2025-11-04T14:25:18.988Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="技术镜鉴">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuumest.cn/img/tech_data.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://tuumest.cn/blog/bd61c145.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '日拱一卒 Vol.001',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-04 22:25:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">126</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/tech_data.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">日拱一卒 Vol.001</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-04T13:47:18.000Z" title="发表于 2025-11-04 21:47:18">2025-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-04T14:25:18.988Z" title="更新于 2025-11-04 22:25:18">2025-11-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="日拱一卒 Vol.001"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>问题：</strong></p>
+<p>假设你负责电商交易数据的分析，现有以下三张核心表：</p>
+<ul>
+<li><code>orders</code>（订单表）：order_id, user_id, order_time, total_amount</li>
+<li><code>order_items</code>（订单明细）：item_id, order_id, product_id, quantity, price</li>
+<li><code>users</code>（用户表）：user_id, registration_time, city</li>
+</ul>
+<p><strong>业务需求：</strong></p>
+<p>计算2023年第二季度（4月-6月）每个城市的“高价值用户数”。</p>
+<p>定义：高价值用户需同时满足以下条件：</p>
+<ol>
+<li>在该季度内下单次数 ≥ 3次</li>
+<li>该季度累计订单金额 ≥ 5000元</li>
+<li>首次注册时间在2023年之前</li>
+</ol>
+<p>请写出SQL实现，并说明你的优化思路?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    u.city,</span><br><span class="line">    <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> u.user_id) <span class="keyword">AS</span> high_value_user_count</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    users u</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> (</span><br><span class="line">    <span class="comment">-- 步骤1：在订单层聚合，先过滤出Q2的订单，并计算每个用户的指标</span></span><br><span class="line">    <span class="keyword">SELECT</span> </span><br><span class="line">        user_id,</span><br><span class="line">        <span class="built_in">COUNT</span>(order_id) <span class="keyword">AS</span> order_count,</span><br><span class="line">        <span class="built_in">SUM</span>(total_amount) <span class="keyword">AS</span> total_amount</span><br><span class="line">    <span class="keyword">FROM</span> </span><br><span class="line">        orders</span><br><span class="line">    <span class="keyword">WHERE</span> </span><br><span class="line">        order_time <span class="operator">&gt;=</span> <span class="string">&#x27;2023-04-01&#x27;</span> </span><br><span class="line">        <span class="keyword">AND</span> order_time <span class="operator">&lt;</span> <span class="string">&#x27;2023-07-01&#x27;</span>  <span class="comment">-- 使用&lt;号是更标准的做法，避免包含7月1日零点</span></span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> </span><br><span class="line">        user_id</span><br><span class="line">    <span class="keyword">HAVING</span> </span><br><span class="line">        <span class="built_in">COUNT</span>(order_id) <span class="operator">&gt;=</span> <span class="number">3</span> </span><br><span class="line">        <span class="keyword">AND</span> <span class="built_in">SUM</span>(total_amount) <span class="operator">&gt;=</span> <span class="number">5000</span>  <span class="comment">-- 步骤2：在聚合后直接过滤出高价值用户</span></span><br><span class="line">) o </span><br><span class="line"><span class="keyword">ON</span> u.user_id <span class="operator">=</span> o.user_id  <span class="comment">-- 关联上满足高价值行为的用户</span></span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">    u.registration_time <span class="operator">&lt;</span> <span class="string">&#x27;2023-01-01&#x27;</span>  <span class="comment">-- 步骤3：进一步过滤出老用户</span></span><br><span class="line">    <span class="comment">-- AND u.city IS NOT NULL -- 可选：处理城市为NULL的情况</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> </span><br><span class="line">    u.city;</span><br></pre></td></tr></table></figure>
+
+<p><strong>优化思路说明：</strong></p>
+<ol>
+<li><strong>减少嵌套：</strong> 将订单聚合和高价值用户判定合并到一个子查询中，使用 <code>HAVING</code>子句进行过滤，结构更清晰。</li>
+<li><strong>性能考量：</strong><ul>
+<li>建议在 <code>orders(user_id, order_time)</code>上建立联合索引，这样在按用户分组和按时间过滤时可以利用索引。</li>
+<li>建议在 <code>users(user_id, registration_time)</code>上建立索引以加速关联和筛选。</li>
+</ul>
+</li>
+<li><strong>严谨性：</strong> 使用明确的日期格式，并考虑了时间范围的边界。</li>
+</ol>
+<h3 id="索引是什么？"><a href="#索引是什么？" class="headerlink" title="索引是什么？"></a>索引是什么？</h3><p>简单来说，<strong>索引就像一本书的目录</strong>。如果没有目录，你要找某个主题的内容，只能一页一页地翻（全表扫描）。而有了目录，你可以快速定位到内容所在的页码（数据所在的数据块），大大加快查找速度。</p>
+<p>在数据库中，索引是一种独立的数据结构（如B-Tree, Bitmap, LSM-Tree等），它存储了表中某些列（索引键）的值以及这些值对应数据行的物理地址指针。</p>
+<p><strong>在你这个查询中的具体作用：</strong></p>
+<ul>
+<li><strong>子查询部分：</strong> <code>SELECT user_id, COUNT(...) FROM orders WHERE order_time &gt;= &#39;2023-04-01&#39; AND order_time &lt; &#39;2023-07-01&#39; GROUP BY user_id</code><ul>
+<li>如果没有索引，查询引擎需要<strong>全表扫描</strong> <code>orders</code>表，读取每一行数据，检查时间条件，然后进行分组聚合。如果表有几十亿条记录，这将非常缓慢。</li>
+<li>如果存在 <code>(user_id, order_time)</code>的联合索引：<ul>
+<li><strong>过滤 (<code>WHERE</code>)：</strong> 引擎可以快速地在索引树中定位到 <code>order_time</code>在 <code>[&#39;2023-04-01&#39;, &#39;2023-07-01&#39;)</code>范围内的索引条目，避免扫描全部数据。</li>
+<li><strong>分组 (<code>GROUP BY user_id</code>)：</strong> 因为索引的第一列就是 <code>user_id</code>，并且索引条目是按照 <code>(user_id, order_time)</code>排序的。这意味着<strong>同一个user_id的所有订单（在时间范围内的）在索引中是紧挨着存储的</strong>。引擎可以顺序读取索引，轻松地完成分组计数和求和，这是一个非常高效的过程（称为“索引排序分组”）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>主查询部分：</strong> <code>INNER JOIN ... ON u.user_id = o.user_id WHERE u.registration_time &lt; &#39;2023-01-01&#39;</code><ul>
+<li><code>users</code>表上的 <code>(user_id, registration_time)</code>索引同样可以加速关联时的查找和注册时间的过滤。</li>
+</ul>
+</li>
+</ul>
+<h4 id="场景一：Hive-x2F-Spark-SQL-on-HDFS"><a href="#场景一：Hive-x2F-Spark-SQL-on-HDFS" class="headerlink" title="场景一：Hive &#x2F; Spark SQL (on HDFS)"></a>场景一：Hive &#x2F; Spark SQL (on HDFS)</h4><ul>
+<li><p><strong>核心特点：</strong> 数据存储在HDFS上，格式多为列式（ORC, Parquet）。<strong>传统意义上的B-Tree索引在原生Hive中几乎不存在</strong>，因为HDFS不支持随机写，更新索引成本极高。</p>
+</li>
+<li><p><strong>“索引”的替代方案：</strong></p>
+<ol>
+<li><p><strong>分区（Partitioning）：</strong> 这是Hive&#x2F;Spark中<strong>最重要、最高效</strong>的“粗粒度索引”。你可以按日期（如 <code>dt</code>）对 <code>orders</code>表进行分区。</p>
+<p>sql</p>
+<p>复制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 创建分区表</span><br><span class="line">CREATE TABLE orders (...)</span><br><span class="line">PARTITIONED BY (dt STRING); -- 按天分区，例如 dt=&#x27;2023-04-01&#x27;</span><br><span class="line"></span><br><span class="line">-- 你的查询条件会变成，性能极大提升</span><br><span class="line">WHERE dt &gt;= &#x27;2023-04-01&#x27; AND dt &lt;= &#x27;2023-06-30&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><em>引擎只会读取2023年Q2这91个分区的数据，而不是全表。</em></p>
+</li>
+<li><p><strong>分桶（Bucketing）：</strong> 如果经常按 <code>user_id</code>进行分组或关联，可以对表进行分桶。</p>
+<p>sql</p>
+<p>复制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders (...)</span><br><span class="line">PARTITIONED BY (dt STRING)</span><br><span class="line">CLUSTERED BY (user_id) INTO 1024 BUCKETS;</span><br></pre></td></tr></table></figure>
+
+<p><em>相同 <code>user_id</code>的数据会落在同一个桶内，能优化 <code>GROUP BY</code>和 <code>JOIN</code>。</em></p>
+</li>
+<li><p><strong>ORC&#x2F;Parquet文件内部索引：</strong> 列式存储格式本身会为每个数据块记录min&#x2F;max等统计信息。如果查询 <code>order_time &gt; &#39;2023-04-01&#39;</code>，引擎可以直接跳过那些最大值 <code>&lt; &#39;2023-04-01&#39;</code>的数据块。这可以看作是一种“轻量级索引”。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>面试回答建议：</strong> 当被问及Hive&#x2F;Spark的优化时，应优先强调 <strong>分区和分桶</strong> 的设计，而不是谈B-Tree索引。</p>
+</li>
+</ul>
+<h4 id="场景二：Doris-x2F-ClickHouse-x2F-StarRocks-MPP数据库"><a href="#场景二：Doris-x2F-ClickHouse-x2F-StarRocks-MPP数据库" class="headerlink" title="场景二：Doris &#x2F; ClickHouse &#x2F; StarRocks (MPP数据库)"></a>场景二：Doris &#x2F; ClickHouse &#x2F; StarRocks (MPP数据库)</h4><ul>
+<li><p><strong>核心特点：</strong> 这类现代OLAP数据库<strong>原生支持多种索引</strong>，并且针对大数据分析场景做了深度优化。</p>
+<ol>
+<li><p><strong>前缀索引（Aggregate Key）：</strong> 这是Doris的核心特性。在建表时，你指定的排序列（例如 <code>(user_id, order_time)</code>）会自动构成一个稀疏索引，数据按这些列排序存储。你的查询条件完美匹配前缀，可以极速定位数据。</p>
+<p>sql</p>
+<p>复制</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders (</span><br><span class="line">    user_id BIGINT,</span><br><span class="line">    order_time DATETIME,</span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line">DUPLICATE KEY(user_id, order_time) -- 指定排序列，自动生成前缀索引</span><br><span class="line">...;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Bloom Filter索引：</strong> 特别适用于高基数列的等值查询（如 <code>user_id = 123</code>）。Doris会自动为某些列创建Bloom Filter，可以快速判断“某个user_id肯定不在这个数据块中”，从而跳过该数据块。</p>
+</li>
+<li><p><strong>二级索引（BitMap Index）：</strong> 适用于低基数列（如 <code>city</code>, <code>product_category</code>）的等值或范围查询。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="核心定义"><a href="#核心定义" class="headerlink" title="核心定义"></a>核心定义</h3><ul>
+<li><strong>高基数列：</strong> 指该列中<strong>不重复值数量非常多</strong>（接近总行数）的列。</li>
+<li><strong>低基数列：</strong> 指该列中<strong>不重复值数量非常少</strong>（远小于总行数）的列。</li>
+</ul>
+<p><strong>一个简单的比喻：</strong></p>
+<ul>
+<li>想象一个学校的学生花名册。<ul>
+<li><strong>高基数</strong> 就像 <strong>“学生身份证号”</strong>：几乎每个学生都有一个独一无二的号码。</li>
+<li><strong>低基数</strong> 就像 <strong>“学生性别”</strong>：只有“男”、“女”等少数几个值。</li>
+<li><strong>中等基数</strong> 就像 <strong>“学生班级”</strong>：有几十个不同的班级，但有很多学生共享同一个班级。</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么区分高低基数很重要？"><a href="#为什么区分高低基数很重要？" class="headerlink" title="为什么区分高低基数很重要？"></a>为什么区分高低基数很重要？</h3><p>区分高低基数的主要意义在于<strong>指导我们选择最合适的数据处理技术和优化策略</strong>。</p>
+<h4 id="1-索引选择"><a href="#1-索引选择" class="headerlink" title="1. 索引选择"></a>1. 索引选择</h4><p>这是你最开始的提问背景，也是最直接的应用。</p>
+<ul>
+<li><strong>低基数列：</strong> 适合 <strong>位图索引</strong><ul>
+<li><strong>原理：</strong> 为每个不同的值（如 ‘M’, ‘F’）创建一个位图（bitmap），每一位表示一行是否是该值。例如：<ul>
+<li><code>gender = &#39;M&#39;</code>的位图：<code>10101...</code>(表示第1、3、5…行是男性)</li>
+<li><code>gender = &#39;F&#39;</code>的位图：<code>01010...</code>(表示第2、4…行是女性)</li>
+</ul>
+</li>
+<li><strong>优势：</strong> 对 <code>WHERE gender = &#39;M&#39; AND status = &#39;active&#39;</code>这样的多条件查询，只需对两个位图进行高效的 <code>AND</code>操作，速度极快。</li>
+<li><strong>劣势：</strong> 如果列基数很高，位图会变得非常稀疏和巨大，反而浪费空间、降低性能。</li>
+</ul>
+</li>
+<li><strong>高基数列：</strong> 适合 <strong>B-Tree索引</strong> 或 <strong>Bloom Filter索引</strong><ul>
+<li><strong>B-Tree索引：</strong> 适合范围查询（<code>WHERE user_id &gt; 1000</code>）和排序。</li>
+<li><strong>Bloom Filter索引：</strong> 这是一种概率型数据结构，主要用于快速判断“某个值<strong>肯定不存在</strong>”于某个数据块中。对于 <code>WHERE user_id = 123456</code>这样的点查询，Bloom Filter可以快速跳过那些肯定不包含 <code>user_id=123456</code>的数据文件，减少IO。Doris&#x2F;ClickHouse 广泛使用它来优化高基数列的查询。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据编码与压缩"><a href="#2-数据编码与压缩" class="headerlink" title="2. 数据编码与压缩"></a>2. 数据编码与压缩</h4><ul>
+<li><strong>低基数列：</strong> 非常适合 <strong>字典编码</strong><ul>
+<li><strong>原理：</strong> 创建一个字典：<code>&#123;&#39;M&#39; -&gt; 1, &#39;F&#39; -&gt; 2&#125;</code>，然后将表中所有的 ‘M’ 替换成 1，所有的 ‘F’ 替换成 2。存储时只需存储紧凑的数字1和2，以及一个小小的字典表。压缩率非常高。</li>
+</ul>
+</li>
+<li><strong>高基数列：</strong> 字典编码效果不佳，因为字典本身会非常大。通常采用其他通用压缩算法。</li>
+</ul>
+<h4 id="3-数据分布与分桶策略"><a href="#3-数据分布与分桶策略" class="headerlink" title="3. 数据分布与分桶策略"></a>3. 数据分布与分桶策略</h4><p>在 Spark&#x2F;Hive 中，当我们使用 <code>CLUSTERED BY</code>（分桶）时，选择分桶键至关重要。</p>
+<ul>
+<li><strong>理想的分桶键应该是高基数列</strong>，如 <code>user_id</code>。这样才能保证数据被均匀地分散到各个桶中，避免数据倾斜。如果用一个低基数列（如 <code>gender</code>）分桶，会导致数据严重倾斜（可能只有2个桶，每个桶非常大）。</li>
+</ul>
+<h4 id="4-查询性能"><a href="#4-查询性能" class="headerlink" title="4. 查询性能"></a>4. 查询性能</h4><ul>
+<li>**对低基数列进行 <code>GROUP BY</code>或 <code>DISTINCT</code>**：速度非常快，因为需要处理的分组很少。<ul>
+<li><code>SELECT city, COUNT(*) FROM users GROUP BY city;</code>– 即使表很大，分组数也有限。</li>
+</ul>
+</li>
+<li>**对高基数列进行 <code>GROUP BY</code>或 <code>DISTINCT</code>**：可能会很慢，消耗大量内存，因为需要为海量的不重复值维护中间状态。<ul>
+<li><code>SELECT user_id, COUNT(*) FROM click_log GROUP BY user_id;</code>– 如果用户数上亿，这个查询压力很大。</li>
+</ul>
+</li>
+</ul>
+<h3 id="面试场景"><a href="#面试场景" class="headerlink" title="面试场景"></a>面试场景</h3><p>如果面试官追问：“为什么你建议在Doris里对 <code>user_id</code>使用Bloom Filter索引，而不是位图索引？”</p>
+<p>你现在可以这样回答：</p>
+<p>“因为 <code>user_id</code>是一个典型的高基数列，它的不重复值数量巨大（可能上亿）。如果使用位图索引，会产生上亿个非常稀疏的位图，占用大量空间且性能低下。而Bloom Filter索引是专门为这种高基数列的等值查询优化设计的，它用很小的空间代价就能快速过滤掉不相关的数据块，性价比非常高。相反，如果是对 <code>order_status</code>这种只有几个状态值的低基数列进行过滤，位图索引就是最佳选择。”</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">--  技术镜鉴：</span><br><span class="line">1. 谓词下推：在数据量大的情况下，经可能将where条件放置在内层的子查询中，使它尽可能早的过滤掉大量不符合条件的数据。</span><br><span class="line">2. 关联条件：在关联条件中可以加入对关联表的整体过滤条件，从而减少子查询的层级。</span><br><span class="line">3. 数据过滤：对完整查询结果可以在最后使用having函数进行过滤。</span><br><span class="line">4. 边界考虑：在实际生产环境中，应该考虑到数据可能为空的情况，并提出解决和处理的方案。</span><br><span class="line">5. 构建索引：通过对数据表构建合适的索引，加快数据检索和关联的效率。</span><br><span class="line"></span><br><span class="line">-- 索引是什么？简单来说索引就像一本书的目录。倘若没有目录，你要找某个主题的内容，就只能一页一页的翻找（全表扫描）。而有了目录，就可以快速定位到内容所在的位置（数据所在的数据块），大大的加速了查询效率。</span><br><span class="line">-- 官方概念：索引是一种独立的数据结构，它存储了表中某些列（索引键）的值以及这些值对应数据行的物理地址指针。</span><br><span class="line">-- 对比差异：</span><br><span class="line">-- 如果没有索引：查询引擎需要全表扫描，读取每一行数据，检查时间条件，然后分组聚合。若表有几十亿条数据，这将是一个非常缓慢的过程。</span><br><span class="line">-- 若存在 user_id,order_time的联合索引：</span><br><span class="line">-- 1. where过滤，引擎可以快速定位到order_time在时间范围内的索引条目，避免全表扫描。</span><br><span class="line">-- 2. group by分组，因为索引的第一列是user_id，并且索引条目是按照（user_id,order_time）排序的。这意味着每一个user_id的所有订单在索引中是紧挨着存储的。引擎就可以顺序读取索引，轻松的完成分组和聚合，这个高效的过程被称之为：“索引排序分组”</span><br><span class="line">-- 如何创建索引：不同数据库中语法略微不同，但核心思想一致。</span><br><span class="line">-- 类MySQL语法</span><br><span class="line">create index idx_orders_user_time on orders(user_id, order_time);</span><br><span class="line">-- 不同的查询引擎索引机制有着本质的不同比如：hive/spark sql基于hdfs存储 和 doris/clickhouse</span><br><span class="line"></span><br><span class="line">-- hive/spark 其核心的特点是数据存储在hdfs上，格式为列式，传统的索引在原生的hive中几乎不存在，因为hdfs不支持随机写，更新索引的成本极高。</span><br><span class="line">-- 因此作为索引的替代方案：着重于分区和分桶的设计 (分区和分桶是“设计时”的优化，而索引是“运行时”的优化)</span><br><span class="line">-- 1.分区（partition）是最重要、最高效的“粗粒度索引”，可以按照日期dt进行分区，读取特点分区的数据。</span><br><span class="line">-- 2.分桶（bucket）若按照user_id进行分组或关联，可以对表进行分桶。相同的user_id的数据会落在同一个桶中，能够优化group by 和join。</span><br><span class="line">-- 3.orc/parquet文件内部索引：列式存储格式会为每个数据块记录min/max等统计信息，若查询order_tiem &gt; 20251103 引擎可以直接跳过不符合的数据块，这可以看做一种轻量级的索引。</span><br><span class="line"></span><br><span class="line">-- doris为代表的MPP（大规模并行处理）数据库</span><br><span class="line">-- 原生支持多种索引，且针对大数据分析场景做了深度优化。</span><br><span class="line">-- 1. 前缀索引，这是doris的核心特性。在建表时，你指定的排序列（如user_id，order_time）会自动构成一个稀疏索引，数据按这些排序存储。当前查询条件完美匹配前缀，可以极速定位数据。</span><br><span class="line">-- 2. 布隆过滤器：特别适用于高基数列的等值查询（如user_id = 123）.doris会自动为某些列创建 bloom filter，可以快速判断某个 user_id肯定不会在这个数据块中，从而跳过这个数据块。</span><br><span class="line">-- 3. 二级索引：适用于低基数列（如city,product_category）的等值或者范围查询。</span><br><span class="line"></span><br><span class="line">-- 性能优化的势能轨迹：首先给出通用的索引概念，然后主动反问“当前的技术栈是什么”是基于hive/spark的离线数仓，还是doris的实时数仓？知己知彼，对症下游，根据反馈细谈针对数仓的具体优化方案。技术的广度与沟通的能力最终要映射在业务场景的理解能力。</span><br><span class="line"></span><br><span class="line">-- 高基数列:指列中不重复数值非常多的列。</span><br><span class="line">-- 低基数列:指列中不重复数值非常少的列。</span><br><span class="line">-- 比如一个公司的花名册，员工的身份证号就是高基数列，每一个员工都有一个独一无二的身份证号。而员工的性别就是一个低基数列，只有男女等少数几个值。中等奇数即公司的部门，一个公司可能有十几二十个部门。</span><br><span class="line">-- 区分高低基数的主要意义在于指导我们选择最合适的数据处理技术和优化策略。</span><br><span class="line">-- 低基数列适合位图索引，原理创建一个位图bitmap，每一位表示一行是否有该值，如果基数列很高，位图就会变得非常稀疏和巨大，反而浪费空间、降低性能。且适合于字典编码，将内容映射为连续的数字，压缩效率高。</span><br><span class="line">-- 高基数列适合于B-Tree索引（适合范围查询）或者 bloom filter索引（一种概率型模型，主要用于快速判断“某个值肯定不在”某个数据块中）。</span><br><span class="line">-- 数据分布与分桶策略：理想的分桶键应该是高基数列，这样才能保证数据被均匀的分散到各个桶中，避免数据倾斜。</span><br><span class="line">-- 为什么建议在Doris里对 user_id使用Bloom Filter索引，而不是位图索引？</span><br><span class="line">-- 因为 user_id是一个典型的高基数列，它的不重复值数量巨大（可能上亿）。</span><br><span class="line">-- 如果使用位图索引，会产生上亿个非常稀疏的位图，占用大量空间且性能低下。</span><br><span class="line">-- 而Bloom Filter索引是专门为这种高基数列的等值查询优化设计的，它用很小的空间代价就能快速过滤掉不相关的数据块，性价比非常高。</span><br><span class="line">-- 相反，如果是对 order_status这种只有几个状态值的低基数列进行过滤，位图索引就是最佳选择。 </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="内容归纳与升华"><a href="#内容归纳与升华" class="headerlink" title="内容归纳与升华"></a>内容归纳与升华</h3><p>我将你的精彩总结重新组织成一个更体系化的框架，方便你面试时清晰地呈现知识深度。</p>
+<h4 id="一、SQL优化核心思想"><a href="#一、SQL优化核心思想" class="headerlink" title="一、SQL优化核心思想"></a><strong>一、SQL优化核心思想</strong></h4><ol>
+<li><strong>减少数据量原则</strong>：这是优化的黄金法则。<ul>
+<li><strong>谓词下推</strong>：在查询的最内层尽早过滤数据。</li>
+<li><strong>有效索引</strong>：通过索引直接定位所需数据块，避免全表扫描。</li>
+</ul>
+</li>
+<li><strong>简化计算复杂度原则</strong>：<ul>
+<li><strong>减少嵌套</strong>：扁平化的SQL更易读，也给了查询优化器更多优化空间。</li>
+<li>**合理使用<code>HAVING</code>**：仅对聚合后的结果进行过滤，避免先聚合大量数据再丢弃。</li>
+</ul>
+</li>
+<li><strong>鲁棒性原则</strong>：<ul>
+<li><strong>边界情况处理</strong>：考虑<code>NULL</code>值、数据倾斜、空值等生产环境中常见问题。</li>
+</ul>
+</li>
+</ol>
+<h4 id="二、索引技术选型矩阵（面试核心武器）"><a href="#二、索引技术选型矩阵（面试核心武器）" class="headerlink" title="二、索引技术选型矩阵（面试核心武器）"></a><strong>二、索引技术选型矩阵（面试核心武器）</strong></h4><p>这是一个可以直观展示你技术深度的框架：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>列类型</strong></th>
+<th align="left"><strong>核心问题</strong></th>
+<th align="left"><strong>Hive&#x2F;Spark (离线批处理)</strong></th>
+<th align="left"><strong>Doris&#x2F;ClickHouse (实时交互)</strong></th>
+<th align="left"><strong>优化目标</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>所有列</strong></td>
+<td align="left"><strong>如何快速跳过无关数据？</strong></td>
+<td align="left"><strong>分区(Partitioning)</strong>  • 按时间、地域等粗粒度划分</td>
+<td align="left"><strong>排序(Ordering Key)</strong>  • 数据按排序列物理排序</td>
+<td align="left"><strong>粗粒度数据裁剪</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>高基数列</strong>  (如<code>user_id</code>)</td>
+<td align="left"><strong>如何高效进行等值查询？</strong></td>
+<td align="left"><strong>分桶(Clustering&#x2F;Bucketing)</strong>  • 将数据散列到多个桶，优化<code>JOIN</code>&#x2F;<code>GROUP BY</code></td>
+<td align="left"><strong>Bloom Filter索引</strong>  • 概率性判断“数据不存在”，快速跳过数据块</td>
+<td align="left"><strong>避免数据倾斜，加速点查询</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>低基数列</strong>  (如<code>status</code>)</td>
+<td align="left"><strong>如何高效进行多条件过滤？</strong></td>
+<td align="left"><strong>列式存储统计信息</strong>  • ORC&#x2F;Parquet的Min&#x2F;Max索引</td>
+<td align="left"><strong>位图索引(Bitmap Index)</strong>  • 对每个值生成位图，支持快速<code>AND</code>&#x2F;<code>OR</code>运算</td>
+<td align="left"><strong>极致压缩，快速多条件过滤</strong></td>
+</tr>
+</tbody></table>
+<p><strong>面试话术建议</strong>：“当谈到优化时，我的思路是一个决策树：首先看业务场景和技术栈。如果是Hive&#x2F;Spark，我优先考虑<strong>分区和分桶</strong>的设计。如果是Doris，我会利用其<strong>前缀索引和Bloom Filter</strong>。其次，我会分析查询模式涉及的列是<strong>高基数还是低基数</strong>，从而选择最合适的索引类型，比如对<code>user_id</code>用Bloom Filter，对<code>status</code>用位图索引。”</p>
+<h4 id="三、高低基数：数据处理的“第一性原理”"><a href="#三、高低基数：数据处理的“第一性原理”" class="headerlink" title="三、高低基数：数据处理的“第一性原理”"></a><strong>三、高低基数：数据处理的“第一性原理”</strong></h4><p>你的理解非常准确。高低基数是决定数据分布、存储、压缩和查询性能的底层属性。</p>
+<ul>
+<li><strong>低基数 -&gt; 高重复 -&gt; 适合压缩、位图索引</strong>（思考：如何利用“重复”）</li>
+<li><strong>高基数 -&gt; 低重复 -&gt; 适合散列、Bloom Filter</strong>（思考：如何管理“唯一”）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://tuumest.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tuumest.cn/blog/bd61c145.html/">https://tuumest.cn/blog/bd61c145.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuumest.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E9%95%9C%E9%89%B4/">技术镜鉴</a></div><div class="post_share"><div class="social-share" data-image="/img/tech_data.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/blog/e1a8e7f.html/"><img class="next-cover" src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">每日分享 Spark</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">126</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">索引是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9AHive-x2F-Spark-SQL-on-HDFS"><span class="toc-number">1.1.</span> <span class="toc-text">场景一：Hive &#x2F; Spark SQL (on HDFS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9ADoris-x2F-ClickHouse-x2F-StarRocks-MPP%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">场景二：Doris &#x2F; ClickHouse &#x2F; StarRocks (MPP数据库)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">核心定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%86%E9%AB%98%E4%BD%8E%E5%9F%BA%E6%95%B0%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">为什么区分高低基数很重要？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9"><span class="toc-number">3.1.</span> <span class="toc-text">1. 索引选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="toc-number">3.2.</span> <span class="toc-text">2. 数据编码与压缩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E4%B8%8E%E5%88%86%E6%A1%B6%E7%AD%96%E7%95%A5"><span class="toc-number">3.3.</span> <span class="toc-text">3. 数据分布与分桶策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD"><span class="toc-number">3.4.</span> <span class="toc-text">4. 查询性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E5%9C%BA%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">面试场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%BD%92%E7%BA%B3%E4%B8%8E%E5%8D%87%E5%8D%8E"><span class="toc-number">5.</span> <span class="toc-text">内容归纳与升华</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81SQL%E4%BC%98%E5%8C%96%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-number">5.1.</span> <span class="toc-text">一、SQL优化核心思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%B4%A2%E5%BC%95%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E7%9F%A9%E9%98%B5%EF%BC%88%E9%9D%A2%E8%AF%95%E6%A0%B8%E5%BF%83%E6%AD%A6%E5%99%A8%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">二、索引技术选型矩阵（面试核心武器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%AB%98%E4%BD%8E%E5%9F%BA%E6%95%B0%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E2%80%9C%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E2%80%9D"><span class="toc-number">5.3.</span> <span class="toc-text">三、高低基数：数据处理的“第一性原理”</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.001"/></a><div class="content"><a class="title" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001">日拱一卒 Vol.001</a><time datetime="2025-11-04T13:47:18.000Z" title="发表于 2025-11-04 21:47:18">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/e1a8e7f.html/" title="每日分享 Spark"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日分享 Spark"/></a><div class="content"><a class="title" href="/blog/e1a8e7f.html/" title="每日分享 Spark">每日分享 Spark</a><time datetime="2024-03-07T11:30:14.000Z" title="发表于 2024-03-07 19:30:14">2024-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/de43bd01.html/" title="华为OD 机考面试题"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="华为OD 机考面试题"/></a><div class="content"><a class="title" href="/blog/de43bd01.html/" title="华为OD 机考面试题">华为OD 机考面试题</a><time datetime="2024-03-06T15:37:13.000Z" title="发表于 2024-03-06 23:37:13">2024-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/dcd37475.html/" title="每日分享 Hive"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日分享 Hive"/></a><div class="content"><a class="title" href="/blog/dcd37475.html/" title="每日分享 Hive">每日分享 Hive</a><time datetime="2024-03-05T15:25:34.000Z" title="发表于 2024-03-05 23:25:34">2024-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/c8b53445.html/" title="每日分享 Kafka"><img src="https://s3.uuu.ovh/imgs/2022/12/07/812e57aa0915f5af.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日分享 Kafka"/></a><div class="content"><a class="title" href="/blog/c8b53445.html/" title="每日分享 Kafka">每日分享 Kafka</a><time datetime="2024-03-04T14:46:17.000Z" title="发表于 2024-03-04 22:46:17">2024-03-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
