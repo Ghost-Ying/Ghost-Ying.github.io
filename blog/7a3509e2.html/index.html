@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>日拱一卒 Vol.003 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、Doris是什么？—— 宏观定位Apache Doris是一个基于MPP架构的、高性能、实时的分析型数据库。 通过拆解这个定义，我们可以抓住它的核心：  MPP架构：这是Doris高性能的基石。大规模并行处理意味着它将数据和计算任务分布到集群的多个节点上，这些节点同时工作，最终将结果汇总返回。就像一群工人同时组装一台汽车，而不是一个人完成所有工作。 分析型数据库：它与我们熟知的MySQL这类事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日拱一卒 Vol.003">
+<meta property="og:url" content="https://tuumest.cn/blog/7a3509e2.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="一、Doris是什么？—— 宏观定位Apache Doris是一个基于MPP架构的、高性能、实时的分析型数据库。 通过拆解这个定义，我们可以抓住它的核心：  MPP架构：这是Doris高性能的基石。大规模并行处理意味着它将数据和计算任务分布到集群的多个节点上，这些节点同时工作，最终将结果汇总返回。就像一群工人同时组装一台汽车，而不是一个人完成所有工作。 分析型数据库：它与我们熟知的MySQL这类事">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuumest.cn/img/tech_data.png">
+<meta property="article:published_time" content="2025-11-06T14:18:53.000Z">
+<meta property="article:modified_time" content="2025-11-06T15:53:23.545Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="技术镜鉴">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuumest.cn/img/tech_data.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://tuumest.cn/blog/7a3509e2.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '日拱一卒 Vol.003',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-06 23:53:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/tech_data.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">日拱一卒 Vol.003</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-06T14:18:53.000Z" title="发表于 2025-11-06 22:18:53">2025-11-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-06T15:53:23.545Z" title="更新于 2025-11-06 23:53:23">2025-11-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="日拱一卒 Vol.003"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="一、Doris是什么？——-宏观定位"><a href="#一、Doris是什么？——-宏观定位" class="headerlink" title="一、Doris是什么？—— 宏观定位"></a>一、Doris是什么？—— 宏观定位</h3><p><strong>Apache Doris是一个基于MPP架构的、高性能、实时的分析型数据库</strong>。</p>
+<p>通过拆解这个定义，我们可以抓住它的核心：</p>
+<ol>
+<li><strong>MPP架构：</strong>这是Doris高性能的基石。<strong>大规模并行处理</strong>意味着它将数据和计算任务分布到集群的多个节点上，这些节点同时工作，最终将结果汇总返回。就像一群工人同时组装一台汽车，而不是一个人完成所有工作。</li>
+<li><strong>分析型数据库：</strong>它与我们熟知的MySQL这类<strong>事务型数据库</strong>有本质区别。<ul>
+<li><strong>目标不同：</strong>OLTP处理大量简单的、高并发的短事务（如订单支付、账户查询）；而Doris所属的OLAP则专注于<strong>复杂的分析查询</strong>（如“过去一年每个季度各个品类的销售总额排名”）。</li>
+<li><strong>读&#x2F;写模式不同：</strong>OLTP是“读写均衡”，OLAP是“读多写少”，一次写入，多次复杂查询。</li>
+</ul>
+</li>
+<li><strong>高性能与实时：</strong>Doris的核心优势。它能够对海量数据（PB级别）进行<strong>亚秒级</strong>的查询响应，并支持<strong>高并发</strong>的点查询和复杂报表。数据写入后可立即用于查询，实现了“实时分析”。</li>
+</ol>
+<p><strong>简单来说，Doris是为大数据时代的“决策支持系统”而生的引擎，旨在让分析师和决策者能够极其快速地从海量数据中获取洞察。</strong></p>
+<h3 id="二、核心架构解析——-它是如何工作的？"><a href="#二、核心架构解析——-它是如何工作的？" class="headerlink" title="二、核心架构解析—— 它是如何工作的？"></a>二、核心架构解析—— 它是如何工作的？</h3><p>Doris采用了一种非常经典且简洁的<strong>主从架构</strong>，主要由两类进程组成：</p>
+<h4 id="1-Frontend"><a href="#1-Frontend" class="headerlink" title="1. Frontend"></a>1. Frontend</h4><p>负责<strong>元数据管理、客户端连接、查询的解析与规划</strong>。它又分为两个角色：</p>
+<ul>
+<li>**Leader:**主节点，负责所有元数据的更新和全局管理。</li>
+<li>**Follower:**从节点，参与选主，并同步元数据，分担读压力。</li>
+</ul>
+<p><strong>你可以将FE理解为集群的“大脑”和“调度中心”</strong>。</p>
+<h4 id="2-Backend"><a href="#2-Backend" class="headerlink" title="2. Backend"></a>2. Backend</h4><p>负责<strong>数据存储、查询执行</strong>。每个BE节点存储一部分数据（Tablet），并执行FE下发的查询任务。</p>
+<p><strong>你可以将BE理解为集群的“肌肉”和“劳动力”</strong>。</p>
+<p><strong>工作流程（以一次查询为例）：</strong></p>
+<ol>
+<li>客户端向任意一个FE发送SQL查询。</li>
+<li>FE解析SQL，生成分布式执行计划（查询规划）。</li>
+<li>FE将执行计划分发给涉及到的所有BE节点。</li>
+<li>各个BE节点并行执行本地数据的扫描和计算（这就是MPP的威力）。</li>
+<li>BE将中间结果返回给某个或多个BE进行进一步聚合（如果需要）。</li>
+<li>最终结果由FE汇总后返回给客户端。</li>
+</ol>
+<p>这种架构的优势是<strong>组件简单、易于运维、没有单点瓶颈</strong>（FE通过选举实现高可用）。</p>
+<h3 id="三、数据模型详解——-设计的灵魂"><a href="#三、数据模型详解——-设计的灵魂" class="headerlink" title="三、数据模型详解—— 设计的灵魂"></a>三、数据模型详解—— 设计的灵魂</h3><p>这是Doris最核心的特性之一，我们在上一个问题中已详细讨论，这里再强调其设计哲学：</p>
+<p>与传统数据库（如MySQL）的“行式存储”和“读时计算”不同，Doris作为一种OLAP数据库，其核心思想是：<strong>牺牲一定的写时灵活性，换取极致的查询性能</strong>。实现这一目标的手段就是 <strong>“预聚合”</strong>。</p>
+<p>这三种模型，本质上是在 <strong>“存储成本”、“查询性能”、“数据粒度”</strong>三者之间进行不同权衡的结果。</p>
+<table>
+<thead>
+<tr>
+<th align="left">模型</th>
+<th align="left">设计哲学</th>
+<th align="left">类比</th>
+<th align="left">典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>明细模型</strong></td>
+<td align="left"><strong>保留一切</strong>。提供最大的灵活性，但存储和计算成本最高。</td>
+<td align="left">保存所有原始发票存根。</td>
+<td align="left">日志分析、Ad-hoc任意维度查询、需要回溯明细。</td>
+</tr>
+<tr>
+<td align="left"><strong>聚合模型</strong></td>
+<td align="left"><strong>空间换时间</strong>。通过预聚合，将计算提前到写入时，换取查询时的极致性能。</td>
+<td align="left">每天只保存一张销售日报表。</td>
+<td align="left">固定维度的报表、Dashboard、大数据量汇总分析。</td>
+</tr>
+<tr>
+<td align="left"><strong>唯一模型</strong></td>
+<td align="left"><strong>关注最新状态</strong>。确保主键唯一，保留最新版本，是聚合模型的特例。</td>
+<td align="left">只记录每个客户的当前联系信息和总消费额。</td>
+<td align="left">实时用户画像、商品信息表、需要去重的流式数据。</td>
+</tr>
+</tbody></table>
+<p><strong>选择诀窍：优先考虑聚合模型，因为它能带来最大的性能收益。只有在必须查看原始明细时，才使用明细模型。</strong></p>
+<p>我们可以用一个简单的比喻来理解：</p>
+<ul>
+<li><strong>明细数据</strong>就像一堆堆的 <strong>“原材料”</strong>。</li>
+<li><strong>查询</strong>就像是客户要的 <strong>“成品菜”</strong>（比如 SUM、COUNT 后的结果）。</li>
+</ul>
+<h4 id="1-明细模型-存储“原材料”"><a href="#1-明细模型-存储“原材料”" class="headerlink" title="1. 明细模型 - 存储“原材料”"></a>1. 明细模型 - 存储“原材料”</h4><ul>
+<li><strong>思想：</strong>保留最原始、最细粒度的数据，不做任何预聚合。查询时现场加工。</li>
+<li><strong>原理：</strong>就是普通的数据库表，每一行数据都会独立存储。插入相同key的数据，会存在多行。</li>
+<li><strong>特点：</strong></li>
+<li><strong>存储成本最高</strong>：存储的是原始数据。</li>
+<li><strong>查询灵活性最高</strong>：可以查询任意维度的最细粒度数据。</li>
+<li><strong>查询性能相对较低</strong>：每次查询都需要现场进行聚合计算。</li>
+</ul>
+<h4 id="2-聚合模型-存储“半成品”"><a href="#2-聚合模型-存储“半成品”" class="headerlink" title="2. 聚合模型 - 存储“半成品”"></a>2. 聚合模型 - 存储“半成品”</h4><ul>
+<li><strong>思想：</strong>在数据写入时，根据<code>AGGREGATE KEY</code>自动进行预聚合，将相同key的数据行合并，并对Value列执行指定的聚合操作（如SUM、MAX）。</li>
+<li><strong>原理：</strong><ul>
+<li>建表时，需要指定<code>AGGREGATE KEY</code>，并为非key列指定聚合函数（如<code>SUM</code>， <code>MAX</code>， <code>MIN</code>， <code>REPLACE</code>）。</li>
+<li>当导入数据的<code>AGGREGATE KEY</code>与已有数据相同时，Doris不会新增一行，而是会<strong>将新数据的Value列与旧数据按指定的聚合函数进行合并</strong>。</li>
+</ul>
+</li>
+<li><strong>特点：</strong><ul>
+<li><strong>存储成本显著降低</strong>：相同key的数据被合并，大大减少了数据量。</li>
+<li><strong>查询性能极高</strong>：对于聚合查询，结果几乎是瞬间得出，因为大部分计算在写入时已经完成。</li>
+<li><strong>灵活性受限</strong>：无法查询到被合并前的、最细粒度的明细数据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-唯一模型-存储“最新版本”"><a href="#3-唯一模型-存储“最新版本”" class="headerlink" title="3. 唯一模型 - 存储“最新版本”"></a>3. 唯一模型 - 存储“最新版本”</h4><ul>
+<li><strong>思想：</strong>保证<code>UNIQUE KEY</code>的唯一性，对于相同key的数据，保留最新版本（或根据指定策略保留一个版本）。它本质上是聚合模型的一个特例。</li>
+<li><strong>原理：</strong><ul>
+<li>建表时指定<code>UNIQUE KEY</code>。所有非key列默认使用<code>REPLACE</code>聚合函数。</li>
+<li>当新数据与旧数据有相同<code>UNIQUE KEY</code>时，<strong>新数据会覆盖旧数据</strong>（REPLACE语义）。</li>
+</ul>
+</li>
+<li><strong>特点：</strong><ul>
+<li><strong>存储成本中等</strong>：只保留唯一key的最新状态，但比聚合模型存储的细节多。</li>
+<li><strong>查询性能高</strong>：点查询（查询某个key的最新状态）非常快。</li>
+<li><strong>适用场景特定</strong>：主要用于需要<strong>实时获取某个对象最新状态</strong>的场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何判断与配置？"><a href="#如何判断与配置？" class="headerlink" title="如何判断与配置？"></a>如何判断与配置？</h3><h4 id="决策流程图：如何选择模型？"><a href="#决策流程图：如何选择模型？" class="headerlink" title="决策流程图：如何选择模型？"></a>决策流程图：如何选择模型？</h4><p>当你拿到一份数据时，可以遵循以下决策流程：</p>
+<p><img src="/blog/7a3509e2.html/image-20251106235013103.png" alt="image-20251106235013103"></p>
+<h4 id="Key和Value的配置原则"><a href="#Key和Value的配置原则" class="headerlink" title="Key和Value的配置原则"></a>Key和Value的配置原则</h4><ul>
+<li><strong>Key列（维度列）：</strong><ul>
+<li><strong>作用：</strong>用于过滤、分组、关联。决定了数据如何被聚合（聚合&#x2F;唯一模型）或标识（明细模型）。</li>
+<li><strong>如何选：</strong>选择那些经常出现在 <code>WHERE</code>、<code>GROUP BY</code>、<code>JOIN ... ON</code>条件中的列。<strong>应将高基数列（如user_id）放在Key列的前面</strong>，以提高查询效率。</li>
+</ul>
+</li>
+<li><strong>Value列（指标列）：</strong><ul>
+<li><strong>作用：</strong>用于度量和计算。在聚合&#x2F;唯一模型中，它们需要被聚合。</li>
+<li><strong>如何配置：</strong><ul>
+<li><strong>SUM：</strong>适用于可累加的指标，如<code>销售额</code>、<code>点击次数</code>。</li>
+<li><strong>MAX&#x2F;MIN：</strong>适用于记录极值，如<code>最高温度</code>、<code>最低价格</code>。</li>
+<li><strong>REPLACE：</strong>适用于“覆盖更新”的场景，在唯一模型中很常见，如<code>用户最后登录时间</code>。在聚合模型中，可用于保留最新明细。</li>
+<li><strong>HLL_UNION：</strong>用于近似计算唯一值计数（COUNT DISTINCT），如<code>UV</code>。</li>
+<li><strong>BITMAP_UNION：</strong>用于精确计算唯一值计数，如<code>UV</code>。</li>
+<li><strong>NONE：</strong>仅在明细模型中使用，表示不聚合。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="实例验证：电商场景实战"><a href="#实例验证：电商场景实战" class="headerlink" title="实例验证：电商场景实战"></a>实例验证：电商场景实战</h3><p>假设我们有如下结构的原始订单流水数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(order_id, user_id, product_id, category, province, order_time, amount, quantity)</span><br></pre></td></tr></table></figure>
+
+<h4 id="场景1：实时订单分析平台"><a href="#场景1：实时订单分析平台" class="headerlink" title="场景1：实时订单分析平台"></a>场景1：实时订单分析平台</h4><ul>
+<li><strong>需求：</strong>业务方需要能下钻查询<strong>任意一笔订单的详细信息</strong>，比如排查某个订单的支付问题。</li>
+<li><strong>模型选择：</strong><ul>
+<li>需要查询最细粒度数据 -&gt; <strong>明细模型</strong>。</li>
+</ul>
+</li>
+<li><strong>建表语句：</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE order_detail (</span><br><span class="line">    order_id BIGINT,</span><br><span class="line">    user_id BIGINT,</span><br><span class="line">    product_id BIGINT,</span><br><span class="line">    category VARCHAR(50),</span><br><span class="line">    province VARCHAR(20),</span><br><span class="line">    order_time DATETIME,</span><br><span class="line">    amount DECIMAL(10,2),</span><br><span class="line">    quantity INT</span><br><span class="line">)</span><br><span class="line">DUPLICATE KEY(order_id, user_id, order_time) -- 明细模型，KEY无聚合意义，仅用于排序</span><br><span class="line">DISTRIBUTED BY HASH(order_id) BUCKETS 10;</span><br></pre></td></tr></table></figure>
+
+<h4 id="场景2：销售大盘报表"><a href="#场景2：销售大盘报表" class="headerlink" title="场景2：销售大盘报表"></a>场景2：销售大盘报表</h4><ul>
+<li><strong>需求：</strong>每天查看按<code>品类</code>、<code>省份</code>汇总的<code>销售总额</code>、<code>订单总数</code>。不需要看单个订单。</li>
+<li><strong>模型选择：</strong><ul>
+<li>查询模式是固定维度的聚合 -&gt; <strong>聚合模型</strong>。</li>
+</ul>
+</li>
+<li><strong>建表语句：</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE order_agg (</span><br><span class="line">    category VARCHAR(50),</span><br><span class="line">    province VARCHAR(20),</span><br><span class="line">    dt DATE, -- 增加一个日期维度，按天聚合</span><br><span class="line">    total_amount DECIMAL(10,2) SUM, -- 销售额需要累加</span><br><span class="line">    order_count BIGINT SUM -- 订单数需要累加</span><br><span class="line">)</span><br><span class="line">AGGREGATE KEY(category, province, dt) -- 聚合键，相同维度的数据会被合并</span><br><span class="line">DISTRIBUTED BY HASH(category, province) BUCKETS 10;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>效果：</strong>原始1000万条订单数据，按天聚合后可能只剩下1万条数据，查询速度快百倍。</li>
+</ul>
+<h4 id="场景3：实时用户画像表"><a href="#场景3：实时用户画像表" class="headerlink" title="场景3：实时用户画像表"></a>场景3：实时用户画像表</h4><ul>
+<li><strong>需求：</strong>需要快速查询<strong>每个用户的最新状态</strong>，如<code>最近一次登录时间</code>、<code>当前会员等级</code>、<code>总消费金额</code>。</li>
+<li><strong>模型选择：</strong><ul>
+<li>需要获取每个用户的最新状态 -&gt; <strong>唯一模型</strong>。</li>
+</ul>
+</li>
+<li><strong>建表语句：</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE user_profile (</span><br><span class="line">    user_id BIGINT,</span><br><span class="line">    last_login_time DATETIME REPLACE, -- 最后登录时间，新的覆盖旧的</span><br><span class="line">    membership_level INT REPLACE, -- 会员等级，新的覆盖旧的</span><br><span class="line">    total_expense DECIMAL(10,2) SUM -- 总消费金额，需要持续累加</span><br><span class="line">)</span><br><span class="line">UNIQUE KEY(user_id) -- 唯一键，保证一个用户一条记录</span><br><span class="line">DISTRIBUTED BY HASH(user_id) BUCKETS 10;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>效果：</strong>无论用户数据更新多少次，表中每个<code>user_id</code>都只对应一条最新状态的记录。</li>
+</ul>
+<h3 id="四、核心特性与优势——-为什么是Doris？"><a href="#四、核心特性与优势——-为什么是Doris？" class="headerlink" title="四、核心特性与优势—— 为什么是Doris？"></a>四、核心特性与优势—— 为什么是Doris？</h3><ol>
+<li><strong>极致的性能：</strong><ul>
+<li><strong>列式存储：</strong>数据按列存储，查询时只需读取相关列，极大减少I&#x2F;O。</li>
+<li><strong>智能索引：</strong><ul>
+<li><strong>前缀索引：</strong>数据按AGGREGATE&#x2F;UNIQUE KEY排序存储，查询时能快速定位数据块。</li>
+<li><strong>ZoneMap索引：</strong>每个数据块记录min&#x2F;max值，用于快速过滤。</li>
+<li><strong>Bloom Filter索引：</strong>高效判断数据块中是否包含某个值，适合高基数列。</li>
+</ul>
+</li>
+<li><strong>物化视图：</strong>可以自动匹配查询，无需改写SQL即可加速。</li>
+</ul>
+</li>
+<li><strong>简便的运维：</strong><ul>
+<li><strong>兼容MySQL协议：</strong>可以使用任何MySQL客户端连接，学习成本极低。</li>
+<li><strong>简洁的架构：</strong>只有FE和BE两种组件，部署和运维非常简单。</li>
+<li><strong>在线弹性扩缩容：</strong>增加节点后，数据会自动均衡，无需停机。</li>
+</ul>
+</li>
+<li><strong>丰富的生态支持：</strong><ul>
+<li><strong>多种数据导入方式：</strong>支持Broker Load（HDFS）、Routine Load（Kafka）、Stream Load（HTTP API）等，方便与现有大数据生态集成。</li>
+<li><strong>支持标准SQL：</strong>降低了数据分析师的使用门槛。</li>
+</ul>
+</li>
+</ol>
+<h3 id="五、实践指南：如何上手一个项目？"><a href="#五、实践指南：如何上手一个项目？" class="headerlink" title="五、实践指南：如何上手一个项目？"></a>五、实践指南：如何上手一个项目？</h3><h4 id="1-表设计流程"><a href="#1-表设计流程" class="headerlink" title="1. 表设计流程"></a>1. 表设计流程</h4><ol>
+<li><strong>分析业务需求：</strong>查询模式是什么？需要明细还是聚合？并发量多大？</li>
+<li><strong>选择数据模型：</strong>根据上述决策流程图选择。</li>
+<li><strong>定义Key和Value：</strong>确定维度列和指标列，并为指标列选择合适的聚合函数。</li>
+<li><strong>分区与分桶：</strong><ul>
+<li><strong>分区：</strong>通常按时间分区（如<code>dt</code>），用于数据生命周期管理和查询时裁剪。</li>
+<li><strong>分桶：</strong>按高基数列（如<code>user_id</code>）分桶，保证数据均匀分布，实现并行计算。</li>
+</ul>
+</li>
+<li><strong>设置索引：</strong>对常用查询条件列创建Bloom Filter索引。</li>
+</ol>
+<h4 id="2-实战示例：用户行为分析平台"><a href="#2-实战示例：用户行为分析平台" class="headerlink" title="2. 实战示例：用户行为分析平台"></a>2. 实战示例：用户行为分析平台</h4><p><strong>需求：</strong>分析用户在不同渠道的日活跃、消费情况。</p>
+<p><strong>建表语句（聚合模型）：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE user_behavior_agg (</span><br><span class="line">    dt DATE COMMENT &#x27;日期&#x27;,         -- 分区列，也是维度</span><br><span class="line">    user_id BIGINT COMMENT &#x27;用户ID&#x27;, -- 高基数维度</span><br><span class="line">    channel VARCHAR(50) COMMENT &#x27;渠道&#x27;, -- 维度</span><br><span class="line">    country VARCHAR(20) COMMENT &#x27;国家&#x27;, -- 维度</span><br><span class="line">    </span><br><span class="line">    -- 以下是指标列（Value），使用聚合函数</span><br><span class="line">    pv BIGINT SUM COMMENT &#x27;总页面浏览量&#x27;,   -- 可累加</span><br><span class="line">    uv BIGINT BITMAP_UNION COMMENT &#x27;独立用户数&#x27;, -- 使用BITMAP精确去重计数</span><br><span class="line">    total_amount DECIMAL(16,2) SUM COMMENT &#x27;总消费金额&#x27;, -- 可累加</span><br><span class="line">    last_login_time DATETIME MAX COMMENT &#x27;最后登录时间&#x27;  -- 取最大值</span><br><span class="line">)</span><br><span class="line">ENGINE=OLAP</span><br><span class="line">AGGREGATE KEY(dt, user_id, channel, country) -- 聚合键</span><br><span class="line">PARTITION BY RANGE(dt) -- 按日期分区，便于管理</span><br><span class="line">(</span><br><span class="line">    PARTITION p202401 VALUES LESS THAN (&quot;2024-02-01&quot;)</span><br><span class="line">)</span><br><span class="line">DISTRIBUTED BY HASH(user_id) BUCKETS 32 -- 按user_id分桶，保证数据均匀</span><br><span class="line">PROPERTIES (</span><br><span class="line">    &quot;storage_format&quot; = &quot;v2&quot;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- 查询2024年1月各渠道的日活跃用户和总消费</span><br><span class="line">SELECT </span><br><span class="line">    dt,</span><br><span class="line">    channel,</span><br><span class="line">    BITMAP_UNION_COUNT(uv) AS daily_uv, -- 计算BITMAP的COUNT</span><br><span class="line">    SUM(total_amount) AS daily_amount</span><br><span class="line">FROM user_behavior_agg</span><br><span class="line">WHERE dt &gt;= &#x27;2024-01-01&#x27; AND dt &lt;= &#x27;2024-01-31&#x27;</span><br><span class="line">GROUP BY dt, channel</span><br><span class="line">ORDER BY dt, channel;</span><br></pre></td></tr></table></figure>
+
+<p>这个查询会非常快，因为<code>uv</code>和<code>total_amount</code>在数据写入时已经预聚合好了。</p>
+<hr>
+<h3 id="六、总结：Doris的适用场景与定位"><a href="#六、总结：Doris的适用场景与定位" class="headerlink" title="六、总结：Doris的适用场景与定位"></a>六、总结：Doris的适用场景与定位</h3><p><strong>Doris非常适合作为：</strong></p>
+<ul>
+<li><strong>实时数据仓库：</strong>替代传统的Hive&#x2F;Spark离线数仓，实现T+0的实时分析。</li>
+<li><strong>统一查询网关：</strong>通过对上游数据库（如MySQL）进行CDC同步，提供复杂的关联分析能力。</li>
+<li><strong>日志分析与监控平台：</strong>替代ELK方案，提供更强的实时聚合分析和SQL能力。</li>
+<li><strong>高性能报表与BI系统：</strong>为Tableau、Superset等BI工具提供亚秒级响应的数据源。</li>
+</ul>
+<p><strong>Doris可能不适用于：</strong></p>
+<ul>
+<li>高频、小事务的OLTP场景（请用MySQL&#x2F;PostgreSQL）。</li>
+<li>超大规模（数十PB级）的离线批处理（Hive&#x2F;Spark仍有成本优势）。</li>
+</ul>
+<p><strong>总而言之，Doris以其卓越的性能、简易的运维和强大的实时能力，已经成为现代数据栈中不可或缺的核心组件。掌握Doris，意味着你拥有了解决大规模实时数据分析问题的利器。</strong></p>
+<h3 id="七、分桶的目的是什么？（为什么要把数据分开装？）"><a href="#七、分桶的目的是什么？（为什么要把数据分开装？）" class="headerlink" title="七、分桶的目的是什么？（为什么要把数据分开装？）"></a>七、分桶的目的是什么？（为什么要把数据分开装？）</h3><p>你可以把Doris的表想象成一个大仓库，分桶就是把仓库划分成一个个有编号的<strong>货架</strong>。</p>
+<p>分桶的核心目的有三个：</p>
+<ol>
+<li><strong>并行计算与查询加速（最主要目的）</strong><ul>
+<li>Doris是一个分布式系统，数据会被分散到多个服务器上。<strong>一个分桶是数据移动和并行计算的最小单元</strong>。</li>
+<li>当执行一个查询时，比如 <code>SELECT user_id, SUM(amount) FROM sales GROUP BY user_id</code>，Doris可以将这个查询任务拆分成多个子任务。<strong>每个子任务在一个分桶的数据上独立执行</strong>（比如每个机器节点处理自己持有的几个分桶），最后将结果汇总。这极大地利用了集群的计算能力，加快了查询速度。</li>
+</ul>
+</li>
+<li><strong>数据均匀分布，避免数据倾斜</strong><ul>
+<li>如果没有分桶，数据可能随机或者不均匀地分布在集群中，导致某些机器负载过高（数据热点），而其他机器闲置。</li>
+<li>通过合理选择分桶键，可以确保数据<strong>尽可能均匀</strong>地分布到各个分桶中，从而让集群的负载更加均衡，避免单点瓶颈。</li>
+</ul>
+</li>
+<li><strong>优化数据导入和压缩</strong><ul>
+<li>数据按分桶键组织后，相似的数据会聚集在一起（特别是当分桶键和排序键一致时）。</li>
+<li>这有利于：<ul>
+<li><strong>增量导入</strong>：新数据可以高效地路由到对应的分桶。</li>
+<li><strong>数据压缩</strong>：相似的数据压缩率更高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="八、分桶键如何选择？（按什么规则来分货架？）"><a href="#八、分桶键如何选择？（按什么规则来分货架？）" class="headerlink" title="八、分桶键如何选择？（按什么规则来分货架？）"></a>八、分桶键如何选择？（按什么规则来分货架？）</h3><p><strong>分桶键的选择是Doris表设计中最重要的决策之一。</strong>基本原则是：<strong>选择高基数列（即唯一值多的列），并且该列经常作为查询的过滤或分组条件。</strong></p>
+<p>以下是优先级和建议：</p>
+<ol>
+<li><strong>首选：经常用于查询过滤或关联（JOIN）条件的列。</strong><ul>
+<li><strong>例如：</strong><code>user_id</code>, <code>order_id</code>, <code>device_id</code>。</li>
+<li><strong>原因：</strong>当查询条件中包含分桶键时，Doris可以快速定位到相关的分桶，跳过无关分桶，大幅减少需要扫描的数据量（这叫“分桶裁剪”）。如果两个表使用相同的分桶键进行JOIN，还可以进行<strong>本地关联</strong>，效率极高。</li>
+</ul>
+</li>
+<li><strong>次选：经常用于分组（GROUP BY）或聚合的列。</strong><ul>
+<li><strong>例如：</strong>在用户行为分析中，经常按 <code>user_id</code>做聚合。</li>
+<li><strong>原因：</strong>相同分桶键的数据会落在同一个分桶内，进行局部聚合时效率更高。</li>
+</ul>
+</li>
+<li><strong>避免选择低基数列（重复值多的列）。</strong><ul>
+<li><strong>例如：</strong><code>性别（gender）</code>、<code>省份（province）</code>、<code>状态（status）</code>。</li>
+<li><strong>原因：</strong>如果分桶数大于这些列的唯一值数量，会导致数据倾斜。比如按“性别”分桶，最多只能有效利用2个分桶，其他分桶可能是空的。</li>
+</ul>
+</li>
+</ol>
+<p><strong>最佳实践：</strong></p>
+<ul>
+<li><strong>如果查询模式多样，没有绝对突出的列，可以选择唯一ID列</strong>，如 <code>user_id</code>，因为它能最好地保证数据均匀分布。</li>
+<li>可以采用<strong>多个列的组合</strong>作为分桶键，但通常单个高基数列就足够了。</li>
+</ul>
+<hr>
+<h3 id="九、分桶数如何设置？（要划分多少个货架？）"><a href="#九、分桶数如何设置？（要划分多少个货架？）" class="headerlink" title="九、分桶数如何设置？（要划分多少个货架？）"></a>九、分桶数如何设置？（要划分多少个货架？）</h3><p>分桶数决定了数据的“并行度”。设置不当会严重影响性能。</p>
+<h4 id="设置原则："><a href="#设置原则：" class="headerlink" title="设置原则："></a>设置原则：</h4><ol>
+<li><strong>目标：单个分桶的数据量在100MB ~ 1GB之间为宜。</strong><ul>
+<li><strong>太小（&lt; 100MB）：</strong>会产生大量小文件，增加元数据管理开销，影响查询调度效率。</li>
+<li><strong>太大（&gt; 1GB）：</strong>则并行度不够，无法充分利用集群资源，导入和查询时可能成为瓶颈。</li>
+</ul>
+</li>
+<li><strong>计算方法：</strong><ul>
+<li><strong>估算表的总数据量：</strong>比如，一张表预计一年有 1TB 的数据。</li>
+<li><strong>计算分桶数：</strong><code>分桶数 = 总数据量 / 单个分桶目标大小</code><ul>
+<li>按100MB算：<code>1TB / 100MB = 1024 * 100MB / 100MB = 1024</code>个分桶</li>
+<li>按1GB算：<code>1TB / 1GB = 1024</code>个分桶 &#x2F; 10 &#x3D; <code>102.4</code>（约100-110个分桶）</li>
+</ul>
+</li>
+<li><strong>这是一个预估值，需要根据数据增长进行调整。</strong></li>
+</ul>
+</li>
+<li><strong>考虑集群规模：</strong><ul>
+<li>分桶数最好是集群机器节点数量的<strong>整数倍</strong>（如 1倍， 2倍）。</li>
+<li>例如，你有10台BE（Doris的后端节点），那么设置分桶数为 10， 20， 30… 这样可以保证每个BE上的分桶数量基本一致，负载均衡。</li>
+</ul>
+</li>
+</ol>
+<h4 id="举例说明："><a href="#举例说明：" class="headerlink" title="举例说明："></a>举例说明：</h4><p>假设你为一张“订单明细表”进行设计：</p>
+<ul>
+<li><strong>表数据量：</strong>预计每月增长100GB，希望保留12个月，总数据量约1.2TB。</li>
+<li><strong>查询模式：</strong>90%的查询都包含 <code>user_id</code>条件。</li>
+<li><strong>集群规模：</strong>有20台BE服务器。</li>
+</ul>
+<p><strong>设计决策：</strong></p>
+<ol>
+<li><strong>分桶键：</strong>选择 <code>user_id</code>。因为它既是高基数列，又是最常用的查询条件。</li>
+<li><strong>分桶数：</strong><ul>
+<li>按1GB&#x2F;桶计算：<code>1200GB / 1GB ≈ 1200</code>个桶。</li>
+<li>考虑集群有20台BE，<code>1200 / 20 = 60</code>个桶&#x2F;每台。这个数是可以接受的。</li>
+<li>为了让分布更均匀，我们可以取一个接近1200且是20的倍数的数，比如 <code>1200</code>本身。</li>
+<li>最终的建表语句如下：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE order_detail (</span><br><span class="line">    user_id BIGINT,</span><br><span class="line">    order_id BIGINT,</span><br><span class="line">    product_id BIGINT,</span><br><span class="line">    amount DECIMAL(10,2),</span><br><span class="line">    order_time DATETIME</span><br><span class="line">)</span><br><span class="line">ENGINE=OLAP</span><br><span class="line">AGGREGATE KEY(user_id, order_id, product_id, order_time) -- 聚合模型</span><br><span class="line">DISTRIBUTED BY HASH(user_id) BUCKETS 1200; -- 按user_id的Hash值分桶，共1200个桶</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th align="left">问题</th>
+<th align="left">核心答案</th>
+<th align="left">关键要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>分桶目的</strong></td>
+<td align="left"><strong>并行计算、负载均衡、优化IO</strong></td>
+<td align="left">分桶是分布式并行计算的最小单元。</td>
+</tr>
+<tr>
+<td align="left"><strong>分桶键选择</strong></td>
+<td align="left"><strong>高基数、常用作查询条件&#x2F;关联键</strong></td>
+<td align="left">首选<code>user_id</code>这类列，避免<code>gender</code>。</td>
+</tr>
+<tr>
+<td align="left"><strong>分桶数设置</strong></td>
+<td align="left"><strong>保证单桶100MB-1GB，是BE节点数的整数倍</strong></td>
+<td align="left">通过<code>总数据量/目标大小</code>估算，并考虑集群规模。</td>
+</tr>
+</tbody></table>
+<p>记住这个口诀：<strong>“键选高基常用列，桶数参考总量与节点，单桶大小百兆为佳”</strong>。掌握了这些，你就能设计出高效的Doris表了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://tuumest.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tuumest.cn/blog/7a3509e2.html/">https://tuumest.cn/blog/7a3509e2.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuumest.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E9%95%9C%E9%89%B4/">技术镜鉴</a></div><div class="post_share"><div class="social-share" data-image="/img/tech_data.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/blog/d323974.html/"><img class="next-cover" src="/img/tech_data.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">日拱一卒 Vol.002</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/d323974.html/" title="日拱一卒 Vol.002"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-05</div><div class="title">日拱一卒 Vol.002</div></div></a></div><div><a href="/blog/bd61c145.html/" title="日拱一卒 Vol.001"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-04</div><div class="title">日拱一卒 Vol.001</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Doris%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E2%80%94%E2%80%94-%E5%AE%8F%E8%A7%82%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.</span> <span class="toc-text">一、Doris是什么？—— 宏观定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%E2%80%94%E2%80%94-%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、核心架构解析—— 它是如何工作的？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Frontend"><span class="toc-number">2.1.</span> <span class="toc-text">1. Frontend</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Backend"><span class="toc-number">2.2.</span> <span class="toc-text">2. Backend</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94-%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%81%B5%E9%AD%82"><span class="toc-number">3.</span> <span class="toc-text">三、数据模型详解—— 设计的灵魂</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%98%8E%E7%BB%86%E6%A8%A1%E5%9E%8B-%E5%AD%98%E5%82%A8%E2%80%9C%E5%8E%9F%E6%9D%90%E6%96%99%E2%80%9D"><span class="toc-number">3.1.</span> <span class="toc-text">1. 明细模型 - 存储“原材料”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%81%9A%E5%90%88%E6%A8%A1%E5%9E%8B-%E5%AD%98%E5%82%A8%E2%80%9C%E5%8D%8A%E6%88%90%E5%93%81%E2%80%9D"><span class="toc-number">3.2.</span> <span class="toc-text">2. 聚合模型 - 存储“半成品”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%94%AF%E4%B8%80%E6%A8%A1%E5%9E%8B-%E5%AD%98%E5%82%A8%E2%80%9C%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E2%80%9D"><span class="toc-number">3.3.</span> <span class="toc-text">3. 唯一模型 - 存储“最新版本”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%8E%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">如何判断与配置？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B%E5%9B%BE%EF%BC%9A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">决策流程图：如何选择模型？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Key%E5%92%8CValue%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="toc-number">4.2.</span> <span class="toc-text">Key和Value的配置原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E9%AA%8C%E8%AF%81%EF%BC%9A%E7%94%B5%E5%95%86%E5%9C%BA%E6%99%AF%E5%AE%9E%E6%88%98"><span class="toc-number">5.</span> <span class="toc-text">实例验证：电商场景实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF1%EF%BC%9A%E5%AE%9E%E6%97%B6%E8%AE%A2%E5%8D%95%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0"><span class="toc-number">5.1.</span> <span class="toc-text">场景1：实时订单分析平台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF2%EF%BC%9A%E9%94%80%E5%94%AE%E5%A4%A7%E7%9B%98%E6%8A%A5%E8%A1%A8"><span class="toc-number">5.2.</span> <span class="toc-text">场景2：销售大盘报表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF3%EF%BC%9A%E5%AE%9E%E6%97%B6%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F%E8%A1%A8"><span class="toc-number">5.3.</span> <span class="toc-text">场景3：实时用户画像表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7%E4%B8%8E%E4%BC%98%E5%8A%BF%E2%80%94%E2%80%94-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFDoris%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">四、核心特性与优势—— 为什么是Doris？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B8%8A%E6%89%8B%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">五、实践指南：如何上手一个项目？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A1%A8%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B"><span class="toc-number">7.1.</span> <span class="toc-text">1. 表设计流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B%EF%BC%9A%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0"><span class="toc-number">7.2.</span> <span class="toc-text">2. 实战示例：用户行为分析平台</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%80%BB%E7%BB%93%EF%BC%9ADoris%E7%9A%84%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8E%E5%AE%9A%E4%BD%8D"><span class="toc-number">8.</span> <span class="toc-text">六、总结：Doris的适用场景与定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%88%86%E6%A1%B6%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%88%86%E5%BC%80%E8%A3%85%EF%BC%9F%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">七、分桶的目的是什么？（为什么要把数据分开装？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%88%86%E6%A1%B6%E9%94%AE%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F%EF%BC%88%E6%8C%89%E4%BB%80%E4%B9%88%E8%A7%84%E5%88%99%E6%9D%A5%E5%88%86%E8%B4%A7%E6%9E%B6%EF%BC%9F%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">八、分桶键如何选择？（按什么规则来分货架？）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%88%86%E6%A1%B6%E6%95%B0%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%EF%BC%9F%EF%BC%88%E8%A6%81%E5%88%92%E5%88%86%E5%A4%9A%E5%B0%91%E4%B8%AA%E8%B4%A7%E6%9E%B6%EF%BC%9F%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">九、分桶数如何设置？（要划分多少个货架？）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8E%9F%E5%88%99%EF%BC%9A"><span class="toc-number">11.1.</span> <span class="toc-text">设置原则：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">11.2.</span> <span class="toc-text">举例说明：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/7a3509e2.html/" title="日拱一卒 Vol.003"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.003"/></a><div class="content"><a class="title" href="/blog/7a3509e2.html/" title="日拱一卒 Vol.003">日拱一卒 Vol.003</a><time datetime="2025-11-06T14:18:53.000Z" title="发表于 2025-11-06 22:18:53">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/d323974.html/" title="日拱一卒 Vol.002"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.002"/></a><div class="content"><a class="title" href="/blog/d323974.html/" title="日拱一卒 Vol.002">日拱一卒 Vol.002</a><time datetime="2025-11-05T14:35:24.000Z" title="发表于 2025-11-05 22:35:24">2025-11-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.001"/></a><div class="content"><a class="title" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001">日拱一卒 Vol.001</a><time datetime="2025-11-04T13:47:18.000Z" title="发表于 2025-11-04 21:47:18">2025-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/e1a8e7f.html/" title="每日分享 Spark"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日分享 Spark"/></a><div class="content"><a class="title" href="/blog/e1a8e7f.html/" title="每日分享 Spark">每日分享 Spark</a><time datetime="2024-03-07T11:30:14.000Z" title="发表于 2024-03-07 19:30:14">2024-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/de43bd01.html/" title="华为OD 机考面试题"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="华为OD 机考面试题"/></a><div class="content"><a class="title" href="/blog/de43bd01.html/" title="华为OD 机考面试题">华为OD 机考面试题</a><time datetime="2024-03-06T15:37:13.000Z" title="发表于 2024-03-06 23:37:13">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
