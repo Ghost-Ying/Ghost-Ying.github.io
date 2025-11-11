@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>日拱一卒 Vol.005 | 爱影客</title><meta name="author" content="Rupert-Tears"><meta name="copyright" content="Rupert-Tears"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hive基础与架构什么是Hive ?Hive 是基于Hadoop的一个数据仓库工具，可以将结构化和半结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能。  注意：  Hive本质是将HDFS转换成MapReduce的任务进行运算，底层由HDFS来提供数据存储。 Hive的元数据存储在一个关系型数据库中，例如MySQL或PostgreSQL。我们通过SQL语言来访问和管理这个数据库。 H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日拱一卒 Vol.005">
+<meta property="og:url" content="https://tuumest.cn/blog/9356acd7.html/index.html">
+<meta property="og:site_name" content="爱影客">
+<meta property="og:description" content="Hive基础与架构什么是Hive ?Hive 是基于Hadoop的一个数据仓库工具，可以将结构化和半结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能。  注意：  Hive本质是将HDFS转换成MapReduce的任务进行运算，底层由HDFS来提供数据存储。 Hive的元数据存储在一个关系型数据库中，例如MySQL或PostgreSQL。我们通过SQL语言来访问和管理这个数据库。 H">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuumest.cn/img/tech_data.png">
+<meta property="article:published_time" content="2025-11-11T14:12:28.000Z">
+<meta property="article:modified_time" content="2025-11-11T15:07:49.917Z">
+<meta property="article:author" content="Rupert-Tears">
+<meta property="article:tag" content="技术镜鉴">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuumest.cn/img/tech_data.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://tuumest.cn/blog/9356acd7.html/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '日拱一卒 Vol.005',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-11 23:07:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="爱影客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/RupertTears.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">130</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/tech_data.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱影客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">日拱一卒 Vol.005</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-11T14:12:28.000Z" title="发表于 2025-11-11 22:12:28">2025-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-11T15:07:49.917Z" title="更新于 2025-11-11 23:07:49">2025-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>23分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="日拱一卒 Vol.005"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Hive基础与架构"><a href="#Hive基础与架构" class="headerlink" title="Hive基础与架构"></a>Hive基础与架构</h1><h3 id="什么是Hive"><a href="#什么是Hive" class="headerlink" title="什么是Hive ?"></a>什么是Hive ?</h3><p>Hive 是基于Hadoop的一个数据仓库工具，可以将结构化和半结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能。 </p>
+<p>注意：</p>
+<ul>
+<li>Hive本质是将HDFS转换成MapReduce的任务进行运算，底层由HDFS来提供数据存储。</li>
+<li><strong>Hive的元数据存储在一个关系型数据库中</strong>，例如MySQL或PostgreSQL。我们通过SQL语言来访问和管理这个数据库。</li>
+<li>HBase的元数据（特别是核心的元数据表）虽然其底层数据持久化在HDFS上，但访问和管理这些元数据是通过HBase自身的机制，而不是直接读写HDFS文件。</li>
+</ul>
+<h3 id="Hive的优点和缺点"><a href="#Hive的优点和缺点" class="headerlink" title="Hive的优点和缺点"></a>Hive的优点和缺点</h3><p>Hive是一种基于Hadoop的工具，它提供了SQL界面和查询语言来查询和分析存储在Hadoop上的大规模结构化数据。</p>
+<p>优点：</p>
+<ul>
+<li><strong>简化了复杂MapReduce任务</strong>：对于熟悉SQL而不是编写MapReduce代码的用户来说，可以更容易地使用SQL语法进行大规模数据分析。</li>
+<li><strong>支持高度可扩展性</strong>：可以运行在一个集群上，并能够以并行方式执行查询，在海量数据情况下保持良好地性能。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><strong>延迟较高</strong>：相对于直接使用Hadoop的原生API，Hive的查询通常具有较高的延迟。这是由于转换SQL查询语句为底层MapReduce任务所带来的额外开销。</li>
+<li><strong>不适合实时处理</strong>：Hive更适用于批处理任务而不是实时数据处理，因为它不支持动态数据更新和低延迟查询。 限制：在某些情况下，复杂的查询或特殊要求可能无法通过Hive来满足。</li>
+</ul>
+<h1 id="Hive-执行流程详解"><a href="#Hive-执行流程详解" class="headerlink" title="Hive 执行流程详解"></a>Hive 执行流程详解</h1><p>Hive的核心设计思想是将高级的、类似SQL的HiveQL语言转换为能够在Hadoop生态圈中执行的大规模分布式计算任务。其执行流程是一个典型的编译器工作流程，旨在将声明式的查询语言转化为可执行的物理计划。</p>
+<p>以下是其详尽的执行流程：</p>
+<h4 id="1-解析器（Parser）"><a href="#1-解析器（Parser）" class="headerlink" title="1. 解析器（Parser）"></a>1. 解析器（Parser）</h4><ul>
+<li><strong>核心任务：</strong>进行<strong>词法分析</strong>和<strong>语法分析</strong>。</li>
+<li><strong>详细过程：</strong><ul>
+<li><strong>词法分析：</strong>Hive首先将接收到的HiveQL字符串拆分成一个个不可再分的词法单元，即<strong>令牌</strong>。例如，对于<code>SELECT * FROM users</code>，它会识别出<code>SELECT</code>、<code>*</code>、<code>FROM</code>、<code>users</code>这几个令牌，并识别出它们的类型（关键字、标识符、运算符等）。</li>
+<li><strong>语法分析：</strong>接着，解析器会根据HiveQL的语法规则，将这些令牌组织成一棵<strong>抽象语法树（AST）</strong>。这棵树反映了查询语句的语法结构，其中根节点是查询主体，子节点是<code>SELECT</code>列表、<code>FROM</code>子句、<code>WHERE</code>条件等。此阶段只检查语法是否正确，而不关心表或列是否存在。</li>
+</ul>
+</li>
+<li><strong>输出：</strong>抽象语法树（AST）。</li>
+</ul>
+<h4 id="2-语义分析器（Semantic-Analyzer）"><a href="#2-语义分析器（Semantic-Analyzer）" class="headerlink" title="2. 语义分析器（Semantic Analyzer）"></a>2. 语义分析器（Semantic Analyzer）</h4><ul>
+<li><strong>核心任务：</strong>对AST进行<strong>上下文有关</strong>的审查，确保查询在逻辑上是合法且有意义的。</li>
+<li><strong>详细过程：</strong><ul>
+<li><strong>元数据绑定：</strong>访问Hive的<strong>Metastore</strong>数据库，验证查询中引用的<strong>表、视图、列</strong>等是否存在，以及用户是否有权访问它们。</li>
+<li><strong>类型检查和推导：</strong>检查表达式中的数据类型是否兼容。例如，确保<code>WHERE age &gt; ‘abc’</code>这样的比较操作是合法的（通常不合法，因为年龄通常是数值型）。同时，推导表达式的最终类型。</li>
+<li><strong>隐式类型转换：</strong>在允许的情况下，自动插入类型转换。例如，将整数与浮点数比较时，可能将整数转换为浮点数。</li>
+<li><strong>符号解析：</strong>为每个表和列引用建立到Metastore中具体对象的链接。</li>
+</ul>
+</li>
+<li><strong>输出：</strong>一棵经过语义验证、富含元数据信息的<strong>有类型的抽象语法树</strong>。</li>
+</ul>
+<h4 id="3-逻辑计划生成器（Logical-Plan-Generator）"><a href="#3-逻辑计划生成器（Logical-Plan-Generator）" class="headerlink" title="3. 逻辑计划生成器（Logical Plan Generator）"></a>3. 逻辑计划生成器（Logical Plan Generator）</h4><ul>
+<li><strong>核心任务：</strong>将AST转换为一个<strong>运算符组成的、与底层计算引擎无关的逻辑执行计划</strong>。</li>
+<li><strong>详细过程：</strong>此阶段将高级的SQL概念映射为一系列关系代数运算符。例如：<ul>
+<li><code>FROM table</code>-&gt; <code>TableScan</code>运算符（从表中读取数据）。</li>
+<li><code>WHERE condition</code>-&gt; <code>Filter</code>运算符（过滤数据）。</li>
+<li><code>GROUP BY key</code>-&gt; <code>GroupBy</code>运算符（按键分组）。</li>
+<li><code>SELECT expr</code>-&gt; <code>Select</code>运算符（投影操作）。</li>
+<li><code>JOIN</code>-&gt; <code>Join</code>运算符（连接两个数据集）。</li>
+</ul>
+</li>
+<li><strong>输出：</strong>一个由关系运算符构成的<strong>有向无环图（DAG）</strong>，即逻辑计划。</li>
+</ul>
+<h4 id="4-查询优化器（Query-Optimizer）"><a href="#4-查询优化器（Query-Optimizer）" class="headerlink" title="4. 查询优化器（Query Optimizer）"></a>4. 查询优化器（Query Optimizer）</h4><ul>
+<li><strong>核心任务：</strong>对逻辑计划进行等价变换和优化，生成一个预期<strong>执行成本更低</strong>的优化后的逻辑计划。这是Hive性能的关键。</li>
+<li><strong>优化策略（详解）：</strong><ul>
+<li><strong>谓词下推：</strong>尽早执行<code>WHERE</code>条件中的过滤，将过滤操作推到数据扫描环节之后、甚至表连接之前，极大减少后续操作需要处理的数据量。这是<strong>最重要、最有效</strong>的优化之一。</li>
+<li><strong>列值裁剪：</strong>只读取查询中真正需要的列，而不是读取整行数据。当表有很多列时，这能节省大量I&#x2F;O开销。</li>
+<li><strong>分区裁剪：</strong>如果表是分区的，并且查询条件中包含分区键，则优化器会直接跳过不满足条件的分区，只扫描相关分区。</li>
+<li><strong>连接优化：</strong><ul>
+<li><strong>多重连接重排序：</strong>改变多个表<code>JOIN</code>的顺序，优先进行能最大程度减少中间结果集大小的连接。</li>
+<li><strong>Map端连接：</strong>如果一个小表可以完全加载到内存中，Hive会将其复制到每个Map任务的节点上，直接在Map阶段完成连接，避免昂贵的Shuffle过程。</li>
+</ul>
+</li>
+<li><strong>代价估算：</strong>基于表&#x2F;分区的统计信息（如行数、数据大小），优化器会估算不同执行路径的成本，并选择成本最低的方案。</li>
+</ul>
+</li>
+<li><strong>输出：****优化后的逻辑计划</strong>。</li>
+</ul>
+<h4 id="5-物理计划生成器（Physical-Plan-Generator）"><a href="#5-物理计划生成器（Physical-Plan-Generator）" class="headerlink" title="5. 物理计划生成器（Physical Plan Generator）"></a>5. 物理计划生成器（Physical Plan Generator）</h4><ul>
+<li><strong>核心任务：</strong>将优化后的逻辑计划<strong>映射</strong>到特定的计算引擎（如MapReduce、Tez、Spark）所对应的<strong>物理运算符</strong>上。</li>
+<li><strong>详细过程：</strong><ul>
+<li>它为逻辑计划中的每个运算符选择一个具体的<strong>物理实现</strong>。例如，一个逻辑的<code>Join</code>运算符，在MapReduce引擎下可能被实现为一个复杂的、包含<code>MapTask</code>和<code>ReduceTask</code>的物理计划。</li>
+<li>此阶段会规划出如何在集群上执行任务，包括：<ul>
+<li>如何将数据切片（InputSplit）。</li>
+<li>在哪个阶段进行排序、混洗。</li>
+<li>如何序列化和反序列化数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>输出：</strong>一个面向特定计算引擎的<strong>物理执行计划 DAG</strong>。</li>
+</ul>
+<h4 id="6-执行器（Executor）"><a href="#6-执行器（Executor）" class="headerlink" title="6. 执行器（Executor）"></a>6. 执行器（Executor）</h4><ul>
+<li><strong>核心任务：</strong>将物理计划<strong>提交到Hadoop集群</strong>并<strong>监控其执行</strong>。</li>
+<li><strong>详细过程：</strong><ul>
+<li><strong>任务序列化：</strong>执行器将物理计划及其所有依赖（如JAR包、配置文件）序列化。</li>
+<li><strong>任务提交：</strong>与Hadoop集群的<strong>资源管理器（如YARN ResourceManager）</strong>通信，申请资源并提交任务。</li>
+<li><strong>任务监控：</strong>持续监控提交的作业状态，收集进度、计数器和日志信息。如果任务失败，它可能会根据配置尝试重试。</li>
+<li><strong>协调执行：</strong>对于复杂的DAG作业（如Tez），执行器负责协调各个任务之间的依赖关系和数据流动。</li>
+</ul>
+</li>
+<li><strong>输出：</strong>作业的最终状态（成功&#x2F;失败）和结果。</li>
+</ul>
+<h4 id="7-结果获取与存储（Fetching-amp-Storing-Results）"><a href="#7-结果获取与存储（Fetching-amp-Storing-Results）" class="headerlink" title="7. 结果获取与存储（Fetching &amp; Storing Results）"></a>7. 结果获取与存储（Fetching &amp; Storing Results）</h4><ul>
+<li><strong>核心任务：</strong>处理查询结果。</li>
+<li><strong>详细过程：</strong><ul>
+<li><strong>数据输出：</strong>如果查询包含<code>INSERT OVERWRITE/INTO ...</code>语句，结果会被写入指定的目标位置（HDFS表路径或本地目录）。</li>
+<li><strong>结果返回：</strong>对于客户端交互式查询（如<code>SELECT ...</code>），执行器会从临时目录读取结果数据，并通过Thrift API（HiveServer2）流式传输回客户端（如CLI、JDBC&#x2F;ODBC应用程序）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hive-SQL-转化为-MapReduce-任务的详细过程"><a href="#Hive-SQL-转化为-MapReduce-任务的详细过程" class="headerlink" title="Hive SQL 转化为 MapReduce 任务的详细过程"></a>Hive SQL 转化为 MapReduce 任务的详细过程</h1><p>Hive的核心价值在于它将声明式的SQL语言编译成可在Hadoop集群上并行执行的MapReduce作业。这个过程是一个典型的编译器工作流，其精妙之处在于如何将关系代数操作高效地映射到Map和Reduce这两个基本原语上。</p>
+<p>以下是其详尽的执行流程：</p>
+<h4 id="1-解析与验证（Parsing-amp-Validation）"><a href="#1-解析与验证（Parsing-amp-Validation）" class="headerlink" title="1. 解析与验证（Parsing &amp; Validation）"></a>1. 解析与验证（Parsing &amp; Validation）</h4><ul>
+<li><strong>核心目标：</strong>将字符串形式的SQL命令转换为Hive内部可理解的结构化信息，并进行合法性检查。</li>
+<li><strong>详细过程：</strong><ol>
+<li><strong>词法分析：</strong>Hive使用Antlr等解析器生成工具，将SQL字符串拆分成一个个有意义的<strong>词法单元</strong>。例如，<code>SELECT name FROM users WHERE age &gt; 25;</code>会被拆分为 <code>SELECT</code>, <code>name</code>, <code>FROM</code>, <code>users</code>, <code>WHERE</code>, <code>age</code>, <code>&gt;</code>, <code>25</code>等令牌。</li>
+<li><strong>语法分析：</strong>根据预定义的HiveQL语法规则，将词法单元组装成一棵<strong>抽象语法树（AST）</strong>。这棵树反映了SQL的语法结构，例如，根节点是<code>SELECT</code>，其子节点是<code>FROM</code>和<code>WHERE</code>。</li>
+<li><strong>语义分析与元数据验证：</strong>这是至关重要的一步。Hive会访问<strong>Metastore</strong>（通常存储在MySQL等关系型数据库中）来验证：<ul>
+<li><code>users</code>表是否存在？</li>
+<li><code>name</code>和 <code>age</code>列是否属于 <code>users</code>表？</li>
+<li><code>age</code>列的数据类型是否支持 <code>&gt;</code>操作？</li>
+<li>用户是否有相应的访问权限？</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-逻辑计划生成与优化（Logical-Plan-Generation-amp-Optimization）"><a href="#2-逻辑计划生成与优化（Logical-Plan-Generation-amp-Optimization）" class="headerlink" title="2. 逻辑计划生成与优化（Logical Plan Generation &amp; Optimization）"></a>2. 逻辑计划生成与优化（Logical Plan Generation &amp; Optimization）</h4><ul>
+<li><strong>核心目标：</strong>将验证后的AST转换为一个由关系代数运算符组成的、与底层计算引擎无关的<strong>逻辑执行计划</strong>，并对其进行优化。</li>
+<li><strong>详细过程：</strong><ol>
+<li><strong>逻辑计划生成：</strong>将AST转换为一个运算符组成的DAG（有向无环图）。例如：<ul>
+<li><code>FROM users</code>-&gt; <code>TableScan</code>运算符（从表<code>users</code>读取数据）。</li>
+<li><code>WHERE age &gt; 25</code>-&gt; <code>Filter</code>运算符（过滤数据）。</li>
+<li><code>SELECT name</code>-&gt; <code>Select</code>运算符（投影操作）。</li>
+</ul>
+</li>
+<li><strong>查询优化：</strong>优化器基于规则和成本模型对逻辑计划进行等价变换，目标是减少数据流动量和计算量。<strong>关键优化策略包括：</strong><ul>
+<li><strong>谓词下推：</strong>将<code>Filter</code>操作尽可能推到<code>TableScan</code>之后，尽早过滤掉不必要的数据。这是<strong>最有效</strong>的优化之一。</li>
+<li><strong>列值裁剪：</strong>如果表有10列，但查询只用到2列（<code>name</code>, <code>age</code>），优化器会确保只读取这两列的数据，极大减少I&#x2F;O。</li>
+<li><strong>分区裁剪：</strong>如果表按<code>dt</code>（日期）分区，且查询条件为<code>WHERE dt = &#39;2024-01-01&#39;</code>，则优化器会直接跳过其他分区的数据。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-物理计划生成（Physical-Plan-Generation）"><a href="#3-物理计划生成（Physical-Plan-Generation）" class="headerlink" title="3. 物理计划生成（Physical Plan Generation）"></a>3. 物理计划生成（Physical Plan Generation）</h4><ul>
+<li><strong>核心目标：</strong>将优化后的逻辑计划<strong>翻译</strong>为具体的、可执行的MapReduce任务链。</li>
+<li><strong>详细过程：</strong>这是最核心的转换阶段。Hive将每个逻辑运算符映射为MapReduce阶段中的具体实现。<ul>
+<li><strong><code>TableScan</code>+ <code>Filter</code>：</strong>通常对应一个<strong>Map任务</strong>。Map任务从HDFS读取数据块，并在Map阶段直接应用<code>WHERE</code>条件进行过滤。</li>
+<li><strong><code>Group By</code>或 <code>DISTINCT</code>：</strong>这<strong>一定需要一个Reduce阶段</strong>。<ul>
+<li><strong>Map端：</strong>输出<code>(group_key, 1)</code>这样的键值对。</li>
+<li><strong>Shuffle阶段：</strong>Hadoop框架将相同<code>group_key</code>的键值对<strong>网络传输</strong>到同一个Reduce任务节点。</li>
+<li><strong>Reduce端：</strong>对每个<code>group_key</code>下的所有值进行聚合操作（如<code>COUNT(*)</code>-&gt; <code>SUM(1)</code>）。</li>
+</ul>
+</li>
+<li><strong><code>JOIN</code>：</strong>连接操作非常复杂，常见的实现方式有：<ul>
+<li><strong>Common Join（Reduce端连接）：</strong><ul>
+<li><strong>Map端：</strong>为每条记录打上标签（Tag）标明它来自哪张表，然后以连接键作为Key输出。例如，<code>(user_id, (‘A’， name))</code>和 <code>(user_id, (‘B’, order_id))</code>。</li>
+<li><strong>Shuffle阶段：</strong>将相同<code>user_id</code>的所有记录（无论来自A表还是B表）发送到同一个Reduce任务。</li>
+<li><strong>Reduce端：</strong>在Reduce任务中，对来自不同表的数据进行笛卡尔积连接。这是最通用但性能开销最大的方式。</li>
+</ul>
+</li>
+<li><strong>Map Join：</strong>如果有一张表非常小（可通过<code>/*+ MAPJOIN(small_table) */</code>提示或自动判断），Hive会将其完全加载到<strong>每个Map任务的内存</strong>中。大表数据在流过Map任务时，直接与内存中的小表进行连接，<strong>无需Shuffle和Reduce阶段</strong>，效率极高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-逻辑计划到物理计划的转化（对应您的第三步）"><a href="#4-逻辑计划到物理计划的转化（对应您的第三步）" class="headerlink" title="4. 逻辑计划到物理计划的转化（对应您的第三步）"></a>4. 逻辑计划到物理计划的转化（对应您的第三步）</h4><p>此步骤是物理计划生成的细化，它决定了数据如何流动。Hive需要确定：</p>
+<ul>
+<li><strong>分区键：</strong>在Shuffle阶段，应使用哪个字段作为Key来分区，确保相同Key的数据去往同一个Reducer。</li>
+<li><strong>排序键：</strong>在数据进入Reducer之前，如何排序。这对于<code>ORDER BY</code>、<code>GROUP BY</code>以及某些<code>JOIN</code>的效率至关重要。</li>
+</ul>
+<h4 id="5-MapReduce作业的生成与执行"><a href="#5-MapReduce作业的生成与执行" class="headerlink" title="5. MapReduce作业的生成与执行"></a>5. MapReduce作业的生成与执行</h4><ul>
+<li><strong>核心目标：</strong>将物理计划实例化为一个或多个可提交到Hadoop集群的MR作业。</li>
+<li><strong>详细过程：</strong><ol>
+<li><strong>作业序列化：</strong>Hive将物理计划、依赖的JAR包、配置信息等序列化。</li>
+<li><strong>作业提交：</strong>通过Hadoop客户端，将作业提交给<strong>YARN ResourceManager</strong>。</li>
+<li><strong>任务监控：</strong>Hive监控每个Map&#x2F;Reduce任务的执行状态、进度和计数器。如果任务失败，它会根据配置尝试重试。</li>
+</ol>
+</li>
+</ul>
+<h4 id="6-结果获取与输出"><a href="#6-结果获取与输出" class="headerlink" title="6. 结果获取与输出"></a>6. 结果获取与输出</h4><ul>
+<li><strong>核心目标：</strong>处理最终数据。</li>
+<li><strong>详细过程：</strong><ul>
+<li>最后一个Reduce任务（或唯一的Map任务，如<code>SELECT * FROM table LIMIT 10</code>）会将结果写入HDFS的临时目录。</li>
+<li>Hive然后将这些结果文件<strong>移动</strong>到由<code>CREATE TABLE</code>语句指定的HDFS位置。</li>
+<li>对于客户端交互式查询，HiveServer2会通过Thrift API将结果数据流式传输回客户端（如beeline、JDBC应用）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="如何通过优化来避免Hive中Join操作引起的全表扫描"><a href="#如何通过优化来避免Hive中Join操作引起的全表扫描" class="headerlink" title="如何通过优化来避免Hive中Join操作引起的全表扫描"></a>如何通过优化来避免Hive中Join操作引起的全表扫描</h1><p>“全表扫描”在Join中的本质是：<strong>为了完成关联，计算引擎不得不读取整张表的所有数据，导致巨大的I&#x2F;O开销和网络传输</strong>。我们的所有优化都围绕一个核心思想：<strong>最大限度地减少参与Join计算的数据量</strong>。</p>
+<p>以下是优化策略的详细阐述，我将您的要点融入一个更系统的框架中。</p>
+<hr>
+<h3 id="Hive-Join-性能优化详解"><a href="#Hive-Join-性能优化详解" class="headerlink" title="Hive Join 性能优化详解"></a>Hive Join 性能优化详解</h3><h4 id="1-算法选择：使用高效的Join策略（最重要的一步）"><a href="#1-算法选择：使用高效的Join策略（最重要的一步）" class="headerlink" title="1. 算法选择：使用高效的Join策略（最重要的一步）"></a>1. 算法选择：使用高效的Join策略（最重要的一步）</h4><p>根据表的大小，为Join操作选择最优的执行算法是避免全表扫描最有效的手段。</p>
+<table>
+<thead>
+<tr>
+<th align="left">策略</th>
+<th align="left">机制与原理</th>
+<th align="left">适用场景</th>
+<th align="left">如何使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Map Join (Broadcast Join)</strong></td>
+<td align="left"><strong>将小表完全加载到每个Map任务的内存中</strong>。大表的数据在流过Map任务时，直接与内存中的小表数据进行关联。<strong>完全避免了Shuffle和Reduce阶段</strong>。</td>
+<td align="left"><strong>一张表非常小</strong>（通常建议 &lt; 25MB）。</td>
+<td align="left">1. 自动触发：设置 <code>set hive.auto.convert.join=true;</code> 2. 手动提示：在SQL中使用 <code>/*+ MAPJOIN(small_table) */</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Sort-Merge Bucket Map Join (SMB Join)</strong></td>
+<td align="left"><strong>一种更极致的Map Join</strong>。要求两张表都必须以相同的方式（相同的桶数，对Join Key分桶）进行分桶，且数据在桶内排序。这样，每个桶可以直接在Map端进行合并，连内存加载都更高效。</td>
+<td align="left"><strong>两张都是大表，且已经预先为Join做好了分桶和排序</strong>。</td>
+<td align="left">1. 表必须分桶且排序：<code>CLUSTERED BY (join_key) SORTED BY (join_key)</code> 2. 设置：<code>set hive.optimize.bucketmapjoin=true;</code> <code>set hive.optimize.bucketmapjoin.sortedmerge=true;</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Skew Join</strong></td>
+<td align="left"><strong>专门处理数据倾斜的优化</strong>。当某个Join Key的值远远多于其他值时，会导致少数Reduce任务运行极慢。Skew Join会将该Key的异常数据单独拿出来，用多个任务处理，其他正常数据照常处理。</td>
+<td align="left"><strong>Join Key的值分布极度不均匀</strong>，存在热点数据。</td>
+<td align="left">设置：<code>set hive.optimize.skewjoin=true;</code> <code>set hive.skewjoin.key=100000;</code>（设置倾斜键的阈值）</td>
+</tr>
+</tbody></table>
+<p><strong>结论：</strong>优先考虑<strong>Map Join</strong>，这是对付小表的神器。对于大表Join，则需要在表设计阶段就考虑<strong>分桶</strong>，为SMB Join创造条件。</p>
+<h4 id="2-表设计优化：从源头减少数据扫描量"><a href="#2-表设计优化：从源头减少数据扫描量" class="headerlink" title="2. 表设计优化：从源头减少数据扫描量"></a>2. 表设计优化：从源头减少数据扫描量</h4><p>优秀的表结构设计是高效Join的基石。这包括您提到的存储格式、分区和分桶。</p>
+<table>
+<thead>
+<tr>
+<th align="left">策略</th>
+<th align="left">优化原理</th>
+<th align="left">最佳实践</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>采用列式存储</strong></td>
+<td align="left">您提到的<strong>Parquet&#x2F;ORC</strong>格式，<strong>默认只读取查询中涉及的列</strong>，而不是整行数据。如果Join时只用到少数几列，I&#x2F;O开销会急剧下降。</td>
+<td align="left"><code>STORED AS PARQUET</code>或 <code>STORED AS ORC</code>。ORC通常对Hive优化更好。</td>
+</tr>
+<tr>
+<td align="left"><strong>分区</strong></td>
+<td align="left">根据业务逻辑（如日期<code>dt</code>、地区<code>region</code>）将数据划分到不同的目录。<strong>如果Join条件中包含了分区键，Hive可以直接跳过无关分区</strong>，极大减少数据量。</td>
+<td align="left"><code>PARTITIONED BY (dt STRING)</code>。在Join时，务必在WHERE子句中带上分区过滤条件。</td>
+</tr>
+<tr>
+<td align="left"><strong>分桶</strong></td>
+<td align="left">根据Join Key的Hash值将数据分散到固定数量的文件中。<strong>当两张表按相同的Join Key分桶且桶数量成倍数关系时，Hive可以实施高效的“桶对桶”的Join</strong>，避免全表扫描。</td>
+<td align="left"><code>CLUSTERED BY (user_id) INTO 32 BUCKETS</code>。确保两张表的分桶方式和数量合理。</td>
+</tr>
+</tbody></table>
+<h4 id="3-查询与条件优化：编写高效的SQL语句"><a href="#3-查询与条件优化：编写高效的SQL语句" class="headerlink" title="3. 查询与条件优化：编写高效的SQL语句"></a>3. 查询与条件优化：编写高效的SQL语句</h4><p>再好的底子也可能被糟糕的查询语句拖垮。</p>
+<table>
+<thead>
+<tr>
+<th align="left">策略</th>
+<th align="left">优化原理</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>提前过滤</strong></td>
+<td align="left"><strong>在子查询或CTE中尽早进行过滤</strong>，而不是在最后才做。确保参与Join的数据量本身就是最小的。</td>
+<td align="left"><strong>优化前：</strong><code>SELECT ... FROM big_table a JOIN small_table b ON a.key = b.key WHERE a.dt = &#39;today&#39;;</code> <strong>优化后：</strong><code>SELECT ... FROM (SELECT * FROM big_table WHERE dt = &#39;today&#39;) a JOIN small_table b ON a.key = b.key;</code></td>
+</tr>
+<tr>
+<td align="left"><strong>避免复杂表达式</strong></td>
+<td align="left">在Join条件中使用函数会让优化器无法有效利用索引和分桶信息，导致全表扫描。</td>
+<td align="left"><strong>避免：</strong><code>ON CAST(a.key AS STRING) = b.key</code> <strong>提倡：</strong>预处理数据，保证Join两边的数据类型和格式一致。</td>
+</tr>
+</tbody></table>
+<h4 id="4-配置调优：调整引擎参数"><a href="#4-配置调优：调整引擎参数" class="headerlink" title="4. 配置调优：调整引擎参数"></a>4. 配置调优：调整引擎参数</h4><p>通过调整Hive和底层计算引擎（如Tez）的参数来优化性能。</p>
+<ul>
+<li><strong>设置计算引擎：</strong>使用<strong>Tez</strong>或<strong>Spark</strong>作为执行引擎，它们比传统的MapReduce具有更优的执行模型（如DAG），能更好地处理多阶段Join。<ul>
+<li><code>set hive.execution.engine=tez;</code></li>
+</ul>
+</li>
+<li><strong>调整并行度：</strong>根据数据量和集群规模，调整Reduce任务的数量。<ul>
+<li><code>set hive.exec.reducers.bytes.per.reducer=67108864;</code>（每个Reducer处理的数据量）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="总结与实战建议"><a href="#总结与实战建议" class="headerlink" title="总结与实战建议"></a>总结与实战建议</h3><p>避免Join全表扫描是一个系统工程，需要从<strong>算法选择、表设计、SQL编写</strong>三个层面综合考虑。以下是一个高效的决策流程：</p>
+<ol>
+<li><strong>判断大小：</strong>参与Join的表是否有一张足够小（&lt;25MB或可配置）？<ul>
+<li>**是 -&gt;**毫不犹豫使用 <strong>Map Join</strong>。这是效果最显著的优化。</li>
+</ul>
+</li>
+<li><strong>表是否已优化：</strong>表是否已经是<strong>ORC&#x2F;Parquet格式</strong>？是否已经<strong>分区</strong>和<strong>分桶</strong>？<ul>
+<li><strong>是 -&gt;<strong>确保查询条件</strong>利用了分区字段</strong>。如果两张表按Join Key分桶，尝试开启 <strong>SMB Join</strong>。</li>
+</ul>
+</li>
+<li><strong>检查SQL：</strong>在Join之前，是否已经通过子查询<strong>最大限度地过滤了数据</strong>？Join条件是否简单有效？</li>
+<li><strong>处理异常：</strong>如果数据存在严重倾斜，导致少数Reduce任务卡住，请开启 <strong>Skew Join</strong>。</li>
+<li><strong>最终手段：</strong>如果以上都无法满足，考虑<strong>预处理数据</strong>（如构建数据仓库宽表），在ETL阶段就完成关联，彻底避免在查询时进行Join。</li>
+</ol>
+<h1 id="如果不用参数调优，在map和reduce端应该做什么？"><a href="#如果不用参数调优，在map和reduce端应该做什么？" class="headerlink" title="如果不用参数调优，在map和reduce端应该做什么？"></a>如果不用参数调优，在map和reduce端应该做什么？</h1><p><strong>在不修改任何配置参数的前提下</strong>，我们能做的优化是什么呢？答案是：<strong>通过优化数据本身和SQL写法，从源头上让Map和Reduce任务执行得更高效。</strong></p>
+<h3 id="核心思想：从“调参数”转变为“优数据优SQL”"><a href="#核心思想：从“调参数”转变为“优数据优SQL”" class="headerlink" title="核心思想：从“调参数”转变为“优数据优SQL”"></a>核心思想：从“调参数”转变为“优数据优SQL”</h3><p>在不改动参数的情况下，我们的目标依然是：</p>
+<ul>
+<li><strong>Map端：</strong>让每个Map任务读更少、更干净的数据。</li>
+<li><strong>Reduce端：</strong>让Shuffle阶段传输的数据量最小，让Reduce任务的计算更简单。</li>
+</ul>
+<h3 id="一、Map端优化：减轻Map任务的负担"><a href="#一、Map端优化：减轻Map任务的负担" class="headerlink" title="一、Map端优化：减轻Map任务的负担"></a>一、Map端优化：减轻Map任务的负担</h3><p>Map任务的核心工作是读取和初步处理数据。我们的优化方向是<strong>让它读得更快、处理得更少</strong>。</p>
+<h4 id="1-数据层面：使用高效的列式存储格式（这是最重要的优化）"><a href="#1-数据层面：使用高效的列式存储格式（这是最重要的优化）" class="headerlink" title="1. 数据层面：使用高效的列式存储格式（这是最重要的优化）"></a>1. 数据层面：使用高效的列式存储格式（这是最重要的优化）</h4><ul>
+<li><strong>做法：</strong>将表的数据存储格式从文本格式（如<code>TEXTFILE</code>）改为列式存储格式（如<code>ORC</code>或<code>Parquet</code>）。</li>
+<li><strong>原理：</strong><ul>
+<li><strong>列裁剪：</strong>如果查询只用到10列中的2列，列式存储可以<strong>只读取这2列的数据</strong>，而文本格式必须读取整行再丢弃8列。这极大地减少了Map任务需要从磁盘读取的数据量。</li>
+<li><strong>压缩效率高：</strong>列式存储由于同一列的数据类型相同，压缩比远高于行式存储，进一步减少I&#x2F;O。</li>
+</ul>
+</li>
+<li><strong>如何实现：</strong>建表时使用 <code>STORED AS ORC</code>。这是一种<strong>数据建模</strong>行为，而非参数调优。</li>
+</ul>
+<h4 id="2-SQL写法层面：尽早过滤数据"><a href="#2-SQL写法层面：尽早过滤数据" class="headerlink" title="2. SQL写法层面：尽早过滤数据"></a>2. SQL写法层面：尽早过滤数据</h4><ul>
+<li><p><strong>做法：</strong>在子查询或Common Table Expression中就进行过滤，而不是在最后才<code>WHERE</code>。</p>
+</li>
+<li><p><strong>原理：</strong>Hive的谓词下推优化会尽可能早地执行过滤条件。如果数据是ORC格式，它甚至可以结合<strong>内部索引</strong>直接跳过不满足条件的数据块，实现<strong>“向量化读取”</strong>。</p>
+</li>
+<li><p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-- 优化前：Map任务需要读取user_behavior表的全部数据</span><br><span class="line">SELECT a.user_id, COUNT(*)</span><br><span class="line">FROM user_behavior a</span><br><span class="line">JOIN dim_user b ON a.user_id = b.user_id</span><br><span class="line">WHERE a.dt = &#x27;2023-01-01&#x27; AND a.country = &#x27;CN&#x27;; -- 过滤条件在最后</span><br><span class="line"></span><br><span class="line">-- 优化后：Map任务只读取2023-01-01且国家为CN的数据</span><br><span class="line">SELECT a.user_id, COUNT(*)</span><br><span class="line">FROM (</span><br><span class="line">    SELECT user_id </span><br><span class="line">    FROM user_behavior </span><br><span class="line">    WHERE dt = &#x27;2023-01-01&#x27; AND country = &#x27;CN&#x27; -- 提前过滤！</span><br><span class="line">) a</span><br><span class="line">JOIN dim_user b ON a.user_id = b.user_id;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="二、Reduce端优化：减轻Shuffle和Reduce的负担"><a href="#二、Reduce端优化：减轻Shuffle和Reduce的负担" class="headerlink" title="二、Reduce端优化：减轻Shuffle和Reduce的负担"></a>二、Reduce端优化：减轻Shuffle和Reduce的负担</h3><p>Reduce端的性能瓶颈主要在于<strong>Shuffle阶段</strong>（网络传输）和<strong>Reduce任务本身的计算</strong>。我们的目标是<strong>减少需要Shuffle的数据量</strong>和<strong>简化Reduce的计算逻辑</strong>。</p>
+<h4 id="1-避免不必要的Shuffle：使用Map端聚合（Combiner的思想）"><a href="#1-避免不必要的Shuffle：使用Map端聚合（Combiner的思想）" class="headerlink" title="1. 避免不必要的Shuffle：使用Map端聚合（Combiner的思想）"></a>1. 避免不必要的Shuffle：使用Map端聚合（Combiner的思想）</h4><ul>
+<li><p><strong>做法：</strong>在SQL中，对于<code>GROUP BY</code>操作，确保在Map端先做一次局部聚合。</p>
+</li>
+<li><p><strong>原理：</strong>这实际上是Hadoop Combiner的思想，但在Hive中，你不需要手动设置Combiner，而是通过<strong>优化SQL逻辑</strong>来实现。Hive会自动在某些操作（如<code>COUNT</code>， <code>SUM</code>）上使用Combiner。</p>
+</li>
+<li><p><strong>关键：</strong>避免在<code>GROUP BY</code>之前进行不必要的、会导致数据膨胀的操作。</p>
+</li>
+<li><p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 假设我们要计算每个商品的销售额</span><br><span class="line">-- 优化思路：先在Map端对每个数据块内的商品进行局部SUM，再发送到Reduce端做全局SUM。</span><br><span class="line">-- 这个优化是Hive自动完成的，但你的SQL写法要简洁高效，不要阻碍这种优化。</span><br><span class="line">SELECT product_id, SUM(amount) -- 这种简单的聚合会自动受益于Map端聚合</span><br><span class="line">FROM order_detail</span><br><span class="line">GROUP BY product_id;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-数据层面：解决数据倾斜（不用Skew-Join参数）"><a href="#2-数据层面：解决数据倾斜（不用Skew-Join参数）" class="headerlink" title="2. 数据层面：解决数据倾斜（不用Skew Join参数）"></a>2. 数据层面：解决数据倾斜（不用Skew Join参数）</h4><p>数据倾斜是Reduce端的头号杀手。不用参数，就要从<strong>数据预处理</strong>入手。</p>
+<ul>
+<li><p><strong>做法：</strong>如果某个<code>GROUP BY</code>键或<code>JOIN</code>键存在极热值（如<code>user_id = 0</code>代表未登录用户），可以尝试在ETL过程中将这些异常值打散。</p>
+</li>
+<li><p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- 在数据清洗时，将异常值随机化，避免集中到一个Reducer</span><br><span class="line">INSERT OVERWRITE TABLE cleaned_table</span><br><span class="line">SELECT </span><br><span class="line">    ...,</span><br><span class="line">    CASE </span><br><span class="line">        WHEN user_id = 0 THEN CONCAT(&#x27;unknown_&#x27;, RAND()) -- 将user_id=0打散成多个不同的键</span><br><span class="line">        ELSE user_id</span><br><span class="line">    END AS user_id</span><br><span class="line">FROM raw_table;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-SQL写法层面：减少输入Reduce的数据量"><a href="#3-SQL写法层面：减少输入Reduce的数据量" class="headerlink" title="3. SQL写法层面：减少输入Reduce的数据量"></a>3. SQL写法层面：减少输入Reduce的数据量</h4><ul>
+<li><p><strong>做法：</strong>在子查询中先进行过滤和投影，只将Reduce需要的字段和数据进行传输。</p>
+</li>
+<li><p><strong>原理：</strong>这直接减少了需要通过网络Shuffle的数据量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- 优化前：所有列都被Shuffle到Reduce端</span><br><span class="line">SELECT user_id, COUNT(*)</span><br><span class="line">FROM very_wide_table -- 该表有100列</span><br><span class="line">GROUP BY user_id;</span><br><span class="line"></span><br><span class="line">-- 优化后：只有user_id一列被Shuffle</span><br><span class="line">SELECT user_id, COUNT(*)</span><br><span class="line">FROM (</span><br><span class="line">    SELECT user_id -- 只选择需要的列</span><br><span class="line">    FROM very_wide_table</span><br><span class="line">) t</span><br><span class="line">GROUP BY user_id;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结：不调参数的优化清单"><a href="#总结：不调参数的优化清单" class="headerlink" title="总结：不调参数的优化清单"></a>总结：不调参数的优化清单</h3><table>
+<thead>
+<tr>
+<th align="left">优化方向</th>
+<th align="left">具体措施</th>
+<th align="left">核心收益</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Map端</strong></td>
+<td align="left"><strong>1. 采用ORC&#x2F;Parquet列式存储</strong></td>
+<td align="left">极大减少磁盘I&#x2F;O，支持谓词下推和列裁剪。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><strong>2. SQL中尽早过滤（WHERE子句下推）</strong></td>
+<td align="left">让Map任务处理更少的数据。</td>
+</tr>
+<tr>
+<td align="left"><strong>Reduce端</strong></td>
+<td align="left"><strong>1. 避免SQL导致数据膨胀</strong></td>
+<td align="left">充分利用Hive自动的Map端聚合（Combiner），减少Shuffle量。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><strong>2. 预处理数据，解决数据倾斜</strong></td>
+<td align="left">避免单个Reduce任务过载，平衡负载。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><strong>3. 减少Shuffle的字段</strong></td>
+<td align="left">在子查询中只Select必要的列，减少网络传输。</td>
+</tr>
+</tbody></table>
+<p><strong>核心思想是：</strong>参数调优是“外部调整”，而数据和SQL优化是“内部优化”。<strong>内部优化是根本，通常能带来更大、更稳定的性能提升。</strong>你应该优先完成上述清单中的优化，如果仍有性能瓶颈，再考虑进行精细的参数调优。</p>
+<h1 id="Hive分区和分桶的区别"><a href="#Hive分区和分桶的区别" class="headerlink" title="Hive分区和分桶的区别"></a>Hive分区和分桶的区别</h1><p>为了更深刻地理解它们的区别和应用场景，我将从 <strong>设计哲学、物理表现、适用场景</strong>三个维度进行系统化的对比和深化讲解。</p>
+<h3 id="核心区别：一张图看懂分区与分桶"><a href="#核心区别：一张图看懂分区与分桶" class="headerlink" title="核心区别：一张图看懂分区与分桶"></a>核心区别：一张图看懂分区与分桶</h3><p>我们可以用一个经典的比喻来理解：</p>
+<ul>
+<li><strong>分区</strong>就像一个大图书馆里的 <strong>不同专题阅览室</strong>（如历史馆、科技馆、文学馆）。当你只想找历史书时，你只需要去历史馆，而不用跑遍整个图书馆。<strong>目的是缩小扫描范围。</strong></li>
+<li><strong>分桶</strong>就像每个阅览室里的 <strong>书架编号</strong>。历史书太多了，它们按照书名的哈希值被均匀地放在1-100号书架上。当你要找《史记》时，可以快速计算出它在哪个书架上。<strong>目的是提高数据检索和关联的效率。</strong></li>
+</ul>
+<p>下面是一个详细的对比表格。</p>
+<h3 id="分区-vs-分桶详细对比"><a href="#分区-vs-分桶详细对比" class="headerlink" title="分区 vs. 分桶详细对比"></a>分区 vs. 分桶详细对比</h3><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="center">分区</th>
+<th align="center">分桶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>设计哲学</strong></td>
+<td align="center"><strong>粗粒度裁剪</strong>：根据业务语义（如时间、地域）划分数据，实现<strong>数据隔离</strong>。</td>
+<td align="center"><strong>细粒度打散</strong>：根据某个字段的哈希值将数据均匀分散，实现<strong>负载均衡</strong>和<strong>高效关联</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong>物理表现</strong></td>
+<td align="center">在HDFS上体现为<strong>不同的目录</strong>。例如：<code>/user/hive/warehouse/db/table/dt=2023-01-01/</code></td>
+<td align="center">在分区（或表）目录下体现为<strong>多个文件</strong>。例如：<code>/.../dt=2023-01-01/000000_0</code>, <code>000001_0</code>, …</td>
+</tr>
+<tr>
+<td align="left"><strong>划分依据</strong></td>
+<td align="center"><strong>离散的、低基数</strong>的列。如：日期、国家、城市。</td>
+<td align="center"><strong>连续的、高基数</strong>的列。如：用户ID、订单ID。</td>
+</tr>
+<tr>
+<td align="left"><strong>优化目的</strong></td>
+<td align="center"><strong>避免全表扫描</strong>。查询时通过分区键直接定位到特定目录，跳过无关数据。</td>
+<td align="center"><strong>提高采样、连接、分组操作的效率</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong>数据量影响</strong></td>
+<td align="center">分区数量<strong>不宜过多</strong>，否则会导致NameNode元数据压力过大（小文件问题）。</td>
+<td align="center">桶的数量应根据数据量<strong>合理设置</strong>，通常与集群节点数量匹配。</td>
+</tr>
+<tr>
+<td align="left"><strong>语法示例</strong></td>
+<td align="center"><code>PARTITIONED BY (dt STRING, country STRING)</code></td>
+<td align="center"><code>CLUSTERED BY (user_id) INTO 32 BUCKETS</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="深化理解：通过场景看区别"><a href="#深化理解：通过场景看区别" class="headerlink" title="深化理解：通过场景看区别"></a>深化理解：通过场景看区别</h3><h4 id="场景1：日志分析表"><a href="#场景1：日志分析表" class="headerlink" title="场景1：日志分析表"></a>场景1：日志分析表</h4><ul>
+<li><strong>表结构</strong>：<code>app_logs (user_id, event, timestamp, ...)</code></li>
+<li><strong>常见查询</strong>：<code>WHERE dt = &#39;2023-10-01&#39; AND event = &#39;click&#39;</code></li>
+</ul>
+<p><strong>优化方案</strong>：</p>
+<ul>
+<li><strong>分区</strong>：按天分区 <code>PARTITIONED BY (dt STRING)</code>。这样查询10月1日的数据时，Hive只会扫描<code>dt=2023-10-01</code>这个目录下的数据，完全忽略其他日期的数据。<strong>这是效果最显著的优化。</strong></li>
+<li><strong>分桶</strong>：如果经常按<code>user_id</code>进行查询或关联，可以再增加分桶 <code>CLUSTERED BY (user_id) INTO 64 BUCKETS</code>。这样在10月1日的分区内，Hive可以快速定位到特定<code>user_id</code>所在的那个桶文件。</li>
+</ul>
+<p><strong>结论：分区用于快速定位到“某一天”，分桶用于在“某一天”内快速找到“某个用户”。</strong></p>
+<h4 id="场景2：用户表与订单表关联"><a href="#场景2：用户表与订单表关联" class="headerlink" title="场景2：用户表与订单表关联"></a>场景2：用户表与订单表关联</h4><ul>
+<li><strong>表结构</strong>:<ul>
+<li><code>users (user_id, name, ...)</code></li>
+<li><code>orders (order_id, user_id, amount, ...)</code></li>
+</ul>
+</li>
+<li><strong>常见查询</strong>：<code>SELECT ... FROM orders o JOIN users u ON o.user_id = u.user_id;</code></li>
+</ul>
+<p><strong>优化方案</strong>：</p>
+<ul>
+<li>将两张表都按<code>user_id</code>分成相同数量的桶（例如128个）。</li>
+<li><strong>原理</strong>：由于相同的<code>user_id</code>经过哈希计算后会落入<strong>相同编号的桶</strong>中。因此，在Join时，Hive只需要将<code>orders</code>表的桶1与<code>users</code>表的桶1进行连接即可（桶对桶的Join），<strong>这种操作被称为SMB Join</strong>。这避免了全局的Shuffle，极大提升了性能。</li>
+</ul>
+<p><strong>结论：分桶是为大表之间的等值连接（尤其是数据仓库中的星型模型）做的高性能优化。</strong></p>
+<hr>
+<h3 id="如何选择：决策流程图"><a href="#如何选择：决策流程图" class="headerlink" title="如何选择：决策流程图"></a>如何选择：决策流程图</h3><p>面对一张表，应如何选择？可以参考以下决策流程：</p>
+<p>![image-20251111230447856](.&#x2F;日拱一卒 Vol.005&#x2F;image-20251111230447856.png)</p>
+<h3 id="总结与升华"><a href="#总结与升华" class="headerlink" title="总结与升华"></a>总结与升华</h3><ul>
+<li><strong>分区是“纵向”切割</strong>，像切蛋糕，不同分区的数据内容不同。它的目标是<strong>快速定位</strong>。</li>
+<li><strong>分桶是“横向”打散</strong>，像洗牌发牌，每个桶内的数据内容是全集的一个随机样本。它的目标是<strong>高效计算</strong>（连接、分组、抽样）。</li>
+</ul>
+<p>它们不是互斥的，而是可以协同工作的强大组合。一个最佳实践是：</p>
+<p><strong>先分区，后分桶。</strong></p>
+<p>首先用分区粗粒度裁剪数据，然后在分区内使用分桶进行细粒度优化。例如，一张典型的数仓表可以这样定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE user_behavior (</span><br><span class="line">    user_id BIGINT,</span><br><span class="line">    event_type STRING,</span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line">PARTITIONED BY (dt STRING) -- 一级分区：按天</span><br><span class="line">CLUSTERED BY (user_id) INTO 256 BUCKETS -- 再分桶：按用户ID</span><br><span class="line">STORED AS ORC;</span><br></pre></td></tr></table></figure>
+
+<p>掌握分区和分桶的区别与联系，是设计高效Hive表结构的关键，也是数据工程师核心能力的体现。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://tuumest.cn">Rupert-Tears</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://tuumest.cn/blog/9356acd7.html/">https://tuumest.cn/blog/9356acd7.html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuumest.cn" target="_blank">爱影客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E9%95%9C%E9%89%B4/">技术镜鉴</a></div><div class="post_share"><div class="social-share" data-image="/img/tech_data.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/blog/1da216ae.html/"><img class="next-cover" src="/img/tech_data.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">日拱一卒 Vol.004</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/1da216ae.html/" title="日拱一卒 Vol.004"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-07</div><div class="title">日拱一卒 Vol.004</div></div></a></div><div><a href="/blog/7a3509e2.html/" title="日拱一卒 Vol.003"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-06</div><div class="title">日拱一卒 Vol.003</div></div></a></div><div><a href="/blog/d323974.html/" title="日拱一卒 Vol.002"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-05</div><div class="title">日拱一卒 Vol.002</div></div></a></div><div><a href="/blog/bd61c145.html/" title="日拱一卒 Vol.001"><img class="cover" src="/img/tech_data.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-04</div><div class="title">日拱一卒 Vol.001</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/RupertTears.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rupert-Tears</div><div class="author-info__description">每个优秀的人，都有一段沉默的时光。那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫做扎根。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">130</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Ghost-Ying"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Ghost-Ying" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:aiyingke9997@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">仰望星空，追逐梦想！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">Hive基础与架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHive"><span class="toc-number">1.0.1.</span> <span class="toc-text">什么是Hive ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive%E7%9A%84%E4%BC%98%E7%82%B9%E5%92%8C%E7%BC%BA%E7%82%B9"><span class="toc-number">1.0.2.</span> <span class="toc-text">Hive的优点和缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive-%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">Hive 执行流程详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A7%A3%E6%9E%90%E5%99%A8%EF%BC%88Parser%EF%BC%89"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1. 解析器（Parser）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90%E5%99%A8%EF%BC%88Semantic-Analyzer%EF%BC%89"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">2. 语义分析器（Semantic Analyzer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%80%BB%E8%BE%91%E8%AE%A1%E5%88%92%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88Logical-Plan-Generator%EF%BC%89"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">3. 逻辑计划生成器（Logical Plan Generator）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E5%99%A8%EF%BC%88Query-Optimizer%EF%BC%89"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">4. 查询优化器（Query Optimizer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%89%A9%E7%90%86%E8%AE%A1%E5%88%92%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88Physical-Plan-Generator%EF%BC%89"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">5. 物理计划生成器（Physical Plan Generator）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%89%A7%E8%A1%8C%E5%99%A8%EF%BC%88Executor%EF%BC%89"><span class="toc-number">2.0.0.6.</span> <span class="toc-text">6. 执行器（Executor）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%BB%93%E6%9E%9C%E8%8E%B7%E5%8F%96%E4%B8%8E%E5%AD%98%E5%82%A8%EF%BC%88Fetching-amp-Storing-Results%EF%BC%89"><span class="toc-number">2.0.0.7.</span> <span class="toc-text">7. 结果获取与存储（Fetching &amp; Storing Results）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive-SQL-%E8%BD%AC%E5%8C%96%E4%B8%BA-MapReduce-%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">Hive SQL 转化为 MapReduce 任务的详细过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%A7%A3%E6%9E%90%E4%B8%8E%E9%AA%8C%E8%AF%81%EF%BC%88Parsing-amp-Validation%EF%BC%89"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">1. 解析与验证（Parsing &amp; Validation）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%80%BB%E8%BE%91%E8%AE%A1%E5%88%92%E7%94%9F%E6%88%90%E4%B8%8E%E4%BC%98%E5%8C%96%EF%BC%88Logical-Plan-Generation-amp-Optimization%EF%BC%89"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">2. 逻辑计划生成与优化（Logical Plan Generation &amp; Optimization）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%89%A9%E7%90%86%E8%AE%A1%E5%88%92%E7%94%9F%E6%88%90%EF%BC%88Physical-Plan-Generation%EF%BC%89"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">3. 物理计划生成（Physical Plan Generation）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%80%BB%E8%BE%91%E8%AE%A1%E5%88%92%E5%88%B0%E7%89%A9%E7%90%86%E8%AE%A1%E5%88%92%E7%9A%84%E8%BD%AC%E5%8C%96%EF%BC%88%E5%AF%B9%E5%BA%94%E6%82%A8%E7%9A%84%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%89"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">4. 逻辑计划到物理计划的转化（对应您的第三步）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-MapReduce%E4%BD%9C%E4%B8%9A%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E6%89%A7%E8%A1%8C"><span class="toc-number">3.0.0.5.</span> <span class="toc-text">5. MapReduce作业的生成与执行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%BB%93%E6%9E%9C%E8%8E%B7%E5%8F%96%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-number">3.0.0.6.</span> <span class="toc-text">6. 结果获取与输出</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E4%BC%98%E5%8C%96%E6%9D%A5%E9%81%BF%E5%85%8DHive%E4%B8%ADJoin%E6%93%8D%E4%BD%9C%E5%BC%95%E8%B5%B7%E7%9A%84%E5%85%A8%E8%A1%A8%E6%89%AB%E6%8F%8F"><span class="toc-number">4.</span> <span class="toc-text">如何通过优化来避免Hive中Join操作引起的全表扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hive-Join-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.0.1.</span> <span class="toc-text">Hive Join 性能优化详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%AE%97%E6%B3%95%E9%80%89%E6%8B%A9%EF%BC%9A%E4%BD%BF%E7%94%A8%E9%AB%98%E6%95%88%E7%9A%84Join%E7%AD%96%E7%95%A5%EF%BC%88%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E6%AD%A5%EF%BC%89"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">1. 算法选择：使用高效的Join策略（最重要的一步）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%A1%A8%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8C%96%EF%BC%9A%E4%BB%8E%E6%BA%90%E5%A4%B4%E5%87%8F%E5%B0%91%E6%95%B0%E6%8D%AE%E6%89%AB%E6%8F%8F%E9%87%8F"><span class="toc-number">4.0.1.2.</span> <span class="toc-text">2. 表设计优化：从源头减少数据扫描量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%9F%A5%E8%AF%A2%E4%B8%8E%E6%9D%A1%E4%BB%B6%E4%BC%98%E5%8C%96%EF%BC%9A%E7%BC%96%E5%86%99%E9%AB%98%E6%95%88%E7%9A%84SQL%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.0.1.3.</span> <span class="toc-text">3. 查询与条件优化：编写高效的SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E8%B0%83%E4%BC%98%EF%BC%9A%E8%B0%83%E6%95%B4%E5%BC%95%E6%93%8E%E5%8F%82%E6%95%B0"><span class="toc-number">4.0.1.4.</span> <span class="toc-text">4. 配置调优：调整引擎参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E5%AE%9E%E6%88%98%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.0.2.</span> <span class="toc-text">总结与实战建议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%B8%8D%E7%94%A8%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98%EF%BC%8C%E5%9C%A8map%E5%92%8Creduce%E7%AB%AF%E5%BA%94%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如果不用参数调优，在map和reduce端应该做什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A%E4%BB%8E%E2%80%9C%E8%B0%83%E5%8F%82%E6%95%B0%E2%80%9D%E8%BD%AC%E5%8F%98%E4%B8%BA%E2%80%9C%E4%BC%98%E6%95%B0%E6%8D%AE%E4%BC%98SQL%E2%80%9D"><span class="toc-number">5.0.1.</span> <span class="toc-text">核心思想：从“调参数”转变为“优数据优SQL”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Map%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%9A%E5%87%8F%E8%BD%BBMap%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%B4%9F%E6%8B%85"><span class="toc-number">5.0.2.</span> <span class="toc-text">一、Map端优化：减轻Map任务的负担</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%B1%82%E9%9D%A2%EF%BC%9A%E4%BD%BF%E7%94%A8%E9%AB%98%E6%95%88%E7%9A%84%E5%88%97%E5%BC%8F%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F%EF%BC%88%E8%BF%99%E6%98%AF%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-number">5.0.2.1.</span> <span class="toc-text">1. 数据层面：使用高效的列式存储格式（这是最重要的优化）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-SQL%E5%86%99%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9A%E5%B0%BD%E6%97%A9%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">5.0.2.2.</span> <span class="toc-text">2. SQL写法层面：尽早过滤数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Reduce%E7%AB%AF%E4%BC%98%E5%8C%96%EF%BC%9A%E5%87%8F%E8%BD%BBShuffle%E5%92%8CReduce%E7%9A%84%E8%B4%9F%E6%8B%85"><span class="toc-number">5.0.3.</span> <span class="toc-text">二、Reduce端优化：减轻Shuffle和Reduce的负担</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%81%BF%E5%85%8D%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84Shuffle%EF%BC%9A%E4%BD%BF%E7%94%A8Map%E7%AB%AF%E8%81%9A%E5%90%88%EF%BC%88Combiner%E7%9A%84%E6%80%9D%E6%83%B3%EF%BC%89"><span class="toc-number">5.0.3.1.</span> <span class="toc-text">1. 避免不必要的Shuffle：使用Map端聚合（Combiner的思想）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%B1%82%E9%9D%A2%EF%BC%9A%E8%A7%A3%E5%86%B3%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C%EF%BC%88%E4%B8%8D%E7%94%A8Skew-Join%E5%8F%82%E6%95%B0%EF%BC%89"><span class="toc-number">5.0.3.2.</span> <span class="toc-text">2. 数据层面：解决数据倾斜（不用Skew Join参数）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-SQL%E5%86%99%E6%B3%95%E5%B1%82%E9%9D%A2%EF%BC%9A%E5%87%8F%E5%B0%91%E8%BE%93%E5%85%A5Reduce%E7%9A%84%E6%95%B0%E6%8D%AE%E9%87%8F"><span class="toc-number">5.0.3.3.</span> <span class="toc-text">3. SQL写法层面：减少输入Reduce的数据量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%8D%E8%B0%83%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%B8%85%E5%8D%95"><span class="toc-number">5.0.4.</span> <span class="toc-text">总结：不调参数的优化清单</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E6%A1%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.</span> <span class="toc-text">Hive分区和分桶的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8C%BA%E5%88%AB%EF%BC%9A%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%87%82%E5%88%86%E5%8C%BA%E4%B8%8E%E5%88%86%E6%A1%B6"><span class="toc-number">6.0.1.</span> <span class="toc-text">核心区别：一张图看懂分区与分桶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8C%BA-vs-%E5%88%86%E6%A1%B6%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94"><span class="toc-number">6.0.2.</span> <span class="toc-text">分区 vs. 分桶详细对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%8C%96%E7%90%86%E8%A7%A3%EF%BC%9A%E9%80%9A%E8%BF%87%E5%9C%BA%E6%99%AF%E7%9C%8B%E5%8C%BA%E5%88%AB"><span class="toc-number">6.0.3.</span> <span class="toc-text">深化理解：通过场景看区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF1%EF%BC%9A%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-number">6.0.3.1.</span> <span class="toc-text">场景1：日志分析表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF2%EF%BC%9A%E7%94%A8%E6%88%B7%E8%A1%A8%E4%B8%8E%E8%AE%A2%E5%8D%95%E8%A1%A8%E5%85%B3%E8%81%94"><span class="toc-number">6.0.3.2.</span> <span class="toc-text">场景2：用户表与订单表关联</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9A%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">6.0.4.</span> <span class="toc-text">如何选择：决策流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E5%8D%87%E5%8D%8E"><span class="toc-number">6.0.5.</span> <span class="toc-text">总结与升华</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/9356acd7.html/" title="日拱一卒 Vol.005"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.005"/></a><div class="content"><a class="title" href="/blog/9356acd7.html/" title="日拱一卒 Vol.005">日拱一卒 Vol.005</a><time datetime="2025-11-11T14:12:28.000Z" title="发表于 2025-11-11 22:12:28">2025-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/1da216ae.html/" title="日拱一卒 Vol.004"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.004"/></a><div class="content"><a class="title" href="/blog/1da216ae.html/" title="日拱一卒 Vol.004">日拱一卒 Vol.004</a><time datetime="2025-11-07T13:22:36.000Z" title="发表于 2025-11-07 21:22:36">2025-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/7a3509e2.html/" title="日拱一卒 Vol.003"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.003"/></a><div class="content"><a class="title" href="/blog/7a3509e2.html/" title="日拱一卒 Vol.003">日拱一卒 Vol.003</a><time datetime="2025-11-06T14:18:53.000Z" title="发表于 2025-11-06 22:18:53">2025-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/d323974.html/" title="日拱一卒 Vol.002"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.002"/></a><div class="content"><a class="title" href="/blog/d323974.html/" title="日拱一卒 Vol.002">日拱一卒 Vol.002</a><time datetime="2025-11-05T14:35:24.000Z" title="发表于 2025-11-05 22:35:24">2025-11-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001"><img src="/img/tech_data.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日拱一卒 Vol.001"/></a><div class="content"><a class="title" href="/blog/bd61c145.html/" title="日拱一卒 Vol.001">日拱一卒 Vol.001</a><time datetime="2025-11-04T13:47:18.000Z" title="发表于 2025-11-04 21:47:18">2025-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Rupert-Tears</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
